@@ -194,65 +194,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-20170627总结" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/20170627总结/" class="article-date">
-  	<time datetime="2017-06-26T16:00:00.000Z" itemprop="datePublished">2017-06-27</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/20170627总结/">
-        20170627总结
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今天进入真正的图论，复习了DFS序、LCA和最小生成树。LCA的两种方法，倍增写得很熟，RMQ则不那么熟练，学长提及了玄学的ST表，于是又把这个构造O(n)查询O(1)的神奇结构复习了一遍。我记得RMQ除了线段树，树状数组和ST表以外，还有一种叫莫队的东西。我九上的时候接触过，现在都忘完了，期待过几天讲数据结构的时候能遇到。关于最小生成树，虽然知道kruskal和prim两种算法，但是自己感觉这个东西如果研究深了也是很棘手的。比如今天的例题NOI2014魔法森林，虽然费劲脑力听懂了思路，但是自愧写不出来，对代码要求很高。增量最小生成树和次小生成树我都在CSDN上看了博客，思路清晰了，但是不知道写的时候会不会出问题。学长最后讲的有向图最小生成树，即最小树形图，我没听懂，因为时间匆忙，也没有问，得多研究研究CSDN的两篇博文。<br>下午考试三道打baoli居然还得了130，意料之外。三道题都比较难。T1和货车运输很像，因为写过货车运输，惯性思维就想到LCA，事实证明我想复杂了。这道题多用笔画画图应该能想出正解。T2也是差一点想到正解，也是想复杂了。这里我总结出一种化繁为简的思考方法，即不要全面地考虑整个问题，应该把它分成子问题，逐个击破，而且想一个子问题的时候就不要受另外子问题的干扰。这道题我做复杂了，写了一个SPFA，两个BFS，一个DFS才写出来，不过我能在40分钟把它写和调出来还是值得欣慰的，看来多考考对代码能力提升很大。T3貌似数据有些问题，到现在还不知道怎么做，等明天大神讲。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/总结/">总结</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
     <article id="post-20170626总结" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -282,7 +223,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>今天是图论的第一节课。上午图论入门，讲了位运算和搜索。位运算虽然简单，但用处巨大，特别是在搜索和DP中。复习了一下lowbit的原理，新学了求1个数的平行算法（虽然可以打表，但是了解一下算数算法保险一些）。我自己学状压dp的时候学过子集枚举，现在重温以便，发现还不够熟悉，希望过几天讲dp的时候能在熟练一下。搜索作为一项基本功，还是很重要的。DFS和BFS就不说了，后面讲的双向BFS和迭代加深虽然以前知道原理，但没有实现过。希望这几天的考试题里能有所涉及，毕竟现在时间较紧，除了课上的例题和考试就没有多少机会调题了。A*算法有点没懂，明天去问问。今天貌似没有讲启发式搜索，记忆化搜索也只是点了一下，这两种搜索我还不会，希望以后有机会接触。<br>搜索题都是能想不会做，斗地主和八数码我都调不出来，还得提升代码能力。<br>下午的题较为简单。三道题应该都是有原题出处的。T1改编自JSOI星球大战，以前做过，不难想到离线并查集。T2貌似见过，不过我以前好像没做过，考场上想出一个用优先队列的做法，虽然能过六个点，复杂度还是较高。标程的二分答案的确没想到。上次考分治也没想到，看来得刷点分治的题。T3是经典省选题，以前一直不会做。今天听了剪枝优化的方法，按位搜索还好，但倒着搜则显得有些突兀，不知道是怎么想到的，毕竟正搜倒搜和数据有很大关系。这和NOIP提高组的靶形数独很像。以后多积累些经验，就应该能直到什么时候要倒搜了。<br>现在时间越来越紧了，需要调整作息，保证所花时间都有最高效益。</p>
+        <p>&#x4ECA;&#x5929;&#x662F;&#x56FE;&#x8BBA;&#x7684;&#x7B2C;&#x4E00;&#x8282;&#x8BFE;&#x3002;&#x4E0A;&#x5348;&#x56FE;&#x8BBA;&#x5165;&#x95E8;&#xFF0C;&#x8BB2;&#x4E86;&#x4F4D;&#x8FD0;&#x7B97;&#x548C;&#x641C;&#x7D22;&#x3002;&#x4F4D;&#x8FD0;&#x7B97;&#x867D;&#x7136;&#x7B80;&#x5355;&#xFF0C;&#x4F46;&#x7528;&#x5904;&#x5DE8;&#x5927;&#xFF0C;&#x7279;&#x522B;&#x662F;&#x5728;&#x641C;&#x7D22;&#x548C;DP&#x4E2D;&#x3002;&#x590D;&#x4E60;&#x4E86;&#x4E00;&#x4E0B;lowbit&#x7684;&#x539F;&#x7406;&#xFF0C;&#x65B0;&#x5B66;&#x4E86;&#x6C42;1&#x4E2A;&#x6570;&#x7684;&#x5E73;&#x884C;&#x7B97;&#x6CD5;&#xFF08;&#x867D;&#x7136;&#x53EF;&#x4EE5;&#x6253;&#x8868;&#xFF0C;&#x4F46;&#x662F;&#x4E86;&#x89E3;&#x4E00;&#x4E0B;&#x7B97;&#x6570;&#x7B97;&#x6CD5;&#x4FDD;&#x9669;&#x4E00;&#x4E9B;&#xFF09;&#x3002;&#x6211;&#x81EA;&#x5DF1;&#x5B66;&#x72B6;&#x538B;dp&#x7684;&#x65F6;&#x5019;&#x5B66;&#x8FC7;&#x5B50;&#x96C6;&#x679A;&#x4E3E;&#xFF0C;&#x73B0;&#x5728;&#x91CD;&#x6E29;&#x4EE5;&#x4FBF;&#xFF0C;&#x53D1;&#x73B0;&#x8FD8;&#x4E0D;&#x591F;&#x719F;&#x6089;&#xFF0C;&#x5E0C;&#x671B;&#x8FC7;&#x51E0;&#x5929;&#x8BB2;dp&#x7684;&#x65F6;&#x5019;&#x80FD;&#x5728;&#x719F;&#x7EC3;&#x4E00;&#x4E0B;&#x3002;&#x641C;&#x7D22;&#x4F5C;&#x4E3A;&#x4E00;&#x9879;&#x57FA;&#x672C;&#x529F;&#xFF0C;&#x8FD8;&#x662F;&#x5F88;&#x91CD;&#x8981;&#x7684;&#x3002;DFS&#x548C;BFS&#x5C31;&#x4E0D;&#x8BF4;&#x4E86;&#xFF0C;&#x540E;&#x9762;&#x8BB2;&#x7684;&#x53CC;&#x5411;BFS&#x548C;&#x8FED;&#x4EE3;&#x52A0;&#x6DF1;&#x867D;&#x7136;&#x4EE5;&#x524D;&#x77E5;&#x9053;&#x539F;&#x7406;&#xFF0C;&#x4F46;&#x6CA1;&#x6709;&#x5B9E;&#x73B0;&#x8FC7;&#x3002;&#x5E0C;&#x671B;&#x8FD9;&#x51E0;&#x5929;&#x7684;&#x8003;&#x8BD5;&#x9898;&#x91CC;&#x80FD;&#x6709;&#x6240;&#x6D89;&#x53CA;&#xFF0C;&#x6BD5;&#x7ADF;&#x73B0;&#x5728;&#x65F6;&#x95F4;&#x8F83;&#x7D27;&#xFF0C;&#x9664;&#x4E86;&#x8BFE;&#x4E0A;&#x7684;&#x4F8B;&#x9898;&#x548C;&#x8003;&#x8BD5;&#x5C31;&#x6CA1;&#x6709;&#x591A;&#x5C11;&#x673A;&#x4F1A;&#x8C03;&#x9898;&#x4E86;&#x3002;A*&#x7B97;&#x6CD5;&#x6709;&#x70B9;&#x6CA1;&#x61C2;&#xFF0C;&#x660E;&#x5929;&#x53BB;&#x95EE;&#x95EE;&#x3002;&#x4ECA;&#x5929;&#x8C8C;&#x4F3C;&#x6CA1;&#x6709;&#x8BB2;&#x542F;&#x53D1;&#x5F0F;&#x641C;&#x7D22;&#xFF0C;&#x8BB0;&#x5FC6;&#x5316;&#x641C;&#x7D22;&#x4E5F;&#x53EA;&#x662F;&#x70B9;&#x4E86;&#x4E00;&#x4E0B;&#xFF0C;&#x8FD9;&#x4E24;&#x79CD;&#x641C;&#x7D22;&#x6211;&#x8FD8;&#x4E0D;&#x4F1A;&#xFF0C;&#x5E0C;&#x671B;&#x4EE5;&#x540E;&#x6709;&#x673A;&#x4F1A;&#x63A5;&#x89E6;&#x3002;<br>&#x641C;&#x7D22;&#x9898;&#x90FD;&#x662F;&#x80FD;&#x60F3;&#x4E0D;&#x4F1A;&#x505A;&#xFF0C;&#x6597;&#x5730;&#x4E3B;&#x548C;&#x516B;&#x6570;&#x7801;&#x6211;&#x90FD;&#x8C03;&#x4E0D;&#x51FA;&#x6765;&#xFF0C;&#x8FD8;&#x5F97;&#x63D0;&#x5347;&#x4EE3;&#x7801;&#x80FD;&#x529B;&#x3002;<br>&#x4E0B;&#x5348;&#x7684;&#x9898;&#x8F83;&#x4E3A;&#x7B80;&#x5355;&#x3002;&#x4E09;&#x9053;&#x9898;&#x5E94;&#x8BE5;&#x90FD;&#x662F;&#x6709;&#x539F;&#x9898;&#x51FA;&#x5904;&#x7684;&#x3002;T1&#x6539;&#x7F16;&#x81EA;JSOI&#x661F;&#x7403;&#x5927;&#x6218;&#xFF0C;&#x4EE5;&#x524D;&#x505A;&#x8FC7;&#xFF0C;&#x4E0D;&#x96BE;&#x60F3;&#x5230;&#x79BB;&#x7EBF;&#x5E76;&#x67E5;&#x96C6;&#x3002;T2&#x8C8C;&#x4F3C;&#x89C1;&#x8FC7;&#xFF0C;&#x4E0D;&#x8FC7;&#x6211;&#x4EE5;&#x524D;&#x597D;&#x50CF;&#x6CA1;&#x505A;&#x8FC7;&#xFF0C;&#x8003;&#x573A;&#x4E0A;&#x60F3;&#x51FA;&#x4E00;&#x4E2A;&#x7528;&#x4F18;&#x5148;&#x961F;&#x5217;&#x7684;&#x505A;&#x6CD5;&#xFF0C;&#x867D;&#x7136;&#x80FD;&#x8FC7;&#x516D;&#x4E2A;&#x70B9;&#xFF0C;&#x590D;&#x6742;&#x5EA6;&#x8FD8;&#x662F;&#x8F83;&#x9AD8;&#x3002;&#x6807;&#x7A0B;&#x7684;&#x4E8C;&#x5206;&#x7B54;&#x6848;&#x7684;&#x786E;&#x6CA1;&#x60F3;&#x5230;&#x3002;&#x4E0A;&#x6B21;&#x8003;&#x5206;&#x6CBB;&#x4E5F;&#x6CA1;&#x60F3;&#x5230;&#xFF0C;&#x770B;&#x6765;&#x5F97;&#x5237;&#x70B9;&#x5206;&#x6CBB;&#x7684;&#x9898;&#x3002;T3&#x662F;&#x7ECF;&#x5178;&#x7701;&#x9009;&#x9898;&#xFF0C;&#x4EE5;&#x524D;&#x4E00;&#x76F4;&#x4E0D;&#x4F1A;&#x505A;&#x3002;&#x4ECA;&#x5929;&#x542C;&#x4E86;&#x526A;&#x679D;&#x4F18;&#x5316;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x6309;&#x4F4D;&#x641C;&#x7D22;&#x8FD8;&#x597D;&#xFF0C;&#x4F46;&#x5012;&#x7740;&#x641C;&#x5219;&#x663E;&#x5F97;&#x6709;&#x4E9B;&#x7A81;&#x5140;&#xFF0C;&#x4E0D;&#x77E5;&#x9053;&#x662F;&#x600E;&#x4E48;&#x60F3;&#x5230;&#x7684;&#xFF0C;&#x6BD5;&#x7ADF;&#x6B63;&#x641C;&#x5012;&#x641C;&#x548C;&#x6570;&#x636E;&#x6709;&#x5F88;&#x5927;&#x5173;&#x7CFB;&#x3002;&#x8FD9;&#x548C;NOIP&#x63D0;&#x9AD8;&#x7EC4;&#x7684;&#x9776;&#x5F62;&#x6570;&#x72EC;&#x5F88;&#x50CF;&#x3002;&#x4EE5;&#x540E;&#x591A;&#x79EF;&#x7D2F;&#x4E9B;&#x7ECF;&#x9A8C;&#xFF0C;&#x5C31;&#x5E94;&#x8BE5;&#x80FD;&#x76F4;&#x5230;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x8981;&#x5012;&#x641C;&#x4E86;&#x3002;<br>&#x73B0;&#x5728;&#x65F6;&#x95F4;&#x8D8A;&#x6765;&#x8D8A;&#x7D27;&#x4E86;&#xFF0C;&#x9700;&#x8981;&#x8C03;&#x6574;&#x4F5C;&#x606F;&#xFF0C;&#x4FDD;&#x8BC1;&#x6240;&#x82B1;&#x65F6;&#x95F4;&#x90FD;&#x6709;&#x6700;&#x9AD8;&#x6548;&#x76CA;&#x3002;</p>
 
       
     </div>
@@ -341,7 +282,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>上午继续听dogther大神的课，复习了贪心、二分答案、三分答案。我一直没有系统地刷过贪心的题，今天大神将贪心的各类题都过了一遍，都懂了，只是不知道写码的时候会不会出现问题。贪心的例题里k叉的哈夫曼树以前没见过，看来和二叉的哈夫曼树还有点区别。此外，还有两道字典树上的贪心，思想都懂了，可能写码会有些细节上的问题。三分答案的精度一直是个问题，我只A了一道模板题，连经典的铁人两项都没过，周末再调调。<br>下午考试，整体难度比昨天难。T1想到了贪心，但是据大神说“很容易想到这种有漏洞的方法”(T_T)~~花了一个小时写出来的才得30分。T2枚举的时候就有错，思路上就错完了，还花了一个半小时写高精，看来以后得想清楚在写，不能忽略自己的感觉（写到一半就有WA的感觉）。T3很难，的确没想到，第1个和第2个点是手玩的，考完才发现第3个点也可以手玩，可惜啊，做的时候看到n=1000就吓到了。提交答案题找规律和特殊数据是很重要的，下次注意。<br>考完听大神讲T3，将了三种策略，包括较为常规的“转换为标准图”、玄学的分治和完全没想到的平衡树旋转。平衡树还可以这样用，真是开了眼界。看来得好好搞搞平衡树（我寒假花了一周在CSDN上看，结果连SBTree都写不好，代码量太大啊）<br>这几天连续听难题感觉思维稍微打开一点了，希望能保持这种状态。另外，考试对思维帮助相当大，这样再多考几次思维就容易打开了o(<em>￣▽￣</em>)ブ</p>
+        <p>&#x4E0A;&#x5348;&#x7EE7;&#x7EED;&#x542C;dogther&#x5927;&#x795E;&#x7684;&#x8BFE;&#xFF0C;&#x590D;&#x4E60;&#x4E86;&#x8D2A;&#x5FC3;&#x3001;&#x4E8C;&#x5206;&#x7B54;&#x6848;&#x3001;&#x4E09;&#x5206;&#x7B54;&#x6848;&#x3002;&#x6211;&#x4E00;&#x76F4;&#x6CA1;&#x6709;&#x7CFB;&#x7EDF;&#x5730;&#x5237;&#x8FC7;&#x8D2A;&#x5FC3;&#x7684;&#x9898;&#xFF0C;&#x4ECA;&#x5929;&#x5927;&#x795E;&#x5C06;&#x8D2A;&#x5FC3;&#x7684;&#x5404;&#x7C7B;&#x9898;&#x90FD;&#x8FC7;&#x4E86;&#x4E00;&#x904D;&#xFF0C;&#x90FD;&#x61C2;&#x4E86;&#xFF0C;&#x53EA;&#x662F;&#x4E0D;&#x77E5;&#x9053;&#x5199;&#x7801;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x4E0D;&#x4F1A;&#x51FA;&#x73B0;&#x95EE;&#x9898;&#x3002;&#x8D2A;&#x5FC3;&#x7684;&#x4F8B;&#x9898;&#x91CC;k&#x53C9;&#x7684;&#x54C8;&#x592B;&#x66FC;&#x6811;&#x4EE5;&#x524D;&#x6CA1;&#x89C1;&#x8FC7;&#xFF0C;&#x770B;&#x6765;&#x548C;&#x4E8C;&#x53C9;&#x7684;&#x54C8;&#x592B;&#x66FC;&#x6811;&#x8FD8;&#x6709;&#x70B9;&#x533A;&#x522B;&#x3002;&#x6B64;&#x5916;&#xFF0C;&#x8FD8;&#x6709;&#x4E24;&#x9053;&#x5B57;&#x5178;&#x6811;&#x4E0A;&#x7684;&#x8D2A;&#x5FC3;&#xFF0C;&#x601D;&#x60F3;&#x90FD;&#x61C2;&#x4E86;&#xFF0C;&#x53EF;&#x80FD;&#x5199;&#x7801;&#x4F1A;&#x6709;&#x4E9B;&#x7EC6;&#x8282;&#x4E0A;&#x7684;&#x95EE;&#x9898;&#x3002;&#x4E09;&#x5206;&#x7B54;&#x6848;&#x7684;&#x7CBE;&#x5EA6;&#x4E00;&#x76F4;&#x662F;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x6211;&#x53EA;A&#x4E86;&#x4E00;&#x9053;&#x6A21;&#x677F;&#x9898;&#xFF0C;&#x8FDE;&#x7ECF;&#x5178;&#x7684;&#x94C1;&#x4EBA;&#x4E24;&#x9879;&#x90FD;&#x6CA1;&#x8FC7;&#xFF0C;&#x5468;&#x672B;&#x518D;&#x8C03;&#x8C03;&#x3002;<br>&#x4E0B;&#x5348;&#x8003;&#x8BD5;&#xFF0C;&#x6574;&#x4F53;&#x96BE;&#x5EA6;&#x6BD4;&#x6628;&#x5929;&#x96BE;&#x3002;T1&#x60F3;&#x5230;&#x4E86;&#x8D2A;&#x5FC3;&#xFF0C;&#x4F46;&#x662F;&#x636E;&#x5927;&#x795E;&#x8BF4;&#x201C;&#x5F88;&#x5BB9;&#x6613;&#x60F3;&#x5230;&#x8FD9;&#x79CD;&#x6709;&#x6F0F;&#x6D1E;&#x7684;&#x65B9;&#x6CD5;&#x201D;(T_T)~~&#x82B1;&#x4E86;&#x4E00;&#x4E2A;&#x5C0F;&#x65F6;&#x5199;&#x51FA;&#x6765;&#x7684;&#x624D;&#x5F97;30&#x5206;&#x3002;T2&#x679A;&#x4E3E;&#x7684;&#x65F6;&#x5019;&#x5C31;&#x6709;&#x9519;&#xFF0C;&#x601D;&#x8DEF;&#x4E0A;&#x5C31;&#x9519;&#x5B8C;&#x4E86;&#xFF0C;&#x8FD8;&#x82B1;&#x4E86;&#x4E00;&#x4E2A;&#x534A;&#x5C0F;&#x65F6;&#x5199;&#x9AD8;&#x7CBE;&#xFF0C;&#x770B;&#x6765;&#x4EE5;&#x540E;&#x5F97;&#x60F3;&#x6E05;&#x695A;&#x5728;&#x5199;&#xFF0C;&#x4E0D;&#x80FD;&#x5FFD;&#x7565;&#x81EA;&#x5DF1;&#x7684;&#x611F;&#x89C9;&#xFF08;&#x5199;&#x5230;&#x4E00;&#x534A;&#x5C31;&#x6709;WA&#x7684;&#x611F;&#x89C9;&#xFF09;&#x3002;T3&#x5F88;&#x96BE;&#xFF0C;&#x7684;&#x786E;&#x6CA1;&#x60F3;&#x5230;&#xFF0C;&#x7B2C;1&#x4E2A;&#x548C;&#x7B2C;2&#x4E2A;&#x70B9;&#x662F;&#x624B;&#x73A9;&#x7684;&#xFF0C;&#x8003;&#x5B8C;&#x624D;&#x53D1;&#x73B0;&#x7B2C;3&#x4E2A;&#x70B9;&#x4E5F;&#x53EF;&#x4EE5;&#x624B;&#x73A9;&#xFF0C;&#x53EF;&#x60DC;&#x554A;&#xFF0C;&#x505A;&#x7684;&#x65F6;&#x5019;&#x770B;&#x5230;n=1000&#x5C31;&#x5413;&#x5230;&#x4E86;&#x3002;&#x63D0;&#x4EA4;&#x7B54;&#x6848;&#x9898;&#x627E;&#x89C4;&#x5F8B;&#x548C;&#x7279;&#x6B8A;&#x6570;&#x636E;&#x662F;&#x5F88;&#x91CD;&#x8981;&#x7684;&#xFF0C;&#x4E0B;&#x6B21;&#x6CE8;&#x610F;&#x3002;<br>&#x8003;&#x5B8C;&#x542C;&#x5927;&#x795E;&#x8BB2;T3&#xFF0C;&#x5C06;&#x4E86;&#x4E09;&#x79CD;&#x7B56;&#x7565;&#xFF0C;&#x5305;&#x62EC;&#x8F83;&#x4E3A;&#x5E38;&#x89C4;&#x7684;&#x201C;&#x8F6C;&#x6362;&#x4E3A;&#x6807;&#x51C6;&#x56FE;&#x201D;&#x3001;&#x7384;&#x5B66;&#x7684;&#x5206;&#x6CBB;&#x548C;&#x5B8C;&#x5168;&#x6CA1;&#x60F3;&#x5230;&#x7684;&#x5E73;&#x8861;&#x6811;&#x65CB;&#x8F6C;&#x3002;&#x5E73;&#x8861;&#x6811;&#x8FD8;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x7528;&#xFF0C;&#x771F;&#x662F;&#x5F00;&#x4E86;&#x773C;&#x754C;&#x3002;&#x770B;&#x6765;&#x5F97;&#x597D;&#x597D;&#x641E;&#x641E;&#x5E73;&#x8861;&#x6811;&#xFF08;&#x6211;&#x5BD2;&#x5047;&#x82B1;&#x4E86;&#x4E00;&#x5468;&#x5728;CSDN&#x4E0A;&#x770B;&#xFF0C;&#x7ED3;&#x679C;&#x8FDE;SBTree&#x90FD;&#x5199;&#x4E0D;&#x597D;&#xFF0C;&#x4EE3;&#x7801;&#x91CF;&#x592A;&#x5927;&#x554A;&#xFF09;<br>&#x8FD9;&#x51E0;&#x5929;&#x8FDE;&#x7EED;&#x542C;&#x96BE;&#x9898;&#x611F;&#x89C9;&#x601D;&#x7EF4;&#x7A0D;&#x5FAE;&#x6253;&#x5F00;&#x4E00;&#x70B9;&#x4E86;&#xFF0C;&#x5E0C;&#x671B;&#x80FD;&#x4FDD;&#x6301;&#x8FD9;&#x79CD;&#x72B6;&#x6001;&#x3002;&#x53E6;&#x5916;&#xFF0C;&#x8003;&#x8BD5;&#x5BF9;&#x601D;&#x7EF4;&#x5E2E;&#x52A9;&#x76F8;&#x5F53;&#x5927;&#xFF0C;&#x8FD9;&#x6837;&#x518D;&#x591A;&#x8003;&#x51E0;&#x6B21;&#x601D;&#x7EF4;&#x5C31;&#x5BB9;&#x6613;&#x6253;&#x5F00;&#x4E86;o(<em>&#xFFE3;&#x25BD;&#xFFE3;</em>)&#x30D6;</p>
 
       
     </div>
@@ -400,7 +341,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>上午听dogther大神的课，重新学配vim，并复习了二分<br>大神讲得很清楚，将所有基础知识点都复习了一遍，只可惜讲对拍的时候演示得太快，没学会大神在cpp程序内调用对拍的方法，只能苦逼地写脚本/(ㄒoㄒ)/~~<br>听课之余复习了一下前天的ACautomation，又写了一道题（简单题，解密码，解完就是标准模板），发现貌似setFail有很多地方可以缩码，只是现下掌握不算熟练，多做点题后再压。AC自动机的dp题很有意思，有空可以研究研究。<br>下午考试花式翻车，不过自己思想上还是差一截，难题做得不够，而且以前遇到难题想不了多久就放弃了。希望以后考试能够适应，毕竟考试逼着我多想。<br>回来之后在调试，T1T2没太大问题（现在正在调T2），T3可能有点麻烦，虽然懂思想，但大神说这题细节多，要调很久，明天可以多调一下。<br>我做的题还不多，难题就更少了，只能把接触到的题都保证调好，能多见识点就多见识点。</p>
+        <p>&#x4E0A;&#x5348;&#x542C;dogther&#x5927;&#x795E;&#x7684;&#x8BFE;&#xFF0C;&#x91CD;&#x65B0;&#x5B66;&#x914D;vim&#xFF0C;&#x5E76;&#x590D;&#x4E60;&#x4E86;&#x4E8C;&#x5206;<br>&#x5927;&#x795E;&#x8BB2;&#x5F97;&#x5F88;&#x6E05;&#x695A;&#xFF0C;&#x5C06;&#x6240;&#x6709;&#x57FA;&#x7840;&#x77E5;&#x8BC6;&#x70B9;&#x90FD;&#x590D;&#x4E60;&#x4E86;&#x4E00;&#x904D;&#xFF0C;&#x53EA;&#x53EF;&#x60DC;&#x8BB2;&#x5BF9;&#x62CD;&#x7684;&#x65F6;&#x5019;&#x6F14;&#x793A;&#x5F97;&#x592A;&#x5FEB;&#xFF0C;&#x6CA1;&#x5B66;&#x4F1A;&#x5927;&#x795E;&#x5728;cpp&#x7A0B;&#x5E8F;&#x5185;&#x8C03;&#x7528;&#x5BF9;&#x62CD;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x53EA;&#x80FD;&#x82E6;&#x903C;&#x5730;&#x5199;&#x811A;&#x672C;/(&#x3112;o&#x3112;)/~~<br>&#x542C;&#x8BFE;&#x4E4B;&#x4F59;&#x590D;&#x4E60;&#x4E86;&#x4E00;&#x4E0B;&#x524D;&#x5929;&#x7684;ACautomation&#xFF0C;&#x53C8;&#x5199;&#x4E86;&#x4E00;&#x9053;&#x9898;&#xFF08;&#x7B80;&#x5355;&#x9898;&#xFF0C;&#x89E3;&#x5BC6;&#x7801;&#xFF0C;&#x89E3;&#x5B8C;&#x5C31;&#x662F;&#x6807;&#x51C6;&#x6A21;&#x677F;&#xFF09;&#xFF0C;&#x53D1;&#x73B0;&#x8C8C;&#x4F3C;setFail&#x6709;&#x5F88;&#x591A;&#x5730;&#x65B9;&#x53EF;&#x4EE5;&#x7F29;&#x7801;&#xFF0C;&#x53EA;&#x662F;&#x73B0;&#x4E0B;&#x638C;&#x63E1;&#x4E0D;&#x7B97;&#x719F;&#x7EC3;&#xFF0C;&#x591A;&#x505A;&#x70B9;&#x9898;&#x540E;&#x518D;&#x538B;&#x3002;AC&#x81EA;&#x52A8;&#x673A;&#x7684;dp&#x9898;&#x5F88;&#x6709;&#x610F;&#x601D;&#xFF0C;&#x6709;&#x7A7A;&#x53EF;&#x4EE5;&#x7814;&#x7A76;&#x7814;&#x7A76;&#x3002;<br>&#x4E0B;&#x5348;&#x8003;&#x8BD5;&#x82B1;&#x5F0F;&#x7FFB;&#x8F66;&#xFF0C;&#x4E0D;&#x8FC7;&#x81EA;&#x5DF1;&#x601D;&#x60F3;&#x4E0A;&#x8FD8;&#x662F;&#x5DEE;&#x4E00;&#x622A;&#xFF0C;&#x96BE;&#x9898;&#x505A;&#x5F97;&#x4E0D;&#x591F;&#xFF0C;&#x800C;&#x4E14;&#x4EE5;&#x524D;&#x9047;&#x5230;&#x96BE;&#x9898;&#x60F3;&#x4E0D;&#x4E86;&#x591A;&#x4E45;&#x5C31;&#x653E;&#x5F03;&#x4E86;&#x3002;&#x5E0C;&#x671B;&#x4EE5;&#x540E;&#x8003;&#x8BD5;&#x80FD;&#x591F;&#x9002;&#x5E94;&#xFF0C;&#x6BD5;&#x7ADF;&#x8003;&#x8BD5;&#x903C;&#x7740;&#x6211;&#x591A;&#x60F3;&#x3002;<br>&#x56DE;&#x6765;&#x4E4B;&#x540E;&#x5728;&#x8C03;&#x8BD5;&#xFF0C;T1T2&#x6CA1;&#x592A;&#x5927;&#x95EE;&#x9898;&#xFF08;&#x73B0;&#x5728;&#x6B63;&#x5728;&#x8C03;T2&#xFF09;&#xFF0C;T3&#x53EF;&#x80FD;&#x6709;&#x70B9;&#x9EBB;&#x70E6;&#xFF0C;&#x867D;&#x7136;&#x61C2;&#x601D;&#x60F3;&#xFF0C;&#x4F46;&#x5927;&#x795E;&#x8BF4;&#x8FD9;&#x9898;&#x7EC6;&#x8282;&#x591A;&#xFF0C;&#x8981;&#x8C03;&#x5F88;&#x4E45;&#xFF0C;&#x660E;&#x5929;&#x53EF;&#x4EE5;&#x591A;&#x8C03;&#x4E00;&#x4E0B;&#x3002;<br>&#x6211;&#x505A;&#x7684;&#x9898;&#x8FD8;&#x4E0D;&#x591A;&#xFF0C;&#x96BE;&#x9898;&#x5C31;&#x66F4;&#x5C11;&#x4E86;&#xFF0C;&#x53EA;&#x80FD;&#x628A;&#x63A5;&#x89E6;&#x5230;&#x7684;&#x9898;&#x90FD;&#x4FDD;&#x8BC1;&#x8C03;&#x597D;&#xFF0C;&#x80FD;&#x591A;&#x89C1;&#x8BC6;&#x70B9;&#x5C31;&#x591A;&#x89C1;&#x8BC6;&#x70B9;&#x3002;</p>
 
       
     </div>
@@ -460,7 +401,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
@@ -540,10 +481,6 @@
 <script src="/js/main.js"></script>
 
 
-
-
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.js"></script>
 
   </div>
 </body>
