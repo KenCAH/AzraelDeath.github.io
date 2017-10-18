@@ -9,18 +9,18 @@
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Three Palindromes Can we divided a given string S into three nonempty palindromes?  InputFirst line contains a single integer T≤20 which denotes the number of test cases.For each test case , there is">
-<meta name="keywords" content="Manacher,HDU">
+  <meta name="description" content="Three Palindromes Can we divided a given string S into three nonempty palindromes? Input First line contains a single integer T≤20 which denotes the number of test cases. For each test case , ther">
+<meta name="keywords" content="HDU,Manacher">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HDU5340 Three Palindromes &lt;Manacher&gt;">
 <meta property="og:url" content="http://yoursite.com/HDU5340 Three Palindromes Manacher/index.html">
 <meta property="og:site_name" content="NIRVANA">
-<meta property="og:description" content="Three Palindromes Can we divided a given string S into three nonempty palindromes?  InputFirst line contains a single integer T≤20 which denotes the number of test cases.For each test case , there is">
+<meta property="og:description" content="Three Palindromes Can we divided a given string S into three nonempty palindromes? Input First line contains a single integer T≤20 which denotes the number of test cases. For each test case , ther">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2017-10-12T00:16:11.808Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HDU5340 Three Palindromes &lt;Manacher&gt;">
-<meta name="twitter:description" content="Three Palindromes Can we divided a given string S into three nonempty palindromes?  InputFirst line contains a single integer T≤20 which denotes the number of test cases.For each test case , there is">
+<meta name="twitter:description" content="Three Palindromes Can we divided a given string S into three nonempty palindromes? Input First line contains a single integer T≤20 which denotes the number of test cases. For each test case , ther">
   
     <link rel="alternative" href="/atom.xml" title="NIRVANA" type="application/atom+xml">
   
@@ -235,15 +235,16 @@
       
         <blockquote>
 <p>Three Palindromes</p>
-<p>Can we divided a given string S into three nonempty palindromes? </p>
-<p>Input<br>First line contains a single integer T≤20 which denotes the number of test cases.<br>For each test case , there is an single line contains a string S which only consist of lowercase English letters.1≤|s|≤20000<br>Output<br>For each case, output the “Yes” or “No” in a single line. </p>
-<p>Sample Input<br>2<br>abc<br>abaadada<br>Sample Output<br>Yes<br>No</p>
+<p>Can we divided a given string S into three nonempty palindromes?</p>
+<p>Input First line contains a single integer T≤20 which denotes the number of test cases. For each test case , there is an single line contains a string S which only consist of lowercase English letters.1≤|s|≤20000 Output For each case, output the “Yes” or “No” in a single line.</p>
+<p>Sample Input 2 abc abaadada Sample Output Yes No</p>
 </blockquote>
 <p>标签：Manacher</p>
 <p>题目大意：给出字符串S，判断S是否能被分为三段回文串。</p>
-<p>看到回文串，可知本题大概和manacher有关。<br>在manacher中，我们有一个数组f[]，f[i]记录从第i位向两边拓展，最长回文串的半径是多少。注意到本题有一个特殊的数据——三，而三段中，只要能确定任意两段，另一端就能确定。而这三段中肯定有两段是覆盖到串首或串尾的。因而我们可以用f[i]是否等于i来确定i位置是否能成为第一个段的中心点，如法炮制可求出第三段。这时我们暴力枚举第一段和第三段，这样确定第二段后，找到此段中心，可通过f[]确定第二段是否是回文串。</p>
+<p>看到回文串，可知本题大概和manacher有关。 在manacher中，我们有一个数组f[]，f[i]记录从第i位向两边拓展，最长回文串的半径是多少。注意到本题有一个特殊的数据——三，而三段中，只要能确定任意两段，另一端就能确定。而这三段中肯定有两段是覆盖到串首或串尾的。因而我们可以用f[i]是否等于i来确定i位置是否能成为第一个段的中心点，如法炮制可求出第三段。这时我们暴力枚举第一段和第三段，这样确定第二段后，找到此段中心，可通过f[]确定第二段是否是回文串。</p>
 <p>最后附上AC代码：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_L 20000</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">char</span> s[MAX_L*<span class="number">2</span>+<span class="number">5</span>];</div><div class="line"><span class="keyword">int</span> f[MAX_L*<span class="number">2</span>+<span class="number">5</span>];</div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">manacher</span> <span class="params">(<span class="keyword">char</span>* s0)</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> len = <span class="built_in">strlen</span>(s0), pos = <span class="number">0</span>, r = <span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++)	s[i*<span class="number">2</span>+<span class="number">1</span>] = <span class="string">'#'</span>, s[i*<span class="number">2</span>+<span class="number">2</span>] = s0[i];	s[len = len*<span class="number">2</span>+<span class="number">1</span>] = <span class="string">'#'</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= len; i++) &#123;</div><div class="line">		f[i] = (i &lt; r) ? min(f[<span class="number">2</span>*pos-i], r-i) : <span class="number">1</span>;</div><div class="line">		<span class="keyword">while</span> (i-f[i] &gt;= <span class="number">1</span> &amp;&amp; i+f[i] &lt;= len &amp;&amp; s[i-f[i]] == s[i+f[i]])	f[i]++;</div><div class="line">		<span class="keyword">if</span> (i+f[i] &gt; r)	pos = i, r = i+f[i];</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">int</span> lm[MAX_L*<span class="number">2</span>+<span class="number">5</span>], rm[MAX_L*<span class="number">2</span>+<span class="number">5</span>], cntl = <span class="number">0</span>, cntr = <span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= len; i++) &#123;</div><div class="line">		<span class="keyword">if</span> (f[i] == i &amp;&amp; f[i] &gt; <span class="number">1</span>)	lm[cntl++] = i;</div><div class="line">		<span class="keyword">if</span> (f[len-i+<span class="number">1</span>] == i &amp;&amp; f[len-i+<span class="number">1</span>] &gt; <span class="number">1</span>)	rm[cntr++] = len-i+<span class="number">1</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; cntl; i++)</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; cntr; j++) &#123;</div><div class="line">			<span class="keyword">int</span> s = lm[i]+f[lm[i]], t = rm[j]-f[rm[j]];</div><div class="line">			<span class="keyword">if</span> (s &gt; t)	<span class="keyword">continue</span>;</div><div class="line">			<span class="keyword">if</span> (f[s+t&gt;&gt;<span class="number">1</span>] == <span class="number">1</span>)	<span class="keyword">continue</span>;</div><div class="line">			<span class="keyword">if</span> (f[s+t&gt;&gt;<span class="number">1</span>]*<span class="number">2</span><span class="number">-1</span> &lt; t-s+<span class="number">1</span>)	<span class="keyword">continue</span>;</div><div class="line">			<span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">		&#125;</div><div class="line">	<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> T;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;T);</div><div class="line">	<span class="keyword">while</span> (T--) &#123;</div><div class="line">		<span class="keyword">char</span> s0[MAX_L+<span class="number">5</span>];</div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"%s"</span>, s0);</div><div class="line">		<span class="keyword">if</span> (manacher(s0))	<span class="built_in">printf</span>(<span class="string">"Yes\n"</span>);</div><div class="line">		<span class="keyword">else</span>	<span class="built_in">printf</span>(<span class="string">"No\n"</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -252,11 +253,11 @@
     
 <nav id="article-nav">
   
-    <a href="/BZOJ2002 Bounce 弹飞绵羊 分块/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/BZOJ3110 K大数查询 树套树/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">&lt;</strong>
       <div class="article-nav-title">
         
-          BZOJ2002 Bounce 弹飞绵羊 &lt;分块&gt;
+          BZOJ3110 K大数查询 &lt;树套树&gt;
         
       </div>
     </a>
