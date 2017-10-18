@@ -4,79 +4,207 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
   <title>BZOJ1070 修车 &lt;费用流&gt; | NIRVANA</title>
+
+  <!-- keywords -->
+  
+
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="【SCOI2007】修车 Time Limit: 1 Sec Memory Limit: 128 MB Description 同一时刻有N位车主带着他们的爱车来到了汽车维修中心。维修中心共有M位技术人员，不同的技术人员对不同 的车进行维修所用的时间是不同的。现在需要安排这M位技术人员所维修的车及顺序，使得顾客平均等待的时间最 小。 说明：顾客的等待时间是指从他把车送至维修中心到维修完毕所">
+  <meta name="description" content="【SCOI2007】修车 Time Limit: 1 Sec    Memory Limit: 128 MB Description同一时刻有N位车主带着他们的爱车来到了汽车维修中心。维修中心共有M位技术人员，不同的技术人员对不同的车进行维修所用的时间是不同的。现在需要安排这M位技术人员所维修的车及顺序，使得顾客平均等待的时间最小。说明：顾客的等待时间是指从他把车送至维修中心到维修完毕所用的时间">
 <meta name="keywords" content="BZOJ,费用流">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BZOJ1070 修车 &lt;费用流&gt;">
 <meta property="og:url" content="http://yoursite.com/BZOJ1070 修车 费用流/index.html">
 <meta property="og:site_name" content="NIRVANA">
-<meta property="og:description" content="【SCOI2007】修车 Time Limit: 1 Sec Memory Limit: 128 MB Description 同一时刻有N位车主带着他们的爱车来到了汽车维修中心。维修中心共有M位技术人员，不同的技术人员对不同 的车进行维修所用的时间是不同的。现在需要安排这M位技术人员所维修的车及顺序，使得顾客平均等待的时间最 小。 说明：顾客的等待时间是指从他把车送至维修中心到维修完毕所">
+<meta property="og:description" content="【SCOI2007】修车 Time Limit: 1 Sec    Memory Limit: 128 MB Description同一时刻有N位车主带着他们的爱车来到了汽车维修中心。维修中心共有M位技术人员，不同的技术人员对不同的车进行维修所用的时间是不同的。现在需要安排这M位技术人员所维修的车及顺序，使得顾客平均等待的时间最小。说明：顾客的等待时间是指从他把车送至维修中心到维修完毕所用的时间">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2017-10-17T09:39:48.936Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BZOJ1070 修车 &lt;费用流&gt;">
-<meta name="twitter:description" content="【SCOI2007】修车 Time Limit: 1 Sec Memory Limit: 128 MB Description 同一时刻有N位车主带着他们的爱车来到了汽车维修中心。维修中心共有M位技术人员，不同的技术人员对不同 的车进行维修所用的时间是不同的。现在需要安排这M位技术人员所维修的车及顺序，使得顾客平均等待的时间最 小。 说明：顾客的等待时间是指从他把车送至维修中心到维修完毕所">
+<meta name="twitter:description" content="【SCOI2007】修车 Time Limit: 1 Sec    Memory Limit: 128 MB Description同一时刻有N位车主带着他们的爱车来到了汽车维修中心。维修中心共有M位技术人员，不同的技术人员对不同的车进行维修所用的时间是不同的。现在需要安排这M位技术人员所维修的车及顺序，使得顾客平均等待的时间最小。说明：顾客的等待时间是指从他把车送至维修中心到维修完毕所用的时间">
   
-    <link rel="alternate" href="/atom.xml" title="NIRVANA" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
+    <link rel="alternative" href="/atom.xml" title="NIRVANA" type="application/atom+xml">
   
   
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    <link rel="icon" href="http://chuantu.biz/t6/89/1507626502x2728279003.jpg">
   
-  <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <link rel="stylesheet" href="/css/style.css">
+  
   
 
+  <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+  
 </head>
-
 <body>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">NIRVANA</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">Veni Vidi Vici</a>
-        </h2>
-      
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://chuantu.biz/t6/89/1507626502x2728279003.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Azrael_Death</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">Veni Vidi Vici</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/AzraelDeath" title="github">github</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/azraeldeath" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/2-SAT/" style="font-size: 11.43px;">2-SAT</a> <a href="/tags/AC自动机/" style="font-size: 11.43px;">AC自动机</a> <a href="/tags/APIO/" style="font-size: 10px;">APIO</a> <a href="/tags/BZOJ/" style="font-size: 20px;">BZOJ</a> <a href="/tags/DFS序/" style="font-size: 10px;">DFS序</a> <a href="/tags/DP/" style="font-size: 11.43px;">DP</a> <a href="/tags/HDU/" style="font-size: 14.29px;">HDU</a> <a href="/tags/LCA/" style="font-size: 12.86px;">LCA</a> <a href="/tags/LG/" style="font-size: 11.43px;">LG</a> <a href="/tags/Manacher/" style="font-size: 11.43px;">Manacher</a> <a href="/tags/NOI/" style="font-size: 11.43px;">NOI</a> <a href="/tags/NOIp/" style="font-size: 10px;">NOIp</a> <a href="/tags/POI/" style="font-size: 10px;">POI</a> <a href="/tags/POJ/" style="font-size: 15.71px;">POJ</a> <a href="/tags/Tarjan/" style="font-size: 11.43px;">Tarjan</a> <a href="/tags/Trie/" style="font-size: 10px;">Trie</a> <a href="/tags/UVa/" style="font-size: 10px;">UVa</a> <a href="/tags/主席树/" style="font-size: 14.29px;">主席树</a> <a href="/tags/分块/" style="font-size: 10px;">分块</a> <a href="/tags/差分/" style="font-size: 10px;">差分</a> <a href="/tags/差分约束系统/" style="font-size: 10px;">差分约束系统</a> <a href="/tags/并查集/" style="font-size: 11.43px;">并查集</a> <a href="/tags/总结/" style="font-size: 18.57px;">总结</a> <a href="/tags/树套树/" style="font-size: 11.43px;">树套树</a> <a href="/tags/树状数组/" style="font-size: 12.86px;">树状数组</a> <a href="/tags/模拟/" style="font-size: 10px;">模拟</a> <a href="/tags/省选/" style="font-size: 17.14px;">省选</a> <a href="/tags/线段树/" style="font-size: 12.86px;">线段树</a> <a href="/tags/组合数学/" style="font-size: 10px;">组合数学</a> <a href="/tags/网络流/" style="font-size: 15.71px;">网络流</a> <a href="/tags/莫队/" style="font-size: 11.43px;">莫队</a> <a href="/tags/补集转换/" style="font-size: 10px;">补集转换</a> <a href="/tags/费用流/" style="font-size: 10px;">费用流</a> <a href="/tags/高斯消元/" style="font-size: 10px;">高斯消元</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/OwenOwl">OwenOwl</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/Joker_69">Joker</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://dangxingyu.com">DXY</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://309459245.lofter.com">YJQ</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/candy99">Candy</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/zig-zag">ZigZag</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://cxjyxx.me">cxjyxx_me</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.shuizilong.com">ShuiZiLong</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/kuangbin">KuangBin</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-BZOJ1070 修车 费用流" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/BZOJ1070 修车 费用流/" class="article-date">
-  <time datetime="2017-10-16T16:00:00.000Z" itemprop="datePublished">2017-10-17</time>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Azrael_Death</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://chuantu.biz/t6/89/1507626502x2728279003.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Azrael_Death</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">Veni Vidi Vici</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/AzraelDeath" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/azraeldeath" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-BZOJ1070 修车 费用流" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/BZOJ1070 修车 费用流/" class="article-date">
+  	<time datetime="2017-10-16T16:00:00.000Z" itemprop="datePublished">2017-10-17</time>
 </a>
-    
-  </div>
+    </div>
+  
   <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
       <header class="article-header">
@@ -84,43 +212,60 @@
   
     <h1 class="article-title" itemprop="name">
       BZOJ1070 修车 &lt;费用流&gt;
+      
     </h1>
   
 
       </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BZOJ/">BZOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/费用流/">费用流</a></li></ul>
+	</div>
+
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
 <p>【SCOI2007】修车</p>
-<p>Time Limit: 1 Sec Memory Limit: 128 MB</p>
-<p>Description 同一时刻有N位车主带着他们的爱车来到了汽车维修中心。维修中心共有M位技术人员，不同的技术人员对不同 的车进行维修所用的时间是不同的。现在需要安排这M位技术人员所维修的车及顺序，使得顾客平均等待的时间最 小。 说明：顾客的等待时间是指从他把车送至维修中心到维修完毕所用的时间。</p>
-<p>Input 第一行有两个m,n，表示技术人员数与顾客数。 接下来n行，每行m个整数。第i+1行第j个数表示第j位技术人 员维修第i辆车需要用的时间T。 Output 最小平均等待时间，答案精确到小数点后2位。</p>
-<p>Sample Input 2 2 3 2 1 4 Sample Output 1.50</p>
-<p>HINT 数据范围: (2&lt;=M&lt;=9,1&lt;=N&lt;=60), (1&lt;=T&lt;=1000)</p>
+<p>Time Limit: 1 Sec    Memory Limit: 128 MB</p>
+<p>Description<br>同一时刻有N位车主带着他们的爱车来到了汽车维修中心。维修中心共有M位技术人员，不同的技术人员对不同<br>的车进行维修所用的时间是不同的。现在需要安排这M位技术人员所维修的车及顺序，使得顾客平均等待的时间最<br>小。<br>说明：顾客的等待时间是指从他把车送至维修中心到维修完毕所用的时间。</p>
+<p>Input<br>第一行有两个m,n，表示技术人员数与顾客数。 接下来n行，每行m个整数。第i+1行第j个数表示第j位技术人<br>员维修第i辆车需要用的时间T。<br>Output<br>最小平均等待时间，答案精确到小数点后2位。</p>
+<p>Sample Input<br>2 2<br>3 2<br>1 4<br>Sample Output<br>1.50</p>
+<p>HINT<br>数据范围: (2&lt;=M&lt;=9,1&lt;=N&lt;=60), (1&lt;=T&lt;=1000)</p>
 </blockquote>
 <p>标签：费用流</p>
-<p>此题建模是费用流中常见的拆点建模。 把每个技术人员拆成n个点，第k个点代表着此工作人员修的倒数第k辆车对答案的贡献。 对于每个顾客，如果他倒数第k个修车，花费t的时间，会对答案产生t<em>k的贡献。 因此从每个顾客向每个技术人员的n个点连边，容量为1，花费为t</em>k，然后跑费用流即可。</p>
-<p>附上AC代码： <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_N 10000</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_M 200000</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 2147483647</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">int</span> n, m, s, t, ans, a[<span class="number">65</span>][<span class="number">10</span>];</div><div class="line"><span class="keyword">int</span> pre[MAX_N+<span class="number">5</span>], cnt;</div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span><span class="keyword">int</span> v, c, w, nxt;&#125; E[MAX_M+<span class="number">5</span>];</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;s = <span class="number">0</span>, t = n*m+n+<span class="number">1</span>, cnt = <span class="number">0</span>;	<span class="built_in">memset</span>(pre, <span class="number">-1</span>, <span class="keyword">sizeof</span>(pre));&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> v, <span class="keyword">int</span> c, <span class="keyword">int</span> w)</span> </span>&#123;</div><div class="line">	E[cnt].v = v, E[cnt].c = c, E[cnt].w = w, E[cnt].nxt = pre[u], pre[u] = cnt++;</div><div class="line">	E[cnt].v = u, E[cnt].c = <span class="number">0</span>, E[cnt].w =-w, E[cnt].nxt = pre[v], pre[v] = cnt++;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">SPFA</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="built_in">queue</span> &lt;<span class="keyword">int</span>&gt; que;	<span class="keyword">bool</span> inque[MAX_N+<span class="number">5</span>];	<span class="keyword">int</span> dis[MAX_N+<span class="number">5</span>], pree[MAX_N+<span class="number">5</span>];</div><div class="line">	<span class="built_in">memset</span>(inque, <span class="literal">false</span>, <span class="keyword">sizeof</span>(inque)), <span class="built_in">memset</span>(pree, <span class="number">-1</span>, <span class="keyword">sizeof</span>(pree));</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = s; i &lt;= t; i++)	dis[i] = INF;</div><div class="line">	dis[s] = <span class="number">0</span>, que.push(s), inque[s] = <span class="literal">true</span>;</div><div class="line">	<span class="keyword">while</span> (!que.empty()) &#123;</div><div class="line">		<span class="keyword">int</span> u = que.front();	que.pop(), inque[u] = <span class="literal">false</span>;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = pre[u]; ~i; i = E[i].nxt) &#123;</div><div class="line">			<span class="keyword">int</span> v = E[i].v, c = E[i].c, w = E[i].w;</div><div class="line">			<span class="keyword">if</span> (c &amp;&amp; dis[u]+w &lt; dis[v]) &#123;</div><div class="line">				dis[v] = dis[u]+w, pree[v] = i;</div><div class="line">				<span class="keyword">if</span> (!inque[v])	que.push(v), inque[v] = <span class="literal">true</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span> (dis[t] == INF)	<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">	<span class="keyword">int</span> flow = INF;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = pree[t]; ~i; i = pree[E[i^<span class="number">1</span>].v])	flow = min(flow, E[i].c);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = pree[t]; ~i; i = pree[E[i^<span class="number">1</span>].v])	E[i].c -= flow, E[i^<span class="number">1</span>].c += flow;</div><div class="line">	ans += dis[t];	<span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;m, &amp;n), init();</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)	<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; j++)	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;a[i][j]);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)	insert(s, i, <span class="number">1</span>, <span class="number">0</span>);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)	<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; j++)	<span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">1</span>; k &lt;= n; k++)	insert(i, j*n+k, <span class="number">1</span>, a[i][j]*k);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; j++)	<span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">1</span>; k &lt;= n; k++)	insert(j*n+k, t, <span class="number">1</span>, <span class="number">0</span>);</div><div class="line">	<span class="keyword">while</span> (SPFA()) ;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%.2lf"</span>, (<span class="keyword">double</span>)ans/n);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>此题建模是费用流中常见的拆点建模。<br>把每个技术人员拆成n个点，第k个点代表着此工作人员修的倒数第k辆车对答案的贡献。<br>对于每个顾客，如果他倒数第k个修车，花费t的时间，会对答案产生t<em>k的贡献。<br>因此从每个顾客向每个技术人员的n个点连边，容量为1，花费为t</em>k，然后跑费用流即可。</p>
+<p>附上AC代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_N 10000</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_M 200000</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 2147483647</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">int</span> n, m, s, t, ans, a[<span class="number">65</span>][<span class="number">10</span>];</div><div class="line"><span class="keyword">int</span> pre[MAX_N+<span class="number">5</span>], cnt;</div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span><span class="keyword">int</span> v, c, w, nxt;&#125; E[MAX_M+<span class="number">5</span>];</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;s = <span class="number">0</span>, t = n*m+n+<span class="number">1</span>, cnt = <span class="number">0</span>;	<span class="built_in">memset</span>(pre, <span class="number">-1</span>, <span class="keyword">sizeof</span>(pre));&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> v, <span class="keyword">int</span> c, <span class="keyword">int</span> w)</span> </span>&#123;</div><div class="line">	E[cnt].v = v, E[cnt].c = c, E[cnt].w = w, E[cnt].nxt = pre[u], pre[u] = cnt++;</div><div class="line">	E[cnt].v = u, E[cnt].c = <span class="number">0</span>, E[cnt].w =-w, E[cnt].nxt = pre[v], pre[v] = cnt++;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">SPFA</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="built_in">queue</span> &lt;<span class="keyword">int</span>&gt; que;	<span class="keyword">bool</span> inque[MAX_N+<span class="number">5</span>];	<span class="keyword">int</span> dis[MAX_N+<span class="number">5</span>], pree[MAX_N+<span class="number">5</span>];</div><div class="line">	<span class="built_in">memset</span>(inque, <span class="literal">false</span>, <span class="keyword">sizeof</span>(inque)), <span class="built_in">memset</span>(pree, <span class="number">-1</span>, <span class="keyword">sizeof</span>(pree));</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = s; i &lt;= t; i++)	dis[i] = INF;</div><div class="line">	dis[s] = <span class="number">0</span>, que.push(s), inque[s] = <span class="literal">true</span>;</div><div class="line">	<span class="keyword">while</span> (!que.empty()) &#123;</div><div class="line">		<span class="keyword">int</span> u = que.front();	que.pop(), inque[u] = <span class="literal">false</span>;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = pre[u]; ~i; i = E[i].nxt) &#123;</div><div class="line">			<span class="keyword">int</span> v = E[i].v, c = E[i].c, w = E[i].w;</div><div class="line">			<span class="keyword">if</span> (c &amp;&amp; dis[u]+w &lt; dis[v]) &#123;</div><div class="line">				dis[v] = dis[u]+w, pree[v] = i;</div><div class="line">				<span class="keyword">if</span> (!inque[v])	que.push(v), inque[v] = <span class="literal">true</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span> (dis[t] == INF)	<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">	<span class="keyword">int</span> flow = INF;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = pree[t]; ~i; i = pree[E[i^<span class="number">1</span>].v])	flow = min(flow, E[i].c);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = pree[t]; ~i; i = pree[E[i^<span class="number">1</span>].v])	E[i].c -= flow, E[i^<span class="number">1</span>].c += flow;</div><div class="line">	ans += dis[t];	<span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;m, &amp;n), init();</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)	<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; j++)	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;a[i][j]);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)	insert(s, i, <span class="number">1</span>, <span class="number">0</span>);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)	<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; j++)	<span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">1</span>; k &lt;= n; k++)	insert(i, j*n+k, <span class="number">1</span>, a[i][j]*k);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; j++)	<span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">1</span>; k &lt;= n; k++)	insert(j*n+k, t, <span class="number">1</span>, <span class="number">0</span>);</div><div class="line">	<span class="keyword">while</span> (SPFA()) ;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%.2lf"</span>, (<span class="keyword">double</span>)ans/n);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/BZOJ1070 修车 费用流/" data-id="cj8wveaxh00198oi1w95h0qai" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BZOJ/">BZOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/费用流/">费用流</a></li></ul>
-
-    </footer>
+    
   </div>
   
     
 <nav id="article-nav">
   
+    <a href="/BZOJ1972【SDOI2010】猪国杀/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          BZOJ1972 【SDOI2010】 猪国杀 &lt;模拟&gt;
+        
+      </div>
+    </a>
   
-    <a href="/BZOJ1972【SDOI2010】猪国杀/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">BZOJ1972 【SDOI2010】 猪国杀 &lt;模拟&gt;</div>
+  
+    <a href="/BZOJ1001【BJOI2006】狼抓兔子 网络流/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">BZOJ1001【BJOI2006】狼抓兔子 &lt;网络流&gt;</div>
+      <strong class="article-nav-caption">&gt;</strong>
     </a>
   
 </nav>
@@ -128,103 +273,66 @@
   
 </article>
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2-SAT/">2-SAT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AC自动机/">AC自动机</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/APIO/">APIO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BZOJ/">BZOJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DFS序/">DFS序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DP/">DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HDU/">HDU</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LCA/">LCA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LG/">LG</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Manacher/">Manacher</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NOI/">NOI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NOIp/">NOIp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/POI/">POI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/POJ/">POJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tarjan/">Tarjan</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Trie/">Trie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UVa/">UVa</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/主席树/">主席树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分块/">分块</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/差分/">差分</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/差分约束系统/">差分约束系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/并查集/">并查集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树套树/">树套树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树状数组/">树状数组</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模拟/">模拟</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/省选/">省选</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/线段树/">线段树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/组合数学/">组合数学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络流/">网络流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/莫队/">莫队</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/补集转换/">补集转换</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/费用流/">费用流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/高斯消元/">高斯消元</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/2-SAT/" style="font-size: 11.43px;">2-SAT</a> <a href="/tags/AC自动机/" style="font-size: 11.43px;">AC自动机</a> <a href="/tags/APIO/" style="font-size: 10px;">APIO</a> <a href="/tags/BZOJ/" style="font-size: 20px;">BZOJ</a> <a href="/tags/DFS序/" style="font-size: 10px;">DFS序</a> <a href="/tags/DP/" style="font-size: 11.43px;">DP</a> <a href="/tags/HDU/" style="font-size: 14.29px;">HDU</a> <a href="/tags/LCA/" style="font-size: 12.86px;">LCA</a> <a href="/tags/LG/" style="font-size: 11.43px;">LG</a> <a href="/tags/Manacher/" style="font-size: 11.43px;">Manacher</a> <a href="/tags/NOI/" style="font-size: 11.43px;">NOI</a> <a href="/tags/NOIp/" style="font-size: 10px;">NOIp</a> <a href="/tags/POI/" style="font-size: 10px;">POI</a> <a href="/tags/POJ/" style="font-size: 15.71px;">POJ</a> <a href="/tags/Tarjan/" style="font-size: 11.43px;">Tarjan</a> <a href="/tags/Trie/" style="font-size: 10px;">Trie</a> <a href="/tags/UVa/" style="font-size: 10px;">UVa</a> <a href="/tags/主席树/" style="font-size: 14.29px;">主席树</a> <a href="/tags/分块/" style="font-size: 10px;">分块</a> <a href="/tags/差分/" style="font-size: 10px;">差分</a> <a href="/tags/差分约束系统/" style="font-size: 10px;">差分约束系统</a> <a href="/tags/并查集/" style="font-size: 11.43px;">并查集</a> <a href="/tags/总结/" style="font-size: 18.57px;">总结</a> <a href="/tags/树套树/" style="font-size: 11.43px;">树套树</a> <a href="/tags/树状数组/" style="font-size: 12.86px;">树状数组</a> <a href="/tags/模拟/" style="font-size: 10px;">模拟</a> <a href="/tags/省选/" style="font-size: 17.14px;">省选</a> <a href="/tags/线段树/" style="font-size: 12.86px;">线段树</a> <a href="/tags/组合数学/" style="font-size: 10px;">组合数学</a> <a href="/tags/网络流/" style="font-size: 15.71px;">网络流</a> <a href="/tags/莫队/" style="font-size: 11.43px;">莫队</a> <a href="/tags/补集转换/" style="font-size: 10px;">补集转换</a> <a href="/tags/费用流/" style="font-size: 10px;">费用流</a> <a href="/tags/高斯消元/" style="font-size: 10px;">高斯消元</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2002/05/">五月 2002</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/BZOJ1070 修车 费用流/">BZOJ1070 修车 &lt;费用流&gt;</a>
-          </li>
-        
-          <li>
-            <a href="/BZOJ1972【SDOI2010】猪国杀/">BZOJ1972 【SDOI2010】 猪国杀 &lt;模拟&gt;</a>
-          </li>
-        
-          <li>
-            <a href="/HDU4757 Tree LCA+可持久化Trie/">HDU4757 Tree &lt;LCA+可持久化Trie&gt;</a>
-          </li>
-        
-          <li>
-            <a href="/BZOJ2466【中山市选2009】树 高斯消元/">BZOJ2466 【中山市选2009】树 &lt;高斯消元&gt;</a>
-          </li>
-        
-          <li>
-            <a href="/BZOJ1001【BJOI2006】狼抓兔子 网络流/">BZOJ1001【BJOI2006】狼抓兔子 &lt;网络流&gt;</a>
-          </li>
-        
+<div class="ds-share share" data-thread-key="BZOJ1070 修车 费用流" data-title="BZOJ1070 修车 &lt;费用流&gt;" data-url="http://yoursite.com/BZOJ1070 修车 费用流/"  data-images="http://chuantu.biz/t6/89/1507626502x2728279003.jpg" data-content="BZOJ1070 修车 &lt;费用流&gt;">
+    <div class="ds-share-inline">
+      <ul  class="ds-share-icons-16">
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
       </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
+      <div class="ds-share-icons-more">
       </div>
+    </div>
+ </div>
+ 
+
+
+
+
+
+</div>
       <footer id="footer">
-  
   <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2017 Azrael_Death<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2017 Azrael_Death
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/smackgg/hexo-theme-smackdown" target="_blank">Smackdown</a>
+        </div>
     </div>
   </div>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+  <script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  
 </footer>
+
     </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
     
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
   <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js"></script>
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
 
 
 

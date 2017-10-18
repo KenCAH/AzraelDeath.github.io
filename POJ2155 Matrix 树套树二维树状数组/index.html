@@ -4,79 +4,207 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
   <title>POJ2155 Matrix &lt;树套树/二维树状数组&gt; | NIRVANA</title>
+
+  <!-- keywords -->
+  
+
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Matrix Time Limit: 3000MS Memory Limit: 65536K Description Given an N*N matrix A, whose elements are either 0 or 1. A[i, j] means the number in the i-th row and j-th column. Initially we have A[i,">
+  <meta name="description" content="MatrixTime Limit: 3000MS        Memory Limit: 65536K DescriptionGiven an N*N matrix A, whose elements are either 0 or 1. A[i, j] means the number in the i-th row and j-th column. Initially we have A[">
 <meta name="keywords" content="树状数组,树套树,POJ">
 <meta property="og:type" content="article">
 <meta property="og:title" content="POJ2155 Matrix &lt;树套树&#x2F;二维树状数组&gt;">
 <meta property="og:url" content="http://yoursite.com/POJ2155 Matrix 树套树二维树状数组/index.html">
 <meta property="og:site_name" content="NIRVANA">
-<meta property="og:description" content="Matrix Time Limit: 3000MS Memory Limit: 65536K Description Given an N*N matrix A, whose elements are either 0 or 1. A[i, j] means the number in the i-th row and j-th column. Initially we have A[i,">
+<meta property="og:description" content="MatrixTime Limit: 3000MS        Memory Limit: 65536K DescriptionGiven an N*N matrix A, whose elements are either 0 or 1. A[i, j] means the number in the i-th row and j-th column. Initially we have A[">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2017-10-12T00:17:24.763Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="POJ2155 Matrix &lt;树套树&#x2F;二维树状数组&gt;">
-<meta name="twitter:description" content="Matrix Time Limit: 3000MS Memory Limit: 65536K Description Given an N*N matrix A, whose elements are either 0 or 1. A[i, j] means the number in the i-th row and j-th column. Initially we have A[i,">
+<meta name="twitter:description" content="MatrixTime Limit: 3000MS        Memory Limit: 65536K DescriptionGiven an N*N matrix A, whose elements are either 0 or 1. A[i, j] means the number in the i-th row and j-th column. Initially we have A[">
   
-    <link rel="alternate" href="/atom.xml" title="NIRVANA" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
+    <link rel="alternative" href="/atom.xml" title="NIRVANA" type="application/atom+xml">
   
   
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    <link rel="icon" href="http://chuantu.biz/t6/89/1507626502x2728279003.jpg">
   
-  <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <link rel="stylesheet" href="/css/style.css">
+  
   
 
+  <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+  
 </head>
-
 <body>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">NIRVANA</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">Veni Vidi Vici</a>
-        </h2>
-      
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://chuantu.biz/t6/89/1507626502x2728279003.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Azrael_Death</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">Veni Vidi Vici</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/AzraelDeath" title="github">github</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/azraeldeath" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/2-SAT/" style="font-size: 11.43px;">2-SAT</a> <a href="/tags/AC自动机/" style="font-size: 11.43px;">AC自动机</a> <a href="/tags/APIO/" style="font-size: 10px;">APIO</a> <a href="/tags/BZOJ/" style="font-size: 20px;">BZOJ</a> <a href="/tags/DFS序/" style="font-size: 10px;">DFS序</a> <a href="/tags/DP/" style="font-size: 11.43px;">DP</a> <a href="/tags/HDU/" style="font-size: 14.29px;">HDU</a> <a href="/tags/LCA/" style="font-size: 12.86px;">LCA</a> <a href="/tags/LG/" style="font-size: 11.43px;">LG</a> <a href="/tags/Manacher/" style="font-size: 11.43px;">Manacher</a> <a href="/tags/NOI/" style="font-size: 11.43px;">NOI</a> <a href="/tags/NOIp/" style="font-size: 10px;">NOIp</a> <a href="/tags/POI/" style="font-size: 10px;">POI</a> <a href="/tags/POJ/" style="font-size: 15.71px;">POJ</a> <a href="/tags/Tarjan/" style="font-size: 11.43px;">Tarjan</a> <a href="/tags/Trie/" style="font-size: 10px;">Trie</a> <a href="/tags/UVa/" style="font-size: 10px;">UVa</a> <a href="/tags/主席树/" style="font-size: 14.29px;">主席树</a> <a href="/tags/分块/" style="font-size: 10px;">分块</a> <a href="/tags/差分/" style="font-size: 10px;">差分</a> <a href="/tags/差分约束系统/" style="font-size: 10px;">差分约束系统</a> <a href="/tags/并查集/" style="font-size: 11.43px;">并查集</a> <a href="/tags/总结/" style="font-size: 18.57px;">总结</a> <a href="/tags/树套树/" style="font-size: 11.43px;">树套树</a> <a href="/tags/树状数组/" style="font-size: 12.86px;">树状数组</a> <a href="/tags/模拟/" style="font-size: 10px;">模拟</a> <a href="/tags/省选/" style="font-size: 17.14px;">省选</a> <a href="/tags/线段树/" style="font-size: 12.86px;">线段树</a> <a href="/tags/组合数学/" style="font-size: 10px;">组合数学</a> <a href="/tags/网络流/" style="font-size: 15.71px;">网络流</a> <a href="/tags/莫队/" style="font-size: 11.43px;">莫队</a> <a href="/tags/补集转换/" style="font-size: 10px;">补集转换</a> <a href="/tags/费用流/" style="font-size: 10px;">费用流</a> <a href="/tags/高斯消元/" style="font-size: 10px;">高斯消元</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/OwenOwl">OwenOwl</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/Joker_69">Joker</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://dangxingyu.com">DXY</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://309459245.lofter.com">YJQ</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/candy99">Candy</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/zig-zag">ZigZag</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://cxjyxx.me">cxjyxx_me</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.shuizilong.com">ShuiZiLong</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/kuangbin">KuangBin</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-POJ2155 Matrix 树套树二维树状数组" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/POJ2155 Matrix 树套树二维树状数组/" class="article-date">
-  <time datetime="2017-08-14T16:00:00.000Z" itemprop="datePublished">2017-08-15</time>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Azrael_Death</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://chuantu.biz/t6/89/1507626502x2728279003.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Azrael_Death</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">Veni Vidi Vici</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/AzraelDeath" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/azraeldeath" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-POJ2155 Matrix 树套树二维树状数组" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/POJ2155 Matrix 树套树二维树状数组/" class="article-date">
+  	<time datetime="2017-08-14T16:00:00.000Z" itemprop="datePublished">2017-08-15</time>
 </a>
-    
-  </div>
+    </div>
+  
   <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
       <header class="article-header">
@@ -84,51 +212,62 @@
   
     <h1 class="article-title" itemprop="name">
       POJ2155 Matrix &lt;树套树/二维树状数组&gt;
+      
     </h1>
   
 
       </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/POJ/">POJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/树套树/">树套树</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/树状数组/">树状数组</a></li></ul>
+	</div>
+
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>Matrix Time Limit: 3000MS Memory Limit: 65536K</p>
-<p>Description Given an N*N matrix A, whose elements are either 0 or 1. A[i, j] means the number in the i-th row and j-th column. Initially we have A[i, j] = 0 (1 &lt;= i, j &lt;= N). We can change the matrix in the following way. Given a rectangle whose upper-left corner is (x1, y1) and lower-right corner is (x2, y2), we change all the elements in the rectangle by using “not” operation (if it is a ‘0’ then change it into ‘1’ otherwise change it into ‘0’). To maintain the information of the matrix, you are asked to write a program to receive and execute two kinds of instructions. 1. C x1 y1 x2 y2 (1 &lt;= x1 &lt;= x2 &lt;= n, 1 &lt;= y1 &lt;= y2 &lt;= n) changes the matrix by using the rectangle whose upper-left corner is (x1, y1) and lower-right corner is (x2, y2). 2. Q x y (1 &lt;= x, y &lt;= n) querys A[x, y].</p>
-<p>Input The first line of the input is an integer X (X &lt;= 10) representing the number of test cases. The following X blocks each represents a test case. The first line of each block contains two numbers N and T (2 &lt;= N &lt;= 1000, 1 &lt;= T &lt;= 50000) representing the size of the matrix and the number of the instructions. The following T lines each represents an instruction having the format “Q x y” or “C x1 y1 x2 y2”, which has been described above. Output For each querying output one line, which has an integer representing A[x, y]. There is a blank line between every two continuous test cases.</p>
-<p>Sample Input 1 2 10 C 2 1 2 2 Q 2 2 C 2 1 2 1 Q 1 1 C 1 1 2 1 C 1 2 1 2 C 1 1 2 2 Q 1 1 C 1 1 2 1 Q 2 1 Sample Output 1 0 0 1</p>
+<p>Matrix<br>Time Limit: 3000MS        Memory Limit: 65536K</p>
+<p>Description<br>Given an N*N matrix A, whose elements are either 0 or 1. A[i, j] means the number in the i-th row and j-th column. Initially we have A[i, j] = 0 (1 &lt;= i, j &lt;= N).<br>We can change the matrix in the following way. Given a rectangle whose upper-left corner is (x1, y1) and lower-right corner is (x2, y2), we change all the elements in the rectangle by using “not” operation (if it is a ‘0’ then change it into ‘1’ otherwise change it into ‘0’). To maintain the information of the matrix, you are asked to write a program to receive and execute two kinds of instructions. </p>
+<ol>
+<li>C x1 y1 x2 y2 (1 &lt;= x1 &lt;= x2 &lt;= n, 1 &lt;= y1 &lt;= y2 &lt;= n) changes the matrix by using the rectangle whose upper-left corner is (x1, y1) and lower-right corner is (x2, y2). </li>
+<li>Q x y (1 &lt;= x, y &lt;= n) querys A[x, y]. </li>
+</ol>
+<p>Input<br>The first line of the input is an integer X (X &lt;= 10) representing the number of test cases. The following X blocks each represents a test case.<br>The first line of each block contains two numbers N and T (2 &lt;= N &lt;= 1000, 1 &lt;= T &lt;= 50000) representing the size of the matrix and the number of the instructions. The following T lines each represents an instruction having the format “Q x y” or “C x1 y1 x2 y2”, which has been described above.<br>Output<br>For each querying output one line, which has an integer representing A[x, y].<br>There is a blank line between every two continuous test cases. </p>
+<p>Sample Input<br>1<br>2 10<br>C 2 1 2 2<br>Q 2 2<br>C 2 1 2 1<br>Q 1 1<br>C 1 1 2 1<br>C 1 2 1 2<br>C 1 1 2 2<br>Q 1 1<br>C 1 1 2 1<br>Q 2 1<br>Sample Output<br>1<br>0<br>0<br>1</p>
 </blockquote>
 <p>标签：线段树套线段树/二维树状数组</p>
-<p>此题最简单的方法是二维树状数组，但因为二维树状数组没太大用，所以练习线段树的树套树。 此题用作树套树的模板题再合适不过。</p>
+<p>此题最简单的方法是二维树状数组，但因为二维树状数组没太大用，所以练习线段树的树套树。<br>此题用作树套树的模板题再合适不过。</p>
 <p>AC代码如下：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_N 1000</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">int</span> n, m;</div><div class="line"><span class="keyword">int</span> tr[(MAX_N&lt;&lt;<span class="number">2</span>)+<span class="number">5</span>][(MAX_N&lt;&lt;<span class="number">2</span>)+<span class="number">5</span>];</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">modify_y</span><span class="params">(<span class="keyword">int</span> v1, <span class="keyword">int</span> v2, <span class="keyword">int</span> s, <span class="keyword">int</span> t, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</div><div class="line">	<span class="keyword">if</span> (s &gt;= l &amp;&amp; t &lt;= r) &#123;</div><div class="line">		tr[v1][v2] ^= <span class="number">1</span>;</div><div class="line">		<span class="keyword">return</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">int</span> mid = s+t&gt;&gt;<span class="number">1</span>;</div><div class="line">	<span class="keyword">if</span> (l &lt;= mid)	modify_y(v1, v2&lt;&lt;<span class="number">1</span>, s, mid, l, r);</div><div class="line">	<span class="keyword">if</span> (r &gt;= mid+<span class="number">1</span>)	modify_y(v1, v2&lt;&lt;<span class="number">1</span>|<span class="number">1</span>, mid+<span class="number">1</span>, t, l, r);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">modify_x</span><span class="params">(<span class="keyword">int</span> v, <span class="keyword">int</span> s, <span class="keyword">int</span> t, <span class="keyword">int</span> x1, <span class="keyword">int</span> y1, <span class="keyword">int</span> x2, <span class="keyword">int</span> y2)</span> </span>&#123;</div><div class="line">	<span class="keyword">if</span> (s &gt;= x1 &amp;&amp; t &lt;= x2) &#123;</div><div class="line">		modify_y(v, <span class="number">1</span>, <span class="number">1</span>, n, y1, y2);</div><div class="line">		<span class="keyword">return</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">int</span> mid = s+t&gt;&gt;<span class="number">1</span>;</div><div class="line">	<span class="keyword">if</span> (x1 &lt;= mid)	modify_x(v&lt;&lt;<span class="number">1</span>, s, mid, x1, y1, x2, y2);</div><div class="line">	<span class="keyword">if</span> (x2 &gt;= mid+<span class="number">1</span>)	modify_x(v&lt;&lt;<span class="number">1</span>|<span class="number">1</span>, mid+<span class="number">1</span>, t, x1, y1, x2, y2);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">query_y</span><span class="params">(<span class="keyword">int</span> v1, <span class="keyword">int</span> v2, <span class="keyword">int</span> s, <span class="keyword">int</span> t, <span class="keyword">int</span> pos)</span> </span>&#123;</div><div class="line">	<span class="keyword">if</span> (s == t)	<span class="keyword">return</span> tr[v1][v2];</div><div class="line">	<span class="keyword">int</span> mid = s+t&gt;&gt;<span class="number">1</span>;</div><div class="line">	<span class="keyword">if</span> (pos &lt;= mid)	<span class="keyword">return</span> tr[v1][v2]^query_y(v1, v2&lt;&lt;<span class="number">1</span>, s, mid, pos);</div><div class="line">	<span class="keyword">else</span>	<span class="keyword">return</span> tr[v1][v2]^query_y(v1, v2&lt;&lt;<span class="number">1</span>|<span class="number">1</span>, mid+<span class="number">1</span>, t, pos);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">query_x</span><span class="params">(<span class="keyword">int</span> v, <span class="keyword">int</span> s, <span class="keyword">int</span> t, <span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</div><div class="line">	<span class="keyword">if</span> (s == t)	<span class="keyword">return</span> query_y(v, <span class="number">1</span>, <span class="number">1</span>, n, y);</div><div class="line">	<span class="keyword">int</span> mid = s+t&gt;&gt;<span class="number">1</span>;</div><div class="line">	<span class="keyword">if</span> (x &lt;= mid)	<span class="keyword">return</span> query_y(v, <span class="number">1</span>, <span class="number">1</span>, n, y)^query_x(v&lt;&lt;<span class="number">1</span>, s, mid, x, y);</div><div class="line">	<span class="keyword">else</span>	<span class="keyword">return</span> query_y(v, <span class="number">1</span>, <span class="number">1</span>, n, y)^query_x(v&lt;&lt;<span class="number">1</span>|<span class="number">1</span>, mid+<span class="number">1</span>, t, x, y);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> T;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;T);</div><div class="line">	<span class="keyword">while</span> (T--) &#123;</div><div class="line">		<span class="built_in">memset</span>(tr, <span class="number">0</span>, <span class="keyword">sizeof</span>(tr));</div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;m);</div><div class="line">		<span class="keyword">while</span> (m--) &#123;</div><div class="line">			<span class="keyword">char</span> ch;</div><div class="line">			<span class="built_in">cin</span> &gt;&gt; ch;</div><div class="line">			<span class="keyword">if</span> (ch == <span class="string">'C'</span>) &#123;</div><div class="line">				<span class="keyword">int</span> x1, y1, x2, y2;</div><div class="line">				<span class="built_in">scanf</span>(<span class="string">"%d%d%d%d"</span>, &amp;x1, &amp;y1, &amp;x2, &amp;y2);</div><div class="line">				modify_x(<span class="number">1</span>, <span class="number">1</span>, n, x1, y1, x2, y2);</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">if</span> (ch == <span class="string">'Q'</span>) &#123;</div><div class="line">				<span class="keyword">int</span> x, y;</div><div class="line">				<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;x, &amp;y);</div><div class="line">				<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, query_x(<span class="number">1</span>, <span class="number">1</span>, n, x, y));</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/POJ2155 Matrix 树套树二维树状数组/" data-id="cj8wveayr00328oi1yz8dg245" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/POJ/">POJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/树套树/">树套树</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/树状数组/">树状数组</a></li></ul>
-
-    </footer>
+    
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/HDU5340 Three Palindromes Manacher/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
+    <a href="/BZOJ2588 Count on a tree DFS序+LCA+值域主席树/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
       <div class="article-nav-title">
         
-          HDU5340 Three Palindromes &lt;Manacher&gt;
+          BZOJ2588 Count on a tree &lt;DFS序+LCA+值域主席树&gt;
         
       </div>
     </a>
   
   
-    <a href="/BZOJ1798 【AHOI2009】 seq维护序列 线段树/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">BZOJ1798 【AHOI2009】 seq维护序列 &lt;线段树&gt;</div>
+    <a href="/POJ1201 Intervals 差分约束系统/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">POJ1201 Intervals &lt;差分约束系统&gt;</div>
+      <strong class="article-nav-caption">&gt;</strong>
     </a>
   
 </nav>
@@ -136,103 +275,66 @@
   
 </article>
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2-SAT/">2-SAT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AC自动机/">AC自动机</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/APIO/">APIO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BZOJ/">BZOJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DFS序/">DFS序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DP/">DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HDU/">HDU</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LCA/">LCA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LG/">LG</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Manacher/">Manacher</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NOI/">NOI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NOIp/">NOIp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/POI/">POI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/POJ/">POJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tarjan/">Tarjan</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Trie/">Trie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UVa/">UVa</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/主席树/">主席树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分块/">分块</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/差分/">差分</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/差分约束系统/">差分约束系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/并查集/">并查集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总结/">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树套树/">树套树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树状数组/">树状数组</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模拟/">模拟</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/省选/">省选</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/线段树/">线段树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/组合数学/">组合数学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络流/">网络流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/莫队/">莫队</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/补集转换/">补集转换</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/费用流/">费用流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/高斯消元/">高斯消元</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/2-SAT/" style="font-size: 11.43px;">2-SAT</a> <a href="/tags/AC自动机/" style="font-size: 11.43px;">AC自动机</a> <a href="/tags/APIO/" style="font-size: 10px;">APIO</a> <a href="/tags/BZOJ/" style="font-size: 20px;">BZOJ</a> <a href="/tags/DFS序/" style="font-size: 10px;">DFS序</a> <a href="/tags/DP/" style="font-size: 11.43px;">DP</a> <a href="/tags/HDU/" style="font-size: 14.29px;">HDU</a> <a href="/tags/LCA/" style="font-size: 12.86px;">LCA</a> <a href="/tags/LG/" style="font-size: 11.43px;">LG</a> <a href="/tags/Manacher/" style="font-size: 11.43px;">Manacher</a> <a href="/tags/NOI/" style="font-size: 11.43px;">NOI</a> <a href="/tags/NOIp/" style="font-size: 10px;">NOIp</a> <a href="/tags/POI/" style="font-size: 10px;">POI</a> <a href="/tags/POJ/" style="font-size: 15.71px;">POJ</a> <a href="/tags/Tarjan/" style="font-size: 11.43px;">Tarjan</a> <a href="/tags/Trie/" style="font-size: 10px;">Trie</a> <a href="/tags/UVa/" style="font-size: 10px;">UVa</a> <a href="/tags/主席树/" style="font-size: 14.29px;">主席树</a> <a href="/tags/分块/" style="font-size: 10px;">分块</a> <a href="/tags/差分/" style="font-size: 10px;">差分</a> <a href="/tags/差分约束系统/" style="font-size: 10px;">差分约束系统</a> <a href="/tags/并查集/" style="font-size: 11.43px;">并查集</a> <a href="/tags/总结/" style="font-size: 18.57px;">总结</a> <a href="/tags/树套树/" style="font-size: 11.43px;">树套树</a> <a href="/tags/树状数组/" style="font-size: 12.86px;">树状数组</a> <a href="/tags/模拟/" style="font-size: 10px;">模拟</a> <a href="/tags/省选/" style="font-size: 17.14px;">省选</a> <a href="/tags/线段树/" style="font-size: 12.86px;">线段树</a> <a href="/tags/组合数学/" style="font-size: 10px;">组合数学</a> <a href="/tags/网络流/" style="font-size: 15.71px;">网络流</a> <a href="/tags/莫队/" style="font-size: 11.43px;">莫队</a> <a href="/tags/补集转换/" style="font-size: 10px;">补集转换</a> <a href="/tags/费用流/" style="font-size: 10px;">费用流</a> <a href="/tags/高斯消元/" style="font-size: 10px;">高斯消元</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2002/05/">五月 2002</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/BZOJ1070 修车 费用流/">BZOJ1070 修车 &lt;费用流&gt;</a>
-          </li>
-        
-          <li>
-            <a href="/BZOJ1972【SDOI2010】猪国杀/">BZOJ1972 【SDOI2010】 猪国杀 &lt;模拟&gt;</a>
-          </li>
-        
-          <li>
-            <a href="/HDU4757 Tree LCA+可持久化Trie/">HDU4757 Tree &lt;LCA+可持久化Trie&gt;</a>
-          </li>
-        
-          <li>
-            <a href="/BZOJ2466【中山市选2009】树 高斯消元/">BZOJ2466 【中山市选2009】树 &lt;高斯消元&gt;</a>
-          </li>
-        
-          <li>
-            <a href="/BZOJ1001【BJOI2006】狼抓兔子 网络流/">BZOJ1001【BJOI2006】狼抓兔子 &lt;网络流&gt;</a>
-          </li>
-        
+<div class="ds-share share" data-thread-key="POJ2155 Matrix 树套树二维树状数组" data-title="POJ2155 Matrix &lt;树套树/二维树状数组&gt;" data-url="http://yoursite.com/POJ2155 Matrix 树套树二维树状数组/"  data-images="http://chuantu.biz/t6/89/1507626502x2728279003.jpg" data-content="POJ2155 Matrix &lt;树套树/二维树状数组&gt;">
+    <div class="ds-share-inline">
+      <ul  class="ds-share-icons-16">
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
       </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
+      <div class="ds-share-icons-more">
       </div>
+    </div>
+ </div>
+ 
+
+
+
+
+
+</div>
       <footer id="footer">
-  
   <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2017 Azrael_Death<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2017 Azrael_Death
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/smackgg/hexo-theme-smackdown" target="_blank">Smackdown</a>
+        </div>
     </div>
   </div>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+  <script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  
 </footer>
+
     </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
     
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
   <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js"></script>
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
 
 
 
