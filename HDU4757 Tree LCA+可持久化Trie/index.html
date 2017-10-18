@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>HDU4757 Tree &lt;LCA+可持久化Trie&gt; | NIRVANA</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="【LCA+可持久化Trie】Tree Zero and One are good friends who always have fun with each other.This time, they decide to do something on a tree which is a kind ofgraph that there is only one path from node to">
+<meta name="keywords" content="LCA,HDU,Trie">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HDU4757 Tree &lt;LCA+可持久化Trie&gt;">
+<meta property="og:url" content="http://yoursite.com/HDU4757 Tree LCA+可持久化Trie/index.html">
+<meta property="og:site_name" content="NIRVANA">
+<meta property="og:description" content="【LCA+可持久化Trie】Tree Zero and One are good friends who always have fun with each other.This time, they decide to do something on a tree which is a kind ofgraph that there is only one path from node to">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-10-17T09:35:49.165Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HDU4757 Tree &lt;LCA+可持久化Trie&gt;">
+<meta name="twitter:description" content="【LCA+可持久化Trie】Tree Zero and One are good friends who always have fun with each other.This time, they decide to do something on a tree which is a kind ofgraph that there is only one path from node to">
+  
+    <link rel="alternative" href="/atom.xml" title="NIRVANA" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://chuantu.biz/t6/89/1507626502x2728279003.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+
+  <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://chuantu.biz/t6/89/1507626502x2728279003.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Azrael_Death</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">Veni Vidi Vici</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/AzraelDeath" title="github">github</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/azraeldeath" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/2-SAT/" style="font-size: 11.43px;">2-SAT</a> <a href="/tags/AC自动机/" style="font-size: 11.43px;">AC自动机</a> <a href="/tags/APIO/" style="font-size: 10px;">APIO</a> <a href="/tags/BZOJ/" style="font-size: 20px;">BZOJ</a> <a href="/tags/DFS序/" style="font-size: 10px;">DFS序</a> <a href="/tags/DP/" style="font-size: 11.43px;">DP</a> <a href="/tags/HDU/" style="font-size: 14.29px;">HDU</a> <a href="/tags/LCA/" style="font-size: 12.86px;">LCA</a> <a href="/tags/LG/" style="font-size: 11.43px;">LG</a> <a href="/tags/Manacher/" style="font-size: 11.43px;">Manacher</a> <a href="/tags/NOI/" style="font-size: 11.43px;">NOI</a> <a href="/tags/NOIp/" style="font-size: 10px;">NOIp</a> <a href="/tags/POI/" style="font-size: 10px;">POI</a> <a href="/tags/POJ/" style="font-size: 15.71px;">POJ</a> <a href="/tags/Tarjan/" style="font-size: 11.43px;">Tarjan</a> <a href="/tags/Trie/" style="font-size: 10px;">Trie</a> <a href="/tags/UVa/" style="font-size: 10px;">UVa</a> <a href="/tags/主席树/" style="font-size: 14.29px;">主席树</a> <a href="/tags/分块/" style="font-size: 10px;">分块</a> <a href="/tags/差分/" style="font-size: 10px;">差分</a> <a href="/tags/差分约束系统/" style="font-size: 10px;">差分约束系统</a> <a href="/tags/并查集/" style="font-size: 11.43px;">并查集</a> <a href="/tags/总结/" style="font-size: 18.57px;">总结</a> <a href="/tags/树套树/" style="font-size: 11.43px;">树套树</a> <a href="/tags/树状数组/" style="font-size: 12.86px;">树状数组</a> <a href="/tags/模拟/" style="font-size: 10px;">模拟</a> <a href="/tags/省选/" style="font-size: 17.14px;">省选</a> <a href="/tags/线段树/" style="font-size: 12.86px;">线段树</a> <a href="/tags/组合数学/" style="font-size: 10px;">组合数学</a> <a href="/tags/网络流/" style="font-size: 15.71px;">网络流</a> <a href="/tags/莫队/" style="font-size: 11.43px;">莫队</a> <a href="/tags/补集转换/" style="font-size: 10px;">补集转换</a> <a href="/tags/费用流/" style="font-size: 10px;">费用流</a> <a href="/tags/高斯消元/" style="font-size: 10px;">高斯消元</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/OwenOwl">OwenOwl</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/Joker_69">Joker</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://dangxingyu.com">DXY</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://309459245.lofter.com">YJQ</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/candy99">Candy</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/zig-zag">ZigZag</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://cxjyxx.me">cxjyxx_me</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.shuizilong.com">ShuiZiLong</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/kuangbin">KuangBin</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Azrael_Death</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://chuantu.biz/t6/89/1507626502x2728279003.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Azrael_Death</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">Veni Vidi Vici</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/AzraelDeath" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/azraeldeath" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-HDU4757 Tree LCA+可持久化Trie" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/HDU4757 Tree LCA+可持久化Trie/" class="article-date">
+  	<time datetime="2017-10-16T16:00:00.000Z" itemprop="datePublished">2017-10-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      HDU4757 Tree &lt;LCA+可持久化Trie&gt;
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LCA/">LCA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Trie/">Trie</a></li></ul>
+	</div>
+
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>【LCA+可持久化Trie】Tree</p>
+<p>Zero and One are good friends who always have fun with each other.<br>This time, they decide to do something on a tree which is a kind of<br>graph that there is only one path from node to node. First, Zero will<br>give One an tree and every node in this tree has a value. Then, Zero<br>will ask One a series of queries. Each query contains three parameters:<br>x, y, z which mean that he want to know the maximum value produced by<br>z xor each value on the path from node x to node y (include node x, node<br>y). Unfortunately, One has no idea in this question. So he need you to<br>solve it.</p>
+<p>Input<br>There are several test cases and the cases end with EOF. For each case:<br>The first line contains two integers n(1&lt;=n&lt;=10^5) and m(1&lt;=m&lt;=10^5), which are the amount of tree’s nodes and queries, respectively.<br>The second line contains n integers a[1..n] and a<a href="0&lt;=a[i]&lt;2^{16}">i</a> is the value on the ith node.<br>The next n–1 lines contains two integers u v, which means there is an connection between u and v.<br>The next m lines contains three integers x y z, which are the parameters of Zero’s query.<br>Output<br>For each query, output the answer. </p>
+<p>Sample Input<br>3 2<br>1 2 2<br>1 2<br>2 3<br>1 3 1<br>2 3 2<br>Sample Output<br>3<br>0</p>
+</blockquote>
+<p>题目大意：给出一棵树，求两点x,y间树上链路中的数异或z得到的最大结果。</p>
+<p>标签：LCA+可持久化Trie</p>
+<p>最大异或和上树…<br>有异或，一个经典的解法就是建一棵01字典树，然后贪心跑一遍，尽量选和给出数当前位不同的数。<br>对于树上的此类问题，可以把Trie树可持久化，对于每个点，存它到根节点的路径上所有数的Trie树，这样是有前缀和性质的，求LCA后作差即可求出链路上的数。<br>可持久化方法和主席树差不多。</p>
+<p>附上AC代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_N 100000</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_D 15</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">int</span> n, m, cnt, c[MAX_N+<span class="number">5</span>], root[MAX_N+<span class="number">5</span>];</div><div class="line"><span class="keyword">int</span> anc[MAX_N+<span class="number">5</span>][MAX_D+<span class="number">5</span>], dep[MAX_N+<span class="number">5</span>];</div><div class="line"><span class="keyword">bool</span> vis[MAX_N+<span class="number">5</span>];</div><div class="line"><span class="built_in">vector</span> &lt;<span class="keyword">int</span>&gt; G[MAX_N+<span class="number">5</span>];</div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span><span class="keyword">int</span> ls, rs, size;&#125; trie[MAX_N*<span class="number">20</span>+<span class="number">500</span>];</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</div><div class="line">	root[<span class="number">0</span>] = cnt = <span class="number">0</span>;</div><div class="line">	<span class="built_in">memset</span>(root, <span class="number">0</span>, <span class="keyword">sizeof</span>(root));</div><div class="line">	<span class="built_in">memset</span>(anc, <span class="number">0</span>, <span class="keyword">sizeof</span>(anc));</div><div class="line">	<span class="built_in">memset</span>(dep, <span class="number">0</span>, <span class="keyword">sizeof</span>(dep));</div><div class="line">	<span class="built_in">memset</span>(vis, <span class="literal">false</span>, <span class="keyword">sizeof</span>(vis));</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)	G[i].clear();</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(<span class="keyword">int</span> u)</span> </span>&#123;</div><div class="line">	vis[u] = <span class="literal">true</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; (<span class="number">1</span>&lt;&lt;i) &lt;= dep[u]; i++)	anc[u][i] = anc[anc[u][i<span class="number">-1</span>]][i<span class="number">-1</span>];</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; G[u].size(); i++)</div><div class="line">		<span class="keyword">if</span> (!vis[G[u][i]])	anc[G[u][i]][<span class="number">0</span>] = u, dep[G[u][i]] = dep[u]+<span class="number">1</span>, DFS(G[u][i]);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">LCA</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> i, j;</div><div class="line">	<span class="keyword">if</span> (dep[a] &lt; dep[b])	swap(a, b);</div><div class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; (<span class="number">1</span>&lt;&lt;i) &lt;= dep[a]; i++) ;	i--;</div><div class="line">	<span class="keyword">for</span> (j = i; j &gt;= <span class="number">0</span>; j--)</div><div class="line">		<span class="keyword">if</span> (dep[a]-(<span class="number">1</span>&lt;&lt;j) &gt;= dep[b])</div><div class="line">			a = anc[a][j];</div><div class="line">	<span class="keyword">if</span> (a == b)	<span class="keyword">return</span> a;</div><div class="line">	<span class="keyword">for</span> (j = i; j &gt;= <span class="number">0</span>; j--)</div><div class="line">		<span class="keyword">if</span> (anc[a][j] != anc[b][j])</div><div class="line">			a = anc[a][j], b = anc[b][j];</div><div class="line">	<span class="keyword">return</span> anc[a][<span class="number">0</span>];</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> v, <span class="keyword">int</span> o, <span class="keyword">int</span> val, <span class="keyword">int</span> range)</span> </span>&#123;</div><div class="line">	trie[v] = trie[o];</div><div class="line">	<span class="keyword">if</span> (range == <span class="number">0</span>) &#123;trie[v].size++; <span class="keyword">return</span>;&#125;</div><div class="line">	<span class="keyword">int</span> x = val/range;</div><div class="line">	<span class="keyword">if</span> (x == <span class="number">0</span>)	insert(trie[v].ls = ++cnt, trie[o].ls, val%range, range/<span class="number">2</span>);</div><div class="line">	<span class="keyword">else</span>	insert(trie[v].rs = ++cnt, trie[o].rs, val%range, range/<span class="number">2</span>);</div><div class="line">	trie[v].size = trie[trie[v].ls].size+trie[trie[v].rs].size;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">(<span class="keyword">int</span> u)</span> </span>&#123;</div><div class="line">	root[u] = ++cnt;</div><div class="line">	insert(root[u], root[anc[u][<span class="number">0</span>]], c[u], (<span class="number">1</span>&lt;&lt;MAX_D));</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; G[u].size(); i++)</div><div class="line">		<span class="keyword">if</span> (G[u][i] != anc[u][<span class="number">0</span>])	build(G[u][i]);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> v1, <span class="keyword">int</span> v2, <span class="keyword">int</span> v3, <span class="keyword">int</span> v4, <span class="keyword">int</span> x, <span class="keyword">int</span> range)</span> </span>&#123;</div><div class="line">	<span class="keyword">if</span> (range == <span class="number">0</span>)	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">	<span class="keyword">int</span> tmp1 = trie[trie[v1].ls].size+trie[trie[v2].ls].size-trie[trie[v3].ls].size-trie[trie[v4].ls].size;</div><div class="line">	<span class="keyword">int</span> tmp2 = trie[trie[v1].rs].size+trie[trie[v2].rs].size-trie[trie[v3].rs].size-trie[trie[v4].rs].size;</div><div class="line">	<span class="keyword">if</span> (x/range == <span class="number">0</span>) &#123;</div><div class="line">		<span class="keyword">if</span> (tmp2)	<span class="keyword">return</span> range+query(trie[v1].rs, trie[v2].rs, trie[v3].rs, trie[v4].rs, x%range, range/<span class="number">2</span>);</div><div class="line">		<span class="keyword">else</span>	<span class="keyword">return</span> query(trie[v1].ls, trie[v2].ls, trie[v3].ls, trie[v4].ls, x%range, range/<span class="number">2</span>);</div><div class="line">	&#125; <span class="keyword">else</span> &#123;</div><div class="line">		<span class="keyword">if</span> (tmp1)	<span class="keyword">return</span> range+query(trie[v1].ls, trie[v2].ls, trie[v3].ls, trie[v4].ls, x%range, range/<span class="number">2</span>);</div><div class="line">		<span class="keyword">else</span>	<span class="keyword">return</span> query(trie[v1].rs, trie[v2].rs, trie[v3].rs, trie[v4].rs, x%range, range/<span class="number">2</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;m) != EOF) &#123;</div><div class="line">		init();</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;c[i]);</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;<span class="keyword">int</span> u, v; <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;u, &amp;v), G[u].push_back(v), G[v].push_back(u);&#125;</div><div class="line">		DFS(<span class="number">1</span>);</div><div class="line">		build(<span class="number">1</span>);</div><div class="line">		<span class="keyword">while</span> (m--) &#123;</div><div class="line">			<span class="keyword">int</span> u, v, x, lca;</div><div class="line">			<span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;u, &amp;v, &amp;x);	lca = LCA(u, v);</div><div class="line">			<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, query(root[u], root[v], root[lca], root[anc[lca][<span class="number">0</span>]], x, (<span class="number">1</span>&lt;&lt;MAX_D)));</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= cnt; i++)	trie[i].ls = trie[i].rs = trie[i].size = <span class="number">0</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/MathJax/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          MathJax Test
+        
+      </div>
+    </a>
+  
+  
+    <a href="/BZOJ2466【中山市选2009】树 高斯消元/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">BZOJ2466 【中山市选2009】树 &lt;高斯消元&gt;</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="ds-share share" data-thread-key="HDU4757 Tree LCA+可持久化Trie" data-title="HDU4757 Tree &lt;LCA+可持久化Trie&gt;" data-url="http://yoursite.com/HDU4757 Tree LCA+可持久化Trie/"  data-images="http://chuantu.biz/t6/89/1507626502x2728279003.jpg" data-content="HDU4757 Tree &lt;LCA+可持久化Trie&gt;">
+    <div class="ds-share-inline">
+      <ul  class="ds-share-icons-16">
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      </ul>
+      <div class="ds-share-icons-more">
+      </div>
+    </div>
+ </div>
+ 
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2017 Azrael_Death
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/smackgg/hexo-theme-smackdown" target="_blank">Smackdown</a>
+        </div>
+    </div>
+  </div>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+  <script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+
+
+
+  </div>
+</body>
+</html>

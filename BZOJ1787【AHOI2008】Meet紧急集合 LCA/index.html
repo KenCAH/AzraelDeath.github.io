@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>BZOJ1787【AHOI2008】Meet紧急集合 &lt;LCA&gt; | NIRVANA</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="【AHOI2008】Meet 紧急集合 Description欢乐岛上有个非常好玩的游戏，叫做“紧急集合”。在岛上分散有N个等待点，有N-1条道路连接着它们，每条道路都连接某两个等待点，且通过这些道路可以走遍所有的等待点，通过道路从一点到另一点要花费一个游戏币。参加游戏的三人一组，开始的时候，所有人员均任意分散在各个等待点上（每个点同时允许多个人等待），每个人均带有足够多的游戏币（用于支付使用道">
+<meta name="keywords" content="BZOJ,LCA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BZOJ1787【AHOI2008】Meet紧急集合 &lt;LCA&gt;">
+<meta property="og:url" content="http://yoursite.com/BZOJ1787【AHOI2008】Meet紧急集合 LCA/index.html">
+<meta property="og:site_name" content="NIRVANA">
+<meta property="og:description" content="【AHOI2008】Meet 紧急集合 Description欢乐岛上有个非常好玩的游戏，叫做“紧急集合”。在岛上分散有N个等待点，有N-1条道路连接着它们，每条道路都连接某两个等待点，且通过这些道路可以走遍所有的等待点，通过道路从一点到另一点要花费一个游戏币。参加游戏的三人一组，开始的时候，所有人员均任意分散在各个等待点上（每个点同时允许多个人等待），每个人均带有足够多的游戏币（用于支付使用道">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-10-12T04:47:25.419Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="BZOJ1787【AHOI2008】Meet紧急集合 &lt;LCA&gt;">
+<meta name="twitter:description" content="【AHOI2008】Meet 紧急集合 Description欢乐岛上有个非常好玩的游戏，叫做“紧急集合”。在岛上分散有N个等待点，有N-1条道路连接着它们，每条道路都连接某两个等待点，且通过这些道路可以走遍所有的等待点，通过道路从一点到另一点要花费一个游戏币。参加游戏的三人一组，开始的时候，所有人员均任意分散在各个等待点上（每个点同时允许多个人等待），每个人均带有足够多的游戏币（用于支付使用道">
+  
+    <link rel="alternative" href="/atom.xml" title="NIRVANA" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://chuantu.biz/t6/89/1507626502x2728279003.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+
+  <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://chuantu.biz/t6/89/1507626502x2728279003.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Azrael_Death</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">Veni Vidi Vici</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/AzraelDeath" title="github">github</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/azraeldeath" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/2-SAT/" style="font-size: 11.43px;">2-SAT</a> <a href="/tags/AC自动机/" style="font-size: 11.43px;">AC自动机</a> <a href="/tags/APIO/" style="font-size: 10px;">APIO</a> <a href="/tags/BZOJ/" style="font-size: 20px;">BZOJ</a> <a href="/tags/DFS序/" style="font-size: 10px;">DFS序</a> <a href="/tags/DP/" style="font-size: 11.43px;">DP</a> <a href="/tags/HDU/" style="font-size: 14.29px;">HDU</a> <a href="/tags/LCA/" style="font-size: 12.86px;">LCA</a> <a href="/tags/LG/" style="font-size: 11.43px;">LG</a> <a href="/tags/Manacher/" style="font-size: 11.43px;">Manacher</a> <a href="/tags/NOI/" style="font-size: 11.43px;">NOI</a> <a href="/tags/NOIp/" style="font-size: 10px;">NOIp</a> <a href="/tags/POI/" style="font-size: 10px;">POI</a> <a href="/tags/POJ/" style="font-size: 15.71px;">POJ</a> <a href="/tags/Tarjan/" style="font-size: 11.43px;">Tarjan</a> <a href="/tags/Trie/" style="font-size: 10px;">Trie</a> <a href="/tags/UVa/" style="font-size: 10px;">UVa</a> <a href="/tags/主席树/" style="font-size: 14.29px;">主席树</a> <a href="/tags/分块/" style="font-size: 10px;">分块</a> <a href="/tags/差分/" style="font-size: 10px;">差分</a> <a href="/tags/差分约束系统/" style="font-size: 10px;">差分约束系统</a> <a href="/tags/并查集/" style="font-size: 11.43px;">并查集</a> <a href="/tags/总结/" style="font-size: 18.57px;">总结</a> <a href="/tags/树套树/" style="font-size: 11.43px;">树套树</a> <a href="/tags/树状数组/" style="font-size: 12.86px;">树状数组</a> <a href="/tags/模拟/" style="font-size: 10px;">模拟</a> <a href="/tags/省选/" style="font-size: 17.14px;">省选</a> <a href="/tags/线段树/" style="font-size: 12.86px;">线段树</a> <a href="/tags/组合数学/" style="font-size: 10px;">组合数学</a> <a href="/tags/网络流/" style="font-size: 15.71px;">网络流</a> <a href="/tags/莫队/" style="font-size: 11.43px;">莫队</a> <a href="/tags/补集转换/" style="font-size: 10px;">补集转换</a> <a href="/tags/费用流/" style="font-size: 10px;">费用流</a> <a href="/tags/高斯消元/" style="font-size: 10px;">高斯消元</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/OwenOwl">OwenOwl</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/Joker_69">Joker</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://dangxingyu.com">DXY</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://309459245.lofter.com">YJQ</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/candy99">Candy</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/zig-zag">ZigZag</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://cxjyxx.me">cxjyxx_me</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.shuizilong.com">ShuiZiLong</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/kuangbin">KuangBin</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Azrael_Death</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://chuantu.biz/t6/89/1507626502x2728279003.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Azrael_Death</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">Veni Vidi Vici</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/AzraelDeath" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/azraeldeath" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-BZOJ1787【AHOI2008】Meet紧急集合 LCA" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/BZOJ1787【AHOI2008】Meet紧急集合 LCA/" class="article-date">
+  	<time datetime="2017-09-26T16:00:00.000Z" itemprop="datePublished">2017-09-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      BZOJ1787【AHOI2008】Meet紧急集合 &lt;LCA&gt;
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BZOJ/">BZOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LCA/">LCA</a></li></ul>
+	</div>
+
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>【AHOI2008】Meet 紧急集合</p>
+<p>Description<br>欢乐岛上有个非常好玩的游戏，叫做“紧急集合”。在岛上分散有N个等待点，有N-1条道路连接着它们，每条道路都连接某两个等待点，且通过这些道路可以走遍所有的等待点，通过道路从一点到另一点要花费一个游戏币。参加游戏的三人一组，开始的时候，所有人员均任意分散在各个等待点上（每个点同时允许多个人等待），每个人均带有足够多的游戏币（用于支付使用道路的花费）、地图（标明等待点之间道路连接的情况）以及对讲机（用于和同组的成员联系）。当集合号吹响后，每个成员之间迅速联系，了解到自己组所有成员所在的等待点后，迅速在N个等待点中确定一个集合点，组内所有成员将在该集合点集合，集合所用花费最少的组将是游戏的赢家。<br>小可可和他的朋友邀请你一起参加这个游戏，有你来选择集合点，聪明的你能够完成这个任务，帮助小可可赢得游戏吗？</p>
+<p>Input<br>第一行两个正整数N和M（N&lt;=500000，M&lt;=500000），之间用一个空格隔开。分别表示等待点的个数（等待点也从1到N进行编号）和获奖所需完成的集合次数。<br>随后有N-1行，每行两个正整数A和B，之间用空格隔开，表示编号为A和编号为B的等待点之间有一条路。<br>接着还有M行，每行用三个正整数表示某次集合前小可可、小可可的朋友以及你所在的等待点的编号。</p>
+<p>Output<br>一共有M行，每行两个数P和C，用一个空格隔开。其中第i行表示第i次集合点选择在编号为P的等待点，集合总共的花费是C个游戏币。</p>
+<p>Sample Input<br>6 4<br>1 2<br>2 3<br>2 4<br>4 5<br>5 6<br>4 5 6<br>6 3 1<br>2 4 4<br>6 6 6<br>Sample Output<br>5 2<br>2 5<br>4 1<br>6 0</p>
+<p>HINT<br>40%的数据中，N&lt;=2000，M&lt;=2000<br>100%的数据中，N&lt;=500000，M&lt;=500000</p>
+</blockquote>
+<p>标签：LCA</p>
+<p>对于每组询问，找出三个点中两两的lca，这三个lca中必然至少有两个相同。找出那个不同的lca，以它为集合点，算出距离，一定最小。<br>原理可见zhber博客：<a href="http://www.cnblogs.com/zhber/p/4116388.html" target="_blank" rel="external">http://www.cnblogs.com/zhber/p/4116388.html</a></p>
+<p>附上AC代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_N 500000</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">int</span> n, m, fa[MAX_N+<span class="number">5</span>][<span class="number">35</span>], dep[MAX_N+<span class="number">5</span>];</div><div class="line"><span class="built_in">vector</span> &lt;<span class="keyword">int</span>&gt; G[MAX_N+<span class="number">5</span>];</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(<span class="keyword">int</span> u)</span> </span>&#123;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">30</span>; i++)	<span class="keyword">if</span> (dep[u] &gt;= (<span class="number">1</span>&lt;&lt;i))	fa[u][i] = fa[fa[u][i<span class="number">-1</span>]][i<span class="number">-1</span>];</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; G[u].size(); i++) &#123;</div><div class="line">		<span class="keyword">int</span> v = G[u][i];	<span class="keyword">if</span> (v == fa[u][<span class="number">0</span>])	<span class="keyword">continue</span>;</div><div class="line">		fa[v][<span class="number">0</span>] = u, dep[v] = dep[u]+<span class="number">1</span>, DFS(v);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">LCA</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</div><div class="line">	<span class="keyword">if</span> (dep[a] &lt; dep[b])	swap(a, b);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">30</span>; i &gt;= <span class="number">0</span>; i--)	<span class="keyword">if</span> (dep[a]-(<span class="number">1</span>&lt;&lt;i) &gt;= dep[b])	a = fa[a][i];</div><div class="line">	<span class="keyword">if</span> (a == b)	<span class="keyword">return</span> a;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">30</span>; i &gt;= <span class="number">0</span>; i--)	<span class="keyword">if</span> (fa[a][i] != fa[b][i])	a = fa[a][i], b = fa[b][i];</div><div class="line">	<span class="keyword">return</span> fa[a][<span class="number">0</span>];</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">calc</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;<span class="keyword">int</span> c = LCA(a, b);	<span class="keyword">return</span> dep[a]+dep[b]<span class="number">-2</span>*dep[c];&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;m);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>, u, v; i &lt; n; i++)	<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;u, &amp;v), G[u].push_back(v), G[v].push_back(u);	DFS(<span class="number">1</span>);</div><div class="line">	<span class="keyword">while</span> (m--) &#123;</div><div class="line">		<span class="keyword">int</span> a, b, c;	<span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;a, &amp;b, &amp;c);</div><div class="line">		<span class="keyword">int</span> lca = LCA(a, b)^LCA(a, c)^LCA(b, c);</div><div class="line">		<span class="keyword">int</span> dis = calc(a, lca)+calc(b, lca)+calc(c, lca);</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>, lca, dis);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/洛谷模板汇总/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          【福利】洛谷模板汇总
+        
+      </div>
+    </a>
+  
+  
+    <a href="/HDU3068 最长回文 Manacher/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">HDU3068 最长回文 &lt;Manacher&gt;</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="ds-share share" data-thread-key="BZOJ1787【AHOI2008】Meet紧急集合 LCA" data-title="BZOJ1787【AHOI2008】Meet紧急集合 &lt;LCA&gt;" data-url="http://yoursite.com/BZOJ1787【AHOI2008】Meet紧急集合 LCA/"  data-images="http://chuantu.biz/t6/89/1507626502x2728279003.jpg" data-content="BZOJ1787【AHOI2008】Meet紧急集合 &lt;LCA&gt;">
+    <div class="ds-share-inline">
+      <ul  class="ds-share-icons-16">
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      </ul>
+      <div class="ds-share-icons-more">
+      </div>
+    </div>
+ </div>
+ 
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2017 Azrael_Death
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/smackgg/hexo-theme-smackdown" target="_blank">Smackdown</a>
+        </div>
+    </div>
+  </div>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+  <script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+
+
+
+  </div>
+</body>
+</html>
