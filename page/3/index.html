@@ -194,74 +194,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-HDU3068 最长回文 Manacher" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/HDU3068 最长回文 Manacher/" class="article-date">
-  	<time datetime="2017-09-24T16:00:00.000Z" itemprop="datePublished">2017-09-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/HDU3068 最长回文 Manacher/">
-        HDU3068 最长回文 &lt;Manacher&gt;
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>最长回文</p>
-<p>Time Limit: 4000/2000 MS (Java/Others) Memory Limit: 32768/32768 K (Java/Others)</p>
-<p>Problem Description 给出一个只由小写英文字符a,b,c…y,z组成的字符串S,求S中最长回文串的长度. 回文就是正反读都是一样的字符串,如aba, abba等</p>
-<p>Input 输入有多组case,不超过120组,每组输入为一行小写英文字符a,b,c…y,z组成的字符串S 两组case之间由空行隔开(该空行不用处理) 字符串长度len &lt;= 110000 Output 每一行一个整数x,对应一组case,表示该组case的字符串中所包含的最长回文长度.</p>
-<p>Sample Input aaaa abab Sample Output 4 3</p>
-</blockquote>
-<p>标签：Manacher</p>
-<p>Manacher板子题。 不懂Manacher的童鞋可以戳这里：https://segmentfault.com/a/1190000003914228 简单来说，Manacher就是记录以每个位置为中心的回文串的半径长度，这样在后面计算的时候可以根据对称性，利用前面的结果加速，找更长匹配时暴力扩展，复杂度<span class="math inline">O(n)</span>。由于此算法仅能对付长度为奇数的回文串（毕竟你算的是以每个点为<strong>中心</strong>的回文串），故先在每两个字符间插入一个占位符。</p>
-<p>附上AC代码： <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_L 110000</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">char</span> s[MAX_L*<span class="number">2</span>+<span class="number">5</span>];</div><div class="line"><span class="keyword">int</span> f[MAX_L*<span class="number">2</span>+<span class="number">5</span>];</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">manacher</span> <span class="params">(<span class="keyword">char</span>* s0)</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> len = <span class="built_in">strlen</span>(s0);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++)	s[i*<span class="number">2</span>+<span class="number">1</span>] = <span class="string">'#'</span>, s[i*<span class="number">2</span>+<span class="number">2</span>] = s0[i];</div><div class="line">	s[len = len*<span class="number">2</span>+<span class="number">1</span>] = <span class="string">'#'</span>;</div><div class="line">	<span class="keyword">int</span> pos = <span class="number">0</span>, r = <span class="number">0</span>, ret = <span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= len; i++) &#123;</div><div class="line">		f[i] = (i &lt; r) ? min(f[<span class="number">2</span>*pos-i], r-i) : <span class="number">1</span>;</div><div class="line">		<span class="keyword">while</span> (i-f[i] &gt;= <span class="number">1</span> &amp;&amp; i+f[i] &lt;= len &amp;&amp; s[i-f[i]] == s[i+f[i]])	f[i]++;</div><div class="line">		<span class="keyword">if</span> (i+f[i] &gt; r)	pos = i, r = i+f[i];</div><div class="line">		ret = max(ret, f[i]<span class="number">-1</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> ret;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="keyword">char</span> s0[MAX_L+<span class="number">5</span>];</div><div class="line">	<span class="keyword">while</span> (~<span class="built_in">scanf</span>(<span class="string">"%s"</span>, s0))	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, manacher(s0));</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Manacher/">Manacher</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
     <article id="post-UVa12345 Dynamic len(set(a[LR])) 带修莫队" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -445,6 +377,74 @@
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BZOJ/">BZOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/POI/">POI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/差分/">差分</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/树状数组/">树状数组</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-HDU3068 最长回文 Manacher" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/HDU3068 最长回文 Manacher/" class="article-date">
+  	<time datetime="2017-09-24T16:00:00.000Z" itemprop="datePublished">2017-09-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/HDU3068 最长回文 Manacher/">
+        HDU3068 最长回文 &lt;Manacher&gt;
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>最长回文</p>
+<p>Time Limit: 4000/2000 MS (Java/Others) Memory Limit: 32768/32768 K (Java/Others)</p>
+<p>Problem Description 给出一个只由小写英文字符a,b,c…y,z组成的字符串S,求S中最长回文串的长度. 回文就是正反读都是一样的字符串,如aba, abba等</p>
+<p>Input 输入有多组case,不超过120组,每组输入为一行小写英文字符a,b,c…y,z组成的字符串S 两组case之间由空行隔开(该空行不用处理) 字符串长度len &lt;= 110000 Output 每一行一个整数x,对应一组case,表示该组case的字符串中所包含的最长回文长度.</p>
+<p>Sample Input aaaa abab Sample Output 4 3</p>
+</blockquote>
+<p>标签：Manacher</p>
+<p>Manacher板子题。 不懂Manacher的童鞋可以戳这里：https://segmentfault.com/a/1190000003914228 简单来说，Manacher就是记录以每个位置为中心的回文串的半径长度，这样在后面计算的时候可以根据对称性，利用前面的结果加速，找更长匹配时暴力扩展，复杂度<span class="math inline">O(n)</span>。由于此算法仅能对付长度为奇数的回文串（毕竟你算的是以每个点为<strong>中心</strong>的回文串），故先在每两个字符间插入一个占位符。</p>
+<p>附上AC代码： <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_L 110000</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">char</span> s[MAX_L*<span class="number">2</span>+<span class="number">5</span>];</div><div class="line"><span class="keyword">int</span> f[MAX_L*<span class="number">2</span>+<span class="number">5</span>];</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">manacher</span> <span class="params">(<span class="keyword">char</span>* s0)</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> len = <span class="built_in">strlen</span>(s0);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++)	s[i*<span class="number">2</span>+<span class="number">1</span>] = <span class="string">'#'</span>, s[i*<span class="number">2</span>+<span class="number">2</span>] = s0[i];</div><div class="line">	s[len = len*<span class="number">2</span>+<span class="number">1</span>] = <span class="string">'#'</span>;</div><div class="line">	<span class="keyword">int</span> pos = <span class="number">0</span>, r = <span class="number">0</span>, ret = <span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= len; i++) &#123;</div><div class="line">		f[i] = (i &lt; r) ? min(f[<span class="number">2</span>*pos-i], r-i) : <span class="number">1</span>;</div><div class="line">		<span class="keyword">while</span> (i-f[i] &gt;= <span class="number">1</span> &amp;&amp; i+f[i] &lt;= len &amp;&amp; s[i-f[i]] == s[i+f[i]])	f[i]++;</div><div class="line">		<span class="keyword">if</span> (i+f[i] &gt; r)	pos = i, r = i+f[i];</div><div class="line">		ret = max(ret, f[i]<span class="number">-1</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> ret;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="keyword">char</span> s0[MAX_L+<span class="number">5</span>];</div><div class="line">	<span class="keyword">while</span> (~<span class="built_in">scanf</span>(<span class="string">"%s"</span>, s0))	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, manacher(s0));</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Manacher/">Manacher</a></li></ul>
 	</div>
 
       
