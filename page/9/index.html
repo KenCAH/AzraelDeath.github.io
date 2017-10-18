@@ -194,65 +194,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-20170710总结" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/20170710总结/" class="article-date">
-  	<time datetime="2017-07-09T16:00:00.000Z" itemprop="datePublished">2017-07-10</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/20170710总结/">
-        20170710总结
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今天是数据结构的最后一天。上午考试一反常态，花式翻车。T1是签到水题，居然没开longlong，int爆成负；T2T3用的是I64d（调试为windows下），考试为linux下，应该用lld，爆零了。T2是一个splay的版题，但是因为对翻转操作不熟悉，没有写正解。看来得多写写splay，因为比较好写又灵活的平衡树就是splay了（当然，treap也算）。T3写了一个玄学的值域主席树优化，虽然最坏复杂度还是O(n^2)，但是如果值域范围小，在10000以内都能过，因而我Task3和Task4都过了一半以上，可惜是子任务，不然就赚了。T3正解是分块，不太好写。隔壁小胖学长说是莫队，而且他的程序碾压标程，三项都比标程好,,ԾㅂԾ,,…莫队大法好 下午先讲了树链剖分，然后讲了一些数据结构杂题。杂题的思维难度都比较高，而且根本看不出和数据结构有什么联系。个人认为，数据结构其实就是工具，和解题方法无关，方法归方法，数据结构只是在解题的时候进行优化。除了版题以外，对于其他数据结构题，想的时候还是不要使劲往数据结构上靠，应该先全面想，再在局部用数据结构优化，这样才能打开思维。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/总结/">总结</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
     <article id="post-20170707总结" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -460,6 +401,65 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>今天是数据结构的第二天。上午考试，题目难度适中。T1考读题，较水。T2是线段树的奇葩用法，和普通用法不同，它是只递归单区间，另一区间则转化计算。T3是昨天讲过的题，线段树套单调队列，因为代码较为复杂，没能调出来。综上可知，线段树一些较难的题都是不具有合并性质的线段树或有限制（后效性）的线段树，一般只能得出左右两区间中其中一个区间的算法，另一区间则不断递归完成。两个区间有一个区间根本不去算，而是递归，这样让我感觉有些虚，经常想不清楚，应多加练习。 下午先讲了dfs序列，这类题一般可以用树剖来做（前天第一次写，一直没调出来/(ㄒoㄒ)/~~），其中较难的是括号序列，尽管听懂了，但题目变化很多，需要练一练题。接着讲了几种并查集进阶，即带权并查集、可撤销并查集（貌似漏了种类并查集），这部分题目不难，只是实现的时候要注意细节，以防被卡常数。然后讲了分块，这种玄学的暴力优化在很多时候都有用，因为出题人预测不到，而且好写好调，性价比高，是个好东西。最后是传说中的莫队算法。这种算法号称“可以解决一切RMQ”，只是有时候容易卡常数，因而需要多加练习，用最好的写法。今天的题目比较难，得多消化消化。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/总结/">总结</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-20170703总结" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/20170703总结/" class="article-date">
+  	<time datetime="2017-07-02T16:00:00.000Z" itemprop="datePublished">2017-07-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/20170703总结/">
+        20170703总结
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天开始就是数据结构了。上午先快速地复习了栈、队列、链表、堆等基础数据结构。在此之中，学长提到了dancing links和左偏树。前者是链表实现暴力，能在暴搜的时候作很大优化，后者是支持合并的堆，在某些题有用。接下来复习了线段树和树状数组。做了几道较难的题，见识一下这种数据结构的各种灵活变化。其中一道叫“图腾”的题让我受益匪浅。线段树和树状数组作为优化的时候经常出现，而二位的线段树和树状数组则不常用，除了模板题就没什么应用了。写了几道模板题练手，现在把线段树写熟了，可以考虑开始压代码，毕竟原理什么的都很清楚，压代码也不会到调不出来的地步。 下午做vjudge的题。其中一道是树链剖分的题，以前没学过，今天花了两个小时学写树剖。（CSDN某神犇对把树链映射到线段树上的讲解太过省略，想了半天才想清楚）因为是两个部分，因而代码量适中偏大，调了很久才搞对。得多写写树剖的题，熟悉模板，这样就会越写越熟。线段树的变形很多，需要多加练习。</p>
 
       
     </div>

@@ -194,65 +194,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-20170703总结" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/20170703总结/" class="article-date">
-  	<time datetime="2017-07-02T16:00:00.000Z" itemprop="datePublished">2017-07-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/20170703总结/">
-        20170703总结
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今天开始就是数据结构了。上午先快速地复习了栈、队列、链表、堆等基础数据结构。在此之中，学长提到了dancing links和左偏树。前者是链表实现暴力，能在暴搜的时候作很大优化，后者是支持合并的堆，在某些题有用。接下来复习了线段树和树状数组。做了几道较难的题，见识一下这种数据结构的各种灵活变化。其中一道叫“图腾”的题让我受益匪浅。线段树和树状数组作为优化的时候经常出现，而二位的线段树和树状数组则不常用，除了模板题就没什么应用了。写了几道模板题练手，现在把线段树写熟了，可以考虑开始压代码，毕竟原理什么的都很清楚，压代码也不会到调不出来的地步。 下午做vjudge的题。其中一道是树链剖分的题，以前没学过，今天花了两个小时学写树剖。（CSDN某神犇对把树链映射到线段树上的讲解太过省略，想了半天才想清楚）因为是两个部分，因而代码量适中偏大，调了很久才搞对。得多写写树剖的题，熟悉模板，这样就会越写越熟。线段树的变形很多，需要多加练习。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/总结/">总结</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
     <article id="post-20170701总结" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -460,6 +401,65 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>今天是图论的最后一节课，除了网络流外都上完了。复习了欧拉路、拓扑，重新熟悉了代码。对于连通分量，复习了有向图的tarjan和割点割边，新学了无向图里的边双和点双连通分量。圆桌会议那道题虽然懂了，但自愧写不出来那样巧妙的代码。接下来是2-SAT，隐隐约约懂了，但推起细节却又有些模糊，2-SAT问题很玄妙，得花时间多理解理解。最后是最短路，给了几道比较难的题，但常用的做法就是拆点或在每个状态跑一遍SPFA，最后一道二分答案+最短路的题很精妙，但估计我调不出来。 上午和中午的课余时间把昨天的三道题都调出来了。图论就是这样，难想，难建模，但想出来就是模板（可能综合几个模板）。 下午考试很难，T1完全没想到是拓扑，甚至怀疑这不是图论，但听了评讲后觉得还是蛮简单的。T2想到了DFS序，又因时间复杂度想了3种优化，只可惜连记录进入时间戳都想到了，居然没想到打出来的时间戳，很冤。T3的确没有思路，因为没来得及听dogher大神讲，晚上问了杨林翰。听完觉得很精妙，有点像2-SAT的那种推理方式，但又有许多不同。对于图论，我还得加强建模的训练。 明天开始就是DP了，我的弱项，希望RP++吧</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/总结/">总结</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-20170627总结" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/20170627总结/" class="article-date">
+  	<time datetime="2017-06-26T16:00:00.000Z" itemprop="datePublished">2017-06-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/20170627总结/">
+        20170627总结
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天进入真正的图论，复习了DFS序、LCA和最小生成树。LCA的两种方法，倍增写得很熟，RMQ则不那么熟练，学长提及了玄学的ST表，于是又把这个构造O(n)查询O(1)的神奇结构复习了一遍。我记得RMQ除了线段树，树状数组和ST表以外，还有一种叫莫队的东西。我九上的时候接触过，现在都忘完了，期待过几天讲数据结构的时候能遇到。关于最小生成树，虽然知道kruskal和prim两种算法，但是自己感觉这个东西如果研究深了也是很棘手的。比如今天的例题NOI2014魔法森林，虽然费劲脑力听懂了思路，但是自愧写不出来，对代码要求很高。增量最小生成树和次小生成树我都在CSDN上看了博客，思路清晰了，但是不知道写的时候会不会出问题。学长最后讲的有向图最小生成树，即最小树形图，我没听懂，因为时间匆忙，也没有问，得多研究研究CSDN的两篇博文。 下午考试三道打baoli居然还得了130，意料之外。三道题都比较难。T1和货车运输很像，因为写过货车运输，惯性思维就想到LCA，事实证明我想复杂了。这道题多用笔画画图应该能想出正解。T2也是差一点想到正解，也是想复杂了。这里我总结出一种化繁为简的思考方法，即不要全面地考虑整个问题，应该把它分成子问题，逐个击破，而且想一个子问题的时候就不要受另外子问题的干扰。这道题我做复杂了，写了一个SPFA，两个BFS，一个DFS才写出来，不过我能在40分钟把它写和调出来还是值得欣慰的，看来多考考对代码能力提升很大。T3貌似数据有些问题，到现在还不知道怎么做，等明天大神讲。</p>
 
       
     </div>
