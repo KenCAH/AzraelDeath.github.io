@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <meta charset="utf-8">
   
   <title>BZOJ1008【HNOI2008】越狱 | NIRVANA</title>
 
@@ -9,18 +9,18 @@
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="【HNOI2008】越狱  Time Limit: 1 Sec Memory Limit: 162 MB Description 监狱有连续编号为1…N的N个房间，每个房间关押一个犯人，有M种宗教，每个犯人可能信仰其中一种。如果相邻房间的犯人的宗教相同，就可能发生越狱，求有多少种状态可能发生越狱。 Input 输入两个整数M，N.1&amp;lt;=M&amp;lt;=108,1&amp;lt;=N&amp;lt;=1">
-<meta name="keywords" content="组合数学,补集转换,BZOJ,省选">
+  <meta name="description" content="&amp;#x3010;HNOI2008&amp;#x3011;&amp;#x8D8A;&amp;#x72F1; &amp;lt;&amp;#x8865;&amp;#x96C6;&amp;#x8F6C;&amp;#x6362;&amp;gt; Time Limit: 1 SecMemory Limit: 162 MB Description&amp;#x76D1;&amp;#x72F1;&amp;#x6709;&amp;#x8FDE;&amp;#x7EED;&amp;#x7F16;&amp;#x53F7;&amp;#x4E3A;1&amp;#x">
+<meta name="keywords" content="BZOJ,省选,组合数学,补集转换">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BZOJ1008【HNOI2008】越狱">
 <meta property="og:url" content="http://yoursite.com/BZOJ1008【HNOI2008】越狱 补集转换/index.html">
 <meta property="og:site_name" content="NIRVANA">
-<meta property="og:description" content="【HNOI2008】越狱  Time Limit: 1 Sec Memory Limit: 162 MB Description 监狱有连续编号为1…N的N个房间，每个房间关押一个犯人，有M种宗教，每个犯人可能信仰其中一种。如果相邻房间的犯人的宗教相同，就可能发生越狱，求有多少种状态可能发生越狱。 Input 输入两个整数M，N.1&amp;lt;=M&amp;lt;=108,1&amp;lt;=N&amp;lt;=1">
+<meta property="og:description" content="&amp;#x3010;HNOI2008&amp;#x3011;&amp;#x8D8A;&amp;#x72F1; &amp;lt;&amp;#x8865;&amp;#x96C6;&amp;#x8F6C;&amp;#x6362;&amp;gt; Time Limit: 1 SecMemory Limit: 162 MB Description&amp;#x76D1;&amp;#x72F1;&amp;#x6709;&amp;#x8FDE;&amp;#x7EED;&amp;#x7F16;&amp;#x53F7;&amp;#x4E3A;1&amp;#x">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2017-10-12T04:36:07.788Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BZOJ1008【HNOI2008】越狱">
-<meta name="twitter:description" content="【HNOI2008】越狱  Time Limit: 1 Sec Memory Limit: 162 MB Description 监狱有连续编号为1…N的N个房间，每个房间关押一个犯人，有M种宗教，每个犯人可能信仰其中一种。如果相邻房间的犯人的宗教相同，就可能发生越狱，求有多少种状态可能发生越狱。 Input 输入两个整数M，N.1&amp;lt;=M&amp;lt;=108,1&amp;lt;=N&amp;lt;=1">
+<meta name="twitter:description" content="&amp;#x3010;HNOI2008&amp;#x3011;&amp;#x8D8A;&amp;#x72F1; &amp;lt;&amp;#x8865;&amp;#x96C6;&amp;#x8F6C;&amp;#x6362;&amp;gt; Time Limit: 1 SecMemory Limit: 162 MB Description&amp;#x76D1;&amp;#x72F1;&amp;#x6709;&amp;#x8FDE;&amp;#x7EED;&amp;#x7F16;&amp;#x53F7;&amp;#x4E3A;1&amp;#x">
   
     <link rel="alternative" href="/atom.xml" title="NIRVANA" type="application/atom+xml">
   
@@ -32,12 +32,12 @@
   
 
   <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
-  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
 
   
 </head>
 <body>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+  <div id="container">
     <div id="particles-js"></div>
     <div class="left-col">
     <div class="overlay"></div>
@@ -234,16 +234,16 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>【HNOI2008】越狱 <补集转换></补集转换></p>
-<p>Time Limit: 1 Sec Memory Limit: 162 MB</p>
-<p>Description 监狱有连续编号为1…N的N个房间，每个房间关押一个犯人，有M种宗教，每个犯人可能信仰其中一种。如果相邻房间的犯人的宗教相同，就可能发生越狱，求有多少种状态可能发生越狱。</p>
-<p>Input 输入两个整数M，N.1&lt;=M&lt;=10<sup>8,1&lt;=N&lt;=10</sup>12 Output 可能越狱的状态数，模100003取余</p>
-<p>Sample Input 2 3 Sample Output 6</p>
-<p>HINT 6种状态为(000)(001)(011)(100)(110)(111)</p>
+<p>&#x3010;HNOI2008&#x3011;&#x8D8A;&#x72F1; &lt;&#x8865;&#x96C6;&#x8F6C;&#x6362;&gt;</p>
+<p>Time Limit: 1 Sec<br>Memory Limit: 162 MB</p>
+<p>Description<br>&#x76D1;&#x72F1;&#x6709;&#x8FDE;&#x7EED;&#x7F16;&#x53F7;&#x4E3A;1&#x2026;N&#x7684;N&#x4E2A;&#x623F;&#x95F4;&#xFF0C;&#x6BCF;&#x4E2A;&#x623F;&#x95F4;&#x5173;&#x62BC;&#x4E00;&#x4E2A;&#x72AF;&#x4EBA;&#xFF0C;&#x6709;M&#x79CD;&#x5B97;&#x6559;&#xFF0C;&#x6BCF;&#x4E2A;&#x72AF;&#x4EBA;&#x53EF;&#x80FD;&#x4FE1;&#x4EF0;&#x5176;&#x4E2D;&#x4E00;&#x79CD;&#x3002;&#x5982;&#x679C;&#x76F8;&#x90BB;&#x623F;&#x95F4;&#x7684;&#x72AF;&#x4EBA;&#x7684;&#x5B97;&#x6559;&#x76F8;&#x540C;&#xFF0C;&#x5C31;&#x53EF;&#x80FD;&#x53D1;&#x751F;&#x8D8A;&#x72F1;&#xFF0C;&#x6C42;&#x6709;&#x591A;&#x5C11;&#x79CD;&#x72B6;&#x6001;&#x53EF;&#x80FD;&#x53D1;&#x751F;&#x8D8A;&#x72F1;&#x3002;</p>
+<p>Input<br>&#x8F93;&#x5165;&#x4E24;&#x4E2A;&#x6574;&#x6570;M&#xFF0C;N.1&lt;=M&lt;=10^8,1&lt;=N&lt;=10^12<br>Output<br>&#x53EF;&#x80FD;&#x8D8A;&#x72F1;&#x7684;&#x72B6;&#x6001;&#x6570;&#xFF0C;&#x6A21;100003&#x53D6;&#x4F59;</p>
+<p>Sample Input<br>2 3<br>Sample Output<br>6</p>
+<p>HINT<br>6&#x79CD;&#x72B6;&#x6001;&#x4E3A;(000)(001)(011)(100)(110)(111)</p>
 </blockquote>
-<p>标签：补集转换</p>
-<p>考虑到补集转换，这道题就是一水题。 总共有<span class="math inline">M^N</span>种方案，其中不能发生越狱的有<span class="math inline">M*(M-1)^{N-1}</span>种方案，快速幂求出，相减即可。注意处理负数。</p>
-<p>直接上代码： <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MOD 100003</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> lnt;</div><div class="line"><span class="function">lnt <span class="title">PowerMod</span><span class="params">(lnt a, lnt b)</span> </span>&#123;</div><div class="line">	<span class="keyword">if</span> (b == <span class="number">1</span>)	<span class="keyword">return</span> a%MOD;</div><div class="line">	lnt ret = PowerMod(a, b/<span class="number">2</span>);</div><div class="line">	<span class="keyword">return</span> b&amp;<span class="number">1</span> ? a%MOD*ret%MOD*ret%MOD : ret*ret%MOD;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">	lnt m, n;	<span class="built_in">scanf</span>(<span class="string">"%lld%lld"</span>, &amp;m, &amp;n);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%lld"</span>, ((PowerMod(m, n)-m%MOD*PowerMod(m<span class="number">-1</span>, n<span class="number">-1</span>))%MOD+MOD)%MOD);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#x6807;&#x7B7E;&#xFF1A;&#x8865;&#x96C6;&#x8F6C;&#x6362;</p>
+<p>&#x8003;&#x8651;&#x5230;&#x8865;&#x96C6;&#x8F6C;&#x6362;&#xFF0C;&#x8FD9;&#x9053;&#x9898;&#x5C31;&#x662F;&#x4E00;&#x6C34;&#x9898;&#x3002;<br>&#x603B;&#x5171;&#x6709;$M^N$&#x79CD;&#x65B9;&#x6848;&#xFF0C;&#x5176;&#x4E2D;&#x4E0D;&#x80FD;&#x53D1;&#x751F;&#x8D8A;&#x72F1;&#x7684;&#x6709;$M*(M-1)^{N-1}$&#x79CD;&#x65B9;&#x6848;&#xFF0C;&#x5FEB;&#x901F;&#x5E42;&#x6C42;&#x51FA;&#xFF0C;&#x76F8;&#x51CF;&#x5373;&#x53EF;&#x3002;&#x6CE8;&#x610F;&#x5904;&#x7406;&#x8D1F;&#x6570;&#x3002;</p>
+<p>&#x76F4;&#x63A5;&#x4E0A;&#x4EE3;&#x7801;&#xFF1A;<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MOD 100003</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> lnt;</div><div class="line"><span class="function">lnt <span class="title">PowerMod</span><span class="params">(lnt a, lnt b)</span> </span>{</div><div class="line">	<span class="keyword">if</span> (b == <span class="number">1</span>)	<span class="keyword">return</span> a%MOD;</div><div class="line">	lnt ret = PowerMod(a, b/<span class="number">2</span>);</div><div class="line">	<span class="keyword">return</span> b&amp;<span class="number">1</span> ? a%MOD*ret%MOD*ret%MOD : ret*ret%MOD;</div><div class="line">}</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>{</div><div class="line">	lnt m, n;	<span class="built_in">scanf</span>(<span class="string">&quot;%lld%lld&quot;</span>, &amp;m, &amp;n);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%lld&quot;</span>, ((PowerMod(m, n)-m%MOD*PowerMod(m<span class="number">-1</span>, n<span class="number">-1</span>))%MOD+MOD)%MOD);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">}</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -253,18 +253,18 @@
     
 <nav id="article-nav">
   
-    <a href="/BZOJ1189【HNOI2007】紧急疏散evacuate 二分答案+网络流/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/BZOJ3144【HZNOI2013】切糕 最小割/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">&lt;</strong>
       <div class="article-nav-title">
         
-          BZOJ1189【HNOI2007】紧急疏散evacuate &lt;二分答案+网络流&gt;
+          BZOJ3144【HZNOI2013】切糕 &lt;最小割&gt;
         
       </div>
     </a>
   
   
-    <a href="/BZOJ1066【SCOI2007】蜥蜴 网络流/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">BZOJ1066【SCOI2007】蜥蜴 &lt;网络流&gt;</div>
+    <a href="/BZOJ1189【HNOI2007】紧急疏散evacuate 二分答案+网络流/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">BZOJ1189【HNOI2007】紧急疏散evacuate &lt;二分答案+网络流&gt;</div>
       <strong class="article-nav-caption">&gt;</strong>
     </a>
   
@@ -341,8 +341,11 @@
   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.js"></script>
 
 
-  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+  </div>
 </body>
 </html>
