@@ -9,18 +9,18 @@
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="&amp;#x4ECA;&amp;#x5929;&amp;#x5B66;&amp;#x4E60;&amp;#x4E86;&amp;#x53EF;&amp;#x6301;&amp;#x4E45;&amp;#x5316;&amp;#x7EBF;&amp;#x6BB5;&amp;#x6811;&amp;#x3001;&amp;#x4E3B;&amp;#x5E2D;&amp;#x6811;&amp;#x548C;&amp;#x7EBF;&amp;#x6BB5;&amp;#x6811;&amp;#x5957;&amp;#x7EBF;&amp;#x6BB5;&amp;#x6811;&amp;#x3002;">
+  <meta name="description" content="今天学习了可持久化线段树、主席树和线段树套线段树。三者都是与线段树相关的较难数据结构。可持久化线段树和主席树感觉写起来较为简单，模板细节也并不多（HDU4348除外），模板题很快写完了，就试着去写HDU4348。这道题是主席树带区间修改，而每次都downtag则会MLE，因而只能不下放lazy标记，在询问的时候一路累加。累加的一步分类较多，应注意细节。调了很久，从TLE变成MLE又变成WA，因为对">
 <meta name="keywords" content="总结">
 <meta property="og:type" content="article">
 <meta property="og:title" content="20170705总结">
 <meta property="og:url" content="http://yoursite.com/20170705总结/index.html">
 <meta property="og:site_name" content="NIRVANA">
-<meta property="og:description" content="&amp;#x4ECA;&amp;#x5929;&amp;#x5B66;&amp;#x4E60;&amp;#x4E86;&amp;#x53EF;&amp;#x6301;&amp;#x4E45;&amp;#x5316;&amp;#x7EBF;&amp;#x6BB5;&amp;#x6811;&amp;#x3001;&amp;#x4E3B;&amp;#x5E2D;&amp;#x6811;&amp;#x548C;&amp;#x7EBF;&amp;#x6BB5;&amp;#x6811;&amp;#x5957;&amp;#x7EBF;&amp;#x6BB5;&amp;#x6811;&amp;#x3002;">
+<meta property="og:description" content="今天学习了可持久化线段树、主席树和线段树套线段树。三者都是与线段树相关的较难数据结构。可持久化线段树和主席树感觉写起来较为简单，模板细节也并不多（HDU4348除外），模板题很快写完了，就试着去写HDU4348。这道题是主席树带区间修改，而每次都downtag则会MLE，因而只能不下放lazy标记，在询问的时候一路累加。累加的一步分类较多，应注意细节。调了很久，从TLE变成MLE又变成WA，因为对">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2017-10-11T05:54:44.308Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="20170705总结">
-<meta name="twitter:description" content="&amp;#x4ECA;&amp;#x5929;&amp;#x5B66;&amp;#x4E60;&amp;#x4E86;&amp;#x53EF;&amp;#x6301;&amp;#x4E45;&amp;#x5316;&amp;#x7EBF;&amp;#x6BB5;&amp;#x6811;&amp;#x3001;&amp;#x4E3B;&amp;#x5E2D;&amp;#x6811;&amp;#x548C;&amp;#x7EBF;&amp;#x6BB5;&amp;#x6811;&amp;#x5957;&amp;#x7EBF;&amp;#x6BB5;&amp;#x6811;&amp;#x3002;">
+<meta name="twitter:description" content="今天学习了可持久化线段树、主席树和线段树套线段树。三者都是与线段树相关的较难数据结构。可持久化线段树和主席树感觉写起来较为简单，模板细节也并不多（HDU4348除外），模板题很快写完了，就试着去写HDU4348。这道题是主席树带区间修改，而每次都downtag则会MLE，因而只能不下放lazy标记，在询问的时候一路累加。累加的一步分类较多，应注意细节。调了很久，从TLE变成MLE又变成WA，因为对">
   
     <link rel="alternative" href="/atom.xml" title="NIRVANA" type="application/atom+xml">
   
@@ -233,7 +233,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>&#x4ECA;&#x5929;&#x5B66;&#x4E60;&#x4E86;&#x53EF;&#x6301;&#x4E45;&#x5316;&#x7EBF;&#x6BB5;&#x6811;&#x3001;&#x4E3B;&#x5E2D;&#x6811;&#x548C;&#x7EBF;&#x6BB5;&#x6811;&#x5957;&#x7EBF;&#x6BB5;&#x6811;&#x3002;&#x4E09;&#x8005;&#x90FD;&#x662F;&#x4E0E;&#x7EBF;&#x6BB5;&#x6811;&#x76F8;&#x5173;&#x7684;&#x8F83;&#x96BE;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x3002;&#x53EF;&#x6301;&#x4E45;&#x5316;&#x7EBF;&#x6BB5;&#x6811;&#x548C;&#x4E3B;&#x5E2D;&#x6811;&#x611F;&#x89C9;&#x5199;&#x8D77;&#x6765;&#x8F83;&#x4E3A;&#x7B80;&#x5355;&#xFF0C;&#x6A21;&#x677F;&#x7EC6;&#x8282;&#x4E5F;&#x5E76;&#x4E0D;&#x591A;&#xFF08;HDU4348&#x9664;&#x5916;&#xFF09;&#xFF0C;&#x6A21;&#x677F;&#x9898;&#x5F88;&#x5FEB;&#x5199;&#x5B8C;&#x4E86;&#xFF0C;&#x5C31;&#x8BD5;&#x7740;&#x53BB;&#x5199;HDU4348&#x3002;&#x8FD9;&#x9053;&#x9898;&#x662F;&#x4E3B;&#x5E2D;&#x6811;&#x5E26;&#x533A;&#x95F4;&#x4FEE;&#x6539;&#xFF0C;&#x800C;&#x6BCF;&#x6B21;&#x90FD;downtag&#x5219;&#x4F1A;MLE&#xFF0C;&#x56E0;&#x800C;&#x53EA;&#x80FD;&#x4E0D;&#x4E0B;&#x653E;lazy&#x6807;&#x8BB0;&#xFF0C;&#x5728;&#x8BE2;&#x95EE;&#x7684;&#x65F6;&#x5019;&#x4E00;&#x8DEF;&#x7D2F;&#x52A0;&#x3002;&#x7D2F;&#x52A0;&#x7684;&#x4E00;&#x6B65;&#x5206;&#x7C7B;&#x8F83;&#x591A;&#xFF0C;&#x5E94;&#x6CE8;&#x610F;&#x7EC6;&#x8282;&#x3002;&#x8C03;&#x4E86;&#x5F88;&#x4E45;&#xFF0C;&#x4ECE;TLE&#x53D8;&#x6210;MLE&#x53C8;&#x53D8;&#x6210;WA&#xFF0C;&#x56E0;&#x4E3A;&#x5BF9;&#x62CD;&#x82E5;&#x6BCF;&#x4E2A;&#x6570;&#x7684;&#x503C;&#x90FD;&#x5C0F;&#xFF0C;&#x5219;&#x90FD;&#x6CA1;&#x9519;&#xFF0C;&#x6240;&#x4EE5;&#x4E2A;&#x4EBA;&#x8BA4;&#x4E3A;&#x5E94;&#x8BE5;&#x662F;longlong&#x64CD;&#x4F5C;&#x7684;&#x9519;&#x8BEF;&#xFF0C;&#x6BD5;&#x7ADF;&#x5927;&#x6570;&#x636E;&#x7206;&#x6210;&#x4E86;&#x8D1F;&#x6570;&#x3002;&#x7EBF;&#x6BB5;&#x6811;&#x5957;&#x7EBF;&#x6BB5;&#x6811;&#x867D;&#x7136;&#x662F;&#x7B2C;&#x4E00;&#x6B21;&#x63A5;&#x89E6;&#xFF0C;&#x4F46;&#x662F;&#x56E0;&#x4E3A;&#x63A5;&#x89E6;&#x8FC7;&#x4E8C;&#x7EF4;&#x6811;&#x72B6;&#x6570;&#x7EC4;&#xFF0C;&#x7406;&#x89E3;&#x8D77;&#x6765;&#x4E5F;&#x4E0D;&#x96BE;&#x3002;&#x4EE3;&#x7801;&#x867D;&#x77ED;&#xFF0C;&#x4F46;&#x6709;&#x4E9B;&#x7EC6;&#x8282;&#xFF0C;&#x6700;&#x607C;&#x706B;&#x7684;&#x662F;&#x4E8C;&#x7EF4;&#x4E0D;&#x597D;&#x8C03;&#xFF0C;&#x56E0;&#x800C;&#x8089;&#x773C;&#x67E5;&#x9519;&#x5F88;&#x91CD;&#x8981;&#x3002;&#x6811;&#x5957;&#x6811;&#x82E5;&#x52A0;&#x5165;&#x5E73;&#x8861;&#x6811;&#xFF0C;&#x4E00;&#x5B9A;&#x4F1A;&#x5F88;&#x96BE;&#xFF0C;&#x5F97;&#x591A;&#x5199;&#x9898;&#xFF0C;&#x591A;&#x80CC;&#x6A21;&#x677F;&#xFF0C;&#x9632;&#x6B62;&#x5C0F;&#x9519;&#x8C03;&#x534A;&#x5929;&#x3002;</p>
+        <p>今天学习了可持久化线段树、主席树和线段树套线段树。三者都是与线段树相关的较难数据结构。可持久化线段树和主席树感觉写起来较为简单，模板细节也并不多（HDU4348除外），模板题很快写完了，就试着去写HDU4348。这道题是主席树带区间修改，而每次都downtag则会MLE，因而只能不下放lazy标记，在询问的时候一路累加。累加的一步分类较多，应注意细节。调了很久，从TLE变成MLE又变成WA，因为对拍若每个数的值都小，则都没错，所以个人认为应该是longlong操作的错误，毕竟大数据爆成了负数。线段树套线段树虽然是第一次接触，但是因为接触过二维树状数组，理解起来也不难。代码虽短，但有些细节，最恼火的是二维不好调，因而肉眼查错很重要。树套树若加入平衡树，一定会很难，得多写题，多背模板，防止小错调半天。</p>
 
       
     </div>
@@ -323,16 +323,14 @@
 	}
 </script>
 <script src="/js/main.js"></script>
-
+<!--
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
 </script>
 <script type="text/javascript"
   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
-
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.js"></script>
+-->
 
 
 

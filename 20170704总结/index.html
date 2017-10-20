@@ -9,18 +9,18 @@
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="&amp;#x4ECA;&amp;#x5929;&amp;#x662F;&amp;#x6570;&amp;#x636E;&amp;#x7ED3;&amp;#x6784;&amp;#x7684;&amp;#x7B2C;&amp;#x4E8C;&amp;#x5929;&amp;#x3002;&amp;#x4E0A;&amp;#x5348;&amp;#x8003;&amp;#x8BD5;&amp;#xFF0C;&amp;#x9898;&amp;#x76EE;&amp;#x96BE;&amp;#x5EA6;&amp;#x9002;&amp;#x4E2D;&amp;#x3002;T1&amp;#x800">
+  <meta name="description" content="今天是数据结构的第二天。上午考试，题目难度适中。T1考读题，较水。T2是线段树的奇葩用法，和普通用法不同，它是只递归单区间，另一区间则转化计算。T3是昨天讲过的题，线段树套单调队列，因为代码较为复杂，没能调出来。综上可知，线段树一些较难的题都是不具有合并性质的线段树或有限制（后效性）的线段树，一般只能得出左右两区间中其中一个区间的算法，另一区间则不断递归完成。两个区间有一个区间根本不去算，而是递归">
 <meta name="keywords" content="总结">
 <meta property="og:type" content="article">
 <meta property="og:title" content="20170704总结">
 <meta property="og:url" content="http://yoursite.com/20170704总结/index.html">
 <meta property="og:site_name" content="NIRVANA">
-<meta property="og:description" content="&amp;#x4ECA;&amp;#x5929;&amp;#x662F;&amp;#x6570;&amp;#x636E;&amp;#x7ED3;&amp;#x6784;&amp;#x7684;&amp;#x7B2C;&amp;#x4E8C;&amp;#x5929;&amp;#x3002;&amp;#x4E0A;&amp;#x5348;&amp;#x8003;&amp;#x8BD5;&amp;#xFF0C;&amp;#x9898;&amp;#x76EE;&amp;#x96BE;&amp;#x5EA6;&amp;#x9002;&amp;#x4E2D;&amp;#x3002;T1&amp;#x800">
+<meta property="og:description" content="今天是数据结构的第二天。上午考试，题目难度适中。T1考读题，较水。T2是线段树的奇葩用法，和普通用法不同，它是只递归单区间，另一区间则转化计算。T3是昨天讲过的题，线段树套单调队列，因为代码较为复杂，没能调出来。综上可知，线段树一些较难的题都是不具有合并性质的线段树或有限制（后效性）的线段树，一般只能得出左右两区间中其中一个区间的算法，另一区间则不断递归完成。两个区间有一个区间根本不去算，而是递归">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2017-10-11T05:54:57.359Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="20170704总结">
-<meta name="twitter:description" content="&amp;#x4ECA;&amp;#x5929;&amp;#x662F;&amp;#x6570;&amp;#x636E;&amp;#x7ED3;&amp;#x6784;&amp;#x7684;&amp;#x7B2C;&amp;#x4E8C;&amp;#x5929;&amp;#x3002;&amp;#x4E0A;&amp;#x5348;&amp;#x8003;&amp;#x8BD5;&amp;#xFF0C;&amp;#x9898;&amp;#x76EE;&amp;#x96BE;&amp;#x5EA6;&amp;#x9002;&amp;#x4E2D;&amp;#x3002;T1&amp;#x800">
+<meta name="twitter:description" content="今天是数据结构的第二天。上午考试，题目难度适中。T1考读题，较水。T2是线段树的奇葩用法，和普通用法不同，它是只递归单区间，另一区间则转化计算。T3是昨天讲过的题，线段树套单调队列，因为代码较为复杂，没能调出来。综上可知，线段树一些较难的题都是不具有合并性质的线段树或有限制（后效性）的线段树，一般只能得出左右两区间中其中一个区间的算法，另一区间则不断递归完成。两个区间有一个区间根本不去算，而是递归">
   
     <link rel="alternative" href="/atom.xml" title="NIRVANA" type="application/atom+xml">
   
@@ -233,7 +233,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>&#x4ECA;&#x5929;&#x662F;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x7684;&#x7B2C;&#x4E8C;&#x5929;&#x3002;&#x4E0A;&#x5348;&#x8003;&#x8BD5;&#xFF0C;&#x9898;&#x76EE;&#x96BE;&#x5EA6;&#x9002;&#x4E2D;&#x3002;T1&#x8003;&#x8BFB;&#x9898;&#xFF0C;&#x8F83;&#x6C34;&#x3002;T2&#x662F;&#x7EBF;&#x6BB5;&#x6811;&#x7684;&#x5947;&#x8469;&#x7528;&#x6CD5;&#xFF0C;&#x548C;&#x666E;&#x901A;&#x7528;&#x6CD5;&#x4E0D;&#x540C;&#xFF0C;&#x5B83;&#x662F;&#x53EA;&#x9012;&#x5F52;&#x5355;&#x533A;&#x95F4;&#xFF0C;&#x53E6;&#x4E00;&#x533A;&#x95F4;&#x5219;&#x8F6C;&#x5316;&#x8BA1;&#x7B97;&#x3002;T3&#x662F;&#x6628;&#x5929;&#x8BB2;&#x8FC7;&#x7684;&#x9898;&#xFF0C;&#x7EBF;&#x6BB5;&#x6811;&#x5957;&#x5355;&#x8C03;&#x961F;&#x5217;&#xFF0C;&#x56E0;&#x4E3A;&#x4EE3;&#x7801;&#x8F83;&#x4E3A;&#x590D;&#x6742;&#xFF0C;&#x6CA1;&#x80FD;&#x8C03;&#x51FA;&#x6765;&#x3002;&#x7EFC;&#x4E0A;&#x53EF;&#x77E5;&#xFF0C;&#x7EBF;&#x6BB5;&#x6811;&#x4E00;&#x4E9B;&#x8F83;&#x96BE;&#x7684;&#x9898;&#x90FD;&#x662F;&#x4E0D;&#x5177;&#x6709;&#x5408;&#x5E76;&#x6027;&#x8D28;&#x7684;&#x7EBF;&#x6BB5;&#x6811;&#x6216;&#x6709;&#x9650;&#x5236;&#xFF08;&#x540E;&#x6548;&#x6027;&#xFF09;&#x7684;&#x7EBF;&#x6BB5;&#x6811;&#xFF0C;&#x4E00;&#x822C;&#x53EA;&#x80FD;&#x5F97;&#x51FA;&#x5DE6;&#x53F3;&#x4E24;&#x533A;&#x95F4;&#x4E2D;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x533A;&#x95F4;&#x7684;&#x7B97;&#x6CD5;&#xFF0C;&#x53E6;&#x4E00;&#x533A;&#x95F4;&#x5219;&#x4E0D;&#x65AD;&#x9012;&#x5F52;&#x5B8C;&#x6210;&#x3002;&#x4E24;&#x4E2A;&#x533A;&#x95F4;&#x6709;&#x4E00;&#x4E2A;&#x533A;&#x95F4;&#x6839;&#x672C;&#x4E0D;&#x53BB;&#x7B97;&#xFF0C;&#x800C;&#x662F;&#x9012;&#x5F52;&#xFF0C;&#x8FD9;&#x6837;&#x8BA9;&#x6211;&#x611F;&#x89C9;&#x6709;&#x4E9B;&#x865A;&#xFF0C;&#x7ECF;&#x5E38;&#x60F3;&#x4E0D;&#x6E05;&#x695A;&#xFF0C;&#x5E94;&#x591A;&#x52A0;&#x7EC3;&#x4E60;&#x3002;<br>&#x4E0B;&#x5348;&#x5148;&#x8BB2;&#x4E86;dfs&#x5E8F;&#x5217;&#xFF0C;&#x8FD9;&#x7C7B;&#x9898;&#x4E00;&#x822C;&#x53EF;&#x4EE5;&#x7528;&#x6811;&#x5256;&#x6765;&#x505A;&#xFF08;&#x524D;&#x5929;&#x7B2C;&#x4E00;&#x6B21;&#x5199;&#xFF0C;&#x4E00;&#x76F4;&#x6CA1;&#x8C03;&#x51FA;&#x6765;/(&#x3112;o&#x3112;)/~~&#xFF09;&#xFF0C;&#x5176;&#x4E2D;&#x8F83;&#x96BE;&#x7684;&#x662F;&#x62EC;&#x53F7;&#x5E8F;&#x5217;&#xFF0C;&#x5C3D;&#x7BA1;&#x542C;&#x61C2;&#x4E86;&#xFF0C;&#x4F46;&#x9898;&#x76EE;&#x53D8;&#x5316;&#x5F88;&#x591A;&#xFF0C;&#x9700;&#x8981;&#x7EC3;&#x4E00;&#x7EC3;&#x9898;&#x3002;&#x63A5;&#x7740;&#x8BB2;&#x4E86;&#x51E0;&#x79CD;&#x5E76;&#x67E5;&#x96C6;&#x8FDB;&#x9636;&#xFF0C;&#x5373;&#x5E26;&#x6743;&#x5E76;&#x67E5;&#x96C6;&#x3001;&#x53EF;&#x64A4;&#x9500;&#x5E76;&#x67E5;&#x96C6;&#xFF08;&#x8C8C;&#x4F3C;&#x6F0F;&#x4E86;&#x79CD;&#x7C7B;&#x5E76;&#x67E5;&#x96C6;&#xFF09;&#xFF0C;&#x8FD9;&#x90E8;&#x5206;&#x9898;&#x76EE;&#x4E0D;&#x96BE;&#xFF0C;&#x53EA;&#x662F;&#x5B9E;&#x73B0;&#x7684;&#x65F6;&#x5019;&#x8981;&#x6CE8;&#x610F;&#x7EC6;&#x8282;&#xFF0C;&#x4EE5;&#x9632;&#x88AB;&#x5361;&#x5E38;&#x6570;&#x3002;&#x7136;&#x540E;&#x8BB2;&#x4E86;&#x5206;&#x5757;&#xFF0C;&#x8FD9;&#x79CD;&#x7384;&#x5B66;&#x7684;&#x66B4;&#x529B;&#x4F18;&#x5316;&#x5728;&#x5F88;&#x591A;&#x65F6;&#x5019;&#x90FD;&#x6709;&#x7528;&#xFF0C;&#x56E0;&#x4E3A;&#x51FA;&#x9898;&#x4EBA;&#x9884;&#x6D4B;&#x4E0D;&#x5230;&#xFF0C;&#x800C;&#x4E14;&#x597D;&#x5199;&#x597D;&#x8C03;&#xFF0C;&#x6027;&#x4EF7;&#x6BD4;&#x9AD8;&#xFF0C;&#x662F;&#x4E2A;&#x597D;&#x4E1C;&#x897F;&#x3002;&#x6700;&#x540E;&#x662F;&#x4F20;&#x8BF4;&#x4E2D;&#x7684;&#x83AB;&#x961F;&#x7B97;&#x6CD5;&#x3002;&#x8FD9;&#x79CD;&#x7B97;&#x6CD5;&#x53F7;&#x79F0;&#x201C;&#x53EF;&#x4EE5;&#x89E3;&#x51B3;&#x4E00;&#x5207;RMQ&#x201D;&#xFF0C;&#x53EA;&#x662F;&#x6709;&#x65F6;&#x5019;&#x5BB9;&#x6613;&#x5361;&#x5E38;&#x6570;&#xFF0C;&#x56E0;&#x800C;&#x9700;&#x8981;&#x591A;&#x52A0;&#x7EC3;&#x4E60;&#xFF0C;&#x7528;&#x6700;&#x597D;&#x7684;&#x5199;&#x6CD5;&#x3002;&#x4ECA;&#x5929;&#x7684;&#x9898;&#x76EE;&#x6BD4;&#x8F83;&#x96BE;&#xFF0C;&#x5F97;&#x591A;&#x6D88;&#x5316;&#x6D88;&#x5316;&#x3002;</p>
+        <p>今天是数据结构的第二天。上午考试，题目难度适中。T1考读题，较水。T2是线段树的奇葩用法，和普通用法不同，它是只递归单区间，另一区间则转化计算。T3是昨天讲过的题，线段树套单调队列，因为代码较为复杂，没能调出来。综上可知，线段树一些较难的题都是不具有合并性质的线段树或有限制（后效性）的线段树，一般只能得出左右两区间中其中一个区间的算法，另一区间则不断递归完成。两个区间有一个区间根本不去算，而是递归，这样让我感觉有些虚，经常想不清楚，应多加练习。<br>下午先讲了dfs序列，这类题一般可以用树剖来做（前天第一次写，一直没调出来/(ㄒoㄒ)/~~），其中较难的是括号序列，尽管听懂了，但题目变化很多，需要练一练题。接着讲了几种并查集进阶，即带权并查集、可撤销并查集（貌似漏了种类并查集），这部分题目不难，只是实现的时候要注意细节，以防被卡常数。然后讲了分块，这种玄学的暴力优化在很多时候都有用，因为出题人预测不到，而且好写好调，性价比高，是个好东西。最后是传说中的莫队算法。这种算法号称“可以解决一切RMQ”，只是有时候容易卡常数，因而需要多加练习，用最好的写法。今天的题目比较难，得多消化消化。</p>
 
       
     </div>
@@ -323,16 +323,14 @@
 	}
 </script>
 <script src="/js/main.js"></script>
-
+<!--
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
 </script>
 <script type="text/javascript"
   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
-
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.js"></script>
+-->
 
 
 
