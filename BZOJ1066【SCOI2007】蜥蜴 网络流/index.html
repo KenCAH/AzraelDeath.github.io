@@ -10,7 +10,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="【SCOI2007】蜥蜴 Description在一个r行c列的网格地图中有一些高度不同的石柱，一些石柱上站着一些蜥蜴，你的任务是让尽量多的蜥蜴逃到边界外。 每行每列中相邻石柱的距离为1，蜥蜴的跳跃距离是d，即蜥蜴可以跳到平面距离不超过d的任何一个石柱上。石柱都不稳定，每次当蜥蜴跳跃时，所离开的石柱高度减1（如果仍然落在地图内部，则到达的石柱高度不变），如果该石柱原来高度为1，则蜥蜴离开后消失。">
-<meta name="keywords" content="网络流,BZOJ,省选">
+<meta name="keywords" content="BZOJ,省选,网络流">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BZOJ1066【SCOI2007】蜥蜴 &lt;网络流&gt;">
 <meta property="og:url" content="http://yoursite.com/BZOJ1066【SCOI2007】蜥蜴 网络流/index.html">
@@ -118,7 +118,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/2-SAT/" style="font-size: 11.25px;">2-SAT</a> <a href="/tags/AC自动机/" style="font-size: 11.25px;">AC自动机</a> <a href="/tags/APIO/" style="font-size: 10px;">APIO</a> <a href="/tags/BZOJ/" style="font-size: 20px;">BZOJ</a> <a href="/tags/DFS序/" style="font-size: 10px;">DFS序</a> <a href="/tags/DP/" style="font-size: 11.25px;">DP</a> <a href="/tags/HDU/" style="font-size: 13.75px;">HDU</a> <a href="/tags/LCA/" style="font-size: 12.5px;">LCA</a> <a href="/tags/LG/" style="font-size: 11.25px;">LG</a> <a href="/tags/MST/" style="font-size: 12.5px;">MST</a> <a href="/tags/Manacher/" style="font-size: 11.25px;">Manacher</a> <a href="/tags/NOI/" style="font-size: 11.25px;">NOI</a> <a href="/tags/NOIp/" style="font-size: 11.25px;">NOIp</a> <a href="/tags/POI/" style="font-size: 10px;">POI</a> <a href="/tags/POJ/" style="font-size: 16.25px;">POJ</a> <a href="/tags/Tarjan/" style="font-size: 11.25px;">Tarjan</a> <a href="/tags/Trie/" style="font-size: 10px;">Trie</a> <a href="/tags/UVa/" style="font-size: 10px;">UVa</a> <a href="/tags/主席树/" style="font-size: 13.75px;">主席树</a> <a href="/tags/二分答案/" style="font-size: 11.25px;">二分答案</a> <a href="/tags/分块/" style="font-size: 10px;">分块</a> <a href="/tags/差分/" style="font-size: 10px;">差分</a> <a href="/tags/差分约束系统/" style="font-size: 10px;">差分约束系统</a> <a href="/tags/并查集/" style="font-size: 11.25px;">并查集</a> <a href="/tags/总结/" style="font-size: 18.75px;">总结</a> <a href="/tags/搜索/" style="font-size: 10px;">搜索</a> <a href="/tags/树套树/" style="font-size: 11.25px;">树套树</a> <a href="/tags/树状数组/" style="font-size: 12.5px;">树状数组</a> <a href="/tags/模拟/" style="font-size: 10px;">模拟</a> <a href="/tags/省选/" style="font-size: 17.5px;">省选</a> <a href="/tags/线段树/" style="font-size: 12.5px;">线段树</a> <a href="/tags/组合数学/" style="font-size: 10px;">组合数学</a> <a href="/tags/网络流/" style="font-size: 15px;">网络流</a> <a href="/tags/莫队/" style="font-size: 11.25px;">莫队</a> <a href="/tags/补集转换/" style="font-size: 10px;">补集转换</a> <a href="/tags/贪心/" style="font-size: 10px;">贪心</a> <a href="/tags/费用流/" style="font-size: 10px;">费用流</a> <a href="/tags/高斯消元/" style="font-size: 10px;">高斯消元</a>
+						<a href="/tags/2-SAT/" style="font-size: 11.25px;">2-SAT</a> <a href="/tags/AC自动机/" style="font-size: 11.25px;">AC自动机</a> <a href="/tags/APIO/" style="font-size: 10px;">APIO</a> <a href="/tags/BZOJ/" style="font-size: 20px;">BZOJ</a> <a href="/tags/DFS序/" style="font-size: 10px;">DFS序</a> <a href="/tags/DP/" style="font-size: 11.25px;">DP</a> <a href="/tags/HDU/" style="font-size: 13.75px;">HDU</a> <a href="/tags/LCA/" style="font-size: 12.5px;">LCA</a> <a href="/tags/LG/" style="font-size: 11.25px;">LG</a> <a href="/tags/MST/" style="font-size: 12.5px;">MST</a> <a href="/tags/Manacher/" style="font-size: 11.25px;">Manacher</a> <a href="/tags/NOI/" style="font-size: 11.25px;">NOI</a> <a href="/tags/NOIp/" style="font-size: 11.25px;">NOIp</a> <a href="/tags/POI/" style="font-size: 10px;">POI</a> <a href="/tags/POJ/" style="font-size: 16.25px;">POJ</a> <a href="/tags/Tarjan/" style="font-size: 11.25px;">Tarjan</a> <a href="/tags/Trie/" style="font-size: 10px;">Trie</a> <a href="/tags/UVa/" style="font-size: 10px;">UVa</a> <a href="/tags/主席树/" style="font-size: 13.75px;">主席树</a> <a href="/tags/二分答案/" style="font-size: 11.25px;">二分答案</a> <a href="/tags/分块/" style="font-size: 10px;">分块</a> <a href="/tags/差分/" style="font-size: 10px;">差分</a> <a href="/tags/差分约束系统/" style="font-size: 10px;">差分约束系统</a> <a href="/tags/并查集/" style="font-size: 11.25px;">并查集</a> <a href="/tags/总结/" style="font-size: 18.75px;">总结</a> <a href="/tags/搜索/" style="font-size: 10px;">搜索</a> <a href="/tags/树套树/" style="font-size: 11.25px;">树套树</a> <a href="/tags/树状数组/" style="font-size: 12.5px;">树状数组</a> <a href="/tags/模拟/" style="font-size: 11.25px;">模拟</a> <a href="/tags/省选/" style="font-size: 17.5px;">省选</a> <a href="/tags/线段树/" style="font-size: 12.5px;">线段树</a> <a href="/tags/组合数学/" style="font-size: 10px;">组合数学</a> <a href="/tags/网络流/" style="font-size: 15px;">网络流</a> <a href="/tags/莫队/" style="font-size: 11.25px;">莫队</a> <a href="/tags/补集转换/" style="font-size: 10px;">补集转换</a> <a href="/tags/贪心/" style="font-size: 10px;">贪心</a> <a href="/tags/费用流/" style="font-size: 10px;">费用流</a> <a href="/tags/高斯消元/" style="font-size: 10px;">高斯消元</a>
 					</div>
 				</section>
 				
@@ -252,18 +252,18 @@
     
 <nav id="article-nav">
   
-    <a href="/BZOJ1008【HNOI2008】越狱 补集转换/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/BZOJ1189【HNOI2007】紧急疏散evacuate 二分答案+网络流/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">&lt;</strong>
       <div class="article-nav-title">
         
-          BZOJ1008【HNOI2008】越狱
+          BZOJ1189【HNOI2007】紧急疏散evacuate &lt;二分答案+网络流&gt;
         
       </div>
     </a>
   
   
-    <a href="/LG1073【NOIp2009】最优贸易 Tarjan+DP/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">LG1073【NOIp2009】最优贸易 &lt;Tarjan+DP&gt;</div>
+    <a href="/HDU4348 To The Moon 带修主席树/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">HDU4348 To The Moon &lt;带修主席树&gt;</div>
       <strong class="article-nav-caption">&gt;</strong>
     </a>
   

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>BZOJ1033【ZJOI2007】杀蚂蚁 &lt;模拟&gt; | NIRVANA</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="【ZJOI2008】杀蚂蚁 Description最近，佳佳迷上了一款好玩的小游戏： antbuster。游戏规则非常简单：在一张地图上，左上角是蚂蚁窝，右下角是蛋糕，蚂蚁会源源不断地从窝里爬出来，试图把蛋糕搬回蚂蚁窝。而你的任务，就是用原始资金以及杀蚂蚁获得的奖金造防御塔，杀掉这些试图跟你抢蛋糕的蚂蚁~下附一张游戏截图：为了拿到尽可能高的分数，佳佳设计了很多种造塔的方案，但在尝试了其中的一小部">
+<meta name="keywords" content="BZOJ,模拟">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BZOJ1033【ZJOI2007】杀蚂蚁 &lt;模拟&gt;">
+<meta property="og:url" content="http://yoursite.com/BZOJ1033【ZJOI2007】杀蚂蚁 模拟/index.html">
+<meta property="og:site_name" content="NIRVANA">
+<meta property="og:description" content="【ZJOI2008】杀蚂蚁 Description最近，佳佳迷上了一款好玩的小游戏： antbuster。游戏规则非常简单：在一张地图上，左上角是蚂蚁窝，右下角是蛋糕，蚂蚁会源源不断地从窝里爬出来，试图把蛋糕搬回蚂蚁窝。而你的任务，就是用原始资金以及杀蚂蚁获得的奖金造防御塔，杀掉这些试图跟你抢蛋糕的蚂蚁~下附一张游戏截图：为了拿到尽可能高的分数，佳佳设计了很多种造塔的方案，但在尝试了其中的一小部">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-10-27T11:57:02.817Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="BZOJ1033【ZJOI2007】杀蚂蚁 &lt;模拟&gt;">
+<meta name="twitter:description" content="【ZJOI2008】杀蚂蚁 Description最近，佳佳迷上了一款好玩的小游戏： antbuster。游戏规则非常简单：在一张地图上，左上角是蚂蚁窝，右下角是蛋糕，蚂蚁会源源不断地从窝里爬出来，试图把蛋糕搬回蚂蚁窝。而你的任务，就是用原始资金以及杀蚂蚁获得的奖金造防御塔，杀掉这些试图跟你抢蛋糕的蚂蚁~下附一张游戏截图：为了拿到尽可能高的分数，佳佳设计了很多种造塔的方案，但在尝试了其中的一小部">
+  
+    <link rel="alternative" href="/atom.xml" title="NIRVANA" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://chuantu.biz/t6/89/1507626502x2728279003.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+
+  <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://chuantu.biz/t6/89/1507626502x2728279003.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Azrael_Death</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">Veni Vidi Vici</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/AzraelDeath" title="github">github</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/azraeldeath" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/2-SAT/" style="font-size: 11.25px;">2-SAT</a> <a href="/tags/AC自动机/" style="font-size: 11.25px;">AC自动机</a> <a href="/tags/APIO/" style="font-size: 10px;">APIO</a> <a href="/tags/BZOJ/" style="font-size: 20px;">BZOJ</a> <a href="/tags/DFS序/" style="font-size: 10px;">DFS序</a> <a href="/tags/DP/" style="font-size: 11.25px;">DP</a> <a href="/tags/HDU/" style="font-size: 13.75px;">HDU</a> <a href="/tags/LCA/" style="font-size: 12.5px;">LCA</a> <a href="/tags/LG/" style="font-size: 11.25px;">LG</a> <a href="/tags/MST/" style="font-size: 12.5px;">MST</a> <a href="/tags/Manacher/" style="font-size: 11.25px;">Manacher</a> <a href="/tags/NOI/" style="font-size: 11.25px;">NOI</a> <a href="/tags/NOIp/" style="font-size: 11.25px;">NOIp</a> <a href="/tags/POI/" style="font-size: 10px;">POI</a> <a href="/tags/POJ/" style="font-size: 16.25px;">POJ</a> <a href="/tags/Tarjan/" style="font-size: 11.25px;">Tarjan</a> <a href="/tags/Trie/" style="font-size: 10px;">Trie</a> <a href="/tags/UVa/" style="font-size: 10px;">UVa</a> <a href="/tags/主席树/" style="font-size: 13.75px;">主席树</a> <a href="/tags/二分答案/" style="font-size: 11.25px;">二分答案</a> <a href="/tags/分块/" style="font-size: 10px;">分块</a> <a href="/tags/差分/" style="font-size: 10px;">差分</a> <a href="/tags/差分约束系统/" style="font-size: 10px;">差分约束系统</a> <a href="/tags/并查集/" style="font-size: 11.25px;">并查集</a> <a href="/tags/总结/" style="font-size: 18.75px;">总结</a> <a href="/tags/搜索/" style="font-size: 10px;">搜索</a> <a href="/tags/树套树/" style="font-size: 11.25px;">树套树</a> <a href="/tags/树状数组/" style="font-size: 12.5px;">树状数组</a> <a href="/tags/模拟/" style="font-size: 11.25px;">模拟</a> <a href="/tags/省选/" style="font-size: 17.5px;">省选</a> <a href="/tags/线段树/" style="font-size: 12.5px;">线段树</a> <a href="/tags/组合数学/" style="font-size: 10px;">组合数学</a> <a href="/tags/网络流/" style="font-size: 15px;">网络流</a> <a href="/tags/莫队/" style="font-size: 11.25px;">莫队</a> <a href="/tags/补集转换/" style="font-size: 10px;">补集转换</a> <a href="/tags/贪心/" style="font-size: 10px;">贪心</a> <a href="/tags/费用流/" style="font-size: 10px;">费用流</a> <a href="/tags/高斯消元/" style="font-size: 10px;">高斯消元</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/OwenOwl">OwenOwl</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/Joker_69">Joker</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://dangxingyu.com">DXY</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://309459245.lofter.com">YJQ</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/candy99">Candy</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/zig-zag">ZigZag</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://cxjyxx.me">cxjyxx_me</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.shuizilong.com">ShuiZiLong</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/kuangbin">KuangBin</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Azrael_Death</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://chuantu.biz/t6/89/1507626502x2728279003.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Azrael_Death</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">Veni Vidi Vici</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/AzraelDeath" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/azraeldeath" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-BZOJ1033【ZJOI2007】杀蚂蚁 模拟" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/BZOJ1033【ZJOI2007】杀蚂蚁 模拟/" class="article-date">
+  	<time datetime="2017-10-26T16:00:00.000Z" itemprop="datePublished">2017-10-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      BZOJ1033【ZJOI2007】杀蚂蚁 &lt;模拟&gt;
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BZOJ/">BZOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模拟/">模拟</a></li></ul>
+	</div>
+
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>【ZJOI2008】杀蚂蚁</p>
+<p>Description<br>最近，佳佳迷上了一款好玩的小游戏： antbuster。<br>游戏规则非常简单：在一张地图上，左上角是蚂蚁窝，右下角是蛋糕，蚂蚁会源源不断地从窝里爬出来，试图把蛋糕搬回蚂蚁窝。而你的任务，就是用原始资金以及杀蚂蚁获得的奖金造防御塔，杀掉这些试图跟你抢蛋糕的蚂蚁~<br>下附一张游戏截图：<br>为了拿到尽可能高的分数，佳佳设计了很多种造塔的方案，但在尝试了其中的一小部分后，佳佳发现，这个游戏实在是太费时间了。为了节省时间，佳佳决定写个程序，对于每一种方案，模拟游戏进程，根据效果来判断方案的优劣。<br>根据自己在游戏中积累的一些经验，以及上网搜到的一些参数，佳佳猜了蚂蚁爬行的算法，并且假设游戏中的蚂蚁也是按这个规则选择路线：</p>
+<ol>
+<li>每一秒钟开始的时候，蚂蚁都在平面中的某个整点上。如果蚂蚁没有扛着蛋糕，它会在该点留下2 单位的信息素，否则它会留下 5 单位的信息素。然后蚂蚁会在正北、正南、正东、正西四个方向中选择一个爬过去。</li>
+<li>选择方向的规则是：首先，爬完一个单位长度后到达的那个点上，不能有其他蚂蚁或是防御塔，并且那个点不能是蚂蚁上一秒所在的点（除非上一个时刻蚂蚁就被卡住，且这个时刻它仍无法动），当然，蚂蚁也不会爬出地图的边界（我们定义这些点为不可达点）。如果此时有多个选<br>择，蚂蚁会选择信息素最多的那个点爬过去。</li>
+<li>如果此时仍有多种选择，蚂蚁先面向正东，如果正东不是可选择的某个方向，它会顺时针转90°，再次判断，如果还不是，再转 90°…直到找到可以去的方向。</li>
+<li>如果将每只蚂蚁在洞口出现的时间作为它的活动时间的第 1 秒，那么每当这只蚂蚁的活动时间秒数为 5 的倍数的时候，它先按规则 1~3 确定一个方向，面对该方向后逆时针转 90°，若它沿当前方向会走到一个不可达点，它会不停地每次逆时针转 90°，直到它面对着一个可达的点，这样<br>定下的方向才是蚂蚁最终要爬去的方向。</li>
+<li>如果蚂蚁的四周都是不可达点，那么蚂蚁在这一秒内会选择停留在当前点。下一秒判断移动方向时，它上一秒所在点为其当前停留的点。</li>
+<li>你可以认为蚂蚁在选定方向后，瞬间移动到它的目标点，这一秒钟剩下的时间里，它就停留在目标点。</li>
+<li>蚂蚁按出生的顺序移动，出生得比较早的蚂蚁先移动。<br>然后，是一些有关地图的信息：</li>
+<li>每一秒，地图所有点上的信息素会损失 1 单位，如果那个点上有信息素的话。</li>
+<li>地图上某些地方是炮台。炮台的坐标在输入中给出。</li>
+<li>地图的长、宽在输入中给出，对于n ? m的地图，它的左上角坐标为(0,0)，右下角坐标为(n,m)。蚂蚁洞的位置为(0,0)，蛋糕的位置为(n,m)。</li>
+<li>你可以把蚂蚁看做一个直径为 1 单位的圆，圆心位于蚂蚁所在的整点。</li>
+<li>游戏开始时，地图上没有蚂蚁，每个点上的信息素含量均为 0。<br>一些有关炮塔的信息：</li>
+<li>炮塔被放置在地图上的整点处。</li>
+<li>为了简单一些，我们认为这些炮塔都是激光塔。激光塔的射速是 1 秒/次，它的攻击伤害为 d/次，攻击范围为 r。你可以认为每秒蚂蚁移动完毕后，塔才开始攻击。并且，只有当代表蚂蚁的圆的圆心与塔的直线距离不超过 r 时，塔才算打得到那只蚂蚁。</li>
+<li>如果一只蚂蚁扛着蛋糕，那么它会成为 target，也就是说，任何打得到它的塔的炮口都会对准它。如果蛋糕好好地呆在原位，那么每个塔都会挑离它最近的蚂蚁进行攻击，如果有多只蚂蚁，它会选出生较早的一只。</li>
+<li>激光塔有个比较奇怪的特性：它在选定了打击目标后，只要目标在其射程内，塔到目标蚂蚁圆心的连线上的所有蚂蚁（这里“被打到”的判定变成了表示激光的线段与表示蚂蚁的圆有公共点）都会被打到并损 d 格血，但激光不会穿透它的打击目标打到后面的蚂蚁。</li>
+<li>尽管在真实游戏中，塔是可以升级的，但在这里我们认为塔的布局和等级就此定了下来，不再变动。<br>再介绍一下蚂蚁窝：</li>
+<li>如果地图上的蚂蚁不足 6 只，并且洞口没有蚂蚁，那么窝中每秒会爬出一只蚂蚁，直到地图上的蚂蚁数为 6 只。</li>
+<li>刚出生的蚂蚁站在洞口。3. 每只蚂蚁有一个级别，级别决定了蚂蚁的血量，级别为 k 的蚂蚁的血量为[4*1.1^k]。每被塔打<br>一次，蚂蚁的血减少 d。注意，血量为 0 的蚂蚁仍能精力充沛地四处乱爬，只有一只蚂蚁的血被打成负数时，它才算挂了。</li>
+<li>蚂蚁的级别是这样算的：前 6 只出生的蚂蚁是 1 级，第 7~12 只是 2 级，依此类推。<br>最后给出关于蛋糕的介绍：</li>
+<li>简单起见，你可以认为此时只剩最后一块蛋糕了。如果有蚂蚁走到蛋糕的位置，并且此时蛋糕没有被扛走，那么这只蚂蚁就扛上了蛋糕。蚂蚁被打死后蛋糕归位。</li>
+<li>如果一只扛着蛋糕的蚂蚁走到蚂蚁窝的位置，我们就认为蚂蚁成功抢到了蛋糕，游戏结束。</li>
+<li>蚂蚁扛上蛋糕时，血量会增加[该蚂蚁出生时血量/2]，但不会超过上限。<br>整理一下 1 秒钟内发生的事件：<br>1 秒的最初，如果地图上蚂蚁数不足 6，一只蚂蚁就会在洞口出生。<br>接着，蚂蚁们在自己所在点留下一些信息素后，考虑移动。先出生的蚂蚁先移动。<br>移动完毕后，如果有蚂蚁在蛋糕的位置上并且蛋糕没被拿走，它把蛋糕扛上，血量增加，并在这时被所有塔设成 target。<br>然后所有塔同时开始攻击。如果攻击结束后那只扛着蛋糕的蚂蚁挂了，蛋糕瞬间归位。<br>攻击结束后，如果发现扛蛋糕的蚂蚁没死并在窝的位置，就认为蚂蚁抢到了蛋糕。游戏也在此时结束。<br>最后，地图上所有点的信息素损失 1 单位。所有蚂蚁的年龄加 1。<br>漫长的 1 秒到此结束。</li>
+</ol>
+<p>Input<br>输入的第一行是 2 个用空格隔开的整数， n、 m，分别表示了地图的长和宽。<br>第二行是 3 个用空格隔开的整数， s、 d、 r，依次表示炮塔的个数、单次攻击伤害以及攻击范围。接下来 s 行，每行是 2 个用空格隔开的整数 x、 y，描述了一个炮塔的位置。当然，蚂蚁窝的洞口以及蛋糕所在的位置上一定没有炮塔。<br>最后一行是一个正整数 t，表示我们模拟游戏的前 t 秒钟。<br>Output<br>如果在第 t 秒或之前蚂蚁抢到了蛋糕，输出一行“Game over after x seconds”，其中x为游戏结束的时间，否则输出“The game is going on”。<br>如果游戏在 t 秒或之前结束，输出游戏结束时所有蚂蚁的信息，否则输出 t 秒后所有蚂蚁的信息。<br>格式如下：第一行是 1 个整数 s，表示此时活着的蚂蚁的总数。接下来 s 行，每行 5 个整数，依次表示一只蚂蚁的年龄（单位为秒）、等级、当前血量，以及在地图上的位置（a， b）。输出按蚂蚁的年龄递减排序。</p>
+<p>Sample Input<br>3 5<br>1 1 2<br>2 2<br>5<br>Sample Output<br>The game is going on<br>5<br>5 1 3 1 4<br>4 1 3 0 4<br>3 1 3 0 3<br>2 1 3 0 2<br>1 1 4 0 1</p>
+<p>Hint<br>样例说明：<br>3*5的地图，有1个单次伤害为1、攻击范围为2的激光炮塔，它的位置为（2，2），模拟游戏的前5秒。5秒内有<br>5只蚂蚁出生，都是向东爬行，其中第1~4只在路过（0，2）点时被激光塔伤了1格血。在第5秒的时候，最早出生的<br>蚂蚁按移动规则1~3本来该向东移动，但由于规则4的作用，它在发现向北和向西移动都会到达不可达点后，最终选<br>择了向南移动。<br>数据说明：<br>100%的数据满足1 ≤ n,m ≤ 8，s ≤ 20，t ≤ 200,000</p>
+</blockquote>
+<p>如果觉得此题面不好看，请戳这里：<a href="https://www.zybuluo.com/Jerusalem/note/221811" target="_blank" rel="external">https://www.zybuluo.com/Jerusalem/note/221811</a></p>
+<p>标签：大模拟</p>
+<p>这是那种“做一做，一个下午就没了”的恶心题。<br>我从上午十一点开做，足足做到晚上七点半才做完。<br>恶心~</p>
+<p>大模拟，题面已经比较清楚了。<br>坑点如下：</p>
+<ol>
+<li>蚂蚁既是一个点，也是一个直接为1的圆（注意，是直径！）<br>即在判断一个炮台和一只蚂蚁的距离时，应取圆心与炮台距离，但在判断一只蚂蚁是否会被炮台顺带打到，即在打目标蚂蚁的路径上时，应判断激光直线是否与圆有交点。</li>
+<li>新出生的蚂蚁刚从蚁巢里出来时，要标记(0,0)为有物体，否则回来的蚂蚁会和它重在一起。</li>
+<li>若当前蚂蚁出生的时间为t，则其年龄为t-1。</li>
+<li>寻找移动方向时，应先按规则1~3选择下一个位置。如果出生时间为5的倍数，则应该逆时针（注意，是逆时针）旋转，并且找到一个可行方向就走过去，不考虑信息素多少。</li>
+<li>所有炮台是一起开炮，所以应该先把所有炮台的目标确定后，再统一扣蚂蚁的生命值。这样会出现蚂蚁生命在同一秒内被扣成负数还要继续扣的情况，这样就是正确的。</li>
+</ol>
+<p>奉献几组数据，可自测：</p>
+<h3 id="Sample-1"><a href="#Sample-1" class="headerlink" title="Sample #1"></a>Sample #1</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">Input #1</div><div class="line">4 4</div><div class="line">4 10 5</div><div class="line">1 1</div><div class="line">2 2</div><div class="line">1 2</div><div class="line">2 1</div><div class="line">1000</div><div class="line"></div><div class="line">Output #1</div><div class="line">Game over after 831 seconds</div><div class="line">6</div><div class="line">110 49 86 2 3</div><div class="line">88 49 26 0 1</div><div class="line">77 49 286 3 1</div><div class="line">58 50 29 0 0</div><div class="line">22 50 419 4 3</div><div class="line">10 50 469 3 2</div></pre></td></tr></table></figure>
+<h3 id="Sample-2"><a href="#Sample-2" class="headerlink" title="Sample #2"></a>Sample #2</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Input #2</div><div class="line">6 4</div><div class="line">1 10000 10</div><div class="line">2 2</div><div class="line">256</div><div class="line"></div><div class="line">Output #2</div><div class="line">The game is going on</div><div class="line">0</div></pre></td></tr></table></figure>
+<h3 id="Sample-3"><a href="#Sample-3" class="headerlink" title="Sample #3"></a>Sample #3</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">Input #3</div><div class="line">4 7</div><div class="line">0 0 0</div><div class="line">60200</div><div class="line"></div><div class="line">Output #3</div><div class="line">Game over after 60200 seconds</div><div class="line">6</div><div class="line">60199 1 4 0 0</div><div class="line">60198 1 4 2 6</div><div class="line">60197 1 4 4 7</div><div class="line">60196 1 4 2 1</div><div class="line">60195 1 4 3 5</div><div class="line">60194 1 4 4 5</div></pre></td></tr></table></figure>
+<h3 id="Sample-4"><a href="#Sample-4" class="headerlink" title="Sample #4"></a>Sample #4</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">Input #4</div><div class="line">2 5</div><div class="line">6 1 3</div><div class="line">0 1</div><div class="line">1 1</div><div class="line">1 3</div><div class="line">1 4</div><div class="line">2 3</div><div class="line">2 4</div><div class="line">200000</div><div class="line"></div><div class="line">Output #4</div><div class="line">The game is going on</div><div class="line">6</div><div class="line">15311 86 13525 1 5</div><div class="line">12518 86 10203 0 5</div><div class="line">9447 87 12495 0 4</div><div class="line">6371 87 13461 0 3</div><div class="line">3295 87 14586 0 2</div><div class="line">219 87 15873 1 2</div></pre></td></tr></table></figure>
+<p>附上AC代码：<br>（BZOJ上A了，洛谷上死活WA一个点，不知道为什么）<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> EPS 1e-5</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">typedef</span> <span class="keyword">double</span> dnt;</div><div class="line"><span class="keyword">int</span> n, m, s, d, r, cnt, num, tar = <span class="number">-1</span>;</div><div class="line"><span class="built_in">vector</span> &lt;<span class="keyword">int</span>&gt; living;	<span class="keyword">int</span> information[<span class="number">10</span>][<span class="number">10</span>];</div><div class="line"><span class="keyword">bool</span> lose = <span class="literal">false</span>, cake = <span class="literal">true</span>, is_taken[<span class="number">10</span>][<span class="number">10</span>];</div><div class="line"><span class="keyword">int</span> nxt[<span class="number">4</span>][<span class="number">2</span>] = &#123;&#123;<span class="number">0</span>, <span class="number">1</span>&#125;, &#123;<span class="number">1</span>, <span class="number">0</span>&#125;, &#123;<span class="number">0</span>, <span class="number">-1</span>&#125;, &#123;<span class="number">-1</span>, <span class="number">0</span>&#125;&#125;;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">calc_lim_blood</span><span class="params">(<span class="keyword">int</span> k)</span> </span>&#123;dnt ret = <span class="number">4</span>;	<span class="keyword">while</span> (k--)	ret *= <span class="number">1.1</span>;	<span class="keyword">return</span> (<span class="keyword">int</span>)<span class="built_in">floor</span>(ret);&#125;</div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Ant</span> &#123;</span></div><div class="line">	<span class="keyword">int</span> x, y, id, px, py;	<span class="keyword">bool</span> has_cake;</div><div class="line">	<span class="keyword">int</span> cur_blood, lim_blood, level, age;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">birth</span><span class="params">(<span class="keyword">int</span> _id)</span> </span>&#123;</div><div class="line">		living.push_back(id = _id), num++, has_cake = <span class="literal">false</span>;</div><div class="line">		x = y = age = <span class="number">0</span>, px = py = <span class="number">-1</span>, level = id/<span class="number">6</span>+<span class="number">1</span>;</div><div class="line">		cur_blood = lim_blood = calc_lim_blood(level), is_taken[x][y] = <span class="literal">true</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">dead</span><span class="params">()</span> </span>&#123;</div><div class="line">		num--;	<span class="keyword">int</span> pos;</div><div class="line">		<span class="keyword">for</span> (pos = <span class="number">0</span>; pos &lt; (<span class="keyword">int</span>)living.size(); pos++)	<span class="keyword">if</span> (living[pos] == id)	<span class="keyword">break</span>;</div><div class="line">		<span class="keyword">for</span> (; pos &lt; (<span class="keyword">int</span>)living.size()<span class="number">-1</span>; pos++)	living[pos] = living[pos+<span class="number">1</span>];</div><div class="line">		living.erase(living.end()<span class="number">-1</span>);</div><div class="line">		<span class="keyword">if</span> (has_cake)	cake = <span class="literal">true</span>, tar = <span class="number">-1</span>;	is_taken[x][y] = <span class="literal">false</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">recover</span><span class="params">()</span> </span>&#123;cur_blood = min(cur_blood+(<span class="keyword">int</span>)<span class="built_in">floor</span>(lim_blood/<span class="number">2</span>), lim_blood);&#125;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">hurt</span><span class="params">()</span> </span>&#123;cur_blood -= d;&#125;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">left_information</span><span class="params">()</span> </span>&#123;information[x][y] += has_cake ? <span class="number">5</span> : <span class="number">2</span>;&#125;</div><div class="line">	pair &lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; choose_direction() &#123;</div><div class="line">		<span class="keyword">int</span> nx = <span class="number">-1</span>, ny = <span class="number">-1</span>, cur;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</div><div class="line">			<span class="keyword">int</span> tx = x+nxt[i][<span class="number">0</span>], ty = y+nxt[i][<span class="number">1</span>];</div><div class="line">			<span class="keyword">if</span> (tx &lt; <span class="number">0</span> || tx &gt; n || ty &lt; <span class="number">0</span> || ty &gt; m)	<span class="keyword">continue</span>;</div><div class="line">			<span class="keyword">if</span> (is_taken[tx][ty] || (tx == px &amp;&amp; ty == py))	<span class="keyword">continue</span>;</div><div class="line">			<span class="keyword">if</span> (nx == <span class="number">-1</span> &amp;&amp; ny == <span class="number">-1</span>)	nx = tx, ny = ty;</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span> (information[tx][ty] &gt; information[nx][ny])	nx = tx, ny = ty;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span> ((age+<span class="number">1</span>)%<span class="number">5</span> == <span class="number">0</span>) &#123;</div><div class="line">			<span class="keyword">if</span> (nx == x &amp;&amp; ny == y+<span class="number">1</span>)	nx = ny = <span class="number">-1</span>, cur = <span class="number">0</span>;	<span class="keyword">if</span> (nx == x+<span class="number">1</span> &amp;&amp; ny == y)	nx = ny = <span class="number">-1</span>, cur = <span class="number">1</span>;</div><div class="line">			<span class="keyword">if</span> (nx == x &amp;&amp; ny == y<span class="number">-1</span>)	nx = ny = <span class="number">-1</span>, cur = <span class="number">2</span>;	<span class="keyword">if</span> (nx == x<span class="number">-1</span> &amp;&amp; ny == y)	nx = ny = <span class="number">-1</span>, cur = <span class="number">3</span>;</div><div class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = cur<span class="number">-1</span>; ~i; i--) &#123;</div><div class="line">				<span class="keyword">int</span> tx = x+nxt[i][<span class="number">0</span>], ty = y+nxt[i][<span class="number">1</span>];</div><div class="line">				<span class="keyword">if</span> (tx &lt; <span class="number">0</span> || tx &gt; n || ty &lt; <span class="number">0</span> || ty &gt; m)	<span class="keyword">continue</span>;</div><div class="line">				<span class="keyword">if</span> (is_taken[tx][ty] || (tx == px &amp;&amp; ty == py))	<span class="keyword">continue</span>;</div><div class="line">				<span class="keyword">if</span> (nx == <span class="number">-1</span> &amp;&amp; ny == <span class="number">-1</span>)	nx = tx, ny = ty;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">3</span>; i &gt;= cur; i--) &#123;</div><div class="line">				<span class="keyword">int</span> tx = x+nxt[i][<span class="number">0</span>], ty = y+nxt[i][<span class="number">1</span>];</div><div class="line">				<span class="keyword">if</span> (tx &lt; <span class="number">0</span> || tx &gt; n || ty &lt; <span class="number">0</span> || ty &gt; m)	<span class="keyword">continue</span>;</div><div class="line">				<span class="keyword">if</span> (is_taken[tx][ty] || (tx == px &amp;&amp; ty == py))	<span class="keyword">continue</span>;</div><div class="line">				<span class="keyword">if</span> (nx == <span class="number">-1</span> &amp;&amp; ny == <span class="number">-1</span>)	nx = tx, ny = ty;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> make_pair(nx, ny);</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">move</span><span class="params">()</span> </span>&#123;</div><div class="line">		pair &lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; np = choose_direction();</div><div class="line">		<span class="keyword">if</span> (np.first == <span class="number">-1</span> &amp;&amp; np.second == <span class="number">-1</span>)	np.first = x, np.second = y;</div><div class="line">		is_taken[x][y] = <span class="literal">false</span>, is_taken[np.first][np.second] = <span class="literal">true</span>;</div><div class="line">		px = x, py = y, x = np.first, y = np.second;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">can_take_cake</span><span class="params">()</span> </span>&#123;<span class="keyword">return</span> x == n &amp;&amp; y == m &amp;&amp; cake;&#125;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">take_cake</span><span class="params">()</span> </span>&#123;<span class="keyword">if</span> (can_take_cake())	recover(), cake = <span class="literal">false</span>, has_cake = <span class="literal">true</span>, tar = id;&#125;</div><div class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">steal_cake</span><span class="params">()</span> </span>&#123;<span class="keyword">return</span> x == <span class="number">0</span> &amp;&amp; y == <span class="number">0</span> &amp;&amp; has_cake;&#125;</div><div class="line">&#125; ant[<span class="number">2000000</span>];</div><div class="line">	<span class="function">dnt <span class="title">dis</span><span class="params">(<span class="keyword">int</span> x1, <span class="keyword">int</span> y1, <span class="keyword">int</span> x2, <span class="keyword">int</span> y2)</span> </span>&#123;<span class="keyword">return</span> (x1-x2)*(x1-x2)+(y1-y2)*(y1-y2);&#125;</div><div class="line">	<span class="function">dnt <span class="title">getcos</span><span class="params">(<span class="keyword">int</span> x1, <span class="keyword">int</span> y1, <span class="keyword">int</span> x2, <span class="keyword">int</span> y2, <span class="keyword">int</span> x3, <span class="keyword">int</span> y3)</span> </span>&#123;</div><div class="line">		<span class="keyword">int</span> a1 = x1-x2, b1 = y1-y2, a2 = x3-x2, b2 = y3-y2;</div><div class="line">		<span class="keyword">return</span> (a1*a2+b1*b2)/(dnt)(<span class="built_in">sqrt</span>(dis(x1, y1, x2, y2))*<span class="built_in">sqrt</span>(dis(x3, y3, x2, y2)));</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">reach</span><span class="params">(<span class="keyword">int</span> tarid, <span class="keyword">int</span> inid, <span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</div><div class="line">		dnt cos1 = getcos(ant[inid].x, ant[inid].y, x, y, ant[tarid].x, ant[tarid].y);</div><div class="line">		dnt cos2 = getcos(ant[inid].x, ant[inid].y, ant[tarid].x, ant[tarid].y, x, y);</div><div class="line">		<span class="keyword">if</span> (cos1 &lt; EPS || cos2 &lt; EPS)	<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">		dnt t = <span class="built_in">sqrt</span>(dis(ant[inid].x, ant[inid].y, x, y))*<span class="built_in">sqrt</span>(<span class="number">1.0</span>-cos1*cos1);	<span class="keyword">return</span> t<span class="number">-0.5</span> &lt; EPS;</div><div class="line">	&#125;</div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Laser</span> &#123;</span></div><div class="line">	<span class="keyword">int</span> x, y;</div><div class="line">	<span class="function"><span class="keyword">int</span> <span class="title">dist</span><span class="params">(<span class="keyword">int</span> id)</span> </span>&#123;<span class="keyword">return</span> (x-ant[id].x)*(x-ant[id].x)+(y-ant[id].y)*(y-ant[id].y);&#125;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">(<span class="keyword">int</span> _x, <span class="keyword">int</span> _y)</span> </span>&#123;x = _x, y = _y, is_taken[x][y] = <span class="literal">true</span>;&#125;</div><div class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">can_hit</span><span class="params">(<span class="keyword">int</span> id)</span> </span>&#123;<span class="keyword">return</span> (x-ant[id].x)*(x-ant[id].x)+(dnt)(y-ant[id].y)*(y-ant[id].y) &lt;= r*r;&#125;</div><div class="line">	<span class="function"><span class="keyword">int</span> <span class="title">choose_target</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">if</span> (~tar &amp;&amp; can_hit(tar))	<span class="keyword">return</span> tar;</div><div class="line">		<span class="keyword">int</span> ret = <span class="number">-1</span>;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>, cur = living[i]; i &lt; (<span class="keyword">int</span>)living.size(); cur = living[++i])</div><div class="line">			<span class="keyword">if</span> (can_hit(cur))	<span class="keyword">if</span> (ret == <span class="number">-1</span> || dist(ret) &gt; dist(cur))	ret = cur;</div><div class="line">		<span class="keyword">return</span> ret;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">attack</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">int</span> id = choose_target();	<span class="keyword">if</span> (id == <span class="number">-1</span>)	<span class="keyword">return</span>;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; (<span class="keyword">int</span>)living.size(); i++)</div><div class="line">			<span class="keyword">if</span> (reach(id, living[i], x, y))	ant[living[i]].hurt();</div><div class="line">	&#125;</div><div class="line">&#125; laser[<span class="number">10</span>];</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">add_age</span><span class="params">()</span> </span>&#123;<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; (<span class="keyword">int</span>)living.size(); i++)	ant[living[i]].age++;&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">lose_information</span><span class="params">()</span> </span>&#123;<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n; i++) <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= m; j++) information[i][j] -= (information[i][j] &gt; <span class="number">0</span>);&#125;</div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">game_over</span><span class="params">()</span> </span>&#123;<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; (<span class="keyword">int</span>)living.size(); i++)	<span class="keyword">if</span> (ant[living[i]].steal_cake())	<span class="keyword">return</span> <span class="literal">true</span>;	<span class="keyword">return</span> <span class="literal">false</span>;&#125;</div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">per_second</span><span class="params">(<span class="keyword">int</span> t)</span> </span>&#123;</div><div class="line">	<span class="keyword">if</span> (num &lt; <span class="number">6</span> &amp;&amp; !is_taken[<span class="number">0</span>][<span class="number">0</span>])	ant[cnt].birth(cnt), cnt++;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; (<span class="keyword">int</span>)living.size(); i++)	ant[living[i]].left_information();</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; (<span class="keyword">int</span>)living.size(); i++)	ant[living[i]].move();</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; (<span class="keyword">int</span>)living.size(); i++)	ant[living[i]].take_cake();</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s; i++)	laser[i].attack();</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>, cur; i &lt; (<span class="keyword">int</span>)living.size(); i++) &#123;cur = living[i];	<span class="keyword">if</span> (ant[cur].cur_blood &lt; <span class="number">0</span>)	ant[cur].dead(), i--;&#125;</div><div class="line">	<span class="keyword">if</span> (game_over()) &#123;<span class="built_in">printf</span>(<span class="string">"Game over after %d seconds\n"</span>, t), lose = <span class="literal">true</span>;	<span class="keyword">return</span> <span class="literal">false</span>;&#125;</div><div class="line">	add_age(), lose_information();	<span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">output</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, num);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>, cur = living[i]; i &lt; (<span class="keyword">int</span>)living.size(); cur = living[++i])</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"%d %d %d %d %d\n"</span>, ant[cur].age, ant[cur].level, ant[cur].cur_blood, ant[cur].x, ant[cur].y);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d%d%d%d"</span>, &amp;n, &amp;m, &amp;s, &amp;d, &amp;r);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>, x, y; i &lt; s; i++)	<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;x, &amp;y), laser[i].build(x, y);</div><div class="line">	<span class="keyword">int</span> t;	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;t);	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= t; i++)	<span class="keyword">if</span> (!per_second(i))	<span class="keyword">break</span>;</div><div class="line">	<span class="keyword">if</span> (!lose)	<span class="built_in">printf</span>(<span class="string">"The game is going on\n"</span>);	output();	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/BZOJ4325【NOIp2015】斗地主 搜索+贪心/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">BZOJ4325【NOIp2015】斗地主 &lt;搜索+贪心&gt;</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="ds-share share" data-thread-key="BZOJ1033【ZJOI2007】杀蚂蚁 模拟" data-title="BZOJ1033【ZJOI2007】杀蚂蚁 &lt;模拟&gt;" data-url="http://yoursite.com/BZOJ1033【ZJOI2007】杀蚂蚁 模拟/"  data-images="http://chuantu.biz/t6/89/1507626502x2728279003.jpg" data-content="BZOJ1033【ZJOI2007】杀蚂蚁 &lt;模拟&gt;">
+    <div class="ds-share-inline">
+      <ul  class="ds-share-icons-16">
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      </ul>
+      <div class="ds-share-icons-more">
+      </div>
+    </div>
+ </div>
+ 
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2017 Azrael_Death
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/smackgg/hexo-theme-smackdown" target="_blank">Smackdown</a>
+        </div>
+    </div>
+  </div>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+  <script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+<!--
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+-->
+
+
+
+  </div>
+</body>
+</html>
