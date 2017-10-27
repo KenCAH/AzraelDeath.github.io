@@ -194,75 +194,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-BZOJ1008【HNOI2008】越狱 补集转换" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/BZOJ1008【HNOI2008】越狱 补集转换/" class="article-date">
-  	<time datetime="2017-09-15T16:00:00.000Z" itemprop="datePublished">2017-09-16</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/BZOJ1008【HNOI2008】越狱 补集转换/">
-        BZOJ1008【HNOI2008】越狱
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>【HNOI2008】越狱 &lt;补集转换&gt;</p>
-<p>Time Limit: 1 Sec<br>Memory Limit: 162 MB</p>
-<p>Description<br>监狱有连续编号为1…N的N个房间，每个房间关押一个犯人，有M种宗教，每个犯人可能信仰其中一种。如果相邻房间的犯人的宗教相同，就可能发生越狱，求有多少种状态可能发生越狱。</p>
-<p>Input<br>输入两个整数M，N.1&lt;=M&lt;=10^8,1&lt;=N&lt;=10^12<br>Output<br>可能越狱的状态数，模100003取余</p>
-<p>Sample Input<br>2 3<br>Sample Output<br>6</p>
-<p>HINT<br>6种状态为(000)(001)(011)(100)(110)(111)</p>
-</blockquote>
-<p>标签：补集转换</p>
-<p>考虑到补集转换，这道题就是一水题。<br>总共有$M^N$种方案，其中不能发生越狱的有$M*(M-1)^{N-1}$种方案，快速幂求出，相减即可。注意处理负数。</p>
-<p>直接上代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MOD 100003</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> lnt;</div><div class="line"><span class="function">lnt <span class="title">PowerMod</span><span class="params">(lnt a, lnt b)</span> </span>&#123;</div><div class="line">	<span class="keyword">if</span> (b == <span class="number">1</span>)	<span class="keyword">return</span> a%MOD;</div><div class="line">	lnt ret = PowerMod(a, b/<span class="number">2</span>);</div><div class="line">	<span class="keyword">return</span> b&amp;<span class="number">1</span> ? a%MOD*ret%MOD*ret%MOD : ret*ret%MOD;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">	lnt m, n;	<span class="built_in">scanf</span>(<span class="string">"%lld%lld"</span>, &amp;m, &amp;n);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%lld"</span>, ((PowerMod(m, n)-m%MOD*PowerMod(m<span class="number">-1</span>, n<span class="number">-1</span>))%MOD+MOD)%MOD);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BZOJ/">BZOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/省选/">省选</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/组合数学/">组合数学</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/补集转换/">补集转换</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
     <article id="post-BZOJ1189【HNOI2007】紧急疏散evacuate 二分答案+网络流" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -319,6 +250,75 @@
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BZOJ/">BZOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/省选/">省选</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网络流/">网络流</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-BZOJ1008【HNOI2008】越狱 补集转换" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/BZOJ1008【HNOI2008】越狱 补集转换/" class="article-date">
+  	<time datetime="2017-09-15T16:00:00.000Z" itemprop="datePublished">2017-09-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/BZOJ1008【HNOI2008】越狱 补集转换/">
+        BZOJ1008【HNOI2008】越狱
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>【HNOI2008】越狱 &lt;补集转换&gt;</p>
+<p>Time Limit: 1 Sec<br>Memory Limit: 162 MB</p>
+<p>Description<br>监狱有连续编号为1…N的N个房间，每个房间关押一个犯人，有M种宗教，每个犯人可能信仰其中一种。如果相邻房间的犯人的宗教相同，就可能发生越狱，求有多少种状态可能发生越狱。</p>
+<p>Input<br>输入两个整数M，N.1&lt;=M&lt;=10^8,1&lt;=N&lt;=10^12<br>Output<br>可能越狱的状态数，模100003取余</p>
+<p>Sample Input<br>2 3<br>Sample Output<br>6</p>
+<p>HINT<br>6种状态为(000)(001)(011)(100)(110)(111)</p>
+</blockquote>
+<p>标签：补集转换</p>
+<p>考虑到补集转换，这道题就是一水题。<br>总共有$M^N$种方案，其中不能发生越狱的有$M*(M-1)^{N-1}$种方案，快速幂求出，相减即可。注意处理负数。</p>
+<p>直接上代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MOD 100003</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> lnt;</div><div class="line"><span class="function">lnt <span class="title">PowerMod</span><span class="params">(lnt a, lnt b)</span> </span>&#123;</div><div class="line">	<span class="keyword">if</span> (b == <span class="number">1</span>)	<span class="keyword">return</span> a%MOD;</div><div class="line">	lnt ret = PowerMod(a, b/<span class="number">2</span>);</div><div class="line">	<span class="keyword">return</span> b&amp;<span class="number">1</span> ? a%MOD*ret%MOD*ret%MOD : ret*ret%MOD;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">	lnt m, n;	<span class="built_in">scanf</span>(<span class="string">"%lld%lld"</span>, &amp;m, &amp;n);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%lld"</span>, ((PowerMod(m, n)-m%MOD*PowerMod(m<span class="number">-1</span>, n<span class="number">-1</span>))%MOD+MOD)%MOD);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BZOJ/">BZOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/省选/">省选</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/组合数学/">组合数学</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/补集转换/">补集转换</a></li></ul>
 	</div>
 
       

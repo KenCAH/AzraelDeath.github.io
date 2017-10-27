@@ -17,10 +17,12 @@
 <meta property="og:site_name" content="NIRVANA">
 <meta property="og:description" content="【ZJOI2008】杀蚂蚁 Description最近，佳佳迷上了一款好玩的小游戏： antbuster。游戏规则非常简单：在一张地图上，左上角是蚂蚁窝，右下角是蛋糕，蚂蚁会源源不断地从窝里爬出来，试图把蛋糕搬回蚂蚁窝。而你的任务，就是用原始资金以及杀蚂蚁获得的奖金造防御塔，杀掉这些试图跟你抢蛋糕的蚂蚁~下附一张游戏截图：为了拿到尽可能高的分数，佳佳设计了很多种造塔的方案，但在尝试了其中的一小部">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-10-27T12:07:24.845Z">
+<meta property="og:image" content="http://www.lydsy.com/JudgeOnline/images/1033/1.jpg">
+<meta property="og:updated_time" content="2017-10-27T12:24:19.283Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BZOJ1033【ZJOI2007】杀蚂蚁 &lt;模拟&gt;">
 <meta name="twitter:description" content="【ZJOI2008】杀蚂蚁 Description最近，佳佳迷上了一款好玩的小游戏： antbuster。游戏规则非常简单：在一张地图上，左上角是蚂蚁窝，右下角是蛋糕，蚂蚁会源源不断地从窝里爬出来，试图把蛋糕搬回蚂蚁窝。而你的任务，就是用原始资金以及杀蚂蚁获得的奖金造防御塔，杀掉这些试图跟你抢蛋糕的蚂蚁~下附一张游戏截图：为了拿到尽可能高的分数，佳佳设计了很多种造塔的方案，但在尝试了其中的一小部">
+<meta name="twitter:image" content="http://www.lydsy.com/JudgeOnline/images/1033/1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="NIRVANA" type="application/atom+xml">
   
@@ -235,7 +237,7 @@
       
         <blockquote>
 <p>【ZJOI2008】杀蚂蚁</p>
-<p>Description<br>最近，佳佳迷上了一款好玩的小游戏： antbuster。<br>游戏规则非常简单：在一张地图上，左上角是蚂蚁窝，右下角是蛋糕，蚂蚁会源源不断地从窝里爬出来，试图把蛋糕搬回蚂蚁窝。而你的任务，就是用原始资金以及杀蚂蚁获得的奖金造防御塔，杀掉这些试图跟你抢蛋糕的蚂蚁~<br>下附一张游戏截图：<br>为了拿到尽可能高的分数，佳佳设计了很多种造塔的方案，但在尝试了其中的一小部分后，佳佳发现，这个游戏实在是太费时间了。为了节省时间，佳佳决定写个程序，对于每一种方案，模拟游戏进程，根据效果来判断方案的优劣。<br>根据自己在游戏中积累的一些经验，以及上网搜到的一些参数，佳佳猜了蚂蚁爬行的算法，并且假设游戏中的蚂蚁也是按这个规则选择路线：</p>
+<p>Description<br>最近，佳佳迷上了一款好玩的小游戏： antbuster。<br>游戏规则非常简单：在一张地图上，左上角是蚂蚁窝，右下角是蛋糕，蚂蚁会源源不断地从窝里爬出来，试图把蛋糕搬回蚂蚁窝。而你的任务，就是用原始资金以及杀蚂蚁获得的奖金造防御塔，杀掉这些试图跟你抢蛋糕的蚂蚁~<br>下附一张游戏截图：<br><img src="http://www.lydsy.com/JudgeOnline/images/1033/1.jpg" alt=""><br>为了拿到尽可能高的分数，佳佳设计了很多种造塔的方案，但在尝试了其中的一小部分后，佳佳发现，这个游戏实在是太费时间了。为了节省时间，佳佳决定写个程序，对于每一种方案，模拟游戏进程，根据效果来判断方案的优劣。<br>根据自己在游戏中积累的一些经验，以及上网搜到的一些参数，佳佳猜了蚂蚁爬行的算法，并且假设游戏中的蚂蚁也是按这个规则选择路线：</p>
 <pre><code>1. 每一秒钟开始的时候，蚂蚁都在平面中的某个整点上。如果蚂蚁没有扛着蛋糕，它会在该点留下2 单位的信息素，否则它会留下 5 单位的信息素。然后蚂蚁会在正北、正南、正东、正西四个方向中选择一个爬过去。
 2. 选择方向的规则是：首先，爬完一个单位长度后到达的那个点上，不能有其他蚂蚁或是防御塔，并且那个点不能是蚂蚁上一秒所在的点（除非上一个时刻蚂蚁就被卡住，且这个时刻它仍无法动），当然，蚂蚁也不会爬出地图的边界（我们定义这些点为不可达点）。如果此时有多个选择，蚂蚁会选择信息素最多的那个点爬过去。
 3. 如果此时仍有多种选择，蚂蚁先面向正东，如果正东不是可选择的某个方向，它会顺时针转90°，再次判断，如果还不是，再转 90°...直到找到可以去的方向。
@@ -275,7 +277,7 @@
 <p>Sample Input<br>3 5<br>1 1 2<br>2 2<br>5<br>Sample Output<br>The game is going on<br>5<br>5 1 3 1 4<br>4 1 3 0 4<br>3 1 3 0 3<br>2 1 3 0 2<br>1 1 4 0 1</p>
 <p>Hint<br>样例说明：<br>3*5的地图，有1个单次伤害为1、攻击范围为2的激光炮塔，它的位置为（2，2），模拟游戏的前5秒。5秒内有<br>5只蚂蚁出生，都是向东爬行，其中第1~4只在路过（0，2）点时被激光塔伤了1格血。在第5秒的时候，最早出生的<br>蚂蚁按移动规则1~3本来该向东移动，但由于规则4的作用，它在发现向北和向西移动都会到达不可达点后，最终选<br>择了向南移动。<br>数据说明：<br>100%的数据满足1 ≤ n,m ≤ 8，s ≤ 20，t ≤ 200,000</p>
 </blockquote>
-<p>如果觉得此题面不好看，请戳这里：<a href="https://www.zybuluo.com/Jerusalem/note/221811" target="_blank" rel="external">https://www.zybuluo.com/Jerusalem/note/221811</a></p>
+<p>如果觉得此题面不好看，请戳这里：<a href="https://www.zybuluo.com/Jerusalem/note/221811" target="_blank" rel="external">https://www.zybuluo.com/Jerusalem/note/221811</a><br>如果做得无聊了，可以玩玩：<a href="http://wanga.me/2794" target="_blank" rel="external">http://wanga.me/2794</a></p>
 <p>标签：大模拟</p>
 <p>这是那种“做一做，一个下午就没了”的恶心题。<br>我从上午十一点开做，足足做到晚上七点半才做完。<br>恶心~</p>
 <p>大模拟，题面已经比较清楚了。<br>坑点如下：</p>
