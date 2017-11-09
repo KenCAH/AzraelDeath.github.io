@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>BZOJ1046【HAOI2007】上升序列 &lt;DP&gt; | NIRVANA</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="【HAOI2007】上升序列Time Limit: 10 Sec  Memory Limit: 162 MB Description对于一个给定的S={a1,a2,a3,…,an},若有P={ax1,ax2,ax3,…,axm},满足(x1 &amp;lt; x2 &amp;lt; … &amp;lt; xm)且（ ax1 &amp;lt; ax2 &amp;lt; … &amp;lt; axm)。那么就称P为S的一个上升序列。如果有多个P满">
+<meta name="keywords" content="BZOJ,省选,DP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BZOJ1046【HAOI2007】上升序列 &lt;DP&gt;">
+<meta property="og:url" content="http://yoursite.com/BZOJ1046【HAOI2007】上升序列 DP/index.html">
+<meta property="og:site_name" content="NIRVANA">
+<meta property="og:description" content="【HAOI2007】上升序列Time Limit: 10 Sec  Memory Limit: 162 MB Description对于一个给定的S={a1,a2,a3,…,an},若有P={ax1,ax2,ax3,…,axm},满足(x1 &amp;lt; x2 &amp;lt; … &amp;lt; xm)且（ ax1 &amp;lt; ax2 &amp;lt; … &amp;lt; axm)。那么就称P为S的一个上升序列。如果有多个P满">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-11-09T00:22:00.816Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="BZOJ1046【HAOI2007】上升序列 &lt;DP&gt;">
+<meta name="twitter:description" content="【HAOI2007】上升序列Time Limit: 10 Sec  Memory Limit: 162 MB Description对于一个给定的S={a1,a2,a3,…,an},若有P={ax1,ax2,ax3,…,axm},满足(x1 &amp;lt; x2 &amp;lt; … &amp;lt; xm)且（ ax1 &amp;lt; ax2 &amp;lt; … &amp;lt; axm)。那么就称P为S的一个上升序列。如果有多个P满">
+  
+    <link rel="alternative" href="/atom.xml" title="NIRVANA" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://chuantu.biz/t6/89/1507626502x2728279003.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+
+  <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://chuantu.biz/t6/89/1507626502x2728279003.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Azrael_Death</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">Veni Vidi Vici</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/AzraelDeath" title="github">github</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/azraeldeath" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/2-SAT/" style="font-size: 11.11px;">2-SAT</a> <a href="/tags/AC自动机/" style="font-size: 11.11px;">AC自动机</a> <a href="/tags/APIO/" style="font-size: 10px;">APIO</a> <a href="/tags/BZOJ/" style="font-size: 20px;">BZOJ</a> <a href="/tags/DFS序/" style="font-size: 10px;">DFS序</a> <a href="/tags/DP/" style="font-size: 15.56px;">DP</a> <a href="/tags/HDU/" style="font-size: 13.33px;">HDU</a> <a href="/tags/LCA/" style="font-size: 12.22px;">LCA</a> <a href="/tags/LG/" style="font-size: 11.11px;">LG</a> <a href="/tags/MST/" style="font-size: 12.22px;">MST</a> <a href="/tags/Manacher/" style="font-size: 11.11px;">Manacher</a> <a href="/tags/NOI/" style="font-size: 11.11px;">NOI</a> <a href="/tags/NOIp/" style="font-size: 12.22px;">NOIp</a> <a href="/tags/POI/" style="font-size: 10px;">POI</a> <a href="/tags/POJ/" style="font-size: 15.56px;">POJ</a> <a href="/tags/Tarjan/" style="font-size: 11.11px;">Tarjan</a> <a href="/tags/Trie/" style="font-size: 10px;">Trie</a> <a href="/tags/UVa/" style="font-size: 10px;">UVa</a> <a href="/tags/主席树/" style="font-size: 13.33px;">主席树</a> <a href="/tags/二分答案/" style="font-size: 11.11px;">二分答案</a> <a href="/tags/分块/" style="font-size: 10px;">分块</a> <a href="/tags/图论/" style="font-size: 17.78px;">图论</a> <a href="/tags/字符串/" style="font-size: 13.33px;">字符串</a> <a href="/tags/差分/" style="font-size: 10px;">差分</a> <a href="/tags/差分约束系统/" style="font-size: 10px;">差分约束系统</a> <a href="/tags/并查集/" style="font-size: 11.11px;">并查集</a> <a href="/tags/总结/" style="font-size: 16.67px;">总结</a> <a href="/tags/搜索/" style="font-size: 10px;">搜索</a> <a href="/tags/数位DP/" style="font-size: 11.11px;">数位DP</a> <a href="/tags/数据结构/" style="font-size: 18.89px;">数据结构</a> <a href="/tags/数论数学/" style="font-size: 12.22px;">数论数学</a> <a href="/tags/树套树/" style="font-size: 11.11px;">树套树</a> <a href="/tags/树状数组/" style="font-size: 12.22px;">树状数组</a> <a href="/tags/模拟/" style="font-size: 11.11px;">模拟</a> <a href="/tags/状压DP/" style="font-size: 10px;">状压DP</a> <a href="/tags/省选/" style="font-size: 18.89px;">省选</a> <a href="/tags/线段树/" style="font-size: 13.33px;">线段树</a> <a href="/tags/组合数学/" style="font-size: 10px;">组合数学</a> <a href="/tags/网络流/" style="font-size: 14.44px;">网络流</a> <a href="/tags/莫队/" style="font-size: 11.11px;">莫队</a> <a href="/tags/补集转换/" style="font-size: 10px;">补集转换</a> <a href="/tags/贪心/" style="font-size: 10px;">贪心</a> <a href="/tags/费用流/" style="font-size: 10px;">费用流</a> <a href="/tags/队列/" style="font-size: 10px;">队列</a> <a href="/tags/高斯消元/" style="font-size: 10px;">高斯消元</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/OwenOwl">OwenOwl</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/Joker_69">Joker</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://dangxingyu.com">DXY</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://309459245.lofter.com">YJQ</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/candy99">Candy</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/zig-zag">ZigZag</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://cxjyxx.me">cxjyxx_me</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.shuizilong.com">ShuiZiLong</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/kuangbin">KuangBin</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Azrael_Death</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://chuantu.biz/t6/89/1507626502x2728279003.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Azrael_Death</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">Veni Vidi Vici</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/AzraelDeath" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/azraeldeath" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-BZOJ1046【HAOI2007】上升序列 DP" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/BZOJ1046【HAOI2007】上升序列 DP/" class="article-date">
+  	<time datetime="2017-11-08T16:00:00.000Z" itemprop="datePublished">2017-11-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      BZOJ1046【HAOI2007】上升序列 &lt;DP&gt;
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BZOJ/">BZOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/">DP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/省选/">省选</a></li></ul>
+	</div>
+
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>【HAOI2007】上升序列<br>Time Limit: 10 Sec  Memory Limit: 162 MB</p>
+<p>Description<br>对于一个给定的S={a1,a2,a3,…,an},若有P={ax1,ax2,ax3,…,axm},满足(x1 &lt; x2 &lt; … &lt; xm)且（ ax1 &lt; ax2 &lt; … &lt; axm)。那么就称P为S的一个上升序列。如果有多个P满足条件，那么我们想求字典序最小的那个。任务给出S序列，给出若干询问。对于第i个询问，求出长度为Li的上升序列，如有多个，求出字典序最小的那个（即首先x1最小，如果不唯一，再看x2最小……），如果不存在长度为Li的上升序列，则打印Impossible.</p>
+<p>Input<br>第一行一个N，表示序列一共有N个元素第二行N个数，为a1,a2,…,an 第三行一个M，表示询问次数。下面接M行每行一个数L，表示要询问长度为L的上升序列。N&lt;=10000，M&lt;=1000<br>Output<br>对于每个询问，如果对应的序列存在，则输出，否则打印Impossible.</p>
+<p>Sample Input<br>6<br>3 4 1 2 3 6<br>3<br>6<br>4<br>5<br>Sample Output<br>Impossible<br>1 2 3 6<br>Impossible</p>
+</blockquote>
+<p>标签：DP</p>
+<p>一道LIS的变形。<br>显然需要先预处理出每个数向后能组成的LIS的最大长度。<br>对于每次询问，从前往后取，一旦某数字的LIS最大长度比len大，则此数可加入答案。顺序构造即可。</p>
+<p>附上AC代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_N 10000</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">int</span> n, m, k, a[MAX_N+<span class="number">5</span>], f[MAX_N+<span class="number">5</span>];</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>, pre = <span class="number">0</span>; i &lt;= n; i++)</div><div class="line">		<span class="keyword">if</span> (f[i] &gt;= k &amp;&amp; a[i] &gt; pre) &#123;</div><div class="line">			<span class="built_in">printf</span>(<span class="string">"%d"</span>, a[i]), pre = a[i];</div><div class="line">			<span class="keyword">if</span> (--k)	<span class="built_in">printf</span>(<span class="string">" "</span>);</div><div class="line">			<span class="keyword">else</span>	<span class="keyword">break</span>;</div><div class="line">		&#125;</div><div class="line">	<span class="keyword">if</span> (k)	<span class="built_in">printf</span>(<span class="string">"Impossible"</span>);	<span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;a[i]), f[i] = <span class="number">1</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = n; i &gt;= <span class="number">1</span>; i--)	<span class="keyword">for</span> (<span class="keyword">int</span> j = i+<span class="number">1</span>; j &lt;= n; j++)	<span class="keyword">if</span> (a[i] &lt; a[j])	f[i] = max(f[i], f[j]+<span class="number">1</span>);</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;m);</div><div class="line">	<span class="keyword">while</span> (m--)	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;k), print();</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/BZOJ4491 我也不知道题目名字是什么 线段树/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          BZOJ4491 我也不知道题目名字是什么 &lt;线段树&gt;
+        
+      </div>
+    </a>
+  
+  
+    <a href="/BZOJ4721【NOIp2016】蚯蚓 队列/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">BZOJ4721【NOIp2016】蚯蚓 &lt;队列&gt;</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="ds-share share" data-thread-key="BZOJ1046【HAOI2007】上升序列 DP" data-title="BZOJ1046【HAOI2007】上升序列 &lt;DP&gt;" data-url="http://yoursite.com/BZOJ1046【HAOI2007】上升序列 DP/"  data-images="http://chuantu.biz/t6/89/1507626502x2728279003.jpg" data-content="BZOJ1046【HAOI2007】上升序列 &lt;DP&gt;">
+    <div class="ds-share-inline">
+      <ul  class="ds-share-icons-16">
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      </ul>
+      <div class="ds-share-icons-more">
+      </div>
+    </div>
+ </div>
+ 
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2017 Azrael_Death
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/smackgg/hexo-theme-smackdown" target="_blank">Smackdown</a>
+        </div>
+    </div>
+  </div>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+  <script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+<!--
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+-->
+
+
+
+  </div>
+</body>
+</html>

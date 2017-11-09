@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>BZOJ1087【SCOI2005】互不侵犯King &lt;状压DP&gt; | NIRVANA</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="【SCOI2005】互不侵犯KingTime Limit: 10 Sec  Memory Limit: 162 MB Description在N×N的棋盘里面放K个国王，使他们互不攻击，共有多少种摆放方案。国王能攻击到它上下左右，以及左上左下右上右下八个方向上附近的各一个格子，共8个格子。 Input只有一行，包含两个数N，K （ 1 &amp;lt;=N &amp;lt;=9, 0 &amp;lt;= K &amp;lt;=">
+<meta name="keywords" content="BZOJ,省选,DP,状压DP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BZOJ1087【SCOI2005】互不侵犯King &lt;状压DP&gt;">
+<meta property="og:url" content="http://yoursite.com/BZOJ1087【SCOI2005】互不侵犯King 状压DP/index.html">
+<meta property="og:site_name" content="NIRVANA">
+<meta property="og:description" content="【SCOI2005】互不侵犯KingTime Limit: 10 Sec  Memory Limit: 162 MB Description在N×N的棋盘里面放K个国王，使他们互不攻击，共有多少种摆放方案。国王能攻击到它上下左右，以及左上左下右上右下八个方向上附近的各一个格子，共8个格子。 Input只有一行，包含两个数N，K （ 1 &amp;lt;=N &amp;lt;=9, 0 &amp;lt;= K &amp;lt;=">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-11-09T00:15:27.332Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="BZOJ1087【SCOI2005】互不侵犯King &lt;状压DP&gt;">
+<meta name="twitter:description" content="【SCOI2005】互不侵犯KingTime Limit: 10 Sec  Memory Limit: 162 MB Description在N×N的棋盘里面放K个国王，使他们互不攻击，共有多少种摆放方案。国王能攻击到它上下左右，以及左上左下右上右下八个方向上附近的各一个格子，共8个格子。 Input只有一行，包含两个数N，K （ 1 &amp;lt;=N &amp;lt;=9, 0 &amp;lt;= K &amp;lt;=">
+  
+    <link rel="alternative" href="/atom.xml" title="NIRVANA" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://chuantu.biz/t6/89/1507626502x2728279003.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+
+  <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://chuantu.biz/t6/89/1507626502x2728279003.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Azrael_Death</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">Veni Vidi Vici</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/AzraelDeath" title="github">github</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/azraeldeath" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/2-SAT/" style="font-size: 11.11px;">2-SAT</a> <a href="/tags/AC自动机/" style="font-size: 11.11px;">AC自动机</a> <a href="/tags/APIO/" style="font-size: 10px;">APIO</a> <a href="/tags/BZOJ/" style="font-size: 20px;">BZOJ</a> <a href="/tags/DFS序/" style="font-size: 10px;">DFS序</a> <a href="/tags/DP/" style="font-size: 15.56px;">DP</a> <a href="/tags/HDU/" style="font-size: 13.33px;">HDU</a> <a href="/tags/LCA/" style="font-size: 12.22px;">LCA</a> <a href="/tags/LG/" style="font-size: 11.11px;">LG</a> <a href="/tags/MST/" style="font-size: 12.22px;">MST</a> <a href="/tags/Manacher/" style="font-size: 11.11px;">Manacher</a> <a href="/tags/NOI/" style="font-size: 11.11px;">NOI</a> <a href="/tags/NOIp/" style="font-size: 12.22px;">NOIp</a> <a href="/tags/POI/" style="font-size: 10px;">POI</a> <a href="/tags/POJ/" style="font-size: 15.56px;">POJ</a> <a href="/tags/Tarjan/" style="font-size: 11.11px;">Tarjan</a> <a href="/tags/Trie/" style="font-size: 10px;">Trie</a> <a href="/tags/UVa/" style="font-size: 10px;">UVa</a> <a href="/tags/主席树/" style="font-size: 13.33px;">主席树</a> <a href="/tags/二分答案/" style="font-size: 11.11px;">二分答案</a> <a href="/tags/分块/" style="font-size: 10px;">分块</a> <a href="/tags/图论/" style="font-size: 17.78px;">图论</a> <a href="/tags/字符串/" style="font-size: 13.33px;">字符串</a> <a href="/tags/差分/" style="font-size: 10px;">差分</a> <a href="/tags/差分约束系统/" style="font-size: 10px;">差分约束系统</a> <a href="/tags/并查集/" style="font-size: 11.11px;">并查集</a> <a href="/tags/总结/" style="font-size: 16.67px;">总结</a> <a href="/tags/搜索/" style="font-size: 10px;">搜索</a> <a href="/tags/数位DP/" style="font-size: 11.11px;">数位DP</a> <a href="/tags/数据结构/" style="font-size: 18.89px;">数据结构</a> <a href="/tags/数论数学/" style="font-size: 12.22px;">数论数学</a> <a href="/tags/树套树/" style="font-size: 11.11px;">树套树</a> <a href="/tags/树状数组/" style="font-size: 12.22px;">树状数组</a> <a href="/tags/模拟/" style="font-size: 11.11px;">模拟</a> <a href="/tags/状压DP/" style="font-size: 10px;">状压DP</a> <a href="/tags/省选/" style="font-size: 18.89px;">省选</a> <a href="/tags/线段树/" style="font-size: 13.33px;">线段树</a> <a href="/tags/组合数学/" style="font-size: 10px;">组合数学</a> <a href="/tags/网络流/" style="font-size: 14.44px;">网络流</a> <a href="/tags/莫队/" style="font-size: 11.11px;">莫队</a> <a href="/tags/补集转换/" style="font-size: 10px;">补集转换</a> <a href="/tags/贪心/" style="font-size: 10px;">贪心</a> <a href="/tags/费用流/" style="font-size: 10px;">费用流</a> <a href="/tags/队列/" style="font-size: 10px;">队列</a> <a href="/tags/高斯消元/" style="font-size: 10px;">高斯消元</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/OwenOwl">OwenOwl</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/Joker_69">Joker</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://dangxingyu.com">DXY</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://309459245.lofter.com">YJQ</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/candy99">Candy</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/zig-zag">ZigZag</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://cxjyxx.me">cxjyxx_me</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.shuizilong.com">ShuiZiLong</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/kuangbin">KuangBin</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Azrael_Death</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://chuantu.biz/t6/89/1507626502x2728279003.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Azrael_Death</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">Veni Vidi Vici</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/AzraelDeath" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/azraeldeath" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-BZOJ1087【SCOI2005】互不侵犯King 状压DP" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/BZOJ1087【SCOI2005】互不侵犯King 状压DP/" class="article-date">
+  	<time datetime="2017-11-08T16:00:00.000Z" itemprop="datePublished">2017-11-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      BZOJ1087【SCOI2005】互不侵犯King &lt;状压DP&gt;
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BZOJ/">BZOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/">DP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/状压DP/">状压DP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/省选/">省选</a></li></ul>
+	</div>
+
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>【SCOI2005】互不侵犯King<br>Time Limit: 10 Sec  Memory Limit: 162 MB</p>
+<p>Description<br>在N×N的棋盘里面放K个国王，使他们互不攻击，共有多少种摆放方案。国王能攻击到它上下左右，以及左上<br>左下右上右下八个方向上附近的各一个格子，共8个格子。</p>
+<p>Input<br>只有一行，包含两个数N，K （ 1 &lt;=N &lt;=9, 0 &lt;= K &lt;= N * N）<br>Output<br>方案数。</p>
+<p>Sample Input<br>3 2<br>Sample Output<br>16</p>
+</blockquote>
+<p>标签：状压DP</p>
+<p>状压DP的基础题。<br>对于每个国王，不难发现它放与不放只与当行和前一行有关，而它放完后的影响只作用于当行和后一行。<br>而N&lt;=9<br>于是考虑状压DP，f[i][j][k]表示当前考虑到第i行，共用了j个国王，第i行状态为k的方案数。那么k和前一行的状态k’是否冲突可以用k、k&lt;<1、k>&gt;1与k’取&amp;得到。时间复杂度O(n^2·2^k·2^k)。</1、k></p>
+<p>附上AC代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> lnt;</div><div class="line"><span class="keyword">int</span> n, k, cnt[<span class="number">100</span>], sta[<span class="number">1000</span>], tot;</div><div class="line">lnt f[<span class="number">10</span>][<span class="number">1000</span>][<span class="number">1000</span>], ans;	<span class="keyword">bool</span> mrk[<span class="number">1000</span>];</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; (<span class="number">1</span>&lt;&lt;n); i++) &#123;</div><div class="line">		<span class="keyword">if</span> (i&amp;(i&lt;&lt;<span class="number">1</span>))	<span class="keyword">continue</span>;</div><div class="line">		mrk[i] = <span class="literal">true</span>, sta[tot++] = i;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = i; j; j &gt;&gt;= <span class="number">1</span>)	cnt[i] += (j&amp;<span class="number">1</span>);</div><div class="line">		f[<span class="number">1</span>][cnt[i]][i] = <span class="number">1</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;k), init();</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++)	<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= k; j++)	<span class="keyword">for</span> (<span class="keyword">int</span> p = <span class="number">0</span>; p &lt; tot; p++) &#123;</div><div class="line">		<span class="keyword">int</span> cur = sta[p];	<span class="keyword">if</span> (cnt[cur] &gt; j)	<span class="keyword">continue</span>;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> q = <span class="number">0</span>; q &lt; tot; q++) &#123;</div><div class="line">			<span class="keyword">int</span> lst = sta[q];</div><div class="line">			<span class="keyword">if</span> ((cur&amp;lst) || ((cur&lt;&lt;<span class="number">1</span>)&amp;lst) || ((cur&gt;&gt;<span class="number">1</span>)&amp;lst))	<span class="keyword">continue</span>;</div><div class="line">			f[i][j][cur] += f[i<span class="number">-1</span>][j-cnt[cur]][lst];</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; tot; i++)	ans += f[n][k][sta[i]];</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%lld"</span>, ans);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/BZOJ4491 我也不知道题目名字是什么 线段树/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">BZOJ4491 我也不知道题目名字是什么 &lt;线段树&gt;</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="ds-share share" data-thread-key="BZOJ1087【SCOI2005】互不侵犯King 状压DP" data-title="BZOJ1087【SCOI2005】互不侵犯King &lt;状压DP&gt;" data-url="http://yoursite.com/BZOJ1087【SCOI2005】互不侵犯King 状压DP/"  data-images="http://chuantu.biz/t6/89/1507626502x2728279003.jpg" data-content="BZOJ1087【SCOI2005】互不侵犯King &lt;状压DP&gt;">
+    <div class="ds-share-inline">
+      <ul  class="ds-share-icons-16">
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      </ul>
+      <div class="ds-share-icons-more">
+      </div>
+    </div>
+ </div>
+ 
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2017 Azrael_Death
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/smackgg/hexo-theme-smackdown" target="_blank">Smackdown</a>
+        </div>
+    </div>
+  </div>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+  <script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+<!--
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+-->
+
+
+
+  </div>
+</body>
+</html>

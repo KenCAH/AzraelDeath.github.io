@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>BZOJ4491 我也不知道题目名字是什么 &lt;线段树&gt; | NIRVANA</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="我也不知道题目名字是什么Time Limit: 10 Sec  Memory Limit: 512 MB Description给定一个序列A[i]，每次询问l,r，求[l,r]内最长子串，使得该子串为不上升子串或不下降子串 Input第一行n，表示A数组有多少元素接下来一行为n个整数A[i]接下来一个整数Q，表示询问数量接下来Q行，每行2个整数l，rOutput对于每个询问，求[l,r]内最长">
+<meta name="keywords" content="BZOJ,数据结构,线段树">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BZOJ4491 我也不知道题目名字是什么 &lt;线段树&gt;">
+<meta property="og:url" content="http://yoursite.com/BZOJ4491 我也不知道题目名字是什么 线段树/index.html">
+<meta property="og:site_name" content="NIRVANA">
+<meta property="og:description" content="我也不知道题目名字是什么Time Limit: 10 Sec  Memory Limit: 512 MB Description给定一个序列A[i]，每次询问l,r，求[l,r]内最长子串，使得该子串为不上升子串或不下降子串 Input第一行n，表示A数组有多少元素接下来一行为n个整数A[i]接下来一个整数Q，表示询问数量接下来Q行，每行2个整数l，rOutput对于每个询问，求[l,r]内最长">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-11-09T08:50:30.490Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="BZOJ4491 我也不知道题目名字是什么 &lt;线段树&gt;">
+<meta name="twitter:description" content="我也不知道题目名字是什么Time Limit: 10 Sec  Memory Limit: 512 MB Description给定一个序列A[i]，每次询问l,r，求[l,r]内最长子串，使得该子串为不上升子串或不下降子串 Input第一行n，表示A数组有多少元素接下来一行为n个整数A[i]接下来一个整数Q，表示询问数量接下来Q行，每行2个整数l，rOutput对于每个询问，求[l,r]内最长">
+  
+    <link rel="alternative" href="/atom.xml" title="NIRVANA" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://chuantu.biz/t6/89/1507626502x2728279003.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+
+  <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://chuantu.biz/t6/89/1507626502x2728279003.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Azrael_Death</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">Veni Vidi Vici</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/AzraelDeath" title="github">github</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/azraeldeath" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/2-SAT/" style="font-size: 11.11px;">2-SAT</a> <a href="/tags/AC自动机/" style="font-size: 11.11px;">AC自动机</a> <a href="/tags/APIO/" style="font-size: 10px;">APIO</a> <a href="/tags/BZOJ/" style="font-size: 20px;">BZOJ</a> <a href="/tags/DFS序/" style="font-size: 10px;">DFS序</a> <a href="/tags/DP/" style="font-size: 15.56px;">DP</a> <a href="/tags/HDU/" style="font-size: 13.33px;">HDU</a> <a href="/tags/LCA/" style="font-size: 12.22px;">LCA</a> <a href="/tags/LG/" style="font-size: 11.11px;">LG</a> <a href="/tags/MST/" style="font-size: 12.22px;">MST</a> <a href="/tags/Manacher/" style="font-size: 11.11px;">Manacher</a> <a href="/tags/NOI/" style="font-size: 11.11px;">NOI</a> <a href="/tags/NOIp/" style="font-size: 12.22px;">NOIp</a> <a href="/tags/POI/" style="font-size: 10px;">POI</a> <a href="/tags/POJ/" style="font-size: 15.56px;">POJ</a> <a href="/tags/Tarjan/" style="font-size: 11.11px;">Tarjan</a> <a href="/tags/Trie/" style="font-size: 10px;">Trie</a> <a href="/tags/UVa/" style="font-size: 10px;">UVa</a> <a href="/tags/主席树/" style="font-size: 13.33px;">主席树</a> <a href="/tags/二分答案/" style="font-size: 11.11px;">二分答案</a> <a href="/tags/分块/" style="font-size: 10px;">分块</a> <a href="/tags/图论/" style="font-size: 17.78px;">图论</a> <a href="/tags/字符串/" style="font-size: 13.33px;">字符串</a> <a href="/tags/差分/" style="font-size: 10px;">差分</a> <a href="/tags/差分约束系统/" style="font-size: 10px;">差分约束系统</a> <a href="/tags/并查集/" style="font-size: 11.11px;">并查集</a> <a href="/tags/总结/" style="font-size: 16.67px;">总结</a> <a href="/tags/搜索/" style="font-size: 10px;">搜索</a> <a href="/tags/数位DP/" style="font-size: 11.11px;">数位DP</a> <a href="/tags/数据结构/" style="font-size: 18.89px;">数据结构</a> <a href="/tags/数论数学/" style="font-size: 12.22px;">数论数学</a> <a href="/tags/树套树/" style="font-size: 11.11px;">树套树</a> <a href="/tags/树状数组/" style="font-size: 12.22px;">树状数组</a> <a href="/tags/模拟/" style="font-size: 11.11px;">模拟</a> <a href="/tags/状压DP/" style="font-size: 10px;">状压DP</a> <a href="/tags/省选/" style="font-size: 18.89px;">省选</a> <a href="/tags/线段树/" style="font-size: 13.33px;">线段树</a> <a href="/tags/组合数学/" style="font-size: 10px;">组合数学</a> <a href="/tags/网络流/" style="font-size: 14.44px;">网络流</a> <a href="/tags/莫队/" style="font-size: 11.11px;">莫队</a> <a href="/tags/补集转换/" style="font-size: 10px;">补集转换</a> <a href="/tags/贪心/" style="font-size: 10px;">贪心</a> <a href="/tags/费用流/" style="font-size: 10px;">费用流</a> <a href="/tags/队列/" style="font-size: 10px;">队列</a> <a href="/tags/高斯消元/" style="font-size: 10px;">高斯消元</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/OwenOwl">OwenOwl</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/Joker_69">Joker</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://dangxingyu.com">DXY</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://309459245.lofter.com">YJQ</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/candy99">Candy</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/zig-zag">ZigZag</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://cxjyxx.me">cxjyxx_me</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.shuizilong.com">ShuiZiLong</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/kuangbin">KuangBin</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Azrael_Death</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://chuantu.biz/t6/89/1507626502x2728279003.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Azrael_Death</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">Veni Vidi Vici</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/AzraelDeath" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/azraeldeath" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-BZOJ4491 我也不知道题目名字是什么 线段树" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/BZOJ4491 我也不知道题目名字是什么 线段树/" class="article-date">
+  	<time datetime="2017-11-08T16:00:00.000Z" itemprop="datePublished">2017-11-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      BZOJ4491 我也不知道题目名字是什么 &lt;线段树&gt;
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BZOJ/">BZOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/线段树/">线段树</a></li></ul>
+	</div>
+
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>我也不知道题目名字是什么<br>Time Limit: 10 Sec  Memory Limit: 512 MB</p>
+<p>Description<br>给定一个序列A[i]，每次询问l,r，求[l,r]内最长子串，使得该子串为不上升子串或不下降子串</p>
+<p>Input<br>第一行n，表示A数组有多少元素<br>接下来一行为n个整数A[i]<br>接下来一个整数Q，表示询问数量<br>接下来Q行，每行2个整数l，r<br>Output<br>对于每个询问，求[l,r]内最长子串，使得该子串为不上升子串或不下降子串</p>
+<p>Sample Input<br>9<br>1 2 3 4 5 6 5 4 3<br>5<br>1 6<br>1 7<br>2 7<br>1 9<br>5 9<br>Sample Output<br>6<br>6<br>5<br>6<br>4<br>//样例解释<br>五个询问分别对应<br>[1,6][1,6][2,6][1,6][6,9]</p>
+<p>HINT<br>N,Q&lt;=50000</p>
+<p>Source<br>By 一个读错题的沙茶</p>
+</blockquote>
+<p>标签：线段树</p>
+<p>稍有变形的基础线段树。<br>对于每个区间，维护其从左端开始的最长上升升下降序列、从右端开始的最长上升或下降序列、左端点键值、右端点键值、区间中最长序列长度、区间中最长上升序列长度、区间中最长下降序列长度，共9个值。然后updata和downtag注意写法即可。</p>
+<p>附上AC代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_N 50000</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">int</span> n, m;	<span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span><span class="keyword">int</span> lup, rup, ldn, rdn, lc, rc, l, mxup, mxdn;&#125; tr[(MAX_N&lt;&lt;<span class="number">2</span>)+<span class="number">5</span>];</div><div class="line"><span class="function">node <span class="title">update</span><span class="params">(node a, node b)</span> </span>&#123;</div><div class="line">	node ret;	ret.l = a.l+b.l, ret.lc = a.lc, ret.rc = b.rc;</div><div class="line">	ret.lup = a.lup;	<span class="keyword">if</span> (a.lup == a.l &amp;&amp; a.rc &lt;= b.lc)	ret.lup = a.l+b.lup;</div><div class="line">	ret.ldn = a.ldn;	<span class="keyword">if</span> (a.ldn == a.l &amp;&amp; a.rc &gt;= b.lc)	ret.ldn = a.l+b.ldn;</div><div class="line">	ret.rup = b.rup;	<span class="keyword">if</span> (b.rup == b.l &amp;&amp; a.rc &lt;= b.lc)	ret.rup = a.rup+b.l;</div><div class="line">	ret.rdn = b.rdn;	<span class="keyword">if</span> (b.rdn == b.l &amp;&amp; a.rc &gt;= b.lc)	ret.rdn = a.rdn+b.l;</div><div class="line">	ret.mxup = max(a.mxup, b.mxup), ret.mxdn = max(a.mxdn, b.mxdn);</div><div class="line">	<span class="keyword">if</span> (a.rc &lt;= b.lc)	ret.mxup = max(ret.mxup, a.rup+b.lup);</div><div class="line">	<span class="keyword">if</span> (a.rc &gt;= b.lc)	ret.mxdn = max(ret.mxdn, a.rdn+b.ldn);</div><div class="line">	<span class="keyword">return</span> ret;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">(<span class="keyword">int</span> v, <span class="keyword">int</span> s, <span class="keyword">int</span> t)</span> </span>&#123;</div><div class="line">	<span class="keyword">if</span> (s == t) &#123;</div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;tr[v].lc), tr[v].rc = tr[v].lc;</div><div class="line">		tr[v].lup = tr[v].rup = tr[v].ldn = tr[v].rdn = tr[v].l = tr[v].mxup = tr[v].mxdn = <span class="number">1</span>;</div><div class="line">		<span class="keyword">return</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">int</span> mid = s+t&gt;&gt;<span class="number">1</span>;</div><div class="line">	build(v&lt;&lt;<span class="number">1</span>, s, mid), build(v&lt;&lt;<span class="number">1</span>|<span class="number">1</span>, mid+<span class="number">1</span>, t);</div><div class="line">	tr[v] = update(tr[v&lt;&lt;<span class="number">1</span>], tr[v&lt;&lt;<span class="number">1</span>|<span class="number">1</span>]);</div><div class="line">&#125;</div><div class="line"><span class="function">node <span class="title">query</span><span class="params">(<span class="keyword">int</span> v, <span class="keyword">int</span> s, <span class="keyword">int</span> t, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</div><div class="line">	<span class="keyword">if</span> (s &gt;= l &amp;&amp; t &lt;= r)	<span class="keyword">return</span> tr[v];</div><div class="line">	<span class="keyword">int</span> mid = s+t&gt;&gt;<span class="number">1</span>; node ls, rs; <span class="keyword">bool</span> fl = <span class="literal">false</span>, fr = <span class="literal">false</span>;</div><div class="line">	<span class="keyword">if</span> (l &lt;= mid)	ls = query(v&lt;&lt;<span class="number">1</span>, s, mid, l, r), fl = <span class="literal">true</span>;</div><div class="line">	<span class="keyword">if</span> (r &gt;= mid+<span class="number">1</span>)	rs = query(v&lt;&lt;<span class="number">1</span>|<span class="number">1</span>, mid+<span class="number">1</span>, t, l, r), fr = <span class="literal">true</span>;</div><div class="line">	<span class="keyword">return</span> fl ? (fr ? update(ls, rs) : ls) : rs;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n), build(<span class="number">1</span>, <span class="number">1</span>, n);</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;m);</div><div class="line">	<span class="keyword">while</span> (m--) &#123;</div><div class="line">		<span class="keyword">int</span> l, r;	<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;l, &amp;r);</div><div class="line">		node ans = query(<span class="number">1</span>, <span class="number">1</span>, n, l, r);</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, max(ans.mxup, ans.mxdn));</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/BZOJ1087【SCOI2005】互不侵犯King 状压DP/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          BZOJ1087【SCOI2005】互不侵犯King &lt;状压DP&gt;
+        
+      </div>
+    </a>
+  
+  
+    <a href="/BZOJ1046【HAOI2007】上升序列 DP/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">BZOJ1046【HAOI2007】上升序列 &lt;DP&gt;</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="ds-share share" data-thread-key="BZOJ4491 我也不知道题目名字是什么 线段树" data-title="BZOJ4491 我也不知道题目名字是什么 &lt;线段树&gt;" data-url="http://yoursite.com/BZOJ4491 我也不知道题目名字是什么 线段树/"  data-images="http://chuantu.biz/t6/89/1507626502x2728279003.jpg" data-content="BZOJ4491 我也不知道题目名字是什么 &lt;线段树&gt;">
+    <div class="ds-share-inline">
+      <ul  class="ds-share-icons-16">
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      </ul>
+      <div class="ds-share-icons-more">
+      </div>
+    </div>
+ </div>
+ 
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2017 Azrael_Death
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/smackgg/hexo-theme-smackdown" target="_blank">Smackdown</a>
+        </div>
+    </div>
+  </div>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+  <script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+<!--
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+-->
+
+
+
+  </div>
+</body>
+</html>
