@@ -194,6 +194,73 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-BZOJ1012【JSOI2008】最大数 线段树" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/BZOJ1012【JSOI2008】最大数 线段树/" class="article-date">
+  	<time datetime="2017-08-14T16:00:00.000Z" itemprop="datePublished">2017-08-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/BZOJ1012【JSOI2008】最大数 线段树/">
+        BZOJ1012【JSOI2008】最大数 &lt;线段树&gt;
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>最大数</p>
+<p>题目描述<br>现在请求你维护一个数列，要求提供以下两种操作：<br>1、 查询操作。<br>语法：Q L<br>功能：查询当前数列中末尾L个数中的最大的数，并输出这个数的值。<br>限制：L不超过当前数列的长度。<br>2、 插入操作。<br>语法：A n<br>功能：将n加上t，其中t是最近一次查询操作的答案（如果还未执行过查询操作，则t=0)，并将所得结果对一个固定的常数D取模，将所得答案插入到数列的末尾。<br>限制：n是整数（可能为负数）并且在长整范围内。<br>注意：初始时数列是空的，没有一个数。</p>
+<p>输入输出格式<br>输入格式：<br>第一行两个整数，M和D，其中M表示操作的个数(M &lt;= 200,000)，D如上文中所述，满足(0&lt;D&lt;2,000,000,000)<br>接下来的M行，每行一个字符串，描述一个具体的操作。语法如上文所述。<br>输出格式：<br>对于每一个查询操作，你应该按照顺序依次输出结果，每个结果占一行。</p>
+<p>输入输出样例<br>输入样例：<br>5 100<br>A 96<br>Q 1<br>A 97<br>Q 1<br>Q 2<br>输出样例：<br>96<br>93<br>96</p>
+</blockquote>
+<p>标签：线段树</p>
+<p>线段树裸题。<br>记录当前长度$len$，每个结点维护区间最大值，操作1为$query(len-L+1, len)$，操作2为$modify(++len, (n+t)%D)$。<br>注意开longlong</p>
+<p>附上AC代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_N 200000</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 2000000000</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line">ll tree[MAX_N*<span class="number">4</span>+<span class="number">50</span>];</div><div class="line"><span class="keyword">int</span> n, len = <span class="number">0</span>;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">updata</span><span class="params">(<span class="keyword">int</span> v)</span> </span>&#123;</div><div class="line">    tree[v] = max(tree[v&lt;&lt;<span class="number">1</span>], tree[v&lt;&lt;<span class="number">1</span>|<span class="number">1</span>]);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">(<span class="keyword">int</span> v, <span class="keyword">int</span> s, <span class="keyword">int</span> t)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (s == t) &#123;</div><div class="line">        tree[v] = -INF;</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">int</span> mid = s+t&gt;&gt;<span class="number">1</span>;</div><div class="line">    build(v&lt;&lt;<span class="number">1</span>, s, mid);</div><div class="line">    build(v&lt;&lt;<span class="number">1</span>|<span class="number">1</span>, mid+<span class="number">1</span>, t);</div><div class="line">    updata(v);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">modify</span><span class="params">(<span class="keyword">int</span> v, <span class="keyword">int</span> s, <span class="keyword">int</span> t, <span class="keyword">int</span> pos, ll x)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (s == t) &#123;</div><div class="line">        tree[v] = x;</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">int</span> mid = s+t&gt;&gt;<span class="number">1</span>;</div><div class="line">    <span class="keyword">if</span> (pos &lt;= mid) &#123;</div><div class="line">        modify(v&lt;&lt;<span class="number">1</span>, s, mid, pos, x);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        modify(v&lt;&lt;<span class="number">1</span>|<span class="number">1</span>, mid+<span class="number">1</span>, t, pos, x);</div><div class="line">    &#125;</div><div class="line">    updata(v);</div><div class="line">&#125;</div><div class="line"><span class="function">ll <span class="title">query</span><span class="params">(<span class="keyword">int</span> v, <span class="keyword">int</span> s, <span class="keyword">int</span> t, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (s &gt;= l &amp;&amp; t &lt;= r) &#123;</div><div class="line">        <span class="keyword">return</span> tree[v];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">int</span> mid = s+t&gt;&gt;<span class="number">1</span>;</div><div class="line">    ll ret = -INF;</div><div class="line">    <span class="keyword">if</span> (l &lt;= mid) &#123;</div><div class="line">        ret = max(ret, query(v&lt;&lt;<span class="number">1</span>, s, mid, l, r));</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (r &gt;= mid+<span class="number">1</span>) &#123;</div><div class="line">        ret = max(ret, query(v&lt;&lt;<span class="number">1</span>|<span class="number">1</span>, mid+<span class="number">1</span>, t, l, r));</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> ret;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    ll x, prev = <span class="number">0</span>, mod;</div><div class="line">    <span class="keyword">char</span> opt;</div><div class="line">    <span class="keyword">int</span> l;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%lld"</span>, &amp;n, &amp;mod);</div><div class="line">    build(<span class="number">1</span>, <span class="number">1</span>, n);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</div><div class="line">        <span class="built_in">cin</span> &gt;&gt; opt;</div><div class="line">        <span class="keyword">if</span> (opt == <span class="string">'A'</span>) &#123;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%lld"</span>, &amp;x);</div><div class="line">            modify(<span class="number">1</span>, <span class="number">1</span>, n, ++len, (x%mod+prev)%mod);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;l);</div><div class="line">            prev = query(<span class="number">1</span>, <span class="number">1</span>, n, len-l+<span class="number">1</span>, len);</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, prev);</div><div class="line">            prev %= mod;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BZOJ/">BZOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/省选/">省选</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/线段树/">线段树</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-BZOJ2588 Count on a tree DFS序+LCA+值域主席树" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -242,71 +309,6 @@
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BZOJ/">BZOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DFS序/">DFS序</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LCA/">LCA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/主席树/">主席树</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-BZOJ3673 可持久化并查集 by zky 可持久化数组+主席树" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/BZOJ3673 可持久化并查集 by zky 可持久化数组+主席树/" class="article-date">
-  	<time datetime="2017-08-14T16:00:00.000Z" itemprop="datePublished">2017-08-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/BZOJ3673 可持久化并查集 by zky 可持久化数组+主席树/">
-        BZOJ3673 可持久化并查集 by zky &lt;可持久化数组+主席树&gt;
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>可持久化并查集 by zky</p>
-<p>n个集合 m个操作<br>操作：<br>1 a b 合并a,b所在集合<br>2 k 回到第k次操作之后的状态(查询算作操作)<br>3 a b 询问a,b是否属于同一集合，是则输出1否则输出0</p>
-<p>Sample Input<br>5 6<br>1 1 2<br>3 1 2<br>2 0<br>3 1 2<br>2 1<br>3 1 2<br>Sample Output<br>1<br>0<br>1<br>Hint<br>0 &lt; n,m &lt;= 2*10^4</p>
-</blockquote>
-<p>标签：主席树维护可持久化数组</p>
-<p>本题的做法其实和并查集没太大关联。<br>如果是撤销，那可以用不加路径压缩的并查集完成，但是如果回到某时间，则不太好写。<br>这时，我们发现并查集这个东西构造其实很简单，只需要一个fa数组就行了。所以我们自然可以想到直接用一个二维数组存储每个时间的fa数组，即用增加的一维表示时间。<br>但是，n、m是2e4级别，所以肯定会MLE，这里我们就需要用到主席树，把fa数组可持久化。这里需要注意我们不能用路径压缩优化，因为我们需要回到前面的状态，为了让它跑得更快，我们可以用按秩合并优化。<br>最后附上AC代码：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_N 20000</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">int</span> n, m, cnt, now, root[MAX_N*<span class="number">10</span>+<span class="number">5</span>];</div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span><span class="keyword">int</span> fa, dep, ls, rs;&#125; tr[MAX_N*<span class="number">100</span>+<span class="number">5</span>];</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">(<span class="keyword">int</span> v, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</div><div class="line">	<span class="keyword">if</span> (l == r) &#123;tr[v].fa = l;	<span class="keyword">return</span>;&#125;</div><div class="line">	<span class="keyword">int</span> mid = l+r&gt;&gt;<span class="number">1</span>;</div><div class="line">	tr[v].ls = ++cnt, tr[v].rs = ++cnt;</div><div class="line">	build(tr[v].ls, l, mid);</div><div class="line">	build(tr[v].rs, mid+<span class="number">1</span>, r);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">modifyfa</span><span class="params">(<span class="keyword">int</span> v, <span class="keyword">int</span> o, <span class="keyword">int</span> s, <span class="keyword">int</span> t, <span class="keyword">int</span> pos, <span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">	tr[v] = tr[o];</div><div class="line">	<span class="keyword">if</span> (s == t)	&#123;tr[v].fa = x;	<span class="keyword">return</span>;&#125;</div><div class="line">	<span class="keyword">int</span> mid = s+t&gt;&gt;<span class="number">1</span>;</div><div class="line">	<span class="keyword">if</span> (pos &lt;= mid)	modifyfa(tr[v].ls = ++cnt, tr[o].ls, s, mid, pos, x);</div><div class="line">	<span class="keyword">else</span>	modifyfa(tr[v].rs = ++cnt, tr[o].rs, mid+<span class="number">1</span>, t, pos, x);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">modifydep</span><span class="params">(<span class="keyword">int</span> v, <span class="keyword">int</span> s, <span class="keyword">int</span> t, <span class="keyword">int</span> pos)</span> </span>&#123;</div><div class="line">	<span class="keyword">if</span> (s == t)	&#123;tr[v].dep++;	<span class="keyword">return</span>;&#125;</div><div class="line">	<span class="keyword">int</span> mid = s+t&gt;&gt;<span class="number">1</span>;</div><div class="line">	<span class="keyword">if</span> (pos &lt;= mid)	modifydep(tr[v].ls, s, mid, pos);</div><div class="line">	<span class="keyword">else</span>	modifydep(tr[v].rs, mid+<span class="number">1</span>, t, pos);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> v, <span class="keyword">int</span> s, <span class="keyword">int</span> t, <span class="keyword">int</span> pos)</span> </span>&#123;</div><div class="line">	<span class="keyword">if</span> (s == t)	<span class="keyword">return</span> v;</div><div class="line">	<span class="keyword">int</span> mid = s+t&gt;&gt;<span class="number">1</span>;</div><div class="line">	<span class="keyword">if</span> (pos &lt;= mid)	<span class="keyword">return</span> find(tr[v].ls, s, mid, pos);</div><div class="line">	<span class="keyword">else</span>	<span class="keyword">return</span> find(tr[v].rs, mid+<span class="number">1</span>, t, pos);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">getf</span><span class="params">(<span class="keyword">int</span> r, <span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> pos = find(r, <span class="number">1</span>, n, x);</div><div class="line">	<span class="keyword">if</span> (tr[pos].fa != x)	<span class="keyword">return</span> getf(r, tr[pos].fa);</div><div class="line">	<span class="keyword">return</span> pos;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;m);</div><div class="line">	cnt = <span class="number">0</span>, root[<span class="number">0</span>] = ++cnt;</div><div class="line">	build(root[<span class="number">0</span>], <span class="number">1</span>, n);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> now = <span class="number">1</span>; now &lt;= m; now++) &#123;</div><div class="line">		<span class="keyword">int</span> opt;</div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;opt);</div><div class="line">		<span class="keyword">if</span> (opt == <span class="number">1</span>) &#123;</div><div class="line">			root[now] = root[now<span class="number">-1</span>];</div><div class="line">			<span class="keyword">int</span> a, b;</div><div class="line">			<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;a, &amp;b);</div><div class="line">			<span class="keyword">int</span> posa = getf(root[now], a), posb = getf(root[now], b);</div><div class="line">			<span class="keyword">if</span> (tr[posa].fa == tr[posb].fa)	<span class="keyword">continue</span>;</div><div class="line">			<span class="keyword">if</span> (tr[posa].dep &gt; tr[posb].dep)	swap(posa, posb);</div><div class="line">			root[now] = ++cnt;</div><div class="line">			modifyfa(root[now], root[now<span class="number">-1</span>], <span class="number">1</span>, n, tr[posa].fa, tr[posb].fa);</div><div class="line">			<span class="keyword">if</span> (tr[posa].dep == tr[posb].dep)	modifydep(root[now], <span class="number">1</span>, n, tr[posb].fa);</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span> (opt == <span class="number">2</span>) &#123;</div><div class="line">			<span class="keyword">int</span> k;</div><div class="line">			<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;k);</div><div class="line">			root[now] = root[k];</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span> (opt == <span class="number">3</span>) &#123;</div><div class="line">			root[now] = root[now<span class="number">-1</span>];</div><div class="line">			<span class="keyword">int</span> a, b;</div><div class="line">			<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;a, &amp;b);</div><div class="line">			<span class="keyword">if</span> (tr[getf(root[now], a)].fa == tr[getf(root[now], b)].fa)	<span class="built_in">printf</span>(<span class="string">"1\n"</span>);</div><div class="line">			<span class="keyword">else</span>	<span class="built_in">printf</span>(<span class="string">"0\n"</span>);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BZOJ/">BZOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/主席树/">主席树</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
 	</div>
 
       
