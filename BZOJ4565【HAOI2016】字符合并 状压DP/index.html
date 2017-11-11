@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>BZOJ4565【HAOI2016】字符合并 &lt;状压DP&gt; | NIRVANA</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="【Haoi2016】字符合并Time Limit: 20 Sec  Memory Limit: 256 MB Description有一个长度为 n 的 01 串，你可以每次将相邻的 k 个字符合并，得到一个新的字符并获得一定分数。得到的新字符和分数由这 k 个字符确定。你需要求出你能获得的最大分数。 Input第一行两个整数n，k。接下来一行长度为n的01串，表示初始串。接下来2^k行，每行一">
+<meta name="keywords" content="DP,BZOJ,省选,状压DP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BZOJ4565【HAOI2016】字符合并 &lt;状压DP&gt;">
+<meta property="og:url" content="http://yoursite.com/BZOJ4565【HAOI2016】字符合并 状压DP/index.html">
+<meta property="og:site_name" content="NIRVANA">
+<meta property="og:description" content="【Haoi2016】字符合并Time Limit: 20 Sec  Memory Limit: 256 MB Description有一个长度为 n 的 01 串，你可以每次将相邻的 k 个字符合并，得到一个新的字符并获得一定分数。得到的新字符和分数由这 k 个字符确定。你需要求出你能获得的最大分数。 Input第一行两个整数n，k。接下来一行长度为n的01串，表示初始串。接下来2^k行，每行一">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-11-11T13:42:19.683Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="BZOJ4565【HAOI2016】字符合并 &lt;状压DP&gt;">
+<meta name="twitter:description" content="【Haoi2016】字符合并Time Limit: 20 Sec  Memory Limit: 256 MB Description有一个长度为 n 的 01 串，你可以每次将相邻的 k 个字符合并，得到一个新的字符并获得一定分数。得到的新字符和分数由这 k 个字符确定。你需要求出你能获得的最大分数。 Input第一行两个整数n，k。接下来一行长度为n的01串，表示初始串。接下来2^k行，每行一">
+  
+    <link rel="alternative" href="/atom.xml" title="NIRVANA" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://chuantu.biz/t6/89/1507626502x2728279003.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+
+  <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://chuantu.biz/t6/89/1507626502x2728279003.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Azrael_Death</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">Veni Vidi Vici</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/AzraelDeath" title="github">github</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/azraeldeath" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/2-SAT/" style="font-size: 10.83px;">2-SAT</a> <a href="/tags/AC自动机/" style="font-size: 10.83px;">AC自动机</a> <a href="/tags/APIO/" style="font-size: 10px;">APIO</a> <a href="/tags/BZOJ/" style="font-size: 20px;">BZOJ</a> <a href="/tags/DFS序/" style="font-size: 10px;">DFS序</a> <a href="/tags/DP/" style="font-size: 15.83px;">DP</a> <a href="/tags/HDU/" style="font-size: 12.5px;">HDU</a> <a href="/tags/LCA/" style="font-size: 12.5px;">LCA</a> <a href="/tags/LG/" style="font-size: 12.5px;">LG</a> <a href="/tags/MST/" style="font-size: 12.5px;">MST</a> <a href="/tags/Manacher/" style="font-size: 10.83px;">Manacher</a> <a href="/tags/NOI/" style="font-size: 10.83px;">NOI</a> <a href="/tags/NOIp/" style="font-size: 13.33px;">NOIp</a> <a href="/tags/POI/" style="font-size: 10px;">POI</a> <a href="/tags/POJ/" style="font-size: 15px;">POJ</a> <a href="/tags/Tarjan/" style="font-size: 10.83px;">Tarjan</a> <a href="/tags/Trie/" style="font-size: 10px;">Trie</a> <a href="/tags/UVa/" style="font-size: 10px;">UVa</a> <a href="/tags/主席树/" style="font-size: 12.5px;">主席树</a> <a href="/tags/二分图/" style="font-size: 10px;">二分图</a> <a href="/tags/二分答案/" style="font-size: 10.83px;">二分答案</a> <a href="/tags/分块/" style="font-size: 10px;">分块</a> <a href="/tags/图论/" style="font-size: 17.5px;">图论</a> <a href="/tags/字符串/" style="font-size: 12.5px;">字符串</a> <a href="/tags/差分/" style="font-size: 10px;">差分</a> <a href="/tags/差分约束系统/" style="font-size: 10px;">差分约束系统</a> <a href="/tags/并查集/" style="font-size: 10.83px;">并查集</a> <a href="/tags/总结/" style="font-size: 16.67px;">总结</a> <a href="/tags/搜索/" style="font-size: 10px;">搜索</a> <a href="/tags/数位DP/" style="font-size: 10.83px;">数位DP</a> <a href="/tags/数据结构/" style="font-size: 18.33px;">数据结构</a> <a href="/tags/数论数学/" style="font-size: 11.67px;">数论数学</a> <a href="/tags/期望DP/" style="font-size: 10px;">期望DP</a> <a href="/tags/树套树/" style="font-size: 10.83px;">树套树</a> <a href="/tags/树状数组/" style="font-size: 11.67px;">树状数组</a> <a href="/tags/树链剖分/" style="font-size: 10px;">树链剖分</a> <a href="/tags/模拟/" style="font-size: 10.83px;">模拟</a> <a href="/tags/状压DP/" style="font-size: 10.83px;">状压DP</a> <a href="/tags/省选/" style="font-size: 19.17px;">省选</a> <a href="/tags/线段树/" style="font-size: 13.33px;">线段树</a> <a href="/tags/组合数学/" style="font-size: 10px;">组合数学</a> <a href="/tags/网络流/" style="font-size: 14.17px;">网络流</a> <a href="/tags/莫队/" style="font-size: 10.83px;">莫队</a> <a href="/tags/补集转换/" style="font-size: 10px;">补集转换</a> <a href="/tags/贪心/" style="font-size: 10px;">贪心</a> <a href="/tags/费用流/" style="font-size: 10px;">费用流</a> <a href="/tags/队列/" style="font-size: 10px;">队列</a> <a href="/tags/高斯消元/" style="font-size: 10px;">高斯消元</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/OwenOwl">OwenOwl</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/Joker_69">Joker</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://dangxingyu.com">DXY</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://309459245.lofter.com">YJQ</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/candy99">Candy</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/zig-zag">ZigZag</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://cxjyxx.me">cxjyxx_me</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.shuizilong.com">ShuiZiLong</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/kuangbin">KuangBin</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Azrael_Death</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://chuantu.biz/t6/89/1507626502x2728279003.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Azrael_Death</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">Veni Vidi Vici</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/AzraelDeath" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/azraeldeath" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-BZOJ4565【HAOI2016】字符合并 状压DP" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/BZOJ4565【HAOI2016】字符合并 状压DP/" class="article-date">
+  	<time datetime="2017-11-10T16:00:00.000Z" itemprop="datePublished">2017-11-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      BZOJ4565【HAOI2016】字符合并 &lt;状压DP&gt;
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BZOJ/">BZOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/">DP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/状压DP/">状压DP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/省选/">省选</a></li></ul>
+	</div>
+
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>【Haoi2016】字符合并<br>Time Limit: 20 Sec  Memory Limit: 256 MB</p>
+<p>Description<br>有一个长度为 n 的 01 串，你可以每次将相邻的 k 个字符合并，得到一个新的字符并获得一定分数。得到的新字<br>符和分数由这 k 个字符确定。你需要求出你能获得的最大分数。</p>
+<p>Input<br>第一行两个整数n，k。接下来一行长度为n的01串，表示初始串。接下来2^k行，每行一个字符ci和一个整数wi，ci<br>表示长度为k的01串连成二进制后按从小到大顺序得到的第i种合并方案得到的新字符,wi表示对应的第i种方案对应<br>获得的分数。1&lt;=n&lt;=300,0&lt;=ci&lt;=1,wi&gt;=1,k&lt;=8<br>Output<br>输出一个整数表示答案</p>
+<p>Sample Input<br>3 2<br>101<br>1 10<br>1 10<br>0 20<br>1 30<br>Sample Output<br>40<br>//第3行到第6行表示长度为2的4种01串合并方案。00-&gt;1,得10分，01-&gt;1得10分，10-&gt;0得20分，11-&gt;1得30分。</p>
+</blockquote>
+<p>标签：状压DP</p>
+<p>这显然是一道状压DP（k&lt;=8）<br>考虑用f[i][j][k]表示将字符序列[i, j]表示为状态k的最大分数。<br>初始状态为f[i][i][s[i]] = 0 (1&lt;=i&lt;=n)<br>转移则将[i, j]斩成两半[i, mid]和[mid+1, j]，f[i][j][k&lt;&lt;1] = max{f[i][mid][k]+f[mid+1][j][0]}，f[i][j][k&lt;&lt;1|1] = max{f[i][mid][k]+f[mid+1][j][1]}。<br>特别需要注意的是，当(j-i)%(m-1) == 0时（m为题目中的k），会刚好变为一个字符，因此不能像上面那样递推，应为f[i][j][0] = max{f[i][j][sta]+w[sta]}(0&lt;=sta&lt;(1&lt;&lt;m)且sta可变为0)，f[i][j][1] = max{f[i][j][sta]+w[sta]}(0&lt;=sta&lt;(1&lt;&lt;m)且sta可变为0)。</p>
+<p>附上AC代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_K 8</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_N 300</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> lnt;</div><div class="line"><span class="keyword">char</span> str[MAX_N+<span class="number">5</span>];</div><div class="line"><span class="keyword">int</span> n, m, s[MAX_N+<span class="number">5</span>], c[<span class="number">1</span>&lt;&lt;MAX_K];</div><div class="line">lnt w[<span class="number">1</span>&lt;&lt;MAX_K], f[MAX_N+<span class="number">5</span>][MAX_N+<span class="number">5</span>][<span class="number">1</span>&lt;&lt;MAX_K];</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">upd</span><span class="params">(lnt &amp;a, lnt b)</span> </span>&#123;<span class="keyword">if</span> (a &lt; b)	a = b;&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d%s"</span>, &amp;n, &amp;m, str), <span class="built_in">memset</span>(f, <span class="number">-1</span>, <span class="keyword">sizeof</span>(f));</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; (<span class="number">1</span>&lt;&lt;m); i++)	<span class="built_in">scanf</span>(<span class="string">"%d%lld"</span>, c+i, w+i);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)	s[i] = str[i<span class="number">-1</span>]-<span class="string">'0'</span>, f[i][i][s[i]] = <span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> l = <span class="number">2</span>; l &lt;= n; l++)</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> s = <span class="number">1</span>, t = s+l<span class="number">-1</span>; t &lt;= n; t = ++s+l<span class="number">-1</span>) &#123;</div><div class="line">			<span class="keyword">int</span> tar = l<span class="number">-1</span>;	<span class="keyword">while</span> (tar &gt;= m)	tar -= m<span class="number">-1</span>;</div><div class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> mid = t<span class="number">-1</span>; mid &gt;= s; mid -= m<span class="number">-1</span>)	<span class="keyword">for</span> (<span class="keyword">int</span> sta = <span class="number">0</span>; sta &lt; (<span class="number">1</span>&lt;&lt;tar); sta++) &#123;</div><div class="line">				<span class="keyword">if</span> (~f[s][mid][sta] &amp;&amp; ~f[mid+<span class="number">1</span>][t][<span class="number">0</span>])	upd(f[s][t][sta&lt;&lt;<span class="number">1</span>], f[s][mid][sta]+f[mid+<span class="number">1</span>][t][<span class="number">0</span>]);</div><div class="line">				<span class="keyword">if</span> (~f[s][mid][sta] &amp;&amp; ~f[mid+<span class="number">1</span>][t][<span class="number">1</span>])	upd(f[s][t][sta&lt;&lt;<span class="number">1</span>|<span class="number">1</span>], f[s][mid][sta]+f[mid+<span class="number">1</span>][t][<span class="number">1</span>]);</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">if</span> (tar == m<span class="number">-1</span>) &#123;</div><div class="line">				lnt g[<span class="number">2</span>];	g[<span class="number">0</span>] = g[<span class="number">1</span>] = <span class="number">-1</span>;</div><div class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> sta = <span class="number">0</span>; sta &lt; (<span class="number">1</span>&lt;&lt;m); sta++)</div><div class="line">					<span class="keyword">if</span> (~f[s][t][sta])	upd(g[c[sta]], f[s][t][sta]+w[sta]);</div><div class="line">				f[s][t][<span class="number">0</span>] = g[<span class="number">0</span>], f[s][t][<span class="number">1</span>] = g[<span class="number">1</span>];</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	lnt ans = <span class="number">0</span>;	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; (<span class="number">1</span>&lt;&lt;m); i++)	ans = max(ans, f[<span class="number">1</span>][n][i]);	<span class="built_in">printf</span>(<span class="string">"%lld"</span>, ans);	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/LG1155【NOIp2008】双栈排序 二分图染色/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          LG1155【NOIp2008】双栈排序 &lt;二分图染色&gt;
+        
+      </div>
+    </a>
+  
+  
+    <a href="/LG1967【NOIp2013】货车运输 LCA/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">LG1967【NOIp2013】货车运输 &lt;MST+LCA&gt;</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="ds-share share" data-thread-key="BZOJ4565【HAOI2016】字符合并 状压DP" data-title="BZOJ4565【HAOI2016】字符合并 &lt;状压DP&gt;" data-url="http://yoursite.com/BZOJ4565【HAOI2016】字符合并 状压DP/"  data-images="http://chuantu.biz/t6/89/1507626502x2728279003.jpg" data-content="BZOJ4565【HAOI2016】字符合并 &lt;状压DP&gt;">
+    <div class="ds-share-inline">
+      <ul  class="ds-share-icons-16">
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      </ul>
+      <div class="ds-share-icons-more">
+      </div>
+    </div>
+ </div>
+ 
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2017 Azrael_Death
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/smackgg/hexo-theme-smackdown" target="_blank">Smackdown</a>
+        </div>
+    </div>
+  </div>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+  <script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+<!--
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+-->
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>LG1967【NOIp2013】货车运输 &lt;MST+LCA&gt; | NIRVANA</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="货车运输 题目描述A 国有 n 座城市，编号从 1 到 n，城市之间有 m 条双向道路。每一条道路对车辆都有重量限制，简称限重。现在有 q 辆货车在运输货物， 司机们想知道每辆车在不超过车辆限重的情况下，最多能运多重的货物。 输入输出格式输入格式：输入文件名为 truck.in。输入文件第一行有两个用一个空格隔开的整数 n，m，表示 A 国有 n 座城市和 m 条道路。 接下来 m 行每行 3">
+<meta name="keywords" content="图论,LCA,MST,NOIp,LG">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LG1967【NOIp2013】货车运输 &lt;MST+LCA&gt;">
+<meta property="og:url" content="http://yoursite.com/LG1967【NOIp2013】货车运输 LCA/index.html">
+<meta property="og:site_name" content="NIRVANA">
+<meta property="og:description" content="货车运输 题目描述A 国有 n 座城市，编号从 1 到 n，城市之间有 m 条双向道路。每一条道路对车辆都有重量限制，简称限重。现在有 q 辆货车在运输货物， 司机们想知道每辆车在不超过车辆限重的情况下，最多能运多重的货物。 输入输出格式输入格式：输入文件名为 truck.in。输入文件第一行有两个用一个空格隔开的整数 n，m，表示 A 国有 n 座城市和 m 条道路。 接下来 m 行每行 3">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-11-11T12:33:40.093Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LG1967【NOIp2013】货车运输 &lt;MST+LCA&gt;">
+<meta name="twitter:description" content="货车运输 题目描述A 国有 n 座城市，编号从 1 到 n，城市之间有 m 条双向道路。每一条道路对车辆都有重量限制，简称限重。现在有 q 辆货车在运输货物， 司机们想知道每辆车在不超过车辆限重的情况下，最多能运多重的货物。 输入输出格式输入格式：输入文件名为 truck.in。输入文件第一行有两个用一个空格隔开的整数 n，m，表示 A 国有 n 座城市和 m 条道路。 接下来 m 行每行 3">
+  
+    <link rel="alternative" href="/atom.xml" title="NIRVANA" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://chuantu.biz/t6/89/1507626502x2728279003.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+
+  <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://chuantu.biz/t6/89/1507626502x2728279003.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Azrael_Death</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">Veni Vidi Vici</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/AzraelDeath" title="github">github</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/azraeldeath" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/2-SAT/" style="font-size: 10.83px;">2-SAT</a> <a href="/tags/AC自动机/" style="font-size: 10.83px;">AC自动机</a> <a href="/tags/APIO/" style="font-size: 10px;">APIO</a> <a href="/tags/BZOJ/" style="font-size: 20px;">BZOJ</a> <a href="/tags/DFS序/" style="font-size: 10px;">DFS序</a> <a href="/tags/DP/" style="font-size: 15.83px;">DP</a> <a href="/tags/HDU/" style="font-size: 12.5px;">HDU</a> <a href="/tags/LCA/" style="font-size: 12.5px;">LCA</a> <a href="/tags/LG/" style="font-size: 12.5px;">LG</a> <a href="/tags/MST/" style="font-size: 12.5px;">MST</a> <a href="/tags/Manacher/" style="font-size: 10.83px;">Manacher</a> <a href="/tags/NOI/" style="font-size: 10.83px;">NOI</a> <a href="/tags/NOIp/" style="font-size: 13.33px;">NOIp</a> <a href="/tags/POI/" style="font-size: 10px;">POI</a> <a href="/tags/POJ/" style="font-size: 15px;">POJ</a> <a href="/tags/Tarjan/" style="font-size: 10.83px;">Tarjan</a> <a href="/tags/Trie/" style="font-size: 10px;">Trie</a> <a href="/tags/UVa/" style="font-size: 10px;">UVa</a> <a href="/tags/主席树/" style="font-size: 12.5px;">主席树</a> <a href="/tags/二分图/" style="font-size: 10px;">二分图</a> <a href="/tags/二分答案/" style="font-size: 10.83px;">二分答案</a> <a href="/tags/分块/" style="font-size: 10px;">分块</a> <a href="/tags/图论/" style="font-size: 17.5px;">图论</a> <a href="/tags/字符串/" style="font-size: 12.5px;">字符串</a> <a href="/tags/差分/" style="font-size: 10px;">差分</a> <a href="/tags/差分约束系统/" style="font-size: 10px;">差分约束系统</a> <a href="/tags/并查集/" style="font-size: 10.83px;">并查集</a> <a href="/tags/总结/" style="font-size: 16.67px;">总结</a> <a href="/tags/搜索/" style="font-size: 10px;">搜索</a> <a href="/tags/数位DP/" style="font-size: 10.83px;">数位DP</a> <a href="/tags/数据结构/" style="font-size: 18.33px;">数据结构</a> <a href="/tags/数论数学/" style="font-size: 11.67px;">数论数学</a> <a href="/tags/期望DP/" style="font-size: 10px;">期望DP</a> <a href="/tags/树套树/" style="font-size: 10.83px;">树套树</a> <a href="/tags/树状数组/" style="font-size: 11.67px;">树状数组</a> <a href="/tags/树链剖分/" style="font-size: 10px;">树链剖分</a> <a href="/tags/模拟/" style="font-size: 10.83px;">模拟</a> <a href="/tags/状压DP/" style="font-size: 10.83px;">状压DP</a> <a href="/tags/省选/" style="font-size: 19.17px;">省选</a> <a href="/tags/线段树/" style="font-size: 13.33px;">线段树</a> <a href="/tags/组合数学/" style="font-size: 10px;">组合数学</a> <a href="/tags/网络流/" style="font-size: 14.17px;">网络流</a> <a href="/tags/莫队/" style="font-size: 10.83px;">莫队</a> <a href="/tags/补集转换/" style="font-size: 10px;">补集转换</a> <a href="/tags/贪心/" style="font-size: 10px;">贪心</a> <a href="/tags/费用流/" style="font-size: 10px;">费用流</a> <a href="/tags/队列/" style="font-size: 10px;">队列</a> <a href="/tags/高斯消元/" style="font-size: 10px;">高斯消元</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/OwenOwl">OwenOwl</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/Joker_69">Joker</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://dangxingyu.com">DXY</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://309459245.lofter.com">YJQ</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/candy99">Candy</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/zig-zag">ZigZag</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://cxjyxx.me">cxjyxx_me</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.shuizilong.com">ShuiZiLong</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/kuangbin">KuangBin</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Azrael_Death</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://chuantu.biz/t6/89/1507626502x2728279003.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Azrael_Death</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">Veni Vidi Vici</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/AzraelDeath" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/azraeldeath" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-LG1967【NOIp2013】货车运输 LCA" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/LG1967【NOIp2013】货车运输 LCA/" class="article-date">
+  	<time datetime="2017-11-10T16:00:00.000Z" itemprop="datePublished">2017-11-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      LG1967【NOIp2013】货车运输 &lt;MST+LCA&gt;
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LCA/">LCA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LG/">LG</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MST/">MST</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NOIp/">NOIp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/图论/">图论</a></li></ul>
+	</div>
+
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>货车运输</p>
+<p>题目描述<br>A 国有 n 座城市，编号从 1 到 n，城市之间有 m 条双向道路。每一条道路对车辆都有重量限制，简称限重。现在有 q 辆货车在运输货物， 司机们想知道每辆车在不超过车辆限重的情况下，最多能运多重的货物。</p>
+<p>输入输出格式<br>输入格式：<br>输入文件名为 truck.in。<br>输入文件第一行有两个用一个空格隔开的整数 n，m，表示 A 国有 n 座城市和 m 条道<br>路。 接下来 m 行每行 3 个整数 x、 y、 z，每两个整数之间用一个空格隔开，表示从 x 号城市到 y 号城市有一条限重为 z 的道路。注意： x 不等于 y，两座城市之间可能有多条道路 。<br>接下来一行有一个整数 q，表示有 q 辆货车需要运货。<br>接下来 q 行，每行两个整数 x、y，之间用一个空格隔开，表示一辆货车需要从 x 城市运输货物到 y 城市，注意： x 不等于 y 。<br>输出格式：<br>输出文件名为 truck.out。<br>输出共有 q 行，每行一个整数，表示对于每一辆货车，它的最大载重是多少。如果货<br>车不能到达目的地，输出-1。</p>
+<p>输入输出样例<br>输入样例#1：<br>4 3<br>1 2 4<br>2 3 3<br>3 1 1<br>3<br>1 3<br>1 4<br>1 3<br>输出样例#1：<br>3<br>-1<br>3</p>
+<p>说明<br>对于 30%的数据，0 &lt; n &lt; 1,000，0 &lt; m &lt; 10,000，0 &lt; q&lt; 1,000；<br>对于 60%的数据，0 &lt; n &lt; 1,000，0 &lt; m &lt; 50,000，0 &lt; q&lt; 1,000；<br>对于 100%的数据，0 &lt; n &lt; 10,000，0 &lt; m &lt; 50,000，0 &lt; q&lt; 30,000，0 ≤ z ≤ 100,000。</p>
+</blockquote>
+<p>标签：MST，LCA</p>
+<p>LCA经典例题。<br>为了使得货车走过的路径上最小权最大，又要使其能到任意两点，那么该图可以缩减成一棵树，为了保证最优解，该树采用原图的最大生成树。<br>对于一次询问，在最大生成树上跑两点的LCA，倍增统计路径最小值即可。<br>不错的板题</p>
+<p>附上AC代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_N 10000</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_M 50000</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 2147483647</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">int</span> n, m, q, cnt;</div><div class="line"><span class="keyword">int</span> first[MAX_N+<span class="number">5</span>], d[MAX_N+<span class="number">5</span>], p[MAX_N+<span class="number">5</span>][<span class="number">15</span>], f[MAX_N+<span class="number">5</span>][<span class="number">15</span>];</div><div class="line"><span class="keyword">int</span> father[MAX_N+<span class="number">5</span>];</div><div class="line"><span class="keyword">bool</span> vis[MAX_N+<span class="number">5</span>];</div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Edge</span> &#123;</span></div><div class="line">    <span class="keyword">int</span> from, to, c, next;</div><div class="line">&#125;;</div><div class="line">Edge G[MAX_M], edge[MAX_M+<span class="number">5</span>];</div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> ret = <span class="number">0</span>;    <span class="keyword">char</span> ch = getchar();</div><div class="line">    <span class="keyword">while</span> (ch &lt; <span class="string">'0'</span> || ch &gt; <span class="string">'9'</span>)    ch = getchar();</div><div class="line">    <span class="keyword">while</span> (ch &gt;= <span class="string">'0'</span> &amp;&amp; ch &lt;= <span class="string">'9'</span>)    ret = ret*<span class="number">10</span>+ch-<span class="string">'0'</span>, ch = getchar();</div><div class="line">    <span class="keyword">return</span> ret;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span> <span class="params">(<span class="keyword">const</span> Edge &amp;a, <span class="keyword">const</span> Edge &amp;b)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> a.c &gt; b.c;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Add</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> v, <span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">    cnt++;</div><div class="line">    edge[cnt].to = v;</div><div class="line">    edge[cnt].c = x;</div><div class="line">    edge[cnt].next = first[u];</div><div class="line">    first[u] = cnt;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">get_father</span><span class="params">(<span class="keyword">int</span> cur)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (father[cur] != cur)    father[cur] = get_father(father[cur]);</div><div class="line">    <span class="keyword">return</span> father[cur];</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Kruskal</span><span class="params">()</span> </span>&#123;</div><div class="line">    sort(G, G+m, cmp);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)    father[i] = i;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</div><div class="line">        <span class="keyword">int</span> u = get_father(G[i].from), v = get_father(G[i].to);</div><div class="line">        <span class="keyword">if</span> (u != v) &#123;</div><div class="line">            father[u] = v;</div><div class="line">            Add(G[i].from, G[i].to, G[i].c);</div><div class="line">            Add(G[i].to, G[i].from, G[i].c);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(<span class="keyword">int</span> u)</span> </span>&#123;</div><div class="line">    vis[u] = <span class="literal">true</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; (<span class="number">1</span>&lt;&lt;i) &lt;= d[u]; i++) &#123;</div><div class="line">        p[u][i] = p[p[u][i<span class="number">-1</span>]][i<span class="number">-1</span>];</div><div class="line">        f[u][i] = min(f[u][i<span class="number">-1</span>], f[p[u][i<span class="number">-1</span>]][i<span class="number">-1</span>]);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = first[u]; i; i = edge[i].next) &#123;</div><div class="line">        <span class="keyword">int</span> v = edge[i].to;</div><div class="line">        <span class="keyword">if</span> (!vis[v]) &#123;</div><div class="line">            d[v] = d[u]+<span class="number">1</span>;</div><div class="line">            p[v][<span class="number">0</span>] = u;</div><div class="line">            f[v][<span class="number">0</span>] = edge[i].c;</div><div class="line">            DFS(v);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">LCA</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> ret = INF, i, j;</div><div class="line">    <span class="keyword">if</span> (d[a] &lt; d[b])    swap(a, b);</div><div class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; (<span class="number">1</span>&lt;&lt;i) &lt;= d[a]; i++) &#123;&#125;    i--;</div><div class="line">    <span class="keyword">for</span> (j = i; j &gt;= <span class="number">0</span>; j--) &#123;</div><div class="line">        <span class="keyword">if</span> (d[a]-(<span class="number">1</span>&lt;&lt;j) &gt;= d[b]) &#123;</div><div class="line">            ret = min(ret, f[a][j]);</div><div class="line">            a = p[a][j];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (a == b)    <span class="keyword">return</span> ret;</div><div class="line">    <span class="keyword">for</span> (j = i; j &gt;= <span class="number">0</span>; j--) &#123;</div><div class="line">        <span class="keyword">if</span> (p[a][j] != p[b][j]) &#123;</div><div class="line">            ret = min(ret, min(f[a][j], f[b][j]));</div><div class="line">            a = p[a][j];</div><div class="line">            b = p[b][j];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> min(ret, min(f[a][<span class="number">0</span>], f[b][<span class="number">0</span>]));</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="built_in">memset</span>(f, <span class="number">127</span>, <span class="keyword">sizeof</span>(f)); </div><div class="line">    n = read(), m = read();</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</div><div class="line">        G[i].from = read(), G[i].to = read(), G[i].c = read();</div><div class="line">    &#125;</div><div class="line">    Kruskal();</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</div><div class="line">        <span class="keyword">if</span> (!vis[i] &amp;&amp; father[i] == i) &#123;</div><div class="line">            DFS(i);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    q = read();</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; q; i++) &#123;</div><div class="line">        <span class="keyword">int</span> a, b;</div><div class="line">        a = read(), b = read();</div><div class="line">        <span class="keyword">if</span> (get_father(a) != get_father(b)) &#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"-1\n"</span>);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, LCA(a, b));</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/BZOJ4565【HAOI2016】字符合并 状压DP/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          BZOJ4565【HAOI2016】字符合并 &lt;状压DP&gt;
+        
+      </div>
+    </a>
+  
+  
+    <a href="/BZOJ4491 我也不知道题目名字是什么 线段树/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">BZOJ4491 我也不知道题目名字是什么 &lt;线段树&gt;</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="ds-share share" data-thread-key="LG1967【NOIp2013】货车运输 LCA" data-title="LG1967【NOIp2013】货车运输 &lt;MST+LCA&gt;" data-url="http://yoursite.com/LG1967【NOIp2013】货车运输 LCA/"  data-images="http://chuantu.biz/t6/89/1507626502x2728279003.jpg" data-content="LG1967【NOIp2013】货车运输 &lt;MST+LCA&gt;">
+    <div class="ds-share-inline">
+      <ul  class="ds-share-icons-16">
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      </ul>
+      <div class="ds-share-icons-more">
+      </div>
+    </div>
+ </div>
+ 
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2017 Azrael_Death
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/smackgg/hexo-theme-smackdown" target="_blank">Smackdown</a>
+        </div>
+    </div>
+  </div>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+  <script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+<!--
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+-->
+
+
+
+  </div>
+</body>
+</html>
