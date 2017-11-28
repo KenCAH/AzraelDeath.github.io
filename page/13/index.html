@@ -194,6 +194,65 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-20170706总结" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/20170706总结/" class="article-date">
+  	<time datetime="2017-07-05T16:00:00.000Z" itemprop="datePublished">2017-07-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/20170706总结/">
+        20170706总结
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天学习了一些较为冗杂的小知识点。首先介绍了c++的stl库和algorithm。这些库里的东西虽然好用，但是从空间上和时间上来看，大多数不如手写，有时候为了降低代码复杂度可以使用，但是不能用多了，否则MLE，M得太多甚至会成WA。stl库里有个角bitset的东西很玄学，和分块一样，它可以强行优化暴力，在某些问题上有大用。接着讲了k维偏序。口诀：一维排序，二维分治，三维数据结构。三维在分治的基础上套了一个树状数组或线段树，四维则类似，只是数据结构变成了树套树，代码复杂度应该很高。五维及以上若再套一层树，时间复杂度还不如暴力，因而应该直接暴力，这里就可以用前面讲得bitset优化了。k维偏序的题不太好写，可以多做做题，其中三维和五维最具代表性，可以见识一下。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/总结/">总结</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-20170705总结" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -401,65 +460,6 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>今天是dp的最后一节课。上午讲了最后两种较难的dp，即状压和数位。状压dp我较为熟悉，思想和细节都不复杂。而数位dp虽然思想也较为简单，但从写码的细节上来说，较为复杂，会涉及到分类。周日写两道数位dp的题来看看。下午是dp优化。先复习了凸包算法（Graham水平扫描），然后讲斜率优化。这种优化思想是把dp方程转化成(y2-y1)/(x2-x1)<c或(y2-y1) (x2-x1)="">c的形式，其中c是常数，描出所有的(x,y)，然后用凸包求上凸壳或下凸壳，使得dp过程中所用的总是可用的最优状态。接下来是矩阵快速幂优化，个人觉得就是把连加的dp方程转化成连乘的dp方程，转化为幂后就可用矩阵快速幂了。这两种方法都对数学有要求，虽然听起来不难，但自己推会有些困难，应多加练习。最后是杂题选讲，其实就是对前面两种优化的巩固，题目的dp方程转换模式都是差不多的。dp优化需要多写写题，希望以后在考试中能接触到。</c或(y2-y1)></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/总结/">总结</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-20170630总结" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/20170630总结/" class="article-date">
-  	<time datetime="2017-06-29T16:00:00.000Z" itemprop="datePublished">2017-06-30</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/20170630总结/">
-        20170630总结
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今天是dp的第二天，主讲树形dp，题目较难。早上考试，看到题目有些难，想做快些，结果把T1题意看错，得不偿失。T3也因此没有时间把记忆化改为dp。不过T2的确很难，是著名的鹰蛋问题。这道题的正解很有意思，有时间可以写一写。下午是树形dp的讲解，复习了经典的找直径、重心和“没有上司的舞会”这一经典题目。随后BZOJ“创世纪”一题将“没有上司的舞会”拓展到基环树上。接着是CodeForces的一道比赛题，因为没有怎么接触过树上背包，对此类问题有些生疏，故听得有些朦胧。树形dp后，又将了DAG中的dp。此类问题和树形dp差不多，只是根据题意有所区别，更为灵活。最后讲了k-regular问题，即构造一个无向图使每个点度为k，且有一个桥。在此给出构造方法（复习一遍，加深印象）：若k为偶数，则无解。若k为奇数，先构造一个k-1个结点的完全图，节点编号为0-（k-2），接着删去t到t^1这些边，每个点的度都为k-3了。然后再新建3个点，分别向原来的k-1个点连线，于是原来的k-1个点度都为k，3个新点度都为k-1。在这三个点中任选两个相连。现在把整个图复制一遍，变为两个图，把这两个图中度为k-1的两个点连起来，这样就有桥了。今天的题目整体较难，得写一些以加深印象。</p>
 
       
     </div>
