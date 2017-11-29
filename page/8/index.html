@@ -398,6 +398,75 @@
 
 
   
+    <article id="post-BZOJ1008【HNOI2008】越狱 补集转换" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/BZOJ1008【HNOI2008】越狱 补集转换/" class="article-date">
+  	<time datetime="2017-09-15T16:00:00.000Z" itemprop="datePublished">2017-09-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/BZOJ1008【HNOI2008】越狱 补集转换/">
+        BZOJ1008【HNOI2008】越狱
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>&#x3010;HNOI2008&#x3011;&#x8D8A;&#x72F1; &lt;&#x8865;&#x96C6;&#x8F6C;&#x6362;&gt;</p>
+<p>Time Limit: 1 Sec<br>Memory Limit: 162 MB</p>
+<p>Description<br>&#x76D1;&#x72F1;&#x6709;&#x8FDE;&#x7EED;&#x7F16;&#x53F7;&#x4E3A;1&#x2026;N&#x7684;N&#x4E2A;&#x623F;&#x95F4;&#xFF0C;&#x6BCF;&#x4E2A;&#x623F;&#x95F4;&#x5173;&#x62BC;&#x4E00;&#x4E2A;&#x72AF;&#x4EBA;&#xFF0C;&#x6709;M&#x79CD;&#x5B97;&#x6559;&#xFF0C;&#x6BCF;&#x4E2A;&#x72AF;&#x4EBA;&#x53EF;&#x80FD;&#x4FE1;&#x4EF0;&#x5176;&#x4E2D;&#x4E00;&#x79CD;&#x3002;&#x5982;&#x679C;&#x76F8;&#x90BB;&#x623F;&#x95F4;&#x7684;&#x72AF;&#x4EBA;&#x7684;&#x5B97;&#x6559;&#x76F8;&#x540C;&#xFF0C;&#x5C31;&#x53EF;&#x80FD;&#x53D1;&#x751F;&#x8D8A;&#x72F1;&#xFF0C;&#x6C42;&#x6709;&#x591A;&#x5C11;&#x79CD;&#x72B6;&#x6001;&#x53EF;&#x80FD;&#x53D1;&#x751F;&#x8D8A;&#x72F1;&#x3002;</p>
+<p>Input<br>&#x8F93;&#x5165;&#x4E24;&#x4E2A;&#x6574;&#x6570;M&#xFF0C;N.1&lt;=M&lt;=10^8,1&lt;=N&lt;=10^12<br>Output<br>&#x53EF;&#x80FD;&#x8D8A;&#x72F1;&#x7684;&#x72B6;&#x6001;&#x6570;&#xFF0C;&#x6A21;100003&#x53D6;&#x4F59;</p>
+<p>Sample Input<br>2 3<br>Sample Output<br>6</p>
+<p>HINT<br>6&#x79CD;&#x72B6;&#x6001;&#x4E3A;(000)(001)(011)(100)(110)(111)</p>
+</blockquote>
+<p>&#x6807;&#x7B7E;&#xFF1A;&#x8865;&#x96C6;&#x8F6C;&#x6362;</p>
+<p>&#x8003;&#x8651;&#x5230;&#x8865;&#x96C6;&#x8F6C;&#x6362;&#xFF0C;&#x8FD9;&#x9053;&#x9898;&#x5C31;&#x662F;&#x4E00;&#x6C34;&#x9898;&#x3002;<br>&#x603B;&#x5171;&#x6709;$M^N$&#x79CD;&#x65B9;&#x6848;&#xFF0C;&#x5176;&#x4E2D;&#x4E0D;&#x80FD;&#x53D1;&#x751F;&#x8D8A;&#x72F1;&#x7684;&#x6709;$M*(M-1)^{N-1}$&#x79CD;&#x65B9;&#x6848;&#xFF0C;&#x5FEB;&#x901F;&#x5E42;&#x6C42;&#x51FA;&#xFF0C;&#x76F8;&#x51CF;&#x5373;&#x53EF;&#x3002;&#x6CE8;&#x610F;&#x5904;&#x7406;&#x8D1F;&#x6570;&#x3002;</p>
+<p>&#x76F4;&#x63A5;&#x4E0A;&#x4EE3;&#x7801;&#xFF1A;<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MOD 100003</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> lnt;</div><div class="line"><span class="function">lnt <span class="title">PowerMod</span><span class="params">(lnt a, lnt b)</span> </span>{</div><div class="line">	<span class="keyword">if</span> (b == <span class="number">1</span>)	<span class="keyword">return</span> a%MOD;</div><div class="line">	lnt ret = PowerMod(a, b/<span class="number">2</span>);</div><div class="line">	<span class="keyword">return</span> b&amp;<span class="number">1</span> ? a%MOD*ret%MOD*ret%MOD : ret*ret%MOD;</div><div class="line">}</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>{</div><div class="line">	lnt m, n;	<span class="built_in">scanf</span>(<span class="string">&quot;%lld%lld&quot;</span>, &amp;m, &amp;n);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%lld&quot;</span>, ((PowerMod(m, n)-m%MOD*PowerMod(m<span class="number">-1</span>, n<span class="number">-1</span>))%MOD+MOD)%MOD);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BZOJ/">BZOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数论数学/">数论数学</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/省选/">省选</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/组合数学/">组合数学</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/补集转换/">补集转换</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-BZOJ1189【HNOI2007】紧急疏散evacuate 二分答案+网络流" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -474,75 +543,6 @@
 
 
   
-    <article id="post-BZOJ1008【HNOI2008】越狱 补集转换" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/BZOJ1008【HNOI2008】越狱 补集转换/" class="article-date">
-  	<time datetime="2017-09-15T16:00:00.000Z" itemprop="datePublished">2017-09-16</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/BZOJ1008【HNOI2008】越狱 补集转换/">
-        BZOJ1008【HNOI2008】越狱
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>&#x3010;HNOI2008&#x3011;&#x8D8A;&#x72F1; &lt;&#x8865;&#x96C6;&#x8F6C;&#x6362;&gt;</p>
-<p>Time Limit: 1 Sec<br>Memory Limit: 162 MB</p>
-<p>Description<br>&#x76D1;&#x72F1;&#x6709;&#x8FDE;&#x7EED;&#x7F16;&#x53F7;&#x4E3A;1&#x2026;N&#x7684;N&#x4E2A;&#x623F;&#x95F4;&#xFF0C;&#x6BCF;&#x4E2A;&#x623F;&#x95F4;&#x5173;&#x62BC;&#x4E00;&#x4E2A;&#x72AF;&#x4EBA;&#xFF0C;&#x6709;M&#x79CD;&#x5B97;&#x6559;&#xFF0C;&#x6BCF;&#x4E2A;&#x72AF;&#x4EBA;&#x53EF;&#x80FD;&#x4FE1;&#x4EF0;&#x5176;&#x4E2D;&#x4E00;&#x79CD;&#x3002;&#x5982;&#x679C;&#x76F8;&#x90BB;&#x623F;&#x95F4;&#x7684;&#x72AF;&#x4EBA;&#x7684;&#x5B97;&#x6559;&#x76F8;&#x540C;&#xFF0C;&#x5C31;&#x53EF;&#x80FD;&#x53D1;&#x751F;&#x8D8A;&#x72F1;&#xFF0C;&#x6C42;&#x6709;&#x591A;&#x5C11;&#x79CD;&#x72B6;&#x6001;&#x53EF;&#x80FD;&#x53D1;&#x751F;&#x8D8A;&#x72F1;&#x3002;</p>
-<p>Input<br>&#x8F93;&#x5165;&#x4E24;&#x4E2A;&#x6574;&#x6570;M&#xFF0C;N.1&lt;=M&lt;=10^8,1&lt;=N&lt;=10^12<br>Output<br>&#x53EF;&#x80FD;&#x8D8A;&#x72F1;&#x7684;&#x72B6;&#x6001;&#x6570;&#xFF0C;&#x6A21;100003&#x53D6;&#x4F59;</p>
-<p>Sample Input<br>2 3<br>Sample Output<br>6</p>
-<p>HINT<br>6&#x79CD;&#x72B6;&#x6001;&#x4E3A;(000)(001)(011)(100)(110)(111)</p>
-</blockquote>
-<p>&#x6807;&#x7B7E;&#xFF1A;&#x8865;&#x96C6;&#x8F6C;&#x6362;</p>
-<p>&#x8003;&#x8651;&#x5230;&#x8865;&#x96C6;&#x8F6C;&#x6362;&#xFF0C;&#x8FD9;&#x9053;&#x9898;&#x5C31;&#x662F;&#x4E00;&#x6C34;&#x9898;&#x3002;<br>&#x603B;&#x5171;&#x6709;$M^N$&#x79CD;&#x65B9;&#x6848;&#xFF0C;&#x5176;&#x4E2D;&#x4E0D;&#x80FD;&#x53D1;&#x751F;&#x8D8A;&#x72F1;&#x7684;&#x6709;$M*(M-1)^{N-1}$&#x79CD;&#x65B9;&#x6848;&#xFF0C;&#x5FEB;&#x901F;&#x5E42;&#x6C42;&#x51FA;&#xFF0C;&#x76F8;&#x51CF;&#x5373;&#x53EF;&#x3002;&#x6CE8;&#x610F;&#x5904;&#x7406;&#x8D1F;&#x6570;&#x3002;</p>
-<p>&#x76F4;&#x63A5;&#x4E0A;&#x4EE3;&#x7801;&#xFF1A;<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MOD 100003</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> lnt;</div><div class="line"><span class="function">lnt <span class="title">PowerMod</span><span class="params">(lnt a, lnt b)</span> </span>{</div><div class="line">	<span class="keyword">if</span> (b == <span class="number">1</span>)	<span class="keyword">return</span> a%MOD;</div><div class="line">	lnt ret = PowerMod(a, b/<span class="number">2</span>);</div><div class="line">	<span class="keyword">return</span> b&amp;<span class="number">1</span> ? a%MOD*ret%MOD*ret%MOD : ret*ret%MOD;</div><div class="line">}</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>{</div><div class="line">	lnt m, n;	<span class="built_in">scanf</span>(<span class="string">&quot;%lld%lld&quot;</span>, &amp;m, &amp;n);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%lld&quot;</span>, ((PowerMod(m, n)-m%MOD*PowerMod(m<span class="number">-1</span>, n<span class="number">-1</span>))%MOD+MOD)%MOD);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">}</div></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BZOJ/">BZOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数论数学/">数论数学</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/省选/">省选</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/组合数学/">组合数学</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/补集转换/">补集转换</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
@@ -598,6 +598,8 @@
 -->
 
 
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
   </div>
 </body>
