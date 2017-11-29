@@ -194,74 +194,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-BZOJ1833【ZJOI2010】count数字计数 数位DP" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/BZOJ1833【ZJOI2010】count数字计数 数位DP/" class="article-date">
-  	<time datetime="2017-11-07T16:00:00.000Z" itemprop="datePublished">2017-11-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/BZOJ1833【ZJOI2010】count数字计数 数位DP/">
-        BZOJ1833【ZJOI2010】count数字计数 &lt;数位DP&gt;
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>&#x3010;ZJOI2010&#x3011;count &#x6570;&#x5B57;&#x8BA1;&#x6570;<br>Time Limit: 3 Sec  Memory Limit: 64 MB</p>
-<p>Description<br>&#x7ED9;&#x5B9A;&#x4E24;&#x4E2A;&#x6B63;&#x6574;&#x6570;a&#x548C;b&#xFF0C;&#x6C42;&#x5728;[a,b]&#x4E2D;&#x7684;&#x6240;&#x6709;&#x6574;&#x6570;&#x4E2D;&#xFF0C;&#x6BCF;&#x4E2A;&#x6570;&#x7801;(digit)&#x5404;&#x51FA;&#x73B0;&#x4E86;&#x591A;&#x5C11;&#x6B21;&#x3002;</p>
-<p>Input<br>&#x8F93;&#x5165;&#x6587;&#x4EF6;&#x4E2D;&#x4EC5;&#x5305;&#x542B;&#x4E00;&#x884C;&#x4E24;&#x4E2A;&#x6574;&#x6570;a&#x3001;b&#xFF0C;&#x542B;&#x4E49;&#x5982;&#x4E0A;&#x6240;&#x8FF0;&#x3002;<br>Output<br>&#x8F93;&#x51FA;&#x6587;&#x4EF6;&#x4E2D;&#x5305;&#x542B;&#x4E00;&#x884C;10&#x4E2A;&#x6574;&#x6570;&#xFF0C;&#x5206;&#x522B;&#x8868;&#x793A;0-9&#x5728;[a,b]&#x4E2D;&#x51FA;&#x73B0;&#x4E86;&#x591A;&#x5C11;&#x6B21;&#x3002;</p>
-<p>Sample Input<br>1 99<br>Sample Output<br>9 20 20 20 20 20 20 20 20 20</p>
-<p>HINT<br>30%&#x7684;&#x6570;&#x636E;&#x4E2D;&#xFF0C;a&lt;=b&lt;=10^6&#xFF1B;<br>100%&#x7684;&#x6570;&#x636E;&#x4E2D;&#xFF0C;a&lt;=b&lt;=10^12&#x3002;</p>
-</blockquote>
-<p>&#x6807;&#x7B7E;&#xFF1A;&#x6570;&#x4F4D;DP</p>
-<p>BZOJ&#x4E0A;&#x6700;&#x7B80;&#x5355;&#x7684;&#x6570;&#x4F4D;DP&#xFF0C;&#x6BD4;Windy&#x6570;&#x8FD8;&#x6C34;&#x3002;<br>&#x9884;&#x5904;&#x7406;&#x6570;&#x7EC4;f&#xFF0C;&#x5176;&#x4E2D;f[i][j]&#x8868;&#x793A;&#x7B2C;i&#x4F4D;&#x4E3A;j&#x7684;&#x6570;&#x5171;&#x591A;&#x5C11;&#x4E2A;&#x3002;<br>&#x5BF9;&#x4E8E;&#x6BCF;&#x6B21;&#x67E5;&#x8BE2;&#xFF0C;&#x627E;[1, a]&#x548C;[1,b]&#x4E2D;0~9&#x51FA;&#x73B0;&#x7684;&#x6B21;&#x6570;&#xFF0C;&#x6309;&#x4F4D;&#x5728;f&#x6570;&#x7EC4;&#x4E0A;&#x67E5;&#xFF0C;&#x76F8;&#x51CF;&#x5373;&#x53EF;&#x3002;<br>&#x53EF;&#x4EE5;&#x7528;&#x7ED3;&#x6784;&#x4F53;&#x91CD;&#x8F7D;&#x8FD0;&#x7B97;&#x7B26;&#xFF0C;&#x8FD9;&#x6837;&#x4E00;&#x4E2A;&#x7B97;&#x5F0F;&#x4E0D;&#x7528;&#x5199;&#x5341;&#x904D;&#x3002;</p>
-<p>&#x9644;&#x4E0A;AC&#x4EE3;&#x7801;<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> lnt;</div><div class="line">lnt a, b, <span class="built_in">pow</span>[<span class="number">20</span>];</div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span> {</span>lnt c[<span class="number">10</span>];} f[<span class="number">20</span>][<span class="number">10</span>];</div><div class="line">node <span class="keyword">operator</span> + (node a, node b) {node ret;	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)	ret.c[i] = a.c[i]+b.c[i];	<span class="keyword">return</span> ret;}</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>{<span class="built_in">pow</span>[<span class="number">1</span>] = <span class="number">1</span>;	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= <span class="number">15</span>; i++)	<span class="built_in">pow</span>[i] = <span class="built_in">pow</span>[i<span class="number">-1</span>]*<span class="number">10</span>;}</div><div class="line"><span class="function">node <span class="title">calc</span><span class="params">(lnt x)</span> </span>{</div><div class="line">	node ret;	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)	ret.c[i] = <span class="number">0</span>;</div><div class="line">	<span class="keyword">if</span> (!x) {ret.c[<span class="number">0</span>] = <span class="number">1</span>;	<span class="keyword">return</span> ret;}</div><div class="line">	<span class="keyword">int</span> len = <span class="number">15</span>;	<span class="keyword">while</span> (x &lt; <span class="built_in">pow</span>[len])	len--;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; len; i++)	<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; <span class="number">10</span>; j++)	ret = ret+f[i][j];	ret.c[<span class="number">0</span>]++;</div><div class="line">	<span class="keyword">int</span> cur = x/<span class="built_in">pow</span>[len];	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; cur; i++)	ret = ret+f[len][i];</div><div class="line">	x %= <span class="built_in">pow</span>[len], ret.c[cur] += x+<span class="number">1</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = len<span class="number">-1</span>; i; i--) {</div><div class="line">		cur = x/<span class="built_in">pow</span>[i];</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; cur; j++)	ret = ret+f[i][j];</div><div class="line">		x %= <span class="built_in">pow</span>[i], ret.c[cur] += x+<span class="number">1</span>;</div><div class="line">	}</div><div class="line">	<span class="keyword">return</span> ret;</div><div class="line">}</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>{</div><div class="line">	init(), <span class="built_in">scanf</span>(<span class="string">&quot;%lld%lld&quot;</span>, &amp;a, &amp;b);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)	f[<span class="number">1</span>][i].c[i] = <span class="number">1</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= <span class="number">12</span>; i++)	<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">10</span>; j++)	<span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; <span class="number">10</span>; k++)</div><div class="line">		f[i][k] = f[i][k]+f[i<span class="number">-1</span>][j], f[i][k].c[k] += <span class="built_in">pow</span>[i<span class="number">-1</span>];</div><div class="line">	node ansa = calc(a<span class="number">-1</span>), ansb = calc(b);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) {<span class="built_in">printf</span>(<span class="string">&quot;%lld&quot;</span>, ansb.c[i]-ansa.c[i]);	<span class="keyword">if</span> (i != <span class="number">9</span>)	<span class="built_in">printf</span>(<span class="string">&quot; &quot;</span>);}</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">}</div></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BZOJ/">BZOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/">DP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数位DP/">数位DP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/省选/">省选</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
     <article id="post-BZOJ1860【ZJOI2006】Mahjong麻将 DP" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -369,6 +301,74 @@
 <p>&#x975E;&#x5E38;&#x7ECF;&#x5178;&#x7684;&#x4E00;&#x9053;&#x6570;&#x4F4D;DP&#x9898;&#x3002;<br>&#x4E5F;&#x662F;&#x591A;&#x5C11;OIer&#x6570;&#x4F4D;DP&#x5165;&#x95E8;&#x7684;&#x7B2C;&#x4E00;&#x9898;&#x554A;&#x2026;</p>
 <p>&#x5148;&#x9884;&#x5904;&#x7406;&#x51FA;DP&#x6570;&#x7EC4;&#xFF0C;&#x5176;&#x4E2D;f[i][j]&#x4ECE;&#x5DE6;&#x5F80;&#x53F3;&#x7B2C;i&#x4F4D;&#x4E3A;j&#x7684;windy&#x6570;&#x7684;&#x4E2A;&#x6570;&#x3002;<br>&#x5BF9;&#x4E8E;&#x8BE2;&#x95EE;&#xFF0C;&#x5206;&#x522B;&#x8BA1;&#x7B97;[1, A-1]&#x548C;[1, B]&#x4E2D;&#x7684;windy&#x6570;&#x7684;&#x4E2A;&#x6570;&#xFF0C;&#x5373;&#x5728;&#x9884;&#x5904;&#x7406;&#x7684;&#x8868;&#x4E2D;&#x6309;&#x4F4D;&#x67E5;&#x8BE2;&#xFF0C;&#x7EDF;&#x8BA1;&#x7B54;&#x6848;&#x540E;&#x76F8;&#x51CF;&#x5373;&#x53EF;&#x3002;</p>
 <p>&#x9644;&#x4E0A;&#x4EE3;&#x7801;&#xFF1A;<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">int</span> f[<span class="number">15</span>][<span class="number">15</span>];</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">abs</span><span class="params">(<span class="keyword">int</span> x)</span> </span>{<span class="keyword">return</span> x &gt;= <span class="number">0</span> ? x : -x;}</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">calc</span><span class="params">(<span class="keyword">int</span> x)</span> </span>{</div><div class="line">	<span class="keyword">int</span> len = <span class="number">0</span>, n[<span class="number">15</span>], t = x, ret = <span class="number">0</span>;	<span class="keyword">while</span> (t)	n[++len] = t%<span class="number">10</span>, t /= <span class="number">10</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; len; i++)	<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= <span class="number">9</span>; j++)	ret += f[i][j];</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = len; i; i--) {</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = (i == len ? <span class="number">1</span> : <span class="number">0</span>); j &lt; n[i]; j++)	<span class="keyword">if</span> (i == len || <span class="built_in">abs</span>(j-n[i+<span class="number">1</span>]) &gt;= <span class="number">2</span>)	ret += f[i][j];</div><div class="line">		<span class="keyword">if</span> (i &lt; len &amp;&amp; <span class="built_in">abs</span>(n[i+<span class="number">1</span>]-n[i]) &lt; <span class="number">2</span>)	<span class="keyword">break</span>;</div><div class="line">	}</div><div class="line">	<span class="keyword">return</span> ret;</div><div class="line">}</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>{</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">9</span>; i++)	f[<span class="number">1</span>][i] = <span class="number">1</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">10</span>; i++)	<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= <span class="number">9</span>; j++) {</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt;= j<span class="number">-2</span>; k++)	f[i+<span class="number">1</span>][k] += f[i][j];</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> k = j+<span class="number">2</span>; k &lt;= <span class="number">9</span>; k++)	f[i+<span class="number">1</span>][k] += f[i][j];</div><div class="line">	}</div><div class="line">	<span class="keyword">int</span> l, r;	<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;l, &amp;r);	<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, calc(r+<span class="number">1</span>)-calc(l));</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BZOJ/">BZOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/">DP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数位DP/">数位DP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/省选/">省选</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-BZOJ1833【ZJOI2010】count数字计数 数位DP" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/BZOJ1833【ZJOI2010】count数字计数 数位DP/" class="article-date">
+  	<time datetime="2017-11-07T16:00:00.000Z" itemprop="datePublished">2017-11-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/BZOJ1833【ZJOI2010】count数字计数 数位DP/">
+        BZOJ1833【ZJOI2010】count数字计数 &lt;数位DP&gt;
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>&#x3010;ZJOI2010&#x3011;count &#x6570;&#x5B57;&#x8BA1;&#x6570;<br>Time Limit: 3 Sec  Memory Limit: 64 MB</p>
+<p>Description<br>&#x7ED9;&#x5B9A;&#x4E24;&#x4E2A;&#x6B63;&#x6574;&#x6570;a&#x548C;b&#xFF0C;&#x6C42;&#x5728;[a,b]&#x4E2D;&#x7684;&#x6240;&#x6709;&#x6574;&#x6570;&#x4E2D;&#xFF0C;&#x6BCF;&#x4E2A;&#x6570;&#x7801;(digit)&#x5404;&#x51FA;&#x73B0;&#x4E86;&#x591A;&#x5C11;&#x6B21;&#x3002;</p>
+<p>Input<br>&#x8F93;&#x5165;&#x6587;&#x4EF6;&#x4E2D;&#x4EC5;&#x5305;&#x542B;&#x4E00;&#x884C;&#x4E24;&#x4E2A;&#x6574;&#x6570;a&#x3001;b&#xFF0C;&#x542B;&#x4E49;&#x5982;&#x4E0A;&#x6240;&#x8FF0;&#x3002;<br>Output<br>&#x8F93;&#x51FA;&#x6587;&#x4EF6;&#x4E2D;&#x5305;&#x542B;&#x4E00;&#x884C;10&#x4E2A;&#x6574;&#x6570;&#xFF0C;&#x5206;&#x522B;&#x8868;&#x793A;0-9&#x5728;[a,b]&#x4E2D;&#x51FA;&#x73B0;&#x4E86;&#x591A;&#x5C11;&#x6B21;&#x3002;</p>
+<p>Sample Input<br>1 99<br>Sample Output<br>9 20 20 20 20 20 20 20 20 20</p>
+<p>HINT<br>30%&#x7684;&#x6570;&#x636E;&#x4E2D;&#xFF0C;a&lt;=b&lt;=10^6&#xFF1B;<br>100%&#x7684;&#x6570;&#x636E;&#x4E2D;&#xFF0C;a&lt;=b&lt;=10^12&#x3002;</p>
+</blockquote>
+<p>&#x6807;&#x7B7E;&#xFF1A;&#x6570;&#x4F4D;DP</p>
+<p>BZOJ&#x4E0A;&#x6700;&#x7B80;&#x5355;&#x7684;&#x6570;&#x4F4D;DP&#xFF0C;&#x6BD4;Windy&#x6570;&#x8FD8;&#x6C34;&#x3002;<br>&#x9884;&#x5904;&#x7406;&#x6570;&#x7EC4;f&#xFF0C;&#x5176;&#x4E2D;f[i][j]&#x8868;&#x793A;&#x7B2C;i&#x4F4D;&#x4E3A;j&#x7684;&#x6570;&#x5171;&#x591A;&#x5C11;&#x4E2A;&#x3002;<br>&#x5BF9;&#x4E8E;&#x6BCF;&#x6B21;&#x67E5;&#x8BE2;&#xFF0C;&#x627E;[1, a]&#x548C;[1,b]&#x4E2D;0~9&#x51FA;&#x73B0;&#x7684;&#x6B21;&#x6570;&#xFF0C;&#x6309;&#x4F4D;&#x5728;f&#x6570;&#x7EC4;&#x4E0A;&#x67E5;&#xFF0C;&#x76F8;&#x51CF;&#x5373;&#x53EF;&#x3002;<br>&#x53EF;&#x4EE5;&#x7528;&#x7ED3;&#x6784;&#x4F53;&#x91CD;&#x8F7D;&#x8FD0;&#x7B97;&#x7B26;&#xFF0C;&#x8FD9;&#x6837;&#x4E00;&#x4E2A;&#x7B97;&#x5F0F;&#x4E0D;&#x7528;&#x5199;&#x5341;&#x904D;&#x3002;</p>
+<p>&#x9644;&#x4E0A;AC&#x4EE3;&#x7801;<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> lnt;</div><div class="line">lnt a, b, <span class="built_in">pow</span>[<span class="number">20</span>];</div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span> {</span>lnt c[<span class="number">10</span>];} f[<span class="number">20</span>][<span class="number">10</span>];</div><div class="line">node <span class="keyword">operator</span> + (node a, node b) {node ret;	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)	ret.c[i] = a.c[i]+b.c[i];	<span class="keyword">return</span> ret;}</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>{<span class="built_in">pow</span>[<span class="number">1</span>] = <span class="number">1</span>;	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= <span class="number">15</span>; i++)	<span class="built_in">pow</span>[i] = <span class="built_in">pow</span>[i<span class="number">-1</span>]*<span class="number">10</span>;}</div><div class="line"><span class="function">node <span class="title">calc</span><span class="params">(lnt x)</span> </span>{</div><div class="line">	node ret;	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)	ret.c[i] = <span class="number">0</span>;</div><div class="line">	<span class="keyword">if</span> (!x) {ret.c[<span class="number">0</span>] = <span class="number">1</span>;	<span class="keyword">return</span> ret;}</div><div class="line">	<span class="keyword">int</span> len = <span class="number">15</span>;	<span class="keyword">while</span> (x &lt; <span class="built_in">pow</span>[len])	len--;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; len; i++)	<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; <span class="number">10</span>; j++)	ret = ret+f[i][j];	ret.c[<span class="number">0</span>]++;</div><div class="line">	<span class="keyword">int</span> cur = x/<span class="built_in">pow</span>[len];	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; cur; i++)	ret = ret+f[len][i];</div><div class="line">	x %= <span class="built_in">pow</span>[len], ret.c[cur] += x+<span class="number">1</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = len<span class="number">-1</span>; i; i--) {</div><div class="line">		cur = x/<span class="built_in">pow</span>[i];</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; cur; j++)	ret = ret+f[i][j];</div><div class="line">		x %= <span class="built_in">pow</span>[i], ret.c[cur] += x+<span class="number">1</span>;</div><div class="line">	}</div><div class="line">	<span class="keyword">return</span> ret;</div><div class="line">}</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>{</div><div class="line">	init(), <span class="built_in">scanf</span>(<span class="string">&quot;%lld%lld&quot;</span>, &amp;a, &amp;b);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)	f[<span class="number">1</span>][i].c[i] = <span class="number">1</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= <span class="number">12</span>; i++)	<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">10</span>; j++)	<span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; <span class="number">10</span>; k++)</div><div class="line">		f[i][k] = f[i][k]+f[i<span class="number">-1</span>][j], f[i][k].c[k] += <span class="built_in">pow</span>[i<span class="number">-1</span>];</div><div class="line">	node ansa = calc(a<span class="number">-1</span>), ansb = calc(b);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) {<span class="built_in">printf</span>(<span class="string">&quot;%lld&quot;</span>, ansb.c[i]-ansa.c[i]);	<span class="keyword">if</span> (i != <span class="number">9</span>)	<span class="built_in">printf</span>(<span class="string">&quot; &quot;</span>);}</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">}</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -640,7 +640,10 @@
 
 
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<!--
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.js"></script>
+-->
 
   </div>
 </body>
