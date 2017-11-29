@@ -9,18 +9,18 @@
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="今天是数据结构最难的一天，学了平衡树。讲了替罪羊树、treap、splay。学长说掌握两种即可，又因为替罪羊树最基础，所以我没有写替罪羊树，只是理解了一下，准备学treap和splay。今天我写的是treap，不得不说，比以前见过的SBtree好写多了，操作就只有split和merge两种，插入删除都是split到要插入/删除的点，把其他点和要插入的点merge或把除要删除的点外的点merge，而">
+  <meta name="description" content="&amp;#x4ECA;&amp;#x5929;&amp;#x662F;&amp;#x6570;&amp;#x636E;&amp;#x7ED3;&amp;#x6784;&amp;#x6700;&amp;#x96BE;&amp;#x7684;&amp;#x4E00;&amp;#x5929;&amp;#xFF0C;&amp;#x5B66;&amp;#x4E86;&amp;#x5E73;&amp;#x8861;&amp;#x6811;&amp;#x3002;&amp;#x8BB2;&amp;#x4E86;&amp;#x66FF;&amp;#x7F6A;&amp;#x7F8A;&amp;#x6811;">
 <meta name="keywords" content="总结">
 <meta property="og:type" content="article">
 <meta property="og:title" content="20170707总结">
 <meta property="og:url" content="http://yoursite.com/20170707总结/index.html">
 <meta property="og:site_name" content="NIRVANA">
-<meta property="og:description" content="今天是数据结构最难的一天，学了平衡树。讲了替罪羊树、treap、splay。学长说掌握两种即可，又因为替罪羊树最基础，所以我没有写替罪羊树，只是理解了一下，准备学treap和splay。今天我写的是treap，不得不说，比以前见过的SBtree好写多了，操作就只有split和merge两种，插入删除都是split到要插入/删除的点，把其他点和要插入的点merge或把除要删除的点外的点merge，而">
+<meta property="og:description" content="&amp;#x4ECA;&amp;#x5929;&amp;#x662F;&amp;#x6570;&amp;#x636E;&amp;#x7ED3;&amp;#x6784;&amp;#x6700;&amp;#x96BE;&amp;#x7684;&amp;#x4E00;&amp;#x5929;&amp;#xFF0C;&amp;#x5B66;&amp;#x4E86;&amp;#x5E73;&amp;#x8861;&amp;#x6811;&amp;#x3002;&amp;#x8BB2;&amp;#x4E86;&amp;#x66FF;&amp;#x7F6A;&amp;#x7F8A;&amp;#x6811;">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2017-10-11T05:56:03.438Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="20170707总结">
-<meta name="twitter:description" content="今天是数据结构最难的一天，学了平衡树。讲了替罪羊树、treap、splay。学长说掌握两种即可，又因为替罪羊树最基础，所以我没有写替罪羊树，只是理解了一下，准备学treap和splay。今天我写的是treap，不得不说，比以前见过的SBtree好写多了，操作就只有split和merge两种，插入删除都是split到要插入/删除的点，把其他点和要插入的点merge或把除要删除的点外的点merge，而">
+<meta name="twitter:description" content="&amp;#x4ECA;&amp;#x5929;&amp;#x662F;&amp;#x6570;&amp;#x636E;&amp;#x7ED3;&amp;#x6784;&amp;#x6700;&amp;#x96BE;&amp;#x7684;&amp;#x4E00;&amp;#x5929;&amp;#xFF0C;&amp;#x5B66;&amp;#x4E86;&amp;#x5E73;&amp;#x8861;&amp;#x6811;&amp;#x3002;&amp;#x8BB2;&amp;#x4E86;&amp;#x66FF;&amp;#x7F6A;&amp;#x7F8A;&amp;#x6811;">
   
     <link rel="alternative" href="/atom.xml" title="NIRVANA" type="application/atom+xml">
   
@@ -233,7 +233,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>今天是数据结构最难的一天，学了平衡树。讲了替罪羊树、treap、splay。学长说掌握两种即可，又因为替罪羊树最基础，所以我没有写替罪羊树，只是理解了一下，准备学treap和splay。今天我写的是treap，不得不说，比以前见过的SBtree好写多了，操作就只有split和merge两种，插入删除都是split到要插入/删除的点，把其他点和要插入的点merge或把除要删除的点外的点merge，而经过压行，这两个函数都只有四行，insert和erase都只有三行，所以treap好写好调。下午调treap，作死地把所有操作都分别写到函数里，以至于是先merge再返回答案，这样merge的时候会改变答案的值。这就是指针的迷惑性，虽然指针没有任何变化，但它指向的东西变了，诶，初学指针……调WA调了很久，以至于都没时间写splay了。周末再写一写splay。</p>
+        <p>&#x4ECA;&#x5929;&#x662F;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x6700;&#x96BE;&#x7684;&#x4E00;&#x5929;&#xFF0C;&#x5B66;&#x4E86;&#x5E73;&#x8861;&#x6811;&#x3002;&#x8BB2;&#x4E86;&#x66FF;&#x7F6A;&#x7F8A;&#x6811;&#x3001;treap&#x3001;splay&#x3002;&#x5B66;&#x957F;&#x8BF4;&#x638C;&#x63E1;&#x4E24;&#x79CD;&#x5373;&#x53EF;&#xFF0C;&#x53C8;&#x56E0;&#x4E3A;&#x66FF;&#x7F6A;&#x7F8A;&#x6811;&#x6700;&#x57FA;&#x7840;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x6CA1;&#x6709;&#x5199;&#x66FF;&#x7F6A;&#x7F8A;&#x6811;&#xFF0C;&#x53EA;&#x662F;&#x7406;&#x89E3;&#x4E86;&#x4E00;&#x4E0B;&#xFF0C;&#x51C6;&#x5907;&#x5B66;treap&#x548C;splay&#x3002;&#x4ECA;&#x5929;&#x6211;&#x5199;&#x7684;&#x662F;treap&#xFF0C;&#x4E0D;&#x5F97;&#x4E0D;&#x8BF4;&#xFF0C;&#x6BD4;&#x4EE5;&#x524D;&#x89C1;&#x8FC7;&#x7684;SBtree&#x597D;&#x5199;&#x591A;&#x4E86;&#xFF0C;&#x64CD;&#x4F5C;&#x5C31;&#x53EA;&#x6709;split&#x548C;merge&#x4E24;&#x79CD;&#xFF0C;&#x63D2;&#x5165;&#x5220;&#x9664;&#x90FD;&#x662F;split&#x5230;&#x8981;&#x63D2;&#x5165;/&#x5220;&#x9664;&#x7684;&#x70B9;&#xFF0C;&#x628A;&#x5176;&#x4ED6;&#x70B9;&#x548C;&#x8981;&#x63D2;&#x5165;&#x7684;&#x70B9;merge&#x6216;&#x628A;&#x9664;&#x8981;&#x5220;&#x9664;&#x7684;&#x70B9;&#x5916;&#x7684;&#x70B9;merge&#xFF0C;&#x800C;&#x7ECF;&#x8FC7;&#x538B;&#x884C;&#xFF0C;&#x8FD9;&#x4E24;&#x4E2A;&#x51FD;&#x6570;&#x90FD;&#x53EA;&#x6709;&#x56DB;&#x884C;&#xFF0C;insert&#x548C;erase&#x90FD;&#x53EA;&#x6709;&#x4E09;&#x884C;&#xFF0C;&#x6240;&#x4EE5;treap&#x597D;&#x5199;&#x597D;&#x8C03;&#x3002;&#x4E0B;&#x5348;&#x8C03;treap&#xFF0C;&#x4F5C;&#x6B7B;&#x5730;&#x628A;&#x6240;&#x6709;&#x64CD;&#x4F5C;&#x90FD;&#x5206;&#x522B;&#x5199;&#x5230;&#x51FD;&#x6570;&#x91CC;&#xFF0C;&#x4EE5;&#x81F3;&#x4E8E;&#x662F;&#x5148;merge&#x518D;&#x8FD4;&#x56DE;&#x7B54;&#x6848;&#xFF0C;&#x8FD9;&#x6837;merge&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x6539;&#x53D8;&#x7B54;&#x6848;&#x7684;&#x503C;&#x3002;&#x8FD9;&#x5C31;&#x662F;&#x6307;&#x9488;&#x7684;&#x8FF7;&#x60D1;&#x6027;&#xFF0C;&#x867D;&#x7136;&#x6307;&#x9488;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x53D8;&#x5316;&#xFF0C;&#x4F46;&#x5B83;&#x6307;&#x5411;&#x7684;&#x4E1C;&#x897F;&#x53D8;&#x4E86;&#xFF0C;&#x8BF6;&#xFF0C;&#x521D;&#x5B66;&#x6307;&#x9488;&#x2026;&#x2026;&#x8C03;WA&#x8C03;&#x4E86;&#x5F88;&#x4E45;&#xFF0C;&#x4EE5;&#x81F3;&#x4E8E;&#x90FD;&#x6CA1;&#x65F6;&#x95F4;&#x5199;splay&#x4E86;&#x3002;&#x5468;&#x672B;&#x518D;&#x5199;&#x4E00;&#x5199;splay&#x3002;</p>
 
       
     </div>
