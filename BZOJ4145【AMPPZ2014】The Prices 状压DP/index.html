@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>BZOJ4145【AMPPZ2014】The Prices &lt;状压DP&gt; | NIRVANA</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="&amp;#x3010;AMPPZ2014&amp;#x3011;The PricesTime Limit: 20 Sec  Memory Limit: 256 MB Description&amp;#x4F60;&amp;#x8981;&amp;#x8D2D;&amp;#x4E70;m&amp;#x79CD;&amp;#x7269;&amp;#x54C1;&amp;#x5404;&amp;#x4E00;&amp;#x4EF6;&amp;#xFF0C;&amp;#x4E00;&amp;#x5171;&amp;#x6709">
+<meta name="keywords" content="BZOJ,DP,状压DP,AMPPZ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BZOJ4145【AMPPZ2014】The Prices &lt;状压DP&gt;">
+<meta property="og:url" content="http://yoursite.com/BZOJ4145【AMPPZ2014】The Prices 状压DP/index.html">
+<meta property="og:site_name" content="NIRVANA">
+<meta property="og:description" content="&amp;#x3010;AMPPZ2014&amp;#x3011;The PricesTime Limit: 20 Sec  Memory Limit: 256 MB Description&amp;#x4F60;&amp;#x8981;&amp;#x8D2D;&amp;#x4E70;m&amp;#x79CD;&amp;#x7269;&amp;#x54C1;&amp;#x5404;&amp;#x4E00;&amp;#x4EF6;&amp;#xFF0C;&amp;#x4E00;&amp;#x5171;&amp;#x6709">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-11-30T04:37:36.494Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="BZOJ4145【AMPPZ2014】The Prices &lt;状压DP&gt;">
+<meta name="twitter:description" content="&amp;#x3010;AMPPZ2014&amp;#x3011;The PricesTime Limit: 20 Sec  Memory Limit: 256 MB Description&amp;#x4F60;&amp;#x8981;&amp;#x8D2D;&amp;#x4E70;m&amp;#x79CD;&amp;#x7269;&amp;#x54C1;&amp;#x5404;&amp;#x4E00;&amp;#x4EF6;&amp;#xFF0C;&amp;#x4E00;&amp;#x5171;&amp;#x6709">
+  
+    <link rel="alternative" href="/atom.xml" title="NIRVANA" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://chuantu.biz/t6/89/1507626502x2728279003.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+
+  <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://chuantu.biz/t6/89/1507626502x2728279003.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Azrael_Death</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">Veni Vidi Vici</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/AzraelDeath" title="github">github</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/azraeldeath" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/2-SAT/" style="font-size: 10.91px;">2-SAT</a> <a href="/tags/AC自动机/" style="font-size: 10.91px;">AC自动机</a> <a href="/tags/AMPPZ/" style="font-size: 13.64px;">AMPPZ</a> <a href="/tags/APIO/" style="font-size: 10px;">APIO</a> <a href="/tags/BZOJ/" style="font-size: 20px;">BZOJ</a> <a href="/tags/CDQ分治/" style="font-size: 10px;">CDQ分治</a> <a href="/tags/DFS序/" style="font-size: 10px;">DFS序</a> <a href="/tags/DP/" style="font-size: 16.36px;">DP</a> <a href="/tags/HDU/" style="font-size: 12.73px;">HDU</a> <a href="/tags/IOI/" style="font-size: 10px;">IOI</a> <a href="/tags/LCA/" style="font-size: 12.73px;">LCA</a> <a href="/tags/LG/" style="font-size: 12.73px;">LG</a> <a href="/tags/MST/" style="font-size: 13.64px;">MST</a> <a href="/tags/Manacher/" style="font-size: 10.91px;">Manacher</a> <a href="/tags/NOI/" style="font-size: 10.91px;">NOI</a> <a href="/tags/NOIp/" style="font-size: 14.55px;">NOIp</a> <a href="/tags/POI/" style="font-size: 10px;">POI</a> <a href="/tags/POJ/" style="font-size: 15.45px;">POJ</a> <a href="/tags/Tarjan/" style="font-size: 10.91px;">Tarjan</a> <a href="/tags/Trie/" style="font-size: 10px;">Trie</a> <a href="/tags/UVa/" style="font-size: 10px;">UVa</a> <a href="/tags/主席树/" style="font-size: 12.73px;">主席树</a> <a href="/tags/二分图/" style="font-size: 10px;">二分图</a> <a href="/tags/二分答案/" style="font-size: 10.91px;">二分答案</a> <a href="/tags/分块/" style="font-size: 10px;">分块</a> <a href="/tags/图论/" style="font-size: 19.09px;">图论</a> <a href="/tags/字符串/" style="font-size: 12.73px;">字符串</a> <a href="/tags/差分/" style="font-size: 10px;">差分</a> <a href="/tags/差分约束系统/" style="font-size: 10px;">差分约束系统</a> <a href="/tags/并查集/" style="font-size: 10.91px;">并查集</a> <a href="/tags/总结/" style="font-size: 17.27px;">总结</a> <a href="/tags/搜索/" style="font-size: 10px;">搜索</a> <a href="/tags/数位DP/" style="font-size: 10.91px;">数位DP</a> <a href="/tags/数据结构/" style="font-size: 18.18px;">数据结构</a> <a href="/tags/数论数学/" style="font-size: 11.82px;">数论数学</a> <a href="/tags/最大团/" style="font-size: 10px;">最大团</a> <a href="/tags/最短路/" style="font-size: 10px;">最短路</a> <a href="/tags/最短路径/" style="font-size: 10px;">最短路径</a> <a href="/tags/期望DP/" style="font-size: 10px;">期望DP</a> <a href="/tags/构造/" style="font-size: 10px;">构造</a> <a href="/tags/树分治/" style="font-size: 11.82px;">树分治</a> <a href="/tags/树套树/" style="font-size: 10.91px;">树套树</a> <a href="/tags/树状数组/" style="font-size: 11.82px;">树状数组</a> <a href="/tags/树相关/" style="font-size: 10.91px;">树相关</a> <a href="/tags/树链剖分/" style="font-size: 10px;">树链剖分</a> <a href="/tags/模拟/" style="font-size: 10.91px;">模拟</a> <a href="/tags/状压DP/" style="font-size: 11.82px;">状压DP</a> <a href="/tags/省选/" style="font-size: 18.18px;">省选</a> <a href="/tags/线段树/" style="font-size: 13.64px;">线段树</a> <a href="/tags/组合数学/" style="font-size: 10px;">组合数学</a> <a href="/tags/网络流/" style="font-size: 14.55px;">网络流</a> <a href="/tags/莫队/" style="font-size: 10.91px;">莫队</a> <a href="/tags/补集转换/" style="font-size: 10px;">补集转换</a> <a href="/tags/贪心/" style="font-size: 10px;">贪心</a> <a href="/tags/费用流/" style="font-size: 10px;">费用流</a> <a href="/tags/队列/" style="font-size: 10px;">队列</a> <a href="/tags/随机化/" style="font-size: 10.91px;">随机化</a> <a href="/tags/高斯消元/" style="font-size: 10px;">高斯消元</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/OwenOwl">OwenOwl</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/Joker_69">Joker</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://dangxingyu.com">DXY</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://309459245.lofter.com">YJQ</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/candy99">Candy</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/zig-zag">ZigZag</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://cxjyxx.me">cxjyxx_me</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.shuizilong.com">ShuiZiLong</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/kuangbin">KuangBin</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Azrael_Death</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://chuantu.biz/t6/89/1507626502x2728279003.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Azrael_Death</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">Veni Vidi Vici</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/AzraelDeath" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/azraeldeath" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-BZOJ4145【AMPPZ2014】The Prices 状压DP" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/BZOJ4145【AMPPZ2014】The Prices 状压DP/" class="article-date">
+  	<time datetime="2017-11-29T16:00:00.000Z" itemprop="datePublished">2017-11-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      BZOJ4145【AMPPZ2014】The Prices &lt;状压DP&gt;
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AMPPZ/">AMPPZ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BZOJ/">BZOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/">DP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/状压DP/">状压DP</a></li></ul>
+	</div>
+
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>&#x3010;AMPPZ2014&#x3011;The Prices<br>Time Limit: 20 Sec  Memory Limit: 256 MB</p>
+<p>Description<br>&#x4F60;&#x8981;&#x8D2D;&#x4E70;m&#x79CD;&#x7269;&#x54C1;&#x5404;&#x4E00;&#x4EF6;&#xFF0C;&#x4E00;&#x5171;&#x6709;n&#x5BB6;&#x5546;&#x5E97;&#xFF0C;&#x4F60;&#x5230;&#x7B2C;i&#x5BB6;&#x5546;&#x5E97;&#x7684;&#x8DEF;&#x8D39;&#x4E3A;d[i]&#xFF0C;&#x5728;&#x7B2C;i&#x5BB6;&#x5546;&#x5E97;&#x8D2D;&#x4E70;&#x7B2C;j&#x79CD;&#x7269;&#x54C1;&#x7684;&#x8D39;&#x7528;&#x4E3A;c[i][j]&#xFF0C;<br>&#x6C42;&#x6700;&#x5C0F;&#x603B;&#x8D39;&#x7528;&#x3002;</p>
+<p>Input<br>&#x7B2C;&#x4E00;&#x884C;&#x5305;&#x542B;&#x4E24;&#x4E2A;&#x6B63;&#x6574;&#x6570;n,m(1&lt;=n&lt;=100,1&lt;=m&lt;=16)&#xFF0C;&#x8868;&#x793A;&#x5546;&#x5E97;&#x6570;&#x548C;&#x7269;&#x54C1;&#x6570;&#x3002;<br>&#x63A5;&#x4E0B;&#x6765;n&#x884C;&#xFF0C;&#x6BCF;&#x884C;&#x7B2C;&#x4E00;&#x4E2A;&#x6B63;&#x6574;&#x6570;d<a href="1&lt;=d[i]&lt;=1000000">i</a>&#x8868;&#x793A;&#x5230;&#x7B2C;i&#x5BB6;&#x5546;&#x5E97;&#x7684;&#x8DEF;&#x8D39;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;m&#x4E2A;&#x6B63;&#x6574;&#x6570;&#xFF0C;<br>&#x4F9D;&#x6B21;&#x8868;&#x793A;c[i]<a href="1&lt;=c[i][j]&lt;=1000000">j</a>&#x3002;<br>Output<br>&#x4E00;&#x4E2A;&#x6B63;&#x6574;&#x6570;&#xFF0C;&#x5373;&#x6700;&#x5C0F;&#x603B;&#x8D39;&#x7528;&#x3002;</p>
+<p>Sample Input<br>3 4<br>5 7 3 7 9<br>2 1 20 3 2<br>8 1 20 1 1<br>Sample Output<br>16</p>
+<p>HINT<br>&#x5728;&#x7B2C;&#x4E00;&#x5BB6;&#x5E97;&#x4E70;2&#x53F7;&#x7269;&#x54C1;&#xFF0C;&#x5728;&#x7B2C;&#x4E8C;&#x5BB6;&#x5E97;&#x4E70;&#x5269;&#x4E0B;&#x7684;&#x7269;&#x54C1;&#x3002;</p>
+</blockquote>
+<p>&#x6807;&#x7B7E;&#xFF1A;&#x72B6;&#x538B;DP</p>
+<p>M&lt;=16&#xFF0C;&#x663E;&#x7136;&#x662F;&#x4E00;&#x9053;&#x72B6;&#x538B;DP&#x3002;<br>&#x7528;f[i][j]&#x8868;&#x793A;&#x8003;&#x8651;1~i&#x5BB6;&#x5546;&#x5E97;&#xFF0C;&#x8D2D;&#x4E70;&#x72B6;&#x6001;&#x4E3A;j&#x7684;&#x65B9;&#x6848;&#x6570;&#x3002;&#x5957;&#x8DEF;&#x72B6;&#x538B;&#x8F6C;&#x79FB;&#x5373;&#x53EF;&#x3002;</p>
+<p>&#x4E0A;&#x4EE3;&#x7801;&#xFF1A;<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_N 100</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_M 16</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> lnt;</div><div class="line"><span class="keyword">int</span> n, m, d[MAX_N+<span class="number">5</span>], c[MAX_N+<span class="number">5</span>][MAX_M+<span class="number">5</span>], f[MAX_N+<span class="number">5</span>][(<span class="number">1</span>&lt;&lt;MAX_M)+<span class="number">5</span>];</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>{</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;n, &amp;m);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) {<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, d+i);	<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; j++) <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, c[i]+j);}</div><div class="line">	<span class="built_in">memset</span>(f, <span class="number">0x3f</span>, <span class="keyword">sizeof</span> f);	f[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) {</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; (<span class="number">1</span>&lt;&lt;m); j++)	f[i][j] = f[i<span class="number">-1</span>][j]+d[i];</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">1</span>; k &lt;= m; k++)	<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; (<span class="number">1</span>&lt;&lt;m); j++)</div><div class="line">			<span class="keyword">if</span> ((j&amp;(<span class="number">1</span>&lt;&lt;k<span class="number">-1</span>)) == <span class="number">0</span>)	f[i][j|(<span class="number">1</span>&lt;&lt;k<span class="number">-1</span>)] = min(f[i][j]+c[i][k], f[i][j|(<span class="number">1</span>&lt;&lt;k<span class="number">-1</span>)]);</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; (<span class="number">1</span>&lt;&lt;m); j++)	f[i][j] = min(f[i][j], f[i<span class="number">-1</span>][j]);</div><div class="line">	}</div><div class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, f[n][(<span class="number">1</span>&lt;&lt;m)<span class="number">-1</span>]);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/BZOJ1999【NOIp2007】Core树网的核 树相关/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          BZOJ1999【NOIp2007】Core树网的核 &lt;树相关&gt;
+        
+      </div>
+    </a>
+  
+  
+    <a href="/BZOJ1468 Tree 点分治/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">BZOJ1468 Tree &lt;点分治&gt;</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="ds-share share" data-thread-key="BZOJ4145【AMPPZ2014】The Prices 状压DP" data-title="BZOJ4145【AMPPZ2014】The Prices &lt;状压DP&gt;" data-url="http://yoursite.com/BZOJ4145【AMPPZ2014】The Prices 状压DP/"  data-images="http://chuantu.biz/t6/89/1507626502x2728279003.jpg" data-content="BZOJ4145【AMPPZ2014】The Prices &lt;状压DP&gt;">
+    <div class="ds-share-inline">
+      <ul  class="ds-share-icons-16">
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      </ul>
+      <div class="ds-share-icons-more">
+      </div>
+    </div>
+ </div>
+ 
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2017 Azrael_Death
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/smackgg/hexo-theme-smackdown" target="_blank">Smackdown</a>
+        </div>
+    </div>
+  </div>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+  <script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+<!--
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+-->
+
+
+
+<!--
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.js"></script>
+-->
+
+  </div>
+</body>
+</html>
