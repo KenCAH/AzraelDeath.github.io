@@ -194,10 +194,10 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-BZOJ4145【AMPPZ2014】The Prices 状压DP" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-BZOJ4144【AMPPZ2014】Petrol MST" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/BZOJ4145【AMPPZ2014】The Prices 状压DP/" class="article-date">
+      <a href="/BZOJ4144【AMPPZ2014】Petrol MST/" class="article-date">
   	<time datetime="2017-11-29T16:00:00.000Z" itemprop="datePublished">2017-11-30</time>
 </a>
     </div>
@@ -211,8 +211,8 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/BZOJ4145【AMPPZ2014】The Prices 状压DP/">
-        BZOJ4145【AMPPZ2014】The Prices &lt;状压DP&gt;
+      <a class="article-title" href="/BZOJ4144【AMPPZ2014】Petrol MST/">
+        BZOJ4144【AMPPZ2014】Petrol &lt;最短路+MST&gt;
         
       </a>
     </h1>
@@ -224,15 +224,14 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>&#x3010;AMPPZ2014&#x3011;The Prices<br>Time Limit: 20 Sec  Memory Limit: 256 MB</p>
-<p>Description<br>&#x4F60;&#x8981;&#x8D2D;&#x4E70;m&#x79CD;&#x7269;&#x54C1;&#x5404;&#x4E00;&#x4EF6;&#xFF0C;&#x4E00;&#x5171;&#x6709;n&#x5BB6;&#x5546;&#x5E97;&#xFF0C;&#x4F60;&#x5230;&#x7B2C;i&#x5BB6;&#x5546;&#x5E97;&#x7684;&#x8DEF;&#x8D39;&#x4E3A;d[i]&#xFF0C;&#x5728;&#x7B2C;i&#x5BB6;&#x5546;&#x5E97;&#x8D2D;&#x4E70;&#x7B2C;j&#x79CD;&#x7269;&#x54C1;&#x7684;&#x8D39;&#x7528;&#x4E3A;c[i][j]&#xFF0C;<br>&#x6C42;&#x6700;&#x5C0F;&#x603B;&#x8D39;&#x7528;&#x3002;</p>
-<p>Input<br>&#x7B2C;&#x4E00;&#x884C;&#x5305;&#x542B;&#x4E24;&#x4E2A;&#x6B63;&#x6574;&#x6570;n,m(1&lt;=n&lt;=100,1&lt;=m&lt;=16)&#xFF0C;&#x8868;&#x793A;&#x5546;&#x5E97;&#x6570;&#x548C;&#x7269;&#x54C1;&#x6570;&#x3002;<br>&#x63A5;&#x4E0B;&#x6765;n&#x884C;&#xFF0C;&#x6BCF;&#x884C;&#x7B2C;&#x4E00;&#x4E2A;&#x6B63;&#x6574;&#x6570;d<a href="1&lt;=d[i]&lt;=1000000">i</a>&#x8868;&#x793A;&#x5230;&#x7B2C;i&#x5BB6;&#x5546;&#x5E97;&#x7684;&#x8DEF;&#x8D39;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;m&#x4E2A;&#x6B63;&#x6574;&#x6570;&#xFF0C;<br>&#x4F9D;&#x6B21;&#x8868;&#x793A;c[i]<a href="1&lt;=c[i][j]&lt;=1000000">j</a>&#x3002;<br>Output<br>&#x4E00;&#x4E2A;&#x6B63;&#x6574;&#x6570;&#xFF0C;&#x5373;&#x6700;&#x5C0F;&#x603B;&#x8D39;&#x7528;&#x3002;</p>
-<p>Sample Input<br>3 4<br>5 7 3 7 9<br>2 1 20 3 2<br>8 1 20 1 1<br>Sample Output<br>16</p>
-<p>HINT<br>&#x5728;&#x7B2C;&#x4E00;&#x5BB6;&#x5E97;&#x4E70;2&#x53F7;&#x7269;&#x54C1;&#xFF0C;&#x5728;&#x7B2C;&#x4E8C;&#x5BB6;&#x5E97;&#x4E70;&#x5269;&#x4E0B;&#x7684;&#x7269;&#x54C1;&#x3002;</p>
+<p>&#x3010;AMPPZ2014&#x3011;Petrol<br>Time Limit: 10 Sec  Memory Limit: 256 MB</p>
+<p>Description<br>&#x7ED9;&#x5B9A;&#x4E00;&#x4E2A;n&#x4E2A;&#x70B9;&#x3001;m&#x6761;&#x8FB9;&#x7684;&#x5E26;&#x6743;&#x65E0;&#x5411;&#x56FE;&#xFF0C;&#x5176;&#x4E2D;&#x6709;s&#x4E2A;&#x70B9;&#x662F;&#x52A0;&#x6CB9;&#x7AD9;&#x3002;<br>&#x6BCF;&#x8F86;&#x8F66;&#x90FD;&#x6709;&#x4E00;&#x4E2A;&#x6CB9;&#x91CF;&#x4E0A;&#x9650;b&#xFF0C;&#x5373;&#x6BCF;&#x6B21;&#x884C;&#x8D70;&#x8DDD;&#x79BB;&#x4E0D;&#x80FD;&#x8D85;&#x8FC7;b&#xFF0C;&#x4F46;&#x5728;&#x52A0;&#x6CB9;&#x7AD9;&#x53EF;&#x4EE5;&#x8865;&#x6EE1;&#x3002;<br>q&#x6B21;&#x8BE2;&#x95EE;&#xFF0C;&#x6BCF;&#x6B21;&#x7ED9;&#x51FA;x,y,b&#xFF0C;&#x8868;&#x793A;&#x51FA;&#x53D1;&#x70B9;&#x662F;x&#xFF0C;&#x7EC8;&#x70B9;&#x662F;y&#xFF0C;&#x6CB9;&#x91CF;&#x4E0A;&#x9650;&#x4E3A;b&#xFF0C;&#x4E14;&#x4FDD;&#x8BC1;x&#x70B9;&#x548C;y&#x70B9;&#x90FD;&#x662F;&#x52A0;&#x6CB9;&#x7AD9;&#xFF0C;&#x8BF7;&#x56DE;&#x7B54;&#x80FD;&#x5426;&#x4ECE;x&#x8D70;&#x5230;y&#x3002;</p>
+<p>Input<br>&#x7B2C;&#x4E00;&#x884C;&#x5305;&#x542B;&#x4E09;&#x4E2A;&#x6B63;&#x6574;&#x6570;n,s,m(2&lt;=s&lt;=n&lt;=200000,1&lt;=m&lt;=200000)&#xFF0C;&#x8868;&#x793A;&#x70B9;&#x6570;&#x3001;&#x52A0;&#x6CB9;&#x7AD9;&#x6570;&#x548C;&#x8FB9;&#x6570;&#x3002;<br>&#x7B2C;&#x4E8C;&#x884C;&#x5305;&#x542B;s&#x4E2A;&#x4E92;&#x4E0D;&#x76F8;&#x540C;&#x7684;&#x6B63;&#x6574;&#x6570;c[1],c[2],&#x2026;c<a href="1&lt;=c[i]&lt;=n">s</a>&#xFF0C;&#x8868;&#x793A;&#x6BCF;&#x4E2A;&#x52A0;&#x6CB9;&#x7AD9;&#x3002;<br>&#x63A5;&#x4E0B;&#x6765;m&#x884C;&#xFF0C;&#x6BCF;&#x884C;&#x4E09;&#x4E2A;&#x6B63;&#x6574;&#x6570;u[i],v[i],d<a href="1&lt;=u[i],v[i]&lt;=n,u[i]!=v[i],1&lt;=d[i]&lt;=10000">i</a>&#xFF0C;&#x8868;&#x793A;u[i]&#x548C;v[i]&#x4E4B;&#x95F4;&#x6709;&#x4E00;&#x6761;&#x957F;&#x5EA6;&#x4E3A;d[i]&#x7684;&#x53CC;&#x5411;&#x8FB9;&#x3002;<br>&#x63A5;&#x4E0B;&#x6765;&#x4E00;&#x884C;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x6B63;&#x6574;&#x6570;q(1&lt;=q&lt;=200000)&#xFF0C;&#x8868;&#x793A;&#x8BE2;&#x95EE;&#x6570;&#x3002;<br>&#x63A5;&#x4E0B;&#x6765;q&#x884C;&#xFF0C;&#x6BCF;&#x884C;&#x5305;&#x542B;&#x4E09;&#x4E2A;&#x6B63;&#x6574;&#x6570;x[i],y[i],b<a href="1&lt;=x[i],y[i]&lt;=n,x[i]!=y[i],1&lt;=b[i]&lt;=2*10^9">i</a>&#xFF0C;&#x8868;&#x793A;&#x4E00;&#x4E2A;&#x8BE2;&#x95EE;&#x3002;<br>Output<br>&#x8F93;&#x51FA;q&#x884C;&#x3002;&#x7B2C;i&#x884C;&#x8F93;&#x51FA;&#x7B2C;i&#x4E2A;&#x8BE2;&#x95EE;&#x7684;&#x7B54;&#x6848;&#xFF0C;&#x5982;&#x679C;&#x53EF;&#x884C;&#xFF0C;&#x5219;&#x8F93;&#x51FA;TAK&#xFF0C;&#x5426;&#x5219;&#x8F93;&#x51FA;NIE&#x3002;</p>
+<p>Sample Input<br>6 4 5<br>1 5 2 6<br>1 3 1<br>2 3 2<br>3 4 3<br>4 5 5<br>6 4 5<br>4<br>1 2 4<br>2 6 9<br>1 5 9<br>6 5 8<br>Sample Output<br>TAK<br>TAK<br>TAK<br>NIE</p>
 </blockquote>
-<p>&#x6807;&#x7B7E;&#xFF1A;&#x72B6;&#x538B;DP</p>
-<p>M&lt;=16&#xFF0C;&#x663E;&#x7136;&#x662F;&#x4E00;&#x9053;&#x72B6;&#x538B;DP&#x3002;<br>&#x7528;f[i][j]&#x8868;&#x793A;&#x8003;&#x8651;1~i&#x5BB6;&#x5546;&#x5E97;&#xFF0C;&#x8D2D;&#x4E70;&#x72B6;&#x6001;&#x4E3A;j&#x7684;&#x65B9;&#x6848;&#x6570;&#x3002;&#x5957;&#x8DEF;&#x72B6;&#x538B;&#x8F6C;&#x79FB;&#x5373;&#x53EF;&#x3002;</p>
-<p>&#x4E0A;&#x4EE3;&#x7801;&#xFF1A;<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_N 100</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_M 16</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> lnt;</div><div class="line"><span class="keyword">int</span> n, m, d[MAX_N+<span class="number">5</span>], c[MAX_N+<span class="number">5</span>][MAX_M+<span class="number">5</span>], f[MAX_N+<span class="number">5</span>][(<span class="number">1</span>&lt;&lt;MAX_M)+<span class="number">5</span>];</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>{</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;n, &amp;m);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) {<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, d+i);	<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; j++) <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, c[i]+j);}</div><div class="line">	<span class="built_in">memset</span>(f, <span class="number">0x3f</span>, <span class="keyword">sizeof</span> f);	f[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) {</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; (<span class="number">1</span>&lt;&lt;m); j++)	f[i][j] = f[i<span class="number">-1</span>][j]+d[i];</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">1</span>; k &lt;= m; k++)	<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; (<span class="number">1</span>&lt;&lt;m); j++)</div><div class="line">			<span class="keyword">if</span> ((j&amp;(<span class="number">1</span>&lt;&lt;k<span class="number">-1</span>)) == <span class="number">0</span>)	f[i][j|(<span class="number">1</span>&lt;&lt;k<span class="number">-1</span>)] = min(f[i][j]+c[i][k], f[i][j|(<span class="number">1</span>&lt;&lt;k<span class="number">-1</span>)]);</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; (<span class="number">1</span>&lt;&lt;m); j++)	f[i][j] = min(f[i][j], f[i<span class="number">-1</span>][j]);</div><div class="line">	}</div><div class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, f[n][(<span class="number">1</span>&lt;&lt;m)<span class="number">-1</span>]);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>&#x6807;&#x7B7E;&#xFF1A;&#x6700;&#x77ED;&#x8DEF;&#x9884;&#x5904;&#x7406;+MST</p>
+<p>&#x4E00;&#x9053;&#x7CBE;&#x5999;&#x7684;MST&#x9898;&#x3002;<br>&#x9996;&#x5148;&#x8003;&#x8651;&#x8D70;&#x5230;&#x4E00;&#x4E2A;&#x70B9;&#xFF0C;&#x5148;&#x53BB;&#x79BB;&#x5B83;&#x6700;&#x8FD1;&#x7684;&#x52A0;&#x6CB9;&#x7AD9;&#xFF0C;&#x56DE;&#x6765;&#x540E;&#x518D;&#x53BB;&#x4E0B;&#x4E00;&#x4E2A;&#x70B9;&#x80AF;&#x5B9A;&#x6BD4;&#x76F4;&#x63A5;&#x53BB;&#x8981;&#x4F18;&#x3002;<br>&#x4E8E;&#x662F;&#x7528;&#x591A;&#x6E90;&#x6700;&#x77ED;&#x8DEF;&#x9884;&#x5904;&#x7406;&#x51FA;&#x6BCF;&#x4E2A;&#x70B9;&#x5230;&#x5B83;&#x6700;&#x8FD1;&#x7684;&#x52A0;&#x6CB9;&#x7AD9;&#x7684;&#x8DDD;&#x79BB;&#xFF0C;&#x968F;&#x540E;&#x7ED9;&#x6BCF;&#x4E00;&#x6761;&#x8FB9;&#x5206;&#x522B;&#x52A0;&#x4E0A;&#x5B83;&#x7684;&#x8D77;&#x70B9;&#x548C;&#x7EC8;&#x70B9;&#x79BB;&#x5B83;&#x4EEC;&#x6700;&#x8FD1;&#x52A0;&#x6CB9;&#x7AD9;&#x7684;&#x8DDD;&#x79BB;&#x3002;<br>&#x5BF9;&#x4E8E;&#x8BE2;&#x95EE;&#xFF0C;&#x5148;&#x79BB;&#x7EBF;&#x4E0B;&#x6765;&#x6309;b&#x503C;&#x6392;&#x5E8F;&#xFF0C;&#x6309;&#x7167;&#x8FB9;&#x6743;&#x52A0;&#x5165;&#x8FB9;&#xFF0C;&#x7528;&#x5E76;&#x67E5;&#x96C6;&#x7EF4;&#x62A4;&#x3002;&#x5BF9;&#x4E8E;&#x6BCF;&#x4E2A;&#x8BE2;&#x95EE;&#xFF0C;&#x5148;&#x5C06;&#x6BD4;&#x5B83;&#x7684;b&#x503C;&#x5C0F;&#x7684;&#x6240;&#x6709;&#x8FB9;&#x90FD;&#x52A0;&#x5165;&#xFF0C;&#x518D;&#x8BE2;&#x95EE;&#x8D77;&#x70B9;&#x548C;&#x7EC8;&#x70B9;&#x662F;&#x5426;&#x8054;&#x901A;&#x5373;&#x53EF;&#x3002;</p>
+<p>&#x9644;&#x4E0A;AC&#x4EE3;&#x7801;&#xFF1A;<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> fir first</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> sec second</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> mp make_pair</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> pii pair<span class="meta-string">&lt;int,int&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_N 200000</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">int</span> n, m, s, c[MAX_N+<span class="number">5</span>], fa[MAX_N+<span class="number">5</span>], dis[MAX_N+<span class="number">5</span>];	<span class="built_in">vector</span> &lt;pii&gt; G[MAX_N+<span class="number">5</span>];</div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">edge</span> {</span><span class="keyword">int</span> u, v, c;	<span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (<span class="keyword">const</span> edge &amp;t) <span class="keyword">const</span> {<span class="keyword">return</span> c &lt; t.c;}} E[MAX_N+<span class="number">5</span>];</div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">query</span> {</span><span class="keyword">int</span> id, u, v, c;	<span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (<span class="keyword">const</span> query &amp;t) <span class="keyword">const</span> {<span class="keyword">return</span> c &lt; t.c;}} Q[MAX_N+<span class="number">5</span>];</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">getf</span><span class="params">(<span class="keyword">int</span> x)</span> </span>{<span class="keyword">return</span> fa[x] == x ? x : fa[x] = getf(fa[x]);}</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Dijkstra</span><span class="params">()</span> </span>{</div><div class="line">	priority_queue &lt;pii&gt; que;	<span class="keyword">bool</span> mrk[MAX_N+<span class="number">5</span>];</div><div class="line">	<span class="built_in">memset</span>(dis, <span class="number">0x7f</span>, <span class="keyword">sizeof</span> dis), <span class="built_in">memset</span>(mrk, <span class="literal">false</span>, <span class="keyword">sizeof</span> mrk);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= s; i++)	dis[c[i]] = <span class="number">0</span>, que.push(mp(-dis[c[i]], c[i]));</div><div class="line">	<span class="keyword">while</span> (!que.empty()) {</div><div class="line">		<span class="keyword">int</span> u = que.top().sec;	que.pop();</div><div class="line">		<span class="keyword">if</span> (mrk[u])	<span class="keyword">continue</span>;	mrk[u] = <span class="literal">true</span>;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; (<span class="keyword">int</span>)G[u].size(); i++) {</div><div class="line">			<span class="keyword">int</span> v = G[u][i].fir, w = G[u][i].sec;</div><div class="line">			<span class="keyword">if</span> (dis[u]+w &lt; dis[v])	dis[v] = dis[u]+w, que.push(mp(-dis[v], v));</div><div class="line">		}</div><div class="line">	}</div><div class="line">}</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>{</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>, &amp;n, &amp;s, &amp;m);	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= s; i++) <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, c+i);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++)	<span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>, &amp;E[i].u, &amp;E[i].v, &amp;E[i].c), G[E[i].u].push_back(mp(E[i].v, E[i].c)), G[E[i].v].push_back(mp(E[i].u, E[i].c));</div><div class="line">	Dijkstra();		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++)	E[i].c += dis[E[i].u]+dis[E[i].v];</div><div class="line">	<span class="keyword">int</span> q;	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;q);	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= q; i++)	Q[i].id = i, <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>, &amp;Q[i].u, &amp;Q[i].v, &amp;Q[i].c);</div><div class="line">	sort(E+<span class="number">1</span>, E+m+<span class="number">1</span>), sort(Q+<span class="number">1</span>, Q+q+<span class="number">1</span>);		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)	fa[i] = i;		<span class="keyword">bool</span> ans[MAX_N+<span class="number">5</span>];</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>, j = <span class="number">1</span>; i &lt;= q; i++) {</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> u, v; j &lt;= m &amp;&amp; E[j].c &lt;= Q[i].c; j++)</div><div class="line">			<span class="keyword">if</span> ((u = getf(E[j].u)) != (v = getf(E[j].v)))	fa[u] = v;</div><div class="line">		ans[Q[i].id] = getf(Q[i].u) == getf(Q[i].v);</div><div class="line">	}</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= q; i++)	<span class="built_in">puts</span>(ans[i] ? <span class="string">&quot;TAK&quot;</span> : <span class="string">&quot;NIE&quot;</span>);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">}</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -241,7 +240,7 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AMPPZ/">AMPPZ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BZOJ/">BZOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/">DP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/状压DP/">状压DP</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AMPPZ/">AMPPZ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BZOJ/">BZOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MST/">MST</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/图论/">图论</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/最短路/">最短路</a></li></ul>
 	</div>
 
       
@@ -328,6 +327,73 @@
 
 
   
+    <article id="post-BZOJ3632 外太空旅行 随机化" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/BZOJ3632 外太空旅行 随机化/" class="article-date">
+  	<time datetime="2017-11-28T16:00:00.000Z" itemprop="datePublished">2017-11-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/BZOJ3632 外太空旅行 随机化/">
+        BZOJ3632 神奇的矩阵 &lt;随机化&gt;
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>&#x5916;&#x592A;&#x7A7A;&#x65C5;&#x884C;<br>Time Limit: 5 Sec  Memory Limit: 128 MB</p>
+<p>Description<br>&#x5728;&#x4EBA;&#x7C7B;&#x7684;&#x89E6;&#x89D2;&#x4F38;&#x5411;&#x94F6;&#x6CB3;&#x7CFB;&#x7684;&#x8FB9;&#x7F18;&#x4E4B;&#x9645;&#xFF0C;&#x666E;&#x901A;&#x4EBA;&#x4E0A;&#x592A;&#x7A7A;&#x65C5;&#x884C;&#x5DF2;&#x7ECF;&#x53D8;&#x5F97;&#x7A00;&#x677E;&#x5E73;&#x5E38;&#x4E86;&#x3002;&#x67D0;&#x7406;&#x79D1;&#x8BD5;&#x9A8C;&#x73ED;&#x6709;n&#x4E2A;&#x4EBA;&#xFF0C;&#x73B0;&#x5728;&#x73ED;&#x4E3B;&#x4EFB;&#x8981;&#x4ECE;&#x4E2D;&#x9009;&#x51FA;&#x5C3D;&#x91CF;&#x591A;&#x7684;&#x4EBA;&#x53BB;&#x53C2;&#x52A0;&#x4E00;&#x6B21;&#x592A;&#x7A7A;&#x65C5;&#x884C;&#x6D3B;&#x52A8;&#x3002;<br>&#x53EF;&#x662F;n&#x540D;&#x540C;&#x5B66;&#x5E76;&#x4E0D;&#x662F;&#x548C;&#x5E73;&#x76F8;&#x5904;&#x7684;&#x3002;&#x6709;&#x7684;&#x4EBA;&#xFF0C;&#x6BD4;&#x5982;&#x5C0F;A&#x548C;&#x5C0F;B&#x6574;&#x5929;&#x72FC;&#x72C8;&#x4E3A;&#x5978;&#xFF0C;&#x662F;&#x597D;&#x670B;&#x53CB;&#xFF1B;&#x4F46;&#x8FD8;&#x6709;&#x7684;&#x4EBA;&#xFF0C;&#x6BD4;&#x5982;&#x675C;&#x9C81;&#x95E8;&#x548C;&#x8D6B;&#x9C81;&#x6653;&#x592B;&#x5C31;&#x6C34;&#x706B;&#x4E0D;&#x76F8;&#x5BB9;&#x3002;&#x8FD9;n&#x540D;&#x540C;&#x5B66;&#xFF0C;&#x7531;&#x4E8E;&#x662F;&#x7406;&#x79D1;&#x751F;&#xFF0C;&#x90FD;&#x975E;&#x5E38;&#x7684;&#x7406;&#x6027;&#xFF0C;&#x6240;&#x4EE5;&#x201C;&#x670B;&#x53CB;&#x7684;&#x670B;&#x53CB;&#x5C31;&#x662F;&#x670B;&#x53CB;&#x201D;&#x548C;&#x201C;&#x654C;&#x4EBA;&#x7684;&#x670B;&#x53CB;&#x5C31;&#x662F;&#x654C;&#x4EBA;&#x201D;&#x8FD9;&#x4E24;&#x53E5;&#x8BDD;&#x5BF9;&#x8FD9;&#x4E9B;&#x540C;&#x5B66;&#x65E0;&#x6548;&#x3002;&#x6362;&#x53E5;&#x8BDD;&#x8BF4;&#xFF0C;&#x6709;&#x53EF;&#x80FD;&#x5C0F;A&#x548C;&#x5C0F;B&#x662F;&#x670B;&#x53CB;&#xFF0C;&#x5C0F;B&#x548C;&#x5C0F;C&#x662F;&#x670B;&#x53CB;&#xFF0C;&#x4F46;&#x662F;&#x5C0F;A&#x548C;&#x5C0F;C&#x4E24;&#x4EBA;&#x52BF;&#x5982;&#x6C34;&#x706B;&#x3002;<br>&#x4EFB;&#x610F;&#x4E24;&#x4E2A;&#x4EBA;&#x4E4B;&#x95F4;&#x8981;&#x4E0D;&#x5C31;&#x662F;&#x654C;&#x4EBA;&#xFF0C;&#x8981;&#x4E0D;&#x5C31;&#x662F;&#x670B;&#x53CB;&#x3002;<br>&#x56E0;&#x4E3A;&#x5728;&#x592A;&#x7A7A;&#x8239;&#x4E0A;&#x53D1;&#x751F;&#x4EBA;&#x5458;&#x6597;&#x6BB4;&#x4E8B;&#x4EF6;&#x662F;&#x5F88;&#x6076;&#x52A3;&#x4E5F;&#x5F88;&#x5371;&#x9669;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x9009;&#x51FA;&#x6765;&#x53C2;&#x52A0;&#x65C5;&#x884C;&#x6D3B;&#x52A8;&#x7684;&#x540C;&#x5B66;&#x5FC5;&#x987B;&#x4E92;&#x76F8;&#x4E4B;&#x95F4;&#x90FD;&#x662F;&#x670B;&#x53CB;&#x3002;&#x4F60;&#x7684;&#x4EFB;&#x52A1;&#x5C31;&#x662F;&#x786E;&#x5B9A;&#x6700;&#x591A;&#x53EF;&#x4EE5;&#x9009;&#x591A;&#x5C11;&#x4EBA;&#x53C2;&#x52A0;&#x65C5;&#x884C;&#x3002;</p>
+<p>Input<br>&#x7B2C;&#x4E00;&#x884C;&#x4E00;&#x4E2A;&#x6574;&#x6570;n(1&lt;=n&lt;=50)&#x3002;&#x6240;&#x6709;&#x7684;&#x540C;&#x5B66;&#x6309;&#x7167;1~n&#x7F16;&#x53F7;&#x3002;<br>&#x63A5;&#x4E0B;&#x6765;&#x82E5;&#x5E72;&#x884C;&#xFF0C;&#x6BCF;&#x884C;&#x4E24;&#x4E2A;&#x7528;&#x7A7A;&#x683C;&#x9694;&#x5F00;&#x7684;&#x6574;&#x6570;a, b(1&lt;=a,b&lt;=n)&#xFF0C;&#x8868;&#x793A;a&#x548C;b&#x662F;&#x670B;&#x53CB;&#x3002;<br>&#x6CE8;&#x610F;&#xFF1A;&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x6570;&#x5BF9;(x,y)&#xFF08;&#x6216;&#x8005;(y,x)&#xFF09;&#x6CA1;&#x6709;&#x5728;&#x6587;&#x4EF6;&#x4E2D;&#x51FA;&#x73B0;&#xFF0C;&#x90A3;&#x4E48;&#x7F16;&#x53F7;&#x4E3A;x&#x548C;y&#x7684;&#x4E24;&#x4E2A;&#x540C;&#x5B66;&#x5C31;&#x662F;&#x654C;&#x4EBA;&#x3002;<br>Output<br>&#x4EC5;&#x4EC5;&#x4E00;&#x4E2A;&#x6570;&#xFF0C;&#x5373;&#x6700;&#x591A;&#x53EF;&#x4EE5;&#x9009;&#x591A;&#x5C11;&#x4EBA;&#x53C2;&#x52A0;&#x6D3B;&#x52A8;&#x3002;</p>
+<p>Sample Input<br>4<br>1 2<br>2 3<br>3 1<br>1 4<br>Sample Output<br>3<br>&#x8BF4;&#x660E;&#xFF1A;&#x9009;&#x7F16;&#x53F7;&#x4E3A;1,2,3&#x7684;&#x540C;&#x5B66;&#x53C2;&#x52A0;&#xFF0C;&#x4ED6;&#x4EEC;&#x4E92;&#x76F8;&#x90FD;&#x662F;&#x670B;&#x53CB;&#x3002;</p>
+</blockquote>
+<p>&#x6807;&#x7B7E;&#xFF1A;&#x6700;&#x5927;&#x56E2;&#xFF0C;&#x968F;&#x673A;&#x5316;</p>
+<p>&#x4E00;&#x9053;&#x968F;&#x673A;&#x5316;&#x6700;&#x5927;&#x56E2;&#x7684;&#x88F8;&#x9898;&#x3002;<br>&#x6BCF;&#x6B21;&#x968F;&#x673A;&#x51FA;&#x4E00;&#x4E2A;1~n&#x7684;&#x4E71;&#x5E8F;&#x6392;&#x5217;&#xFF0C;&#x6309;&#x7167;&#x6392;&#x5217;&#x987A;&#x5E8F;&#x8D2A;&#x5FC3;&#xFF0C;&#x8FD9;&#x6837;&#x968F;&#x673A;1e5&#x6B21;&#x53D6;&#x6700;&#x5927;&#x503C;&#x5373;&#x53EF;&#x3002;</p>
+<p>&#x4E0A;&#x4EE3;&#x7801;&#xFF1A;<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_N 50</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> BOUND 100000</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">int</span> n, seq[MAX_N+<span class="number">5</span>], ans;</div><div class="line"><span class="keyword">bool</span> G[MAX_N+<span class="number">5</span>][MAX_N+<span class="number">5</span>], mrk[MAX_N+<span class="number">5</span>];</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">calc</span><span class="params">()</span> </span>{</div><div class="line">	<span class="built_in">memset</span>(mrk, <span class="literal">false</span>, <span class="keyword">sizeof</span> mrk);</div><div class="line">	<span class="keyword">int</span> ret = <span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) <span class="keyword">if</span> (!mrk[seq[i]]) {</div><div class="line">		ret++, mrk[seq[i]] = <span class="literal">true</span>;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = i+<span class="number">1</span>; j &lt;= n; j++)</div><div class="line">			<span class="keyword">if</span> (!G[seq[i]][seq[j]])	mrk[seq[j]] = <span class="literal">true</span>;</div><div class="line">	}</div><div class="line">	<span class="keyword">return</span> ret;</div><div class="line">}</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>{</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);	<span class="keyword">int</span> u, v;</div><div class="line">	<span class="keyword">while</span> (~<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;u, &amp;v))	G[u][v] = G[v][u] = <span class="literal">true</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)	seq[i] = i;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; BOUND; i++)</div><div class="line">		random_shuffle(seq+<span class="number">1</span>, seq+n+<span class="number">1</span>), ans = max(ans, calc());</div><div class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, ans);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BZOJ/">BZOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/图论/">图论</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/最大团/">最大团</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随机化/">随机化</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-BZOJ4148【AMPPZ2014】Pillars 构造" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -376,73 +442,6 @@
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AMPPZ/">AMPPZ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BZOJ/">BZOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/构造/">构造</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-BZOJ3632 外太空旅行 随机化" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/BZOJ3632 外太空旅行 随机化/" class="article-date">
-  	<time datetime="2017-11-28T16:00:00.000Z" itemprop="datePublished">2017-11-29</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/BZOJ3632 外太空旅行 随机化/">
-        BZOJ3632 神奇的矩阵 &lt;随机化&gt;
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>&#x5916;&#x592A;&#x7A7A;&#x65C5;&#x884C;<br>Time Limit: 5 Sec  Memory Limit: 128 MB</p>
-<p>Description<br>&#x5728;&#x4EBA;&#x7C7B;&#x7684;&#x89E6;&#x89D2;&#x4F38;&#x5411;&#x94F6;&#x6CB3;&#x7CFB;&#x7684;&#x8FB9;&#x7F18;&#x4E4B;&#x9645;&#xFF0C;&#x666E;&#x901A;&#x4EBA;&#x4E0A;&#x592A;&#x7A7A;&#x65C5;&#x884C;&#x5DF2;&#x7ECF;&#x53D8;&#x5F97;&#x7A00;&#x677E;&#x5E73;&#x5E38;&#x4E86;&#x3002;&#x67D0;&#x7406;&#x79D1;&#x8BD5;&#x9A8C;&#x73ED;&#x6709;n&#x4E2A;&#x4EBA;&#xFF0C;&#x73B0;&#x5728;&#x73ED;&#x4E3B;&#x4EFB;&#x8981;&#x4ECE;&#x4E2D;&#x9009;&#x51FA;&#x5C3D;&#x91CF;&#x591A;&#x7684;&#x4EBA;&#x53BB;&#x53C2;&#x52A0;&#x4E00;&#x6B21;&#x592A;&#x7A7A;&#x65C5;&#x884C;&#x6D3B;&#x52A8;&#x3002;<br>&#x53EF;&#x662F;n&#x540D;&#x540C;&#x5B66;&#x5E76;&#x4E0D;&#x662F;&#x548C;&#x5E73;&#x76F8;&#x5904;&#x7684;&#x3002;&#x6709;&#x7684;&#x4EBA;&#xFF0C;&#x6BD4;&#x5982;&#x5C0F;A&#x548C;&#x5C0F;B&#x6574;&#x5929;&#x72FC;&#x72C8;&#x4E3A;&#x5978;&#xFF0C;&#x662F;&#x597D;&#x670B;&#x53CB;&#xFF1B;&#x4F46;&#x8FD8;&#x6709;&#x7684;&#x4EBA;&#xFF0C;&#x6BD4;&#x5982;&#x675C;&#x9C81;&#x95E8;&#x548C;&#x8D6B;&#x9C81;&#x6653;&#x592B;&#x5C31;&#x6C34;&#x706B;&#x4E0D;&#x76F8;&#x5BB9;&#x3002;&#x8FD9;n&#x540D;&#x540C;&#x5B66;&#xFF0C;&#x7531;&#x4E8E;&#x662F;&#x7406;&#x79D1;&#x751F;&#xFF0C;&#x90FD;&#x975E;&#x5E38;&#x7684;&#x7406;&#x6027;&#xFF0C;&#x6240;&#x4EE5;&#x201C;&#x670B;&#x53CB;&#x7684;&#x670B;&#x53CB;&#x5C31;&#x662F;&#x670B;&#x53CB;&#x201D;&#x548C;&#x201C;&#x654C;&#x4EBA;&#x7684;&#x670B;&#x53CB;&#x5C31;&#x662F;&#x654C;&#x4EBA;&#x201D;&#x8FD9;&#x4E24;&#x53E5;&#x8BDD;&#x5BF9;&#x8FD9;&#x4E9B;&#x540C;&#x5B66;&#x65E0;&#x6548;&#x3002;&#x6362;&#x53E5;&#x8BDD;&#x8BF4;&#xFF0C;&#x6709;&#x53EF;&#x80FD;&#x5C0F;A&#x548C;&#x5C0F;B&#x662F;&#x670B;&#x53CB;&#xFF0C;&#x5C0F;B&#x548C;&#x5C0F;C&#x662F;&#x670B;&#x53CB;&#xFF0C;&#x4F46;&#x662F;&#x5C0F;A&#x548C;&#x5C0F;C&#x4E24;&#x4EBA;&#x52BF;&#x5982;&#x6C34;&#x706B;&#x3002;<br>&#x4EFB;&#x610F;&#x4E24;&#x4E2A;&#x4EBA;&#x4E4B;&#x95F4;&#x8981;&#x4E0D;&#x5C31;&#x662F;&#x654C;&#x4EBA;&#xFF0C;&#x8981;&#x4E0D;&#x5C31;&#x662F;&#x670B;&#x53CB;&#x3002;<br>&#x56E0;&#x4E3A;&#x5728;&#x592A;&#x7A7A;&#x8239;&#x4E0A;&#x53D1;&#x751F;&#x4EBA;&#x5458;&#x6597;&#x6BB4;&#x4E8B;&#x4EF6;&#x662F;&#x5F88;&#x6076;&#x52A3;&#x4E5F;&#x5F88;&#x5371;&#x9669;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x9009;&#x51FA;&#x6765;&#x53C2;&#x52A0;&#x65C5;&#x884C;&#x6D3B;&#x52A8;&#x7684;&#x540C;&#x5B66;&#x5FC5;&#x987B;&#x4E92;&#x76F8;&#x4E4B;&#x95F4;&#x90FD;&#x662F;&#x670B;&#x53CB;&#x3002;&#x4F60;&#x7684;&#x4EFB;&#x52A1;&#x5C31;&#x662F;&#x786E;&#x5B9A;&#x6700;&#x591A;&#x53EF;&#x4EE5;&#x9009;&#x591A;&#x5C11;&#x4EBA;&#x53C2;&#x52A0;&#x65C5;&#x884C;&#x3002;</p>
-<p>Input<br>&#x7B2C;&#x4E00;&#x884C;&#x4E00;&#x4E2A;&#x6574;&#x6570;n(1&lt;=n&lt;=50)&#x3002;&#x6240;&#x6709;&#x7684;&#x540C;&#x5B66;&#x6309;&#x7167;1~n&#x7F16;&#x53F7;&#x3002;<br>&#x63A5;&#x4E0B;&#x6765;&#x82E5;&#x5E72;&#x884C;&#xFF0C;&#x6BCF;&#x884C;&#x4E24;&#x4E2A;&#x7528;&#x7A7A;&#x683C;&#x9694;&#x5F00;&#x7684;&#x6574;&#x6570;a, b(1&lt;=a,b&lt;=n)&#xFF0C;&#x8868;&#x793A;a&#x548C;b&#x662F;&#x670B;&#x53CB;&#x3002;<br>&#x6CE8;&#x610F;&#xFF1A;&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x6570;&#x5BF9;(x,y)&#xFF08;&#x6216;&#x8005;(y,x)&#xFF09;&#x6CA1;&#x6709;&#x5728;&#x6587;&#x4EF6;&#x4E2D;&#x51FA;&#x73B0;&#xFF0C;&#x90A3;&#x4E48;&#x7F16;&#x53F7;&#x4E3A;x&#x548C;y&#x7684;&#x4E24;&#x4E2A;&#x540C;&#x5B66;&#x5C31;&#x662F;&#x654C;&#x4EBA;&#x3002;<br>Output<br>&#x4EC5;&#x4EC5;&#x4E00;&#x4E2A;&#x6570;&#xFF0C;&#x5373;&#x6700;&#x591A;&#x53EF;&#x4EE5;&#x9009;&#x591A;&#x5C11;&#x4EBA;&#x53C2;&#x52A0;&#x6D3B;&#x52A8;&#x3002;</p>
-<p>Sample Input<br>4<br>1 2<br>2 3<br>3 1<br>1 4<br>Sample Output<br>3<br>&#x8BF4;&#x660E;&#xFF1A;&#x9009;&#x7F16;&#x53F7;&#x4E3A;1,2,3&#x7684;&#x540C;&#x5B66;&#x53C2;&#x52A0;&#xFF0C;&#x4ED6;&#x4EEC;&#x4E92;&#x76F8;&#x90FD;&#x662F;&#x670B;&#x53CB;&#x3002;</p>
-</blockquote>
-<p>&#x6807;&#x7B7E;&#xFF1A;&#x6700;&#x5927;&#x56E2;&#xFF0C;&#x968F;&#x673A;&#x5316;</p>
-<p>&#x4E00;&#x9053;&#x968F;&#x673A;&#x5316;&#x6700;&#x5927;&#x56E2;&#x7684;&#x88F8;&#x9898;&#x3002;<br>&#x6BCF;&#x6B21;&#x968F;&#x673A;&#x51FA;&#x4E00;&#x4E2A;1~n&#x7684;&#x4E71;&#x5E8F;&#x6392;&#x5217;&#xFF0C;&#x6309;&#x7167;&#x6392;&#x5217;&#x987A;&#x5E8F;&#x8D2A;&#x5FC3;&#xFF0C;&#x8FD9;&#x6837;&#x968F;&#x673A;1e5&#x6B21;&#x53D6;&#x6700;&#x5927;&#x503C;&#x5373;&#x53EF;&#x3002;</p>
-<p>&#x4E0A;&#x4EE3;&#x7801;&#xFF1A;<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_N 50</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> BOUND 100000</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">int</span> n, seq[MAX_N+<span class="number">5</span>], ans;</div><div class="line"><span class="keyword">bool</span> G[MAX_N+<span class="number">5</span>][MAX_N+<span class="number">5</span>], mrk[MAX_N+<span class="number">5</span>];</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">calc</span><span class="params">()</span> </span>{</div><div class="line">	<span class="built_in">memset</span>(mrk, <span class="literal">false</span>, <span class="keyword">sizeof</span> mrk);</div><div class="line">	<span class="keyword">int</span> ret = <span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) <span class="keyword">if</span> (!mrk[seq[i]]) {</div><div class="line">		ret++, mrk[seq[i]] = <span class="literal">true</span>;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = i+<span class="number">1</span>; j &lt;= n; j++)</div><div class="line">			<span class="keyword">if</span> (!G[seq[i]][seq[j]])	mrk[seq[j]] = <span class="literal">true</span>;</div><div class="line">	}</div><div class="line">	<span class="keyword">return</span> ret;</div><div class="line">}</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>{</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);	<span class="keyword">int</span> u, v;</div><div class="line">	<span class="keyword">while</span> (~<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;u, &amp;v))	G[u][v] = G[v][u] = <span class="literal">true</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)	seq[i] = i;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; BOUND; i++)</div><div class="line">		random_shuffle(seq+<span class="number">1</span>, seq+n+<span class="number">1</span>), ans = max(ans, calc());</div><div class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, ans);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">}</div></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BZOJ/">BZOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/图论/">图论</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/最大团/">最大团</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随机化/">随机化</a></li></ul>
 	</div>
 
       
