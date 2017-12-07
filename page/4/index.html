@@ -392,73 +392,6 @@
 
 
   
-    <article id="post-BZOJ4565【HAOI2016】字符合并 状压DP" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/BZOJ4565【HAOI2016】字符合并 状压DP/" class="article-date">
-  	<time datetime="2017-11-10T16:00:00.000Z" itemprop="datePublished">2017-11-11</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/BZOJ4565【HAOI2016】字符合并 状压DP/">
-        BZOJ4565【HAOI2016】字符合并 &lt;状压DP&gt;
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>&#x3010;Haoi2016&#x3011;&#x5B57;&#x7B26;&#x5408;&#x5E76;<br>Time Limit: 20 Sec  Memory Limit: 256 MB</p>
-<p>Description<br>&#x6709;&#x4E00;&#x4E2A;&#x957F;&#x5EA6;&#x4E3A; n &#x7684; 01 &#x4E32;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x6BCF;&#x6B21;&#x5C06;&#x76F8;&#x90BB;&#x7684; k &#x4E2A;&#x5B57;&#x7B26;&#x5408;&#x5E76;&#xFF0C;&#x5F97;&#x5230;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5B57;&#x7B26;&#x5E76;&#x83B7;&#x5F97;&#x4E00;&#x5B9A;&#x5206;&#x6570;&#x3002;&#x5F97;&#x5230;&#x7684;&#x65B0;&#x5B57;<br>&#x7B26;&#x548C;&#x5206;&#x6570;&#x7531;&#x8FD9; k &#x4E2A;&#x5B57;&#x7B26;&#x786E;&#x5B9A;&#x3002;&#x4F60;&#x9700;&#x8981;&#x6C42;&#x51FA;&#x4F60;&#x80FD;&#x83B7;&#x5F97;&#x7684;&#x6700;&#x5927;&#x5206;&#x6570;&#x3002;</p>
-<p>Input<br>&#x7B2C;&#x4E00;&#x884C;&#x4E24;&#x4E2A;&#x6574;&#x6570;n&#xFF0C;k&#x3002;&#x63A5;&#x4E0B;&#x6765;&#x4E00;&#x884C;&#x957F;&#x5EA6;&#x4E3A;n&#x7684;01&#x4E32;&#xFF0C;&#x8868;&#x793A;&#x521D;&#x59CB;&#x4E32;&#x3002;&#x63A5;&#x4E0B;&#x6765;2^k&#x884C;&#xFF0C;&#x6BCF;&#x884C;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;ci&#x548C;&#x4E00;&#x4E2A;&#x6574;&#x6570;wi&#xFF0C;ci<br>&#x8868;&#x793A;&#x957F;&#x5EA6;&#x4E3A;k&#x7684;01&#x4E32;&#x8FDE;&#x6210;&#x4E8C;&#x8FDB;&#x5236;&#x540E;&#x6309;&#x4ECE;&#x5C0F;&#x5230;&#x5927;&#x987A;&#x5E8F;&#x5F97;&#x5230;&#x7684;&#x7B2C;i&#x79CD;&#x5408;&#x5E76;&#x65B9;&#x6848;&#x5F97;&#x5230;&#x7684;&#x65B0;&#x5B57;&#x7B26;,wi&#x8868;&#x793A;&#x5BF9;&#x5E94;&#x7684;&#x7B2C;i&#x79CD;&#x65B9;&#x6848;&#x5BF9;&#x5E94;<br>&#x83B7;&#x5F97;&#x7684;&#x5206;&#x6570;&#x3002;1&lt;=n&lt;=300,0&lt;=ci&lt;=1,wi&gt;=1,k&lt;=8<br>Output<br>&#x8F93;&#x51FA;&#x4E00;&#x4E2A;&#x6574;&#x6570;&#x8868;&#x793A;&#x7B54;&#x6848;</p>
-<p>Sample Input<br>3 2<br>101<br>1 10<br>1 10<br>0 20<br>1 30<br>Sample Output<br>40<br>//&#x7B2C;3&#x884C;&#x5230;&#x7B2C;6&#x884C;&#x8868;&#x793A;&#x957F;&#x5EA6;&#x4E3A;2&#x7684;4&#x79CD;01&#x4E32;&#x5408;&#x5E76;&#x65B9;&#x6848;&#x3002;00-&gt;1,&#x5F97;10&#x5206;&#xFF0C;01-&gt;1&#x5F97;10&#x5206;&#xFF0C;10-&gt;0&#x5F97;20&#x5206;&#xFF0C;11-&gt;1&#x5F97;30&#x5206;&#x3002;</p>
-</blockquote>
-<p>&#x6807;&#x7B7E;&#xFF1A;&#x72B6;&#x538B;DP</p>
-<p>&#x8FD9;&#x663E;&#x7136;&#x662F;&#x4E00;&#x9053;&#x72B6;&#x538B;DP&#xFF08;k&lt;=8&#xFF09;<br>&#x8003;&#x8651;&#x7528;f[i][j][k]&#x8868;&#x793A;&#x5C06;&#x5B57;&#x7B26;&#x5E8F;&#x5217;[i, j]&#x8868;&#x793A;&#x4E3A;&#x72B6;&#x6001;k&#x7684;&#x6700;&#x5927;&#x5206;&#x6570;&#x3002;<br>&#x521D;&#x59CB;&#x72B6;&#x6001;&#x4E3A;f[i][i][s[i]] = 0 (1&lt;=i&lt;=n)<br>&#x8F6C;&#x79FB;&#x5219;&#x5C06;[i, j]&#x65A9;&#x6210;&#x4E24;&#x534A;[i, mid]&#x548C;[mid+1, j]&#xFF0C;f[i][j][k&lt;&lt;1] = max{f[i][mid][k]+f[mid+1][j][0]}&#xFF0C;f[i][j][k&lt;&lt;1|1] = max{f[i][mid][k]+f[mid+1][j][1]}&#x3002;<br>&#x7279;&#x522B;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x5F53;(j-i)%(m-1) == 0&#x65F6;&#xFF08;m&#x4E3A;&#x9898;&#x76EE;&#x4E2D;&#x7684;k&#xFF09;&#xFF0C;&#x4F1A;&#x521A;&#x597D;&#x53D8;&#x4E3A;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#xFF0C;&#x56E0;&#x6B64;&#x4E0D;&#x80FD;&#x50CF;&#x4E0A;&#x9762;&#x90A3;&#x6837;&#x9012;&#x63A8;&#xFF0C;&#x5E94;&#x4E3A;f[i][j][0] = max{f[i][j][sta]+w[sta]}(0&lt;=sta&lt;(1&lt;&lt;m)&#x4E14;sta&#x53EF;&#x53D8;&#x4E3A;0)&#xFF0C;f[i][j][1] = max{f[i][j][sta]+w[sta]}(0&lt;=sta&lt;(1&lt;&lt;m)&#x4E14;sta&#x53EF;&#x53D8;&#x4E3A;0)&#x3002;</p>
-<p>&#x9644;&#x4E0A;AC&#x4EE3;&#x7801;&#xFF1A;<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_K 8</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_N 300</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> lnt;</div><div class="line"><span class="keyword">char</span> str[MAX_N+<span class="number">5</span>];</div><div class="line"><span class="keyword">int</span> n, m, s[MAX_N+<span class="number">5</span>], c[<span class="number">1</span>&lt;&lt;MAX_K];</div><div class="line">lnt w[<span class="number">1</span>&lt;&lt;MAX_K], f[MAX_N+<span class="number">5</span>][MAX_N+<span class="number">5</span>][<span class="number">1</span>&lt;&lt;MAX_K];</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">upd</span><span class="params">(lnt &amp;a, lnt b)</span> </span>{<span class="keyword">if</span> (a &lt; b)	a = b;}</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>{</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d%d%s&quot;</span>, &amp;n, &amp;m, str), <span class="built_in">memset</span>(f, <span class="number">-1</span>, <span class="keyword">sizeof</span>(f));</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; (<span class="number">1</span>&lt;&lt;m); i++)	<span class="built_in">scanf</span>(<span class="string">&quot;%d%lld&quot;</span>, c+i, w+i);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)	s[i] = str[i<span class="number">-1</span>]-<span class="string">&apos;0&apos;</span>, f[i][i][s[i]] = <span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> l = <span class="number">2</span>; l &lt;= n; l++)</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> s = <span class="number">1</span>, t = s+l<span class="number">-1</span>; t &lt;= n; t = ++s+l<span class="number">-1</span>) {</div><div class="line">			<span class="keyword">int</span> tar = l<span class="number">-1</span>;	<span class="keyword">while</span> (tar &gt;= m)	tar -= m<span class="number">-1</span>;</div><div class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> mid = t<span class="number">-1</span>; mid &gt;= s; mid -= m<span class="number">-1</span>)	<span class="keyword">for</span> (<span class="keyword">int</span> sta = <span class="number">0</span>; sta &lt; (<span class="number">1</span>&lt;&lt;tar); sta++) {</div><div class="line">				<span class="keyword">if</span> (~f[s][mid][sta] &amp;&amp; ~f[mid+<span class="number">1</span>][t][<span class="number">0</span>])	upd(f[s][t][sta&lt;&lt;<span class="number">1</span>], f[s][mid][sta]+f[mid+<span class="number">1</span>][t][<span class="number">0</span>]);</div><div class="line">				<span class="keyword">if</span> (~f[s][mid][sta] &amp;&amp; ~f[mid+<span class="number">1</span>][t][<span class="number">1</span>])	upd(f[s][t][sta&lt;&lt;<span class="number">1</span>|<span class="number">1</span>], f[s][mid][sta]+f[mid+<span class="number">1</span>][t][<span class="number">1</span>]);</div><div class="line">			}</div><div class="line">			<span class="keyword">if</span> (tar == m<span class="number">-1</span>) {</div><div class="line">				lnt g[<span class="number">2</span>];	g[<span class="number">0</span>] = g[<span class="number">1</span>] = <span class="number">-1</span>;</div><div class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> sta = <span class="number">0</span>; sta &lt; (<span class="number">1</span>&lt;&lt;m); sta++)</div><div class="line">					<span class="keyword">if</span> (~f[s][t][sta])	upd(g[c[sta]], f[s][t][sta]+w[sta]);</div><div class="line">				f[s][t][<span class="number">0</span>] = g[<span class="number">0</span>], f[s][t][<span class="number">1</span>] = g[<span class="number">1</span>];</div><div class="line">			}</div><div class="line">		}</div><div class="line">	lnt ans = <span class="number">0</span>;	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; (<span class="number">1</span>&lt;&lt;m); i++)	ans = max(ans, f[<span class="number">1</span>][n][i]);	<span class="built_in">printf</span>(<span class="string">&quot;%lld&quot;</span>, ans);	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">}</div></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BZOJ/">BZOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/">DP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/状压DP/">状压DP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/省选/">省选</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
     <article id="post-LG1967【NOIp2013】货车运输 LCA" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -507,6 +440,73 @@
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LCA/">LCA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LG/">LG</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MST/">MST</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NOIp/">NOIp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/图论/">图论</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-BZOJ4565【HAOI2016】字符合并 状压DP" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/BZOJ4565【HAOI2016】字符合并 状压DP/" class="article-date">
+  	<time datetime="2017-11-10T16:00:00.000Z" itemprop="datePublished">2017-11-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/BZOJ4565【HAOI2016】字符合并 状压DP/">
+        BZOJ4565【HAOI2016】字符合并 &lt;状压DP&gt;
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>&#x3010;Haoi2016&#x3011;&#x5B57;&#x7B26;&#x5408;&#x5E76;<br>Time Limit: 20 Sec  Memory Limit: 256 MB</p>
+<p>Description<br>&#x6709;&#x4E00;&#x4E2A;&#x957F;&#x5EA6;&#x4E3A; n &#x7684; 01 &#x4E32;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x6BCF;&#x6B21;&#x5C06;&#x76F8;&#x90BB;&#x7684; k &#x4E2A;&#x5B57;&#x7B26;&#x5408;&#x5E76;&#xFF0C;&#x5F97;&#x5230;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5B57;&#x7B26;&#x5E76;&#x83B7;&#x5F97;&#x4E00;&#x5B9A;&#x5206;&#x6570;&#x3002;&#x5F97;&#x5230;&#x7684;&#x65B0;&#x5B57;<br>&#x7B26;&#x548C;&#x5206;&#x6570;&#x7531;&#x8FD9; k &#x4E2A;&#x5B57;&#x7B26;&#x786E;&#x5B9A;&#x3002;&#x4F60;&#x9700;&#x8981;&#x6C42;&#x51FA;&#x4F60;&#x80FD;&#x83B7;&#x5F97;&#x7684;&#x6700;&#x5927;&#x5206;&#x6570;&#x3002;</p>
+<p>Input<br>&#x7B2C;&#x4E00;&#x884C;&#x4E24;&#x4E2A;&#x6574;&#x6570;n&#xFF0C;k&#x3002;&#x63A5;&#x4E0B;&#x6765;&#x4E00;&#x884C;&#x957F;&#x5EA6;&#x4E3A;n&#x7684;01&#x4E32;&#xFF0C;&#x8868;&#x793A;&#x521D;&#x59CB;&#x4E32;&#x3002;&#x63A5;&#x4E0B;&#x6765;2^k&#x884C;&#xFF0C;&#x6BCF;&#x884C;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;ci&#x548C;&#x4E00;&#x4E2A;&#x6574;&#x6570;wi&#xFF0C;ci<br>&#x8868;&#x793A;&#x957F;&#x5EA6;&#x4E3A;k&#x7684;01&#x4E32;&#x8FDE;&#x6210;&#x4E8C;&#x8FDB;&#x5236;&#x540E;&#x6309;&#x4ECE;&#x5C0F;&#x5230;&#x5927;&#x987A;&#x5E8F;&#x5F97;&#x5230;&#x7684;&#x7B2C;i&#x79CD;&#x5408;&#x5E76;&#x65B9;&#x6848;&#x5F97;&#x5230;&#x7684;&#x65B0;&#x5B57;&#x7B26;,wi&#x8868;&#x793A;&#x5BF9;&#x5E94;&#x7684;&#x7B2C;i&#x79CD;&#x65B9;&#x6848;&#x5BF9;&#x5E94;<br>&#x83B7;&#x5F97;&#x7684;&#x5206;&#x6570;&#x3002;1&lt;=n&lt;=300,0&lt;=ci&lt;=1,wi&gt;=1,k&lt;=8<br>Output<br>&#x8F93;&#x51FA;&#x4E00;&#x4E2A;&#x6574;&#x6570;&#x8868;&#x793A;&#x7B54;&#x6848;</p>
+<p>Sample Input<br>3 2<br>101<br>1 10<br>1 10<br>0 20<br>1 30<br>Sample Output<br>40<br>//&#x7B2C;3&#x884C;&#x5230;&#x7B2C;6&#x884C;&#x8868;&#x793A;&#x957F;&#x5EA6;&#x4E3A;2&#x7684;4&#x79CD;01&#x4E32;&#x5408;&#x5E76;&#x65B9;&#x6848;&#x3002;00-&gt;1,&#x5F97;10&#x5206;&#xFF0C;01-&gt;1&#x5F97;10&#x5206;&#xFF0C;10-&gt;0&#x5F97;20&#x5206;&#xFF0C;11-&gt;1&#x5F97;30&#x5206;&#x3002;</p>
+</blockquote>
+<p>&#x6807;&#x7B7E;&#xFF1A;&#x72B6;&#x538B;DP</p>
+<p>&#x8FD9;&#x663E;&#x7136;&#x662F;&#x4E00;&#x9053;&#x72B6;&#x538B;DP&#xFF08;k&lt;=8&#xFF09;<br>&#x8003;&#x8651;&#x7528;f[i][j][k]&#x8868;&#x793A;&#x5C06;&#x5B57;&#x7B26;&#x5E8F;&#x5217;[i, j]&#x8868;&#x793A;&#x4E3A;&#x72B6;&#x6001;k&#x7684;&#x6700;&#x5927;&#x5206;&#x6570;&#x3002;<br>&#x521D;&#x59CB;&#x72B6;&#x6001;&#x4E3A;f[i][i][s[i]] = 0 (1&lt;=i&lt;=n)<br>&#x8F6C;&#x79FB;&#x5219;&#x5C06;[i, j]&#x65A9;&#x6210;&#x4E24;&#x534A;[i, mid]&#x548C;[mid+1, j]&#xFF0C;f[i][j][k&lt;&lt;1] = max{f[i][mid][k]+f[mid+1][j][0]}&#xFF0C;f[i][j][k&lt;&lt;1|1] = max{f[i][mid][k]+f[mid+1][j][1]}&#x3002;<br>&#x7279;&#x522B;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x5F53;(j-i)%(m-1) == 0&#x65F6;&#xFF08;m&#x4E3A;&#x9898;&#x76EE;&#x4E2D;&#x7684;k&#xFF09;&#xFF0C;&#x4F1A;&#x521A;&#x597D;&#x53D8;&#x4E3A;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#xFF0C;&#x56E0;&#x6B64;&#x4E0D;&#x80FD;&#x50CF;&#x4E0A;&#x9762;&#x90A3;&#x6837;&#x9012;&#x63A8;&#xFF0C;&#x5E94;&#x4E3A;f[i][j][0] = max{f[i][j][sta]+w[sta]}(0&lt;=sta&lt;(1&lt;&lt;m)&#x4E14;sta&#x53EF;&#x53D8;&#x4E3A;0)&#xFF0C;f[i][j][1] = max{f[i][j][sta]+w[sta]}(0&lt;=sta&lt;(1&lt;&lt;m)&#x4E14;sta&#x53EF;&#x53D8;&#x4E3A;0)&#x3002;</p>
+<p>&#x9644;&#x4E0A;AC&#x4EE3;&#x7801;&#xFF1A;<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_K 8</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_N 300</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> lnt;</div><div class="line"><span class="keyword">char</span> str[MAX_N+<span class="number">5</span>];</div><div class="line"><span class="keyword">int</span> n, m, s[MAX_N+<span class="number">5</span>], c[<span class="number">1</span>&lt;&lt;MAX_K];</div><div class="line">lnt w[<span class="number">1</span>&lt;&lt;MAX_K], f[MAX_N+<span class="number">5</span>][MAX_N+<span class="number">5</span>][<span class="number">1</span>&lt;&lt;MAX_K];</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">upd</span><span class="params">(lnt &amp;a, lnt b)</span> </span>{<span class="keyword">if</span> (a &lt; b)	a = b;}</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>{</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d%d%s&quot;</span>, &amp;n, &amp;m, str), <span class="built_in">memset</span>(f, <span class="number">-1</span>, <span class="keyword">sizeof</span>(f));</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; (<span class="number">1</span>&lt;&lt;m); i++)	<span class="built_in">scanf</span>(<span class="string">&quot;%d%lld&quot;</span>, c+i, w+i);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)	s[i] = str[i<span class="number">-1</span>]-<span class="string">&apos;0&apos;</span>, f[i][i][s[i]] = <span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> l = <span class="number">2</span>; l &lt;= n; l++)</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> s = <span class="number">1</span>, t = s+l<span class="number">-1</span>; t &lt;= n; t = ++s+l<span class="number">-1</span>) {</div><div class="line">			<span class="keyword">int</span> tar = l<span class="number">-1</span>;	<span class="keyword">while</span> (tar &gt;= m)	tar -= m<span class="number">-1</span>;</div><div class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> mid = t<span class="number">-1</span>; mid &gt;= s; mid -= m<span class="number">-1</span>)	<span class="keyword">for</span> (<span class="keyword">int</span> sta = <span class="number">0</span>; sta &lt; (<span class="number">1</span>&lt;&lt;tar); sta++) {</div><div class="line">				<span class="keyword">if</span> (~f[s][mid][sta] &amp;&amp; ~f[mid+<span class="number">1</span>][t][<span class="number">0</span>])	upd(f[s][t][sta&lt;&lt;<span class="number">1</span>], f[s][mid][sta]+f[mid+<span class="number">1</span>][t][<span class="number">0</span>]);</div><div class="line">				<span class="keyword">if</span> (~f[s][mid][sta] &amp;&amp; ~f[mid+<span class="number">1</span>][t][<span class="number">1</span>])	upd(f[s][t][sta&lt;&lt;<span class="number">1</span>|<span class="number">1</span>], f[s][mid][sta]+f[mid+<span class="number">1</span>][t][<span class="number">1</span>]);</div><div class="line">			}</div><div class="line">			<span class="keyword">if</span> (tar == m<span class="number">-1</span>) {</div><div class="line">				lnt g[<span class="number">2</span>];	g[<span class="number">0</span>] = g[<span class="number">1</span>] = <span class="number">-1</span>;</div><div class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> sta = <span class="number">0</span>; sta &lt; (<span class="number">1</span>&lt;&lt;m); sta++)</div><div class="line">					<span class="keyword">if</span> (~f[s][t][sta])	upd(g[c[sta]], f[s][t][sta]+w[sta]);</div><div class="line">				f[s][t][<span class="number">0</span>] = g[<span class="number">0</span>], f[s][t][<span class="number">1</span>] = g[<span class="number">1</span>];</div><div class="line">			}</div><div class="line">		}</div><div class="line">	lnt ans = <span class="number">0</span>;	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; (<span class="number">1</span>&lt;&lt;m); i++)	ans = max(ans, f[<span class="number">1</span>][n][i]);	<span class="built_in">printf</span>(<span class="string">&quot;%lld&quot;</span>, ans);	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BZOJ/">BZOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/">DP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/状压DP/">状压DP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/省选/">省选</a></li></ul>
 	</div>
 
       
